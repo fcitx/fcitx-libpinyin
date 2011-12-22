@@ -1,0 +1,10 @@
+[Addon]
+Name=fcitx-libpinyin
+_GeneralName=Libpinyin
+_Comment=Libpinyin Wrapper For Fcitx
+Category=InputMethod
+Enabled=True
+Library=fcitx-libpinyin.so
+Type=SharedLibrary
+Dependency=fcitx-punc
+IMRegisterMethod=ConfigFile

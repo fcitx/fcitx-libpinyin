@@ -1,0 +1,101 @@
+#include <iostream>
+#include <iconv.h>
+#include <string>
+#include <string.h>
+#include <pinyin.h>
+#include "config.h"
+
+#define RET_BUF_LEN 256
+
+using namespace std;
+
+guint get_pinyin_cursor (pinyin_instance_t* inst, int cursor)
+{
+    /* Translate cursor position to pinyin position. */
+    PinyinKeyPosVector & pinyin_poses = inst->m_pinyin_poses;
+    guint pinyin_cursor = pinyin_poses->len;
+    for (size_t i = 0; i < pinyin_poses->len; ++i) {
+        PinyinKeyPos *pos = &g_array_index
+            (pinyin_poses, PinyinKeyPos, i);
+        if (pos->get_pos () <= cursor && cursor < pos->get_end_pos ())
+            pinyin_cursor = i;
+    }
+
+    return pinyin_cursor;
+}
+
+guint get_lookup_cursor (pinyin_instance_t* inst, int cursor)
+{
+    PinyinKeyVector & pinyins = inst->m_pinyin_keys;
+    guint lookup_cursor = get_pinyin_cursor (inst, cursor);
+    /* show candidates when pinyin cursor is at end. */
+    if (lookup_cursor == pinyins->len)
+        lookup_cursor = 0;
+    return lookup_cursor;
+}
+
+int main(int argc, char *argv[])
+{
+    pinyin_context_t* context = pinyin_init(LIBPINYIN_PKGDATADIR "/data", NULL);
+    pinyin_instance_t* inst = pinyin_alloc_instance(context);
+    PinyinCustomSettings custom;
+    memset(&custom, 0, sizeof(PinyinCustomSettings));
+    pinyin_set_options(context, &custom);
+    
+    string s;
+    cin >> s ;
+    size_t len =pinyin_parse_more_full_pinyins(inst, s.c_str());
+    
+    int cursor = 0;
+    
+    for (int i = 0; i < inst->m_pinyin_keys->len; i ++)
+    {
+        PinyinKey* pykey = &g_array_index(inst->m_pinyin_keys, PinyinKey, i);
+        cout << pykey->get_key_string() << endl;
+    }
+
+    while (true)
+    {
+        cout << get_lookup_cursor(inst, cursor) << endl;
+        GArray* array = g_array_new(FALSE, FALSE, sizeof(phrase_token_t));
+        pinyin_get_candidates(inst, get_lookup_cursor(inst, cursor), array);
+        cout << array->len << endl;
+        
+        pinyin_guess_sentence(inst);
+        
+        char* sentence = NULL;
+        pinyin_get_sentence(inst, &sentence);
+        if (sentence)
+            cout << sentence << endl;
+        g_free(sentence);
+        
+        for (int i = 0 ; i < array->len; i ++ )
+        {
+            phrase_token_t token = g_array_index(array, phrase_token_t, i);
+            char* word = NULL;
+            pinyin_translate_token(inst, token, &word);
+            if (word)
+                cout << word << " ";
+            g_free(word);
+        }
+        
+        cout << "constraints " << inst->m_constraints->len << endl;
+        
+        int cand;
+        cin >> cursor >> cand;
+        
+        if (cand >= 0)
+            pinyin_choose_candidate(inst, 0, g_array_index(array, phrase_token_t, cand));
+        else if (cand != -1) {
+            pinyin_clear_constraints(inst);
+        }
+        else if (cand != -2) {
+            break;
+        }
+        
+        g_array_free(array, false);
+    }
+    pinyin_free_instance(inst);
+    pinyin_fini(context);
+}
+// kate: indent-mode cstyle; space-indent on; indent-width 0; 
