@@ -59,10 +59,10 @@ typedef struct FcitxLibpinyin
     pinyin_context_t* context;
     pinyin_instance_t* inst;
     
-    int offset;
+    GArray* fixed_string;
     
     char buf[MAX_USER_INPUT + 1];
-    int CursorPos;
+    int cursor_pos;
     
     FcitxInstance* owner;
 } FcitxLibpinyin;
