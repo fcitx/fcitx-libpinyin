@@ -1,7 +1,0 @@
-[InputMethod]
-UniqueName=pinyin-libpinyin
-_Name=Pinyin (LibPinyin)
-IconName=pinyin
-Priority=1
-LangCode=zh_CN
-Parent=fcitx-libpinyin
