@@ -469,7 +469,7 @@ inline char* LibPinyinTransString(FcitxLibpinyin* libpinyin, char* sentence)
         char* transsentence = NULL;
         FcitxModuleFunctionArg arg;
         arg.args[0] = sentence;
-        transsentence = InvokeFunction(libpinyin->owner->owner, FCITX_CHTTRANS, T2S, arg);
+        transsentence = (char*) FcitxModuleInvokeFunction(libpinyin->owner->transaddon, FCITX_CHTTRANS_S2T, arg);
         if (transsentence)
         {
             g_free(sentence);
@@ -676,6 +676,7 @@ __EXPORT_API
 void* FcitxLibpinyinCreate (FcitxInstance* instance)
 {
     FcitxLibpinyinAddonInstance* libpinyinaddon = (FcitxLibpinyinAddonInstance*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinAddonInstance));
+    libpinyinaddon->transaddon = FcitxAddonsGetAddonByName(FcitxInstanceGetAddons(instance), FCITX_CHTTRANS_NAME);
     bindtextdomain("fcitx-libpinyin", LOCALEDIR);
     libpinyinaddon->owner = instance;
 

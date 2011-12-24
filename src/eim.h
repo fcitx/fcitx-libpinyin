@@ -122,6 +122,7 @@ typedef struct _FcitxLibpinyinAddonInstance {
     FcitxLibpinyinConfig config;
     
     pinyin_context_t* context;
+    FcitxAddon* transaddon;
     
     struct _FcitxLibpinyin* pinyin;
     struct _FcitxLibpinyin* shuangpin;
