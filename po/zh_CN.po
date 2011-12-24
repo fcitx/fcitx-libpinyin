@@ -1,4 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -8,111 +7,103 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-21 14:46+0800\n"
-"PO-Revision-Date: 2011-11-16 01:58+0000\n"
-"Last-Translator: csslayer <wengxt@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2011-12-24 16:59+0800\n"
+"PO-Revision-Date: 2011-12-24 17:05+0800\n"
+"Last-Translator: Weng Xuetian <wengxt@gmail.com>\n"
+"Language-Team: Chinese Simplified <kde-i18n-doc@kde.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+"X-Generator: Lokalize 1.4\n"
 
 #: unknown
 msgid "ABC"
 msgstr "智能 ABC"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:106
-msgid "AutoCorrect Ign Ing"
-msgstr "自动更正 ign/ing"
+# unknown
+msgid "Ambiguity"
+msgstr "模糊音"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:121
-msgid "AutoCorrect Img Ing"
-msgstr "自动更正 img/ing"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:100
+msgid "An -> Ang"
+msgstr "An -> Ang"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:126
-msgid "AutoCorrect Iou Iu"
-msgstr "自动更正 iou/iu"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:105
+msgid "Ang -> An"
+msgstr "Ang -> An"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:111
-msgid "AutoCorrect Ogn Ong"
-msgstr "自动更正 ogn/ong"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:35
+msgid "Chi -> Ci"
+msgstr "Chi -> Ci"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:131
-msgid "AutoCorrect Uei Ui"
-msgstr "自动更正 uei/ui"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:30
+msgid "Ci -> Chi"
+msgstr "Ci -> Chi"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:116
-msgid "AutoCorrect Uen Un"
-msgstr "自动更正 uen/un"
+# unknown
+msgid "Correction"
+msgstr "纠正"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:51
-msgid "Fuzzy An Ang"
-msgstr "模糊 an/ang"
+#: unknown
+msgid "ET"
+msgstr "倚天"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:41
-msgid "Fuzzy Chi Ci"
-msgstr "模糊 chi/ci"
+#: unknown
+msgid "ET26"
+msgstr "倚天26键"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:61
-msgid "Fuzzy En Eng"
-msgstr "模糊 en/eng"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:110
+msgid "En -> Eng"
+msgstr "En -> Eng"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:71
-msgid "Fuzzy Eng Ong"
-msgstr "模糊 eng/ong"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:115
+msgid "Eng -> En"
+msgstr "Eng -> En"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:91
-msgid "Fuzzy Fo He"
-msgstr "模糊 f/h"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:70
+msgid "Fo -> He"
+msgstr "Fo -> He"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:76
-msgid "Fuzzy Ian Iang"
-msgstr "模糊 ian/iang"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:95
+msgid "Ge -> Ke"
+msgstr "Ge -> Ke"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:66
-msgid "Fuzzy In Ing"
-msgstr "模糊 in/ing"
+#: unknown
+msgid "GinYieh"
+msgstr "精业"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:26
-msgid "Fuzzy Inner Segmentation"
-msgstr "支持内模糊音节 (xian->xi'an)"
+#: unknown
+msgid "HSU"
+msgstr "许式"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:101
-msgid "Fuzzy Ke Ge"
-msgstr "模糊 k/g"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:75
+msgid "He -> Fo"
+msgstr "He -> Fo"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:96
-msgid "Fuzzy Le Ri"
-msgstr "模糊 l/r"
+#: unknown
+msgid "IBM"
+msgstr "IBM"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:86
-msgid "Fuzzy Ne Le"
-msgstr "模糊 n/l"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:120
+msgid "In -> Ing"
+msgstr "In -> Ing"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:56
-msgid "Fuzzy On Ong"
-msgstr "模糊 on/ong"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:125
+msgid "Ing -> In"
+msgstr "Ing -> In"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:21
-msgid "Fuzzy Segmentation"
-msgstr "模糊切分"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:90
+msgid "Ke -> Ge"
+msgstr "Ke -> Ge"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:46
-msgid "Fuzzy Shi Si"
-msgstr "模糊 shi/si"
-
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:81
-msgid "Fuzzy Uan Uang"
-msgstr "模糊 uan/uang"
-
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:36
-msgid "Fuzzy Zhi Zi"
-msgstr "模糊 zhi/zi"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:80
+msgid "Le -> Ri"
+msgstr "Le -> Ri"
 
 # unknown
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/fcitx-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:181
 msgid "Libpinyin"
 msgstr "Libpinyin"
 
@@ -121,40 +112,166 @@ msgid "Libpinyin Wrapper For Fcitx"
 msgstr "Fcitx 的 Libpinyin 封装"
 
 #: unknown
-msgid "MS2003"
-msgstr "微软 2003"
+msgid "Microsoft"
+msgstr "微软"
+
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:60
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:65
+msgid "Ne -> Le"
+msgstr ""
+
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:592
+msgid "Pinyin (LibPinyin)"
+msgstr "拼音 (Libpinyin)"
 
 #: unknown
-msgid "PINYINJIAJIA"
+msgid "PinyinJiaJia"
 msgstr "拼音加加"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:31
-msgid "Priority of Libpinyin"
-msgstr "Libpinyin 的优先级"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:85
+msgid "Ri -> Le"
+msgstr "Ri -> Le"
+
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:55
+msgid "Shi -> Si"
+msgstr "Shi -> Si"
 
 # unknown
-msgid "QuanPin"
-msgstr "全拼"
+msgid "Shuangpin"
+msgstr "双拼"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:16
-msgid "Shuangpin Scheme in Libpinyin"
-msgstr "Libpinyin 的双拼方案"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:14
+msgid "Shuangpin Scheme"
+msgstr "双拼方案"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:4
-msgid "Use Shuangpin Instead of Quanpin"
-msgstr "使用双拼而不是全拼"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:50
+msgid "Si -> Shi"
+msgstr "Si -> Shi"
 
 #: unknown
-msgid "XIAOHE"
+msgid "Standard"
+msgstr "标准"
+
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:25
+msgid "V -> U"
+msgstr "V -> U"
+
+#: unknown
+msgid "XiaoHe"
 msgstr "小鹤"
 
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:45
+msgid "Zhi -> Zi"
+msgstr "Zhi -> Zi"
+
+# unknown
 #: unknown
-msgid "ZIGUANG"
+msgid "Zhuyin"
+msgstr "注音"
+
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:2
+msgid "Zhuyin Layout"
+msgstr "注音布局"
+
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:40
+msgid "Zi -> Zhi"
+msgstr "Zi -> Zhi"
+
+#: unknown
+msgid "ZiGuang"
 msgstr "紫光"
 
 #: unknown
-msgid "ZIRANMA"
+msgid "Ziranma"
 msgstr "自然码"
+
+#~ msgid "AutoCorrect Ign Ing"
+#~ msgstr "自动更正 ign/ing"
+
+#~ msgid "AutoCorrect Img Ing"
+#~ msgstr "自动更正 img/ing"
+
+#~ msgid "AutoCorrect Iou Iu"
+#~ msgstr "自动更正 iou/iu"
+
+#~ msgid "AutoCorrect Ogn Ong"
+#~ msgstr "自动更正 ogn/ong"
+
+#~ msgid "AutoCorrect Uei Ui"
+#~ msgstr "自动更正 uei/ui"
+
+#~ msgid "AutoCorrect Uen Un"
+#~ msgstr "自动更正 uen/un"
+
+#~ msgid "Fuzzy An Ang"
+#~ msgstr "模糊 an/ang"
+
+#~ msgid "Fuzzy Chi Ci"
+#~ msgstr "模糊 chi/ci"
+
+#~ msgid "Fuzzy En Eng"
+#~ msgstr "模糊 en/eng"
+
+#~ msgid "Fuzzy Eng Ong"
+#~ msgstr "模糊 eng/ong"
+
+#~ msgid "Fuzzy Fo He"
+#~ msgstr "模糊 f/h"
+
+#~ msgid "Fuzzy Ian Iang"
+#~ msgstr "模糊 ian/iang"
+
+#~ msgid "Fuzzy In Ing"
+#~ msgstr "模糊 in/ing"
+
+#~ msgid "Fuzzy Inner Segmentation"
+#~ msgstr "支持内模糊音节 (xian->xi'an)"
+
+#~ msgid "Fuzzy Ke Ge"
+#~ msgstr "模糊 k/g"
+
+#~ msgid "Fuzzy Le Ri"
+#~ msgstr "模糊 l/r"
+
+#~ msgid "Fuzzy Ne Le"
+#~ msgstr "模糊 n/l"
+
+#~ msgid "Fuzzy On Ong"
+#~ msgstr "模糊 on/ong"
+
+#~ msgid "Fuzzy Segmentation"
+#~ msgstr "模糊切分"
+
+#~ msgid "Fuzzy Shi Si"
+#~ msgstr "模糊 shi/si"
+
+#~ msgid "Fuzzy Uan Uang"
+#~ msgstr "模糊 uan/uang"
+
+#~ msgid "Fuzzy Zhi Zi"
+#~ msgstr "模糊 zhi/zi"
+
+#~ msgid "MS2003"
+#~ msgstr "微软 2003"
+
+#~ msgid "PINYINJIAJIA"
+#~ msgstr "拼音加加"
+
+# unknown
+#~ msgid "QuanPin"
+#~ msgstr "全拼"
 
 #~ msgid "USERDEFINE"
 #~ msgstr "用户定义"
+
+#~ msgid "Use Shuangpin Instead of Quanpin"
+#~ msgstr "使用双拼而不是全拼"
+
+#~ msgid "XIAOHE"
+#~ msgstr "小鹤"
+
+#~ msgid "ZIGUANG"
+#~ msgstr "紫光"
+
+#~ msgid "ZIRANMA"
+#~ msgstr "自然码"

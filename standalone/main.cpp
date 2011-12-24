@@ -38,9 +38,6 @@ int main(int argc, char *argv[])
 {
     pinyin_context_t* context = pinyin_init(LIBPINYIN_PKGDATADIR "/data", NULL);
     pinyin_instance_t* inst = pinyin_alloc_instance(context);
-    PinyinCustomSettings custom;
-    memset(&custom, 0, sizeof(PinyinCustomSettings));
-    pinyin_set_options(context, &custom);
     
     string s;
     cin >> s ;
@@ -51,7 +48,15 @@ int main(int argc, char *argv[])
     for (int i = 0; i < inst->m_pinyin_keys->len; i ++)
     {
         PinyinKey* pykey = &g_array_index(inst->m_pinyin_keys, PinyinKey, i);
-        cout << pykey->get_key_string() << endl;
+        cout << pykey->get_key_string() << " "
+             << pykey->get_key_zhuyin_string() << " "
+             << pykey->get_tone_string() << " "
+             << pykey->get_tone_zhuyin_string() << " "
+             << pykey->get_initial_string() << " "
+             << pykey->get_initial_zhuyin_string() << " "
+             << pykey->get_final_string() << " "
+             << pykey->get_final_zhuyin_string() << " "
+             << endl;
     }
 
     while (true)

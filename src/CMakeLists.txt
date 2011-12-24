@@ -13,7 +13,7 @@ link_directories (${LIBPINYIN_LIBRARY_DIRS})
 
 set( fcitx_libpinyin_sources
     eim.cpp
-   
+    enummap.cpp
     config.cpp
     )
 

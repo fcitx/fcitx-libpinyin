@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010~2010 by CSSlayer                                   *
+ *   Copyright (C) 2010~2011 by CSSlayer                                   *
  *   wengxt@gmail.com                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -36,9 +36,67 @@
 #define _(x) gettext(x)
 
 class FcitxWindowHandler;
+
+/*
+ * the reason that not using libpinyin enum here
+ * 1. libpinyin seems cannot make enum stable (from their header)
+ * 2. the range is not continous, so make a translate layer
+ */
+enum FCITX_ZHUYIN_LAYOUT {
+    FCITX_ZHUYIN_STANDARD = 0,
+    FCITX_ZHUYIN_HSU      = 1,
+    FCITX_ZHUYIN_IBM      = 2,
+    FCITX_ZHUYIN_GIN_YIEH = 3,
+    FCITX_ZHUYIN_ET       = 4,
+    FCITX_ZHUYIN_ET26     = 5,
+};
+
+enum FCITX_SHUANGPIN_SCHEME {
+    FCITX_SHUANG_PIN_ZRM        = 0,
+    FCITX_SHUANG_PIN_MS         = 1,
+    FCITX_SHUANG_PIN_ZIGUANG    = 2,
+    FCITX_SHUANG_PIN_ABC        = 3,
+    FCITX_SHUANG_PIN_PYJJ       = 4,
+    FCITX_SHUANG_PIN_XHE        = 5
+};
+
+enum FCITX_CORRECTION {
+    FCITX_CR_VU,
+    FCITX_CR_LAST = FCITX_CR_VU
+};
+
+enum FCITX_AMBIGUITY {
+    FCITX_AMB_CiChi,
+    FCITX_AMB_ChiCi,
+    FCITX_AMB_ZiZhi,
+    FCITX_AMB_ZhiZi,
+    FCITX_AMB_SiShi,
+    FCITX_AMB_ShiSi,
+    FCITX_AMB_LeNe,
+    FCITX_AMB_NeLe,
+    FCITX_AMB_FoHe,
+    FCITX_AMB_HeFo,
+    FCITX_AMB_LeRi,
+    FCITX_AMB_RiLe,
+    FCITX_AMB_KeGe,
+    FCITX_AMB_GeKe,
+    FCITX_AMB_AnAng,
+    FCITX_AMB_AngAn,
+    FCITX_AMB_EnEng,
+    FCITX_AMB_EngEn,
+    FCITX_AMB_InIng,
+    FCITX_AMB_IngIn,
+    FCITX_AMB_LAST = FCITX_AMB_IngIn
+};
+
 struct FcitxLibpinyinConfig
 {
     FcitxGenericConfig gconfig;
+    FCITX_ZHUYIN_LAYOUT zhuyinLayout;
+    FCITX_SHUANGPIN_SCHEME spScheme;
+    boolean amb[FCITX_AMB_LAST + 1];
+    boolean cr[FCITX_CR_LAST + 1];
+    boolean incomplete;
 };
 
 #define BUF_SIZE 4096
@@ -52,19 +110,36 @@ __EXPORT_API INPUT_RETURN_VALUE FcitxLibpinyinGetCandWord (void *arg, FcitxCandi
 __EXPORT_API boolean FcitxLibpinyinInit(void*);
 __EXPORT_API void ReloadConfigFcitxLibpinyin(void*);
 
-typedef struct FcitxLibpinyin
-{
+enum LIBPINYIN_TYPE {
+    LPT_Pinyin,
+    LPT_Zhuyin,
+    LPT_Shuangpin
+};
+
+struct _FcitxLibpinyin;
+
+typedef struct _FcitxLibpinyinAddonInstance {
     FcitxLibpinyinConfig config;
     
     pinyin_context_t* context;
+    
+    struct _FcitxLibpinyin* pinyin;
+    struct _FcitxLibpinyin* shuangpin;
+    struct _FcitxLibpinyin* zhuyin;
+    FcitxInstance* owner;
+} FcitxLibpinyinAddonInstance;
+
+typedef struct _FcitxLibpinyin
+{
     pinyin_instance_t* inst;
     
     GArray* fixed_string;
     
     char buf[MAX_USER_INPUT + 1];
     int cursor_pos;
+    LIBPINYIN_TYPE type;
     
-    FcitxInstance* owner;
+    FcitxLibpinyinAddonInstance* owner;
 } FcitxLibpinyin;
 
 #endif

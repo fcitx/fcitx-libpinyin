@@ -4,7 +4,7 @@ data/pinyin.tar.gz
 data/pinyin.tar.gz.md5
 data/table/table.tar.gz
 data/table/table.tar.gz.md5
-fcitx-sunpinyin.kdev4
+*.kdev4
 tools/pybase.mb
 tools/pyphrase.mb
 data/desc.po

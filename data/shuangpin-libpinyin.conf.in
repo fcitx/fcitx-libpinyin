@@ -1,0 +1,7 @@
+[InputMethod]
+UniqueName=shuangpin-libpinyin
+_Name=Shuangpin (LibPinyin)
+IconName=shuangpin
+Priority=1
+LangCode=zh_CN
+Parent=fcitx-libpinyin

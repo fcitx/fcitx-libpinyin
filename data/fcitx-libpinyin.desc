@@ -1,134 +1,137 @@
-[Libpinyin/UseShuangpin]
+[Pinyin/Incomplete]
+Description=Use Incomplete pinyin
 Type=Boolean
-DefaultValue=False
-Description=Use Shuangpin Instead of Quanpin
+DefaultValue=True
 
-[Libpinyin/ShuangpinScheme]
+[Zhuyin/Layout]
+Description=Zhuyin Layout
 Type=Enum
-DefaultValue=MS2003
+Enum0=Standard
+Enum1=HSU
+Enum2=IBM
+Enum3=GinYieh
+Enum4=ET
+Enum5=ET26
 EnumCount=6
-Enum0=MS2003
-Enum1=ABC
-Enum2=ZIRANMA
-Enum3=PINYINJIAJIA
-Enum4=ZIGUANG
-Enum5=XIAOHE
-Description=Shuangpin Scheme in Libpinyin
+DefaultValue=Standard
 
-[Libpinyin/FuzzySegmentation]
+[Shuangpin/Scheme]
+Description=Shuangpin Scheme
+Type=Enum
+Enum0=Ziranma
+Enum1=Microsoft
+Enum2=ZiGuang
+Enum3=ABC
+Enum4=PinyinJiaJia
+Enum5=XiaoHe
+EnumCount=6
+DefaultValue=Ziranma
+
+[Correction/VU]
+Description=V -> U
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy Segmentation
 
-[Libpinyin/FuzzyInnerSegmentation]
+[Ambiguity/CiChi]
+Description=Ci -> Chi
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy Inner Segmentation
 
-[Libpinyin/Priority]
-Type=Integer
-DefaultValue=1
-Description=Priority of Libpinyin
-
-[QuanPin/FuzzyZhiZi]
+[Ambiguity/ChiCi]
+Description=Chi -> Ci
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy Zhi Zi
 
-[QuanPin/FuzzyChiCi]
+[Ambiguity/ZiZhi]
+Description=Zi -> Zhi
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy Chi Ci
 
-[QuanPin/FuzzyShiSi]
+[Ambiguity/ZhiZi]
+Description=Zhi -> Zi
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy Shi Si
 
-[QuanPin/FuzzyAnAng]
+[Ambiguity/SiShi]
+Description=Si -> Shi
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy An Ang
 
-[QuanPin/FuzzyOnOng]
+[Ambiguity/ShiSi]
+Description=Shi -> Si
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy On Ong
 
-[QuanPin/FuzzyEnEng]
+[Ambiguity/LeNe]
+Description=Ne -> Le
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy En Eng
 
-[QuanPin/FuzzyInIng]
+[Ambiguity/NeLe]
+Description=Ne -> Le
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy In Ing
 
-[QuanPin/FuzzyEngOng]
+[Ambiguity/FoHe]
+Description=Fo -> He
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy Eng Ong
 
-[QuanPin/FuzzyIanIang]
+[Ambiguity/HeFo]
+Description=He -> Fo
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy Ian Iang
 
-[QuanPin/FuzzyUanUang]
+[Ambiguity/LeRi]
+Description=Le -> Ri
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy Uan Uang
 
-[QuanPin/FuzzyNeLe]
+[Ambiguity/RiLe]
+Description=Ri -> Le
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy Ne Le
 
-[QuanPin/FuzzyFoHe]
+[Ambiguity/KeGe]
+Description=Ke -> Ge
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy Fo He
 
-[QuanPin/FuzzyLeRi]
+[Ambiguity/GeKe]
+Description=Ge -> Ke
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy Le Ri
 
-[QuanPin/FuzzyKeGe]
+[Ambiguity/AnAng]
+Description=An -> Ang
 Type=Boolean
 DefaultValue=False
-Description=Fuzzy Ke Ge
 
-[QuanPin/AutoCorrectingIgnIng]
+[Ambiguity/AngAn]
+Description=Ang -> An
 Type=Boolean
 DefaultValue=False
-Description=AutoCorrect Ign Ing
 
-[QuanPin/AutoCorrectingOgnOng]
+[Ambiguity/EnEng]
+Description=En -> Eng
 Type=Boolean
 DefaultValue=False
-Description=AutoCorrect Ogn Ong
 
-[QuanPin/AutoCorrectingUenUn]
+[Ambiguity/EngEn]
+Description=Eng -> En
 Type=Boolean
 DefaultValue=False
-Description=AutoCorrect Uen Un
 
-[QuanPin/AutoCorrectingImgIng]
+[Ambiguity/InIng]
+Description=In -> Ing
 Type=Boolean
 DefaultValue=False
-Description=AutoCorrect Img Ing
 
-[QuanPin/AutoCorrectingIouIu]
+[Ambiguity/IngIn]
+Description=Ing -> In
 Type=Boolean
 DefaultValue=False
-Description=AutoCorrect Iou Iu
 
-[QuanPin/AutoCorrectingUeiUi]
-Type=Boolean
-DefaultValue=False
-Description=AutoCorrect Uei Ui
 
 [DescriptionFile]
 LocaleDomain=fcitx-libpinyin

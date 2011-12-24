@@ -6,5 +6,4 @@ Category=InputMethod
 Enabled=True
 Library=fcitx-libpinyin.so
 Type=SharedLibrary
-Dependency=fcitx-punc
 IMRegisterMethod=ConfigFile
