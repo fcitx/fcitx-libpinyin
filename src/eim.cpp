@@ -426,7 +426,7 @@ void FcitxLibpinyinUpdatePreedit(FcitxLibpinyin* libpinyin, char* sentence)
                 {
                     if (curoffset + 1 <= libpinyin->cursor_pos) {
                         curoffset += 1;
-                        charcurpos += strlen(final);
+                        charcurpos += strlen(pykey->get_tone_zhuyin_string());
                     }
                     FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", pykey->get_tone_zhuyin_string());
                 }
