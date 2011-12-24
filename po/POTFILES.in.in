@@ -5,3 +5,6 @@
 @REL_SOURCE_ROOT@/src/eim.h
 @REL_SOURCE_ROOT@/src/config.cpp
 @REL_SOURCE_ROOT@/data/fcitx-libpinyin.conf.in
+@REL_SOURCE_ROOT@/data/pinyin-libpinyin.conf.in
+@REL_SOURCE_ROOT@/data/shuangpin-libpinyin.conf.in
+@REL_SOURCE_ROOT@/data/zhuyin-libpinyin.conf.in

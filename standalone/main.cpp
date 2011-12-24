@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     
     string s;
     cin >> s ;
-    size_t len =pinyin_parse_more_full_pinyins(inst, s.c_str());
+    pinyin_parse_more_full_pinyins(inst, s.c_str());
     
     int cursor = 0;
     
