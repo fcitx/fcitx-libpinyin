@@ -32,6 +32,7 @@
 #include <fcitx/instance.h>
 #include <fcitx/keys.h>
 #include <fcitx/module.h>
+#include <fcitx/module/chttrans/chttrans.h>
 #include <string>
 #include <libintl.h>
 
@@ -76,6 +77,9 @@ static void ConfigLibpinyin(FcitxLibpinyinAddonInstance* libpinyin);
 static int LibpinyinGetOffset(FcitxLibpinyin* libpinyin);
 static void FcitxLibpinyinSave(void *arg);
 static bool LibpinyinCheckZhuyinKey(FcitxKeySym sym, FCITX_ZHUYIN_LAYOUT layout) ;
+inline char* LibPinyinTransString(FcitxLibpinyin* libpinyin, char* sentence);
+char* LibpinyinGetSentence(FcitxLibpinyin* libpinyin);
+char* LibpinyinTransToken(FcitxLibpinyin* libpinyin, phrase_token_t token);
 
 static const char *input_keys [] = {
      "1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-7634",       /* standard kb */
@@ -456,6 +460,40 @@ void FcitxLibpinyinUpdatePreedit(FcitxLibpinyin* libpinyin, char* sentence)
     FcitxInputStateSetCursorPos(input, charcurpos);
 }
 
+inline char* LibPinyinTransString(FcitxLibpinyin* libpinyin, char* sentence)
+{
+    if (sentence == NULL)
+        return NULL;
+    if (libpinyin->type == LPT_Zhuyin)
+    {
+        char* transsentence = NULL;
+        FcitxModuleFunctionArg arg;
+        arg.args[0] = sentence;
+        transsentence = InvokeFunction(libpinyin->owner->owner, FCITX_CHTTRANS, T2S, arg);
+        if (transsentence)
+        {
+            g_free(sentence);
+            return transsentence;
+        }
+    }
+    
+    return sentence;
+}
+
+char* LibpinyinGetSentence(FcitxLibpinyin* libpinyin)
+{
+    char* sentence = NULL;
+    pinyin_get_sentence(libpinyin->inst, &sentence);
+    
+    return LibPinyinTransString(libpinyin, sentence);
+}
+
+char* LibpinyinTransToken(FcitxLibpinyin* libpinyin, phrase_token_t token)
+{
+    char* sentence = NULL;
+    pinyin_translate_token(libpinyin->inst, token, &sentence);
+    return LibPinyinTransString(libpinyin, sentence);
+}
 
 /**
  * @brief function DoInput has done everything for us.
@@ -486,7 +524,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
     char* sentence = NULL;
     
     pinyin_guess_sentence(libpinyin->inst);
-    pinyin_get_sentence(libpinyin->inst, &sentence);
+    sentence = LibpinyinGetSentence(libpinyin);
     
     if (sentence) {
         FcitxCandidateWord candWord;
@@ -518,8 +556,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
     int i = 0;
     for (i = 0 ; i < array->len; i ++) {
         phrase_token_t token = g_array_index(array, phrase_token_t, i);
-        char* tokenstring = NULL;
-        pinyin_translate_token(libpinyin->inst, token, &tokenstring);
+        char* tokenstring = LibpinyinTransToken(libpinyin, token);
         
         if (tokenstring) {
             if (sentence && strcmp(sentence, tokenstring) == 0)
@@ -565,8 +602,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWord (void* arg, FcitxCandidateWord* can
     FcitxInputState* input = FcitxInstanceGetInputState(instance);
     
     if (pyCand->issentence) {
-        char* sentence = NULL;
-        pinyin_get_sentence(libpinyin->inst, &sentence);
+        char* sentence = LibpinyinGetSentence(libpinyin);
         if (sentence) {
             strcpy(FcitxInputStateGetOutputString(input), sentence);
             pinyin_train(libpinyin->inst);
@@ -578,8 +614,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWord (void* arg, FcitxCandidateWord* can
     }
     else {
         pinyin_choose_candidate(libpinyin->inst, LibpinyinGetOffset(libpinyin), pyCand->token);
-        char* tokenstring = NULL;
-        pinyin_translate_token(libpinyin->inst, pyCand->token, &tokenstring);
+        char* tokenstring = LibpinyinTransToken(libpinyin, pyCand->token);
         
         if (tokenstring) {
             FcitxLibpinyinFixed f;
@@ -595,7 +630,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWord (void* arg, FcitxCandidateWord* can
         {
             char* sentence = NULL;
             pinyin_guess_sentence(libpinyin->inst);
-            pinyin_get_sentence(libpinyin->inst, &sentence);
+            sentence = LibpinyinGetSentence(libpinyin);
             if (sentence) {
                 strcpy(FcitxInputStateGetOutputString(input), sentence);
                 pinyin_train(libpinyin->inst);
