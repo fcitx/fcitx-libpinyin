@@ -748,7 +748,7 @@ void* FcitxLibpinyinCreate (FcitxInstance* instance)
                     ReloadConfigFcitxLibpinyin,
                     NULL,
                     5,
-                    "zh_CN"
+                    "zh_TW"
                    );
 
     return libpinyinaddon;
