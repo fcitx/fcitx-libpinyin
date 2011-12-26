@@ -415,13 +415,16 @@ void FcitxLibpinyinUpdatePreedit(FcitxLibpinyin* libpinyin, char* sentence)
             }
             case LPT_Zhuyin: {
                 const char* final = 0;
-                if (curoffset + 1 <= libpinyin->cursor_pos) {
+                if (pykey->get_initial() != PINYIN_ZeroInitial && curoffset + 1 <= libpinyin->cursor_pos) {
                     curoffset += 1;
                     charcurpos += strlen(pykey->get_initial_zhuyin_string());
                 }
                 FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", pykey->get_initial_zhuyin_string());
                 
-                if (!(pykeypos->get_length() == 1 || (pykeypos->get_length() == 2 && pykey->get_tone() != PINYIN_ZeroTone))) {
+                if ((pykeypos->get_length() == 1 && pykey->get_initial() == PINYIN_ZeroInitial)
+                    || (pykeypos->get_length() == 2 && (pykey->get_initial() == PINYIN_ZeroInitial || pykey->get_tone() == PINYIN_ZeroTone))
+                    || (pykeypos->get_length() == 3)
+                ) {
                     if (strlen(pykey->get_final_zhuyin_string()) == 0)
                         final = ".";
                     else
