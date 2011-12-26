@@ -34,6 +34,7 @@
 #include <fcitx/module.h>
 #include <fcitx/context.h>
 #include <fcitx/module/chttrans/chttrans.h>
+#include <fcitx/module/punc/punc.h>
 #include <string>
 #include <libintl.h>
 
@@ -62,6 +63,7 @@ extern "C" {
 
 typedef struct _FcitxLibpinyinCandWord {
     boolean issentence;
+    boolean ispunc;
     phrase_token_t token;
 } FcitxLibpinyinCandWord;
 
@@ -518,6 +520,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
     FcitxInstance* instance = libpinyin->owner->owner;
     FcitxInputState* input = FcitxInstanceGetInputState(instance);
     FcitxGlobalConfig* config = FcitxInstanceGetGlobalConfig(libpinyin->owner->owner);
+    FcitxLibpinyinConfig* pyConfig = &libpinyin->owner->config;
     struct _FcitxCandidateWordList* candList = FcitxInputStateGetCandidateList(input);
     FcitxCandidateWordSetPageSize(candList, config->iMaxCandWord);
     FcitxUICloseInputWindow(instance);
@@ -536,10 +539,42 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
     pinyin_guess_sentence(libpinyin->inst);
     sentence = LibpinyinGetSentence(libpinyin);
     
+    /* add punc */
+    if (libpinyin->type == LPT_Zhuyin
+        && strlen(libpinyin->buf) == 1
+        && LibpinyinCheckZhuyinKey((FcitxKeySym) libpinyin->buf[0], pyConfig->zhuyinLayout)
+        && (libpinyin->buf[0] >= ' ' && libpinyin->buf[0] <= '\x7e') /* simple */
+        && !(libpinyin->buf[0] >= 'a' && libpinyin->buf[0] <= 'z') /* not a-z */
+        && !(libpinyin->buf[0] >= 'A' && libpinyin->buf[0] <= 'Z') /* not A-Z /*/
+        && !(libpinyin->buf[0] >= '0' && libpinyin->buf[0] <= '9') /* not digit */
+    ) {
+        FcitxModuleFunctionArg arg;
+        int c = libpinyin->buf[0];
+        arg.args[0] = &c;
+        char* result = InvokeFunction(instance, FCITX_PUNC, GETPUNC, arg);
+        if (result) {
+            FcitxCandidateWord candWord;
+            FcitxLibpinyinCandWord* pyCand = (FcitxLibpinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinCandWord));
+            pyCand->issentence = false;
+            pyCand->ispunc = true;
+            pyCand->token = 0;
+            candWord.callback = FcitxLibpinyinGetCandWord;
+            candWord.extraType = MSG_OTHER;
+            candWord.owner = libpinyin;
+            candWord.priv = pyCand;
+            candWord.strExtra = NULL;
+            candWord.strWord = strdup(result);
+            candWord.wordType = MSG_OTHER;
+        
+            FcitxCandidateWordAppend(FcitxInputStateGetCandidateList(input), &candWord);
+        }
+    }
+
     if (sentence) {
         FcitxCandidateWord candWord;
         FcitxLibpinyinCandWord* pyCand = (FcitxLibpinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinCandWord));
         pyCand->issentence = true;
+        pyCand->ispunc = false;
         pyCand->token = 0;
         candWord.callback = FcitxLibpinyinGetCandWord;
         candWord.extraType = MSG_OTHER;
@@ -575,6 +610,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
             FcitxCandidateWord candWord;
             FcitxLibpinyinCandWord* pyCand = (FcitxLibpinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinCandWord));
             pyCand->issentence = false;
+            pyCand->ispunc = false;
             pyCand->token = token;
             candWord.callback = FcitxLibpinyinGetCandWord;
             candWord.extraType = MSG_OTHER;
@@ -621,8 +657,10 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWord (void* arg, FcitxCandidateWord* can
             strcpy(FcitxInputStateGetOutputString(input), "");
         
         return IRV_COMMIT_STRING;
-    }
-    else {
+    } else if (pyCand->ispunc) {
+        strcpy(FcitxInputStateGetOutputString(input), candWord->strWord);
+        return IRV_COMMIT_STRING;
+    } else {
         pinyin_choose_candidate(libpinyin->inst, LibpinyinGetOffset(libpinyin), pyCand->token);
         char* tokenstring = LibpinyinTransToken(libpinyin, pyCand->token);
         
