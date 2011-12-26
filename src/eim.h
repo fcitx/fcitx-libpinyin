@@ -97,6 +97,8 @@ struct FcitxLibpinyinConfig
     boolean amb[FCITX_AMB_LAST + 1];
     boolean cr[FCITX_CR_LAST + 1];
     boolean incomplete;
+    FcitxHotkey hkPrevPage[2];
+    FcitxHotkey hkNextPage[2];
 };
 
 #define BUF_SIZE 4096

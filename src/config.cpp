@@ -23,6 +23,8 @@
 CONFIG_BINDING_BEGIN(FcitxLibpinyinConfig)
 CONFIG_BINDING_REGISTER("Pinyin", "Incomplete", incomplete)
 CONFIG_BINDING_REGISTER("Zhuyin", "Layout", zhuyinLayout)
+CONFIG_BINDING_REGISTER("Zhuyin", "PrevPage", hkPrevPage)
+CONFIG_BINDING_REGISTER("Zhuyin", "NextPage", hkNextPage)
 CONFIG_BINDING_REGISTER("Shuangpin", "Scheme", spScheme)
 CONFIG_BINDING_REGISTER("Correction", "VU", cr[FCITX_CR_VU])
 CONFIG_BINDING_REGISTER("Ambiguity", "CiChi", amb[FCITX_AMB_CiChi])

@@ -32,6 +32,7 @@
 #include <fcitx/instance.h>
 #include <fcitx/keys.h>
 #include <fcitx/module.h>
+#include <fcitx/context.h>
 #include <fcitx/module/chttrans/chttrans.h>
 #include <string>
 #include <libintl.h>
@@ -311,6 +312,12 @@ INPUT_RETURN_VALUE FcitxLibpinyinDoInput(void* arg, FcitxKeySym sym, unsigned in
 
 boolean FcitxLibpinyinInit(void* arg)
 {
+    FcitxLibpinyin* libpinyin = (FcitxLibpinyin*) arg;
+    if (libpinyin->type == LPT_Zhuyin && libpinyin->owner->config.zhuyinLayout != FCITX_ZHUYIN_ET26) {
+        FcitxInstanceSetContext(libpinyin->owner->owner, CONTEXT_ALTERNATIVE_PREVPAGE_KEY, libpinyin->owner->config.hkPrevPage);
+        FcitxInstanceSetContext(libpinyin->owner->owner, CONTEXT_ALTERNATIVE_NEXTPAGE_KEY, libpinyin->owner->config.hkNextPage);
+    }
+    
     return true;
 }
 

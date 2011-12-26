@@ -15,6 +15,16 @@ Enum5=ET26
 EnumCount=6
 DefaultValue=Standard
 
+[Zhuyin/PrevPage]
+Description=Zhuyin Prev Page
+Type=Hotkey
+DefaultValue=PGUP UP
+
+[Zhuyin/NextPage]
+Description=Zhuyin Next Page
+Type=Hotkey
+DefaultValue=PGDN DOWN
+
 [Shuangpin/Scheme]
 Description=Shuangpin Scheme
 Type=Enum
