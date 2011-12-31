@@ -12,12 +12,12 @@ using namespace std;
 guint get_pinyin_cursor (pinyin_instance_t* inst, int cursor)
 {
     /* Translate cursor position to pinyin position. */
-    PinyinKeyPosVector & pinyin_poses = inst->m_pinyin_poses;
+    PinyinKeyPosVector & pinyin_poses = inst->m_pinyin_key_rests;
     guint pinyin_cursor = pinyin_poses->len;
     for (size_t i = 0; i < pinyin_poses->len; ++i) {
         PinyinKeyPos *pos = &g_array_index
             (pinyin_poses, PinyinKeyPos, i);
-        if (pos->get_pos () <= cursor && cursor < pos->get_end_pos ())
+        if (pos->m_raw_begin <= cursor && cursor < pos->m_raw_end)
             pinyin_cursor = i;
     }
 
@@ -48,15 +48,14 @@ int main(int argc, char *argv[])
     for (int i = 0; i < inst->m_pinyin_keys->len; i ++)
     {
         PinyinKey* pykey = &g_array_index(inst->m_pinyin_keys, PinyinKey, i);
-        cout << pykey->get_key_string() << " "
-             << pykey->get_key_zhuyin_string() << " "
-             << pykey->get_tone_string() << " "
-             << pykey->get_tone_zhuyin_string() << " "
-             << pykey->get_initial_string() << " "
-             << pykey->get_initial_zhuyin_string() << " "
-             << pykey->get_final_string() << " "
-             << pykey->get_final_zhuyin_string() << " "
+        gchar* py = pykey->get_chewing_string();
+        gchar* chewing = pykey->get_chewing_string();
+        cout << py << " "
+             << chewing
              << endl;
+             
+        g_free(py);
+        g_free(chewing);
     }
 
     while (true)

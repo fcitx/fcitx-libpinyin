@@ -8,7 +8,7 @@ FIND_PACKAGE(Libintl REQUIRED)
 FIND_PACKAGE(Gettext REQUIRED)
 FIND_PACKAGE(Fcitx 4.2.0 REQUIRED)
 
-PKG_CHECK_MODULES(LIBPINYIN REQUIRED "libpinyin >= 0.3.0" )
+PKG_CHECK_MODULES(LIBPINYIN REQUIRED "libpinyin >= 0.4.92" )
 _pkgconfig_invoke("libpinyin" LIBPINYIN PKGDATADIR "" "--variable=pkgdatadir")
 
 # uninstall target

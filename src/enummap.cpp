@@ -20,100 +20,90 @@
 
 #include "enummap.h"
 
-PinyinAmbiguity FcitxLibpinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
+pinyin::PinyinAmbiguity2 FcitxLibpinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
 {
     switch(ambiguity) {
         case FCITX_AMB_CiChi:
-            return PINYIN_AmbCiChi;
-        case FCITX_AMB_ChiCi:
-            return PINYIN_AmbChiCi;
+            return PINYIN_AMB_C_CH;
         case FCITX_AMB_ZiZhi:
-            return PINYIN_AmbZiZhi;
-        case FCITX_AMB_ZhiZi:
-            return PINYIN_AmbZhiZi;
+            return PINYIN_AMB_Z_ZH;
         case FCITX_AMB_SiShi:
-            return PINYIN_AmbSiShi;
-        case FCITX_AMB_ShiSi:
-            return PINYIN_AmbShiSi;
+            return PINYIN_AMB_S_SH;
         case FCITX_AMB_LeNe:
-            return PINYIN_AmbLeNe;
-        case FCITX_AMB_NeLe:
-            return PINYIN_AmbNeLe;
+            return PINYIN_AMB_L_N;
         case FCITX_AMB_FoHe:
-            return PINYIN_AmbFoHe;
-        case FCITX_AMB_HeFo:
-            return PINYIN_AmbHeFo;
+            return PINYIN_AMB_F_H;
         case FCITX_AMB_LeRi:
-            return PINYIN_AmbLeRi;
-        case FCITX_AMB_RiLe:
-            return PINYIN_AmbRiLe;
-        case FCITX_AMB_KeGe:
-            return PINYIN_AmbKeGe;
+            return PINYIN_AMB_L_R;
         case FCITX_AMB_GeKe:
-            return PINYIN_AmbGeKe;
+            return PINYIN_AMB_G_K;
         case FCITX_AMB_AnAng:
-            return PINYIN_AmbAnAng;
-        case FCITX_AMB_AngAn:
-            return PINYIN_AmbAngAn;
+            return PINYIN_AMB_AN_ANG;
         case FCITX_AMB_EnEng:
-            return PINYIN_AmbEnEng;
-        case FCITX_AMB_EngEn:
-            return PINYIN_AmbEngEn;
+            return PINYIN_AMB_EN_ENG;
         case FCITX_AMB_InIng:
-            return PINYIN_AmbInIng;
-        case FCITX_AMB_IngIn:
-            return PINYIN_AmbIngIn;
+            return PINYIN_AMB_IN_ING;
         default:
-            return PINYIN_AmbAny;
+            return PINYIN_AMB_ALL;
     }
 }
 
-PinyinCorrection FcitxLibpinyinTransCorrection(FCITX_CORRECTION correction)
+pinyin::PinyinCorrection2 FcitxLibpinyinTransCorrection(FCITX_CORRECTION correction)
 {
     switch(correction) {
-        case FCITX_CR_VU:
-            return PINYIN_CorrectVtoU;
+        case FCITX_CR_V_U:
+            return PINYIN_CORRECT_V_U;
+        case FCITX_CR_GN_NG:
+            return PINYIN_CORRECT_GN_NG;
+        case FCITX_CR_MG_NG:
+            return PINYIN_CORRECT_MG_NG;
+        case FCITX_CR_IOU_IU:
+            return PINYIN_CORRECT_IOU_IU;
+        case FCITX_CR_UEI_UI:
+            return PINYIN_CORRECT_UEI_UI;
+        case FCITX_CR_UEN_UN:
+            return PINYIN_CORRECT_UEN_UN;
+        case FCITX_CR_UE_VE:
+            return PINYIN_CORRECT_UE_VE;
+        case FCITX_CR_ON_ONG:
+            return PINYIN_CORRECT_ON_ONG;
         default:
-            return PINYIN_CorrectVtoU;
+            return PINYIN_CORRECT_ALL;
     }
 }
 
-PinyinShuangPinScheme FcitxLibpinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme)
+pinyin::DoublePinyinScheme FcitxLibpinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme)
 {
     switch(scheme) {
         case FCITX_SHUANG_PIN_ZRM:
-            return SHUANG_PIN_ZRM;
+            return DOUBLE_PINYIN_ZRM;
         case FCITX_SHUANG_PIN_MS:
-            return SHUANG_PIN_MS;
+            return DOUBLE_PINYIN_MS;
         case FCITX_SHUANG_PIN_ZIGUANG:
-            return SHUANG_PIN_ZIGUANG;
+            return DOUBLE_PINYIN_ZIGUANG;
         case FCITX_SHUANG_PIN_ABC:
-            return SHUANG_PIN_ABC;
+            return DOUBLE_PINYIN_ABC;
         case FCITX_SHUANG_PIN_PYJJ:
-            return SHUANG_PIN_PYJJ;
+            return DOUBLE_PINYIN_PYJJ;
         case FCITX_SHUANG_PIN_XHE:
-            return SHUANG_PIN_XHE;
+            return DOUBLE_PINYIN_XHE;
         default:
-            return SHUANG_PIN_ZRM;
+            return DOUBLE_PINYIN_ZRM;
     }
 }
 
-PinyinZhuYinScheme FcitxLibpinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout)
+pinyin::ChewingScheme FcitxLibpinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout)
 {
     switch(layout) {
         case FCITX_ZHUYIN_STANDARD:
-            return ZHUYIN_STANDARD;
-        case FCITX_ZHUYIN_HSU:
-            return ZHUYIN_HSU;
+            return CHEWING_STANDARD;
         case FCITX_ZHUYIN_IBM:
-            return ZHUYIN_IBM;
+            return CHEWING_IBM;
         case FCITX_ZHUYIN_GIN_YIEH:
-            return ZHUYIN_GIN_YIEH;
+            return CHEWING_GINYIEH;
         case FCITX_ZHUYIN_ET:
-            return ZHUYIN_ET;
-        case FCITX_ZHUYIN_ET26:
-            return ZHUYIN_ET26;
+            return CHEWING_ETEN;
         default:
-            return ZHUYIN_ZHUYIN;
+            return CHEWING_STANDARD;
     }
 }

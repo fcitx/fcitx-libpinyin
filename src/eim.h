@@ -44,11 +44,9 @@ class FcitxWindowHandler;
  */
 enum FCITX_ZHUYIN_LAYOUT {
     FCITX_ZHUYIN_STANDARD = 0,
-    FCITX_ZHUYIN_HSU      = 1,
-    FCITX_ZHUYIN_IBM      = 2,
-    FCITX_ZHUYIN_GIN_YIEH = 3,
-    FCITX_ZHUYIN_ET       = 4,
-    FCITX_ZHUYIN_ET26     = 5,
+    FCITX_ZHUYIN_IBM      = 1,
+    FCITX_ZHUYIN_GIN_YIEH = 2,
+    FCITX_ZHUYIN_ET       = 3
 };
 
 enum FCITX_SHUANGPIN_SCHEME {
@@ -61,32 +59,29 @@ enum FCITX_SHUANGPIN_SCHEME {
 };
 
 enum FCITX_CORRECTION {
-    FCITX_CR_VU,
-    FCITX_CR_LAST = FCITX_CR_VU
+    FCITX_CR_V_U,
+    FCITX_CR_GN_NG,
+    FCITX_CR_MG_NG,
+    FCITX_CR_IOU_IU,
+    FCITX_CR_UEI_UI,
+    FCITX_CR_UEN_UN,
+    FCITX_CR_UE_VE,
+    FCITX_CR_ON_ONG,
+    FCITX_CR_LAST = FCITX_CR_ON_ONG
 };
 
 enum FCITX_AMBIGUITY {
     FCITX_AMB_CiChi,
-    FCITX_AMB_ChiCi,
     FCITX_AMB_ZiZhi,
-    FCITX_AMB_ZhiZi,
     FCITX_AMB_SiShi,
-    FCITX_AMB_ShiSi,
     FCITX_AMB_LeNe,
-    FCITX_AMB_NeLe,
     FCITX_AMB_FoHe,
-    FCITX_AMB_HeFo,
     FCITX_AMB_LeRi,
-    FCITX_AMB_RiLe,
-    FCITX_AMB_KeGe,
     FCITX_AMB_GeKe,
     FCITX_AMB_AnAng,
-    FCITX_AMB_AngAn,
     FCITX_AMB_EnEng,
-    FCITX_AMB_EngEn,
     FCITX_AMB_InIng,
-    FCITX_AMB_IngIn,
-    FCITX_AMB_LAST = FCITX_AMB_IngIn
+    FCITX_AMB_LAST = FCITX_AMB_InIng
 };
 
 struct FcitxLibpinyinConfig
@@ -97,6 +92,7 @@ struct FcitxLibpinyinConfig
     boolean amb[FCITX_AMB_LAST + 1];
     boolean cr[FCITX_CR_LAST + 1];
     boolean incomplete;
+    boolean chewingIncomplete;
     FcitxHotkey hkPrevPage[2];
     FcitxHotkey hkNextPage[2];
 };

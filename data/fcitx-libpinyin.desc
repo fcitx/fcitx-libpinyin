@@ -3,16 +3,19 @@ Description=Use Incomplete pinyin
 Type=Boolean
 DefaultValue=True
 
+[Zhuyin/Incomplete]
+Description=Use Incomplete Zhuyin
+Type=Boolean
+DefaultValue=True
+
 [Zhuyin/Layout]
 Description=Zhuyin Layout
 Type=Enum
 Enum0=Standard
-Enum1=HSU
-Enum2=IBM
-Enum3=GinYieh
-Enum4=ET
-Enum5=ET26
-EnumCount=6
+Enum1=IBM
+Enum2=GinYieh
+Enum3=ET
+EnumCount=4
 DefaultValue=Standard
 
 [Zhuyin/PrevPage]
@@ -42,106 +45,90 @@ Description=V -> U
 Type=Boolean
 DefaultValue=False
 
-[Ambiguity/CiChi]
-Description=Ci -> Chi
+[Correction/GNNG]
+Description=GN -> NG
 Type=Boolean
 DefaultValue=False
 
-[Ambiguity/ChiCi]
-Description=Chi -> Ci
+[Correction/MGNG]
+Description=MG -> NG
+Type=Boolean
+DefaultValue=False
+
+[Correction/IOUIU]
+Description=IOU -> IU
+Type=Boolean
+DefaultValue=False
+
+[Correction/UEIUI]
+Description=UEI -> UI
+Type=Boolean
+DefaultValue=False
+
+[Correction/UENUN]
+Description=UEN -> UN
+Type=Boolean
+DefaultValue=False
+
+[Correction/UEVE]
+Description=UE -> VE
+Type=Boolean
+DefaultValue=False
+
+[Correction/ONONG]
+Description=ON -> ONG
+Type=Boolean
+DefaultValue=False
+
+[Ambiguity/CiChi]
+Description=Ci <-> Chi
 Type=Boolean
 DefaultValue=False
 
 [Ambiguity/ZiZhi]
-Description=Zi -> Zhi
-Type=Boolean
-DefaultValue=False
-
-[Ambiguity/ZhiZi]
-Description=Zhi -> Zi
+Description=Zi <-> Zhi
 Type=Boolean
 DefaultValue=False
 
 [Ambiguity/SiShi]
-Description=Si -> Shi
-Type=Boolean
-DefaultValue=False
-
-[Ambiguity/ShiSi]
-Description=Shi -> Si
+Description=Si <-> Shi
 Type=Boolean
 DefaultValue=False
 
 [Ambiguity/LeNe]
-Description=Ne -> Le
-Type=Boolean
-DefaultValue=False
-
-[Ambiguity/NeLe]
-Description=Ne -> Le
+Description=Ne <-> Le
 Type=Boolean
 DefaultValue=False
 
 [Ambiguity/FoHe]
-Description=Fo -> He
-Type=Boolean
-DefaultValue=False
-
-[Ambiguity/HeFo]
-Description=He -> Fo
+Description=Fo <-> He
 Type=Boolean
 DefaultValue=False
 
 [Ambiguity/LeRi]
-Description=Le -> Ri
-Type=Boolean
-DefaultValue=False
-
-[Ambiguity/RiLe]
-Description=Ri -> Le
-Type=Boolean
-DefaultValue=False
-
-[Ambiguity/KeGe]
-Description=Ke -> Ge
+Description=Le <-> Ri
 Type=Boolean
 DefaultValue=False
 
 [Ambiguity/GeKe]
-Description=Ge -> Ke
+Description=Ge <-> Ke
 Type=Boolean
 DefaultValue=False
 
 [Ambiguity/AnAng]
-Description=An -> Ang
-Type=Boolean
-DefaultValue=False
-
-[Ambiguity/AngAn]
-Description=Ang -> An
+Description=An <-> Ang
 Type=Boolean
 DefaultValue=False
 
 [Ambiguity/EnEng]
-Description=En -> Eng
-Type=Boolean
-DefaultValue=False
-
-[Ambiguity/EngEn]
-Description=Eng -> En
+Description=En <-> Eng
 Type=Boolean
 DefaultValue=False
 
 [Ambiguity/InIng]
-Description=In -> Ing
+Description=In <-> Ing
 Type=Boolean
 DefaultValue=False
-
-[Ambiguity/IngIn]
-Description=Ing -> In
-Type=Boolean
-DefaultValue=False
-
 
 [DescriptionFile]
 LocaleDomain=fcitx-libpinyin

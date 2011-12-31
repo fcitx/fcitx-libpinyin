@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-25 01:02+0800\n"
-"PO-Revision-Date: 2011-12-25 01:03+0800\n"
+"POT-Creation-Date: 2011-12-31 21:43+0800\n"
+"PO-Revision-Date: 2011-12-31 21:45+0800\n"
 "Last-Translator: Weng Xuetian <wengxt@gmail.com>\n"
 "Language-Team: Chinese Simplified <kde-i18n-doc@kde.org>\n"
 "Language: zh_CN\n"
@@ -26,26 +26,18 @@ msgstr "智能 ABC"
 msgid "Ambiguity"
 msgstr "模糊音"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:106
-msgid "An -> Ang"
-msgstr "An -> Ang"
-
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:111
-msgid "Ang -> An"
-msgstr "Ang -> An"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:114
+msgid "An <-> Ang"
+msgstr "An <-> Ang"
 
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/zhuyin-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:705
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:798
 msgid "Bopomofo (LibPinyin)"
 msgstr "注音 (LibPinyin)"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:41
-msgid "Chi -> Ci"
-msgstr "Chi -> Ci"
-
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:36
-msgid "Ci -> Chi"
-msgstr "Ci -> Chi"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:79
+msgid "Ci <-> Chi"
+msgstr "Ci <-> Chi"
 
 # unknown
 msgid "Correction"
@@ -55,57 +47,41 @@ msgstr "纠正"
 msgid "ET"
 msgstr "倚天"
 
-#: unknown
-msgid "ET26"
-msgstr "倚天26键"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:119
+msgid "En <-> Eng"
+msgstr "En <-> Eng"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:116
-msgid "En -> Eng"
-msgstr "En -> Eng"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:99
+msgid "Fo <-> He"
+msgstr "Fo <-> He"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:121
-msgid "Eng -> En"
-msgstr "Eng -> En"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:44
+msgid "GN -> NG"
+msgstr "GN -> NG"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:76
-msgid "Fo -> He"
-msgstr "Fo -> He"
-
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:101
-msgid "Ge -> Ke"
-msgstr "Ge -> Ke"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:109
+msgid "Ge <-> Ke"
+msgstr "Ge <-> Ke"
 
 #: unknown
 msgid "GinYieh"
 msgstr "精业"
 
 #: unknown
-msgid "HSU"
-msgstr "许式"
-
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:81
-msgid "He -> Fo"
-msgstr "He -> Fo"
-
-#: unknown
 msgid "IBM"
 msgstr "IBM"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:126
-msgid "In -> Ing"
-msgstr "In -> Ing"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:54
+msgid "IOU -> IU"
+msgstr "IOU -> IU"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:131
-msgid "Ing -> In"
-msgstr "Ing -> In"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:124
+msgid "In <-> Ing"
+msgstr "In <-> Ing"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:96
-msgid "Ke -> Ge"
-msgstr "Ke -> Ge"
-
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:86
-msgid "Le -> Ri"
-msgstr "Le -> Ri"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:104
+msgid "Le <-> Ri"
+msgstr "Le <-> Ri"
 
 # unknown
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/fcitx-libpinyin.conf.in.h:1
@@ -116,20 +92,27 @@ msgstr "Libpinyin"
 msgid "Libpinyin Wrapper For Fcitx"
 msgstr "Fcitx 的 Libpinyin 封装"
 
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:49
+msgid "MG -> NG"
+msgstr "MG -> NG"
+
 #: unknown
 msgid "Microsoft"
 msgstr "微软"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:66
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:71
-msgid "Ne -> Le"
-msgstr "Ne -> Le"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:94
+msgid "Ne <-> Le"
+msgstr "Ne <-> Le"
+
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:74
+msgid "ON -> ONG"
+msgstr "ON -> ONG"
 
 msgid "Pinyin"
 msgstr "拼音"
 
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/pinyin-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:671
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:764
 msgid "Pinyin (LibPinyin)"
 msgstr "拼音 (Libpinyin)"
 
@@ -137,50 +120,50 @@ msgstr "拼音 (Libpinyin)"
 msgid "PinyinJiaJia"
 msgstr "拼音加加"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:91
-msgid "Ri -> Le"
-msgstr "Ri -> Le"
-
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:61
-msgid "Shi -> Si"
-msgstr "Shi -> Si"
-
 # unknown
 msgid "Shuangpin"
 msgstr "双拼"
 
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/shuangpin-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:688
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:781
 msgid "Shuangpin (LibPinyin)"
 msgstr "双拼 (Libpinyin)"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:19
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:27
 msgid "Shuangpin Scheme"
 msgstr "双拼方案"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:56
-msgid "Si -> Shi"
-msgstr "Si -> Shi"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:89
+msgid "Si <-> Shi"
+msgstr "Si <-> Shi"
 
 #: unknown
 msgid "Standard"
 msgstr "标准"
 
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:69
+msgid "UE -> VE"
+msgstr "UE -> VE"
+
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:59
+msgid "UEI -> UI"
+msgstr "UEI -> UI"
+
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:64
+msgid "UEN -> UN"
+msgstr "UEN -> UN"
+
 #: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:2
 msgid "Use Incomplete pinyin"
 msgstr "使用不完整拼音"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:31
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:39
 msgid "V -> U"
 msgstr "V -> U"
 
 #: unknown
 msgid "XiaoHe"
 msgstr "小鹤"
-
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:51
-msgid "Zhi -> Zi"
-msgstr "Zhi -> Zi"
 
 # unknown
 msgid "Zhuyin"
@@ -190,9 +173,17 @@ msgstr "注音"
 msgid "Zhuyin Layout"
 msgstr "注音布局"
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:46
-msgid "Zi -> Zhi"
-msgstr "Zi -> Zhi"
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:22
+msgid "Zhuyin Next Page"
+msgstr "注音下一页"
+
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:17
+msgid "Zhuyin Prev Page"
+msgstr "注音前一页"
+
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:84
+msgid "Zi <-> Zhi"
+msgstr "Zi <-> Zhi"
 
 #: unknown
 msgid "ZiGuang"
@@ -201,6 +192,9 @@ msgstr "紫光"
 #: unknown
 msgid "Ziranma"
 msgstr "自然码"
+
+#~ msgid "Ang -> An"
+#~ msgstr "Ang -> An"
 
 #~ msgid "AutoCorrect Ign Ing"
 #~ msgstr "自动更正 ign/ing"
@@ -219,6 +213,15 @@ msgstr "自然码"
 
 #~ msgid "AutoCorrect Uen Un"
 #~ msgstr "自动更正 uen/un"
+
+#~ msgid "Chi -> Ci"
+#~ msgstr "Chi -> Ci"
+
+#~ msgid "ET26"
+#~ msgstr "倚天26键"
+
+#~ msgid "Eng -> En"
+#~ msgstr "Eng -> En"
 
 #~ msgid "Fuzzy An Ang"
 #~ msgstr "模糊 an/ang"
@@ -268,6 +271,18 @@ msgstr "自然码"
 #~ msgid "Fuzzy Zhi Zi"
 #~ msgstr "模糊 zhi/zi"
 
+#~ msgid "HSU"
+#~ msgstr "许式"
+
+#~ msgid "He -> Fo"
+#~ msgstr "He -> Fo"
+
+#~ msgid "Ing -> In"
+#~ msgstr "Ing -> In"
+
+#~ msgid "Ke -> Ge"
+#~ msgstr "Ke -> Ge"
+
 #~ msgid "MS2003"
 #~ msgstr "微软 2003"
 
@@ -277,6 +292,12 @@ msgstr "自然码"
 # unknown
 #~ msgid "QuanPin"
 #~ msgstr "全拼"
+
+#~ msgid "Ri -> Le"
+#~ msgstr "Ri -> Le"
+
+#~ msgid "Shi -> Si"
+#~ msgstr "Shi -> Si"
 
 #~ msgid "USERDEFINE"
 #~ msgstr "用户定义"
@@ -292,3 +313,6 @@ msgstr "自然码"
 
 #~ msgid "ZIRANMA"
 #~ msgstr "自然码"
+
+#~ msgid "Zhi -> Zi"
+#~ msgstr "Zhi -> Zi"
