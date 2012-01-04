@@ -185,7 +185,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinDoInput(void* arg, FcitxKeySym sym, unsigned in
             if (strlen(libpinyin->buf) == 0 && sym == ('\'' || sym == ';'))
                 return IRV_TO_PROCESS;
             
-            if (strlen(libpinyin->buf) < MAX_USER_INPUT)
+            if (strlen(libpinyin->buf) < MAX_PINYIN_INPUT)
             {
                 size_t len = strlen(libpinyin->buf);
                 if (libpinyin->buf[libpinyin->cursor_pos] != 0)
@@ -622,7 +622,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
         g_free(tokenstring);
     }
     
-    g_array_free(array, false);
+    g_array_free(array, TRUE);
     
     g_free(sentence);
 
@@ -707,7 +707,7 @@ FcitxLibpinyin* FcitxLibpinyinNew(FcitxLibpinyinAddonInstance* libpinyinaddon, L
 void FcitxLibpinyinDelete(FcitxLibpinyin* libpinyin)
 {
     pinyin_free_instance(libpinyin->inst);
-    g_array_free(libpinyin->fixed_string, FALSE);
+    g_array_free(libpinyin->fixed_string, TRUE);
 }
 
 /**

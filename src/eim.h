@@ -33,6 +33,8 @@
 #define __EXPORT_API
 #endif
 
+#define MAX_PINYIN_INPUT 60
+
 #define _(x) gettext(x)
 
 class FcitxWindowHandler;

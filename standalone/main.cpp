@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
             break;
         }
         
-        g_array_free(array, false);
+        g_array_free(array, TRUE);
     }
     pinyin_free_instance(inst);
     pinyin_fini(context);
