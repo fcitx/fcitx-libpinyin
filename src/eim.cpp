@@ -80,28 +80,38 @@ static void SaveLibpinyinConfig(FcitxLibpinyinConfig* fs);
 static void ConfigLibpinyin(FcitxLibpinyinAddonInstance* libpinyin);
 static int LibpinyinGetOffset(FcitxLibpinyin* libpinyin);
 static void FcitxLibpinyinSave(void *arg);
-static bool LibpinyinCheckZhuyinKey(FcitxKeySym sym, FCITX_ZHUYIN_LAYOUT layout) ;
+static bool LibpinyinCheckZhuyinKey(FcitxKeySym sym, FCITX_ZHUYIN_LAYOUT layout, boolean useTone) ;
 inline char* LibPinyinTransString(FcitxLibpinyin* libpinyin, char* sentence);
 char* LibpinyinGetSentence(FcitxLibpinyin* libpinyin);
 char* LibpinyinTransToken(FcitxLibpinyin* libpinyin, phrase_token_t token);
 
 static const char *input_keys [] = {
-     "1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-7634",       /* standard kb */
-     "bpmfdtnlgkhjvcjvcrzasexuyhgeiawomnkllsdfj",       /* hsu */
-     "1234567890-qwertyuiopasdfghjkl;zxcvbn/m,.",       /* IBM */
-     "2wsx3edcrfvtgb6yhnujm8ik,9ol.0p;/-['=1qaz",       /* Gin-yieh */
-     "bpmfdtnlvkhg7c,./j;'sexuaorwiqzy890-=1234",       /* ET  */
-     "bpmfdtnlvkhgvcgycjqwsexuaorwiqzpmntlhdfjk",       /* ET26 */
+     "1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-",       /* standard kb */
+     "1234567890-qwertyuiopasdfghjkl;zxcvbn",       /* IBM */
+     "2wsx3edcrfvtgb6yhnujm8ik,9ol.0p;/-['=",       /* Gin-yieh */
+     "bpmfdtnlvkhg7c,./j;'sexuaorwiqzy890-=",       /* ET  */
      0
 };
 
-bool LibpinyinCheckZhuyinKey(FcitxKeySym sym, FCITX_ZHUYIN_LAYOUT layout) {
+static const char *tone_keys [] = {
+     "7634 ",       /* standard kb */
+     "/m,. ",       /* IBM */
+     "1qaz ",       /* Gin-yieh */
+     "1234 ",       /* ET  */
+     0
+};
+
+bool LibpinyinCheckZhuyinKey(FcitxKeySym sym, FCITX_ZHUYIN_LAYOUT layout, boolean useTone) {
     char key = sym & 0xff;
     const char* keys = input_keys[layout];
+    const char* tones = tone_keys[layout];
     if (strchr(keys, key))
         return true;
-    else
-        return false;
+    
+    if (useTone && strchr(tones, key))
+        return true;
+    
+    return false;
 }
 
 int LibpinyinGetOffset(FcitxLibpinyin* libpinyin)
@@ -179,7 +189,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinDoInput(void* arg, FcitxKeySym sym, unsigned in
         if (FcitxHotkeyIsHotKeyLAZ(sym, state)
             || sym == '\''
             || (FcitxHotkeyIsHotKey(sym, state, FCITX_SEMICOLON) && libpinyin->type == LPT_Shuangpin && (config->spScheme == FCITX_SHUANG_PIN_MS || config->spScheme == FCITX_SHUANG_PIN_ZIGUANG))
-            || (libpinyin->type == LPT_Zhuyin && LibpinyinCheckZhuyinKey(sym, config->zhuyinLayout))
+            || (libpinyin->type == LPT_Zhuyin && LibpinyinCheckZhuyinKey(sym, config->zhuyinLayout, config->useTone))
         )
         {
             if (strlen(libpinyin->buf) == 0 && sym == ('\'' || sym == ';'))
@@ -198,7 +208,9 @@ INPUT_RETURN_VALUE FcitxLibpinyinDoInput(void* arg, FcitxKeySym sym, unsigned in
                 
                 size_t parselen = FcitxLibpinyinParse(libpinyin, libpinyin->buf);
                 
-                if (parselen == 0 && strlen(libpinyin->buf) == 1 && libpinyin->type != LPT_Shuangpin)
+                if (parselen == 0 && strlen(libpinyin->buf) == 1 && libpinyin->type != LPT_Shuangpin
+                    && !(libpinyin->type == LPT_Pinyin && !libpinyin->owner->config.incomplete)
+                    && !(libpinyin->type == LPT_Zhuyin && !libpinyin->owner->config.chewingIncomplete))
                 {
                     FcitxLibpinyinReset(libpinyin);
                     return IRV_TO_PROCESS;
@@ -538,7 +550,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
     /* add punc */
     if (libpinyin->type == LPT_Zhuyin
         && strlen(libpinyin->buf) == 1
-        && LibpinyinCheckZhuyinKey((FcitxKeySym) libpinyin->buf[0], pyConfig->zhuyinLayout)
+        && LibpinyinCheckZhuyinKey((FcitxKeySym) libpinyin->buf[0], pyConfig->zhuyinLayout, pyConfig->useTone)
         && (libpinyin->buf[0] >= ' ' && libpinyin->buf[0] <= '\x7e') /* simple */
         && !(libpinyin->buf[0] >= 'a' && libpinyin->buf[0] <= 'z') /* not a-z */
         && !(libpinyin->buf[0] >= 'A' && libpinyin->buf[0] <= 'Z') /* not A-Z /*/
@@ -864,6 +876,12 @@ void ConfigLibpinyin(FcitxLibpinyinAddonInstance* libpinyinaddon)
     if (config->chewingIncomplete) {
         settings |= CHEWING_INCOMPLETE;
     }
+    
+    if (config->useTone) {
+        settings |= USE_TONE;
+    }
+    settings |= IS_PINYIN;
+    settings |= IS_CHEWING;
     pinyin_set_options(libpinyinaddon->context, settings);
 }
 

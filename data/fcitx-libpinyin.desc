@@ -3,6 +3,11 @@ Description=Use Incomplete pinyin
 Type=Boolean
 DefaultValue=True
 
+[Zhuyin/UseTone]
+Description=Use Tone
+Type=Boolean
+DefaultValue=False
+
 [Zhuyin/Incomplete]
 Description=Use Incomplete Zhuyin
 Type=Boolean

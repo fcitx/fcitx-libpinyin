@@ -23,6 +23,7 @@
 CONFIG_BINDING_BEGIN(FcitxLibpinyinConfig)
 CONFIG_BINDING_REGISTER("Pinyin", "Incomplete", incomplete)
 CONFIG_BINDING_REGISTER("Zhuyin", "Incomplete", chewingIncomplete)
+CONFIG_BINDING_REGISTER("Zhuyin", "UseTone", useTone)
 CONFIG_BINDING_REGISTER("Zhuyin", "Layout", zhuyinLayout)
 CONFIG_BINDING_REGISTER("Zhuyin", "PrevPage", hkPrevPage)
 CONFIG_BINDING_REGISTER("Zhuyin", "NextPage", hkNextPage)

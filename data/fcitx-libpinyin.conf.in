@@ -1,7 +1,7 @@
 [Addon]
 Name=fcitx-libpinyin
-_GeneralName=Libpinyin
-_Comment=Libpinyin Wrapper For Fcitx
+_GeneralName=LibPinyin
+_Comment=LibPinyin Wrapper For Fcitx
 Category=InputMethod
 Enabled=True
 Library=fcitx-libpinyin.so

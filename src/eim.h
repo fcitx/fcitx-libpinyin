@@ -35,7 +35,7 @@
 
 #define MAX_PINYIN_INPUT 60
 
-#define _(x) gettext(x)
+#define _(x) dgettext("fcitx-libpinyin", (x))
 
 class FcitxWindowHandler;
 
@@ -95,6 +95,7 @@ struct FcitxLibpinyinConfig
     boolean cr[FCITX_CR_LAST + 1];
     boolean incomplete;
     boolean chewingIncomplete;
+    boolean useTone;
     FcitxHotkey hkPrevPage[2];
     FcitxHotkey hkNextPage[2];
 };
