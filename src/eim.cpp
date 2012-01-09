@@ -328,6 +328,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinDoInput(void* arg, FcitxKeySym sym, unsigned in
 boolean FcitxLibpinyinInit(void* arg)
 {
     FcitxLibpinyin* libpinyin = (FcitxLibpinyin*) arg;
+    FcitxInstanceSetContext(libpinyin->owner->owner, CONTEXT_IM_KEYBOARD_LAYOUT, "us");
     if (libpinyin->type == LPT_Zhuyin) {
         FcitxInstanceSetContext(libpinyin->owner->owner, CONTEXT_ALTERNATIVE_PREVPAGE_KEY, libpinyin->owner->config.hkPrevPage);
         FcitxInstanceSetContext(libpinyin->owner->owner, CONTEXT_ALTERNATIVE_NEXTPAGE_KEY, libpinyin->owner->config.hkNextPage);
@@ -748,7 +749,7 @@ void* FcitxLibpinyinCreate (FcitxInstance* instance)
         fclose(fp);
     FcitxXDGGetFileUserWithPrefix("libpinyin", "data", NULL, &user_path);
     FcitxLog(INFO, "Libpinyin storage path %s", user_path);
-    libpinyinaddon->context = pinyin_init(LIBPINYIN_PKGDATADIR "/data", user_path);
+    libpinyinaddon->context = pinyin_init( LIBPINYIN_PKGDATADIR, user_path);
     libpinyinaddon->pinyin = FcitxLibpinyinNew(libpinyinaddon, LPT_Pinyin);
     libpinyinaddon->shuangpin = FcitxLibpinyinNew(libpinyinaddon, LPT_Shuangpin);
     libpinyinaddon->zhuyin = FcitxLibpinyinNew(libpinyinaddon, LPT_Zhuyin);
