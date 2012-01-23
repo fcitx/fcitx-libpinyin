@@ -1,9 +1,6 @@
 *~
 build/*
-data/pinyin.tar.gz
-data/pinyin.tar.gz.md5
-data/table/table.tar.gz
-data/table/table.tar.gz.md5
+data/model.text.tar.gz
 *.kdev4
 tools/pybase.mb
 tools/pyphrase.mb

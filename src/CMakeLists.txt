@@ -2,11 +2,12 @@ find_package(PkgConfig REQUIRED)
 
 include_directories (
     ${PROJECT_BINARY_DIR}
-    ${LIBPINYIN_INCLUDE_DIRS}
+    ${LIBPINYIN_INCLUDE_DIR}
     ${FCITX4_FCITX_UTILS_INCLUDE_DIRS}
     ${FCITX4_FCITX_CONFIG_INCLUDE_DIRS}
     ${FCITX4_FCITX_INCLUDE_DIRS}
     ${LIBINTL_INCLUDE_DIR}
+    ${GLIB2_INCLUDE_DIR}
     )
 
 link_directories (${LIBPINYIN_LIBRARY_DIRS})
@@ -24,4 +25,5 @@ fcitx_add_addon(fcitx-libpinyin ${fcitx_libpinyin_sources} )
 target_link_libraries (fcitx-libpinyin
                        ${LIBPINYIN_LIBRARIES}
                        ${LIBINTL_LIBRARIES}
+                       ${GLIB2_LIBRARIES}
                        )

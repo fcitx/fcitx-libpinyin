@@ -7,9 +7,10 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 FIND_PACKAGE(Libintl REQUIRED)
 FIND_PACKAGE(Gettext REQUIRED)
 FIND_PACKAGE(Fcitx 4.2.0 REQUIRED)
-
-PKG_CHECK_MODULES(LIBPINYIN REQUIRED "libpinyin >= 0.4.92" )
-_pkgconfig_invoke("libpinyin" LIBPINYIN PKGDATADIR "" "--variable=pkgdatadir")
+find_package(GLIB2 REQUIRED)
+find_package(Libpinyin REQUIRED)
+find_program(WGET wget REQUIRED)
+find_program(TAR tar REQUIRED)
 
 # uninstall target
 configure_file(
@@ -29,9 +30,10 @@ if(NOT DEFINED LIB_INSTALL_DIR)
     set(LIB_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/lib)
 endif()
 
-configure_file(config.h.in config.h)
-
+set(FCITX_LIBPINYIN_ZHUYIN_DATADIR "${FCITX4_PREFIX}/share/fcitx/libpinyin/zhuyin_data")
 set(libdir ${LIB_INSTALL_DIR})
+
+configure_file(config.h.in config.h)
 
 add_subdirectory(src)
 add_subdirectory(data)
