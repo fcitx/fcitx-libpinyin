@@ -96,7 +96,7 @@ const char*
 get_middle_string (ChewingKey* key)
 {
     guint16 middle = key->m_middle;
-    return __pinyin_finals [middle].latin;
+    return __pinyin_middles [middle].latin;
 }
 
 const char*
