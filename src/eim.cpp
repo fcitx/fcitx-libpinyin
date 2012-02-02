@@ -150,7 +150,8 @@ void FcitxLibpinyinReset (void* arg)
     libpinyin->cursor_pos = 0;
     if (libpinyin->fixed_string->len > 0)
         g_array_remove_range(libpinyin->fixed_string, 0, libpinyin->fixed_string->len);
-    pinyin_reset(libpinyin->inst);
+    if (libpinyin->inst)
+        pinyin_reset(libpinyin->inst);
 }
 
 size_t FcitxLibpinyinParse(FcitxLibpinyin* libpinyin, const char* str)
@@ -324,6 +325,43 @@ INPUT_RETURN_VALUE FcitxLibpinyinDoInput(void* arg, FcitxKeySym sym, unsigned in
     return IRV_TO_PROCESS;
 }
 
+void FcitxLibpinyinLoad(FcitxLibpinyin* libpinyin)
+{
+    if (libpinyin->inst != NULL)
+        return;
+    
+    FcitxLibpinyinAddonInstance* libpinyinaddon = libpinyin->owner;
+    
+    if (libpinyin->type == LPT_Zhuyin && libpinyin->owner->zhuyin_context == NULL) {
+        char* user_path = NULL;
+        FILE* fp = FcitxXDGGetFileUserWithPrefix("libpinyin", "zhuyin_data/.place_holder", "w", NULL);
+        if (fp)
+            fclose(fp);
+        FcitxXDGGetFileUserWithPrefix("libpinyin", "zhuyin_data", NULL, &user_path);
+        FcitxLog(INFO, "Libpinyin Zhuyin storage path %s", user_path);
+        libpinyinaddon->zhuyin_context = pinyin_init( FCITX_LIBPINYIN_ZHUYIN_DATADIR, user_path);
+        free(user_path);
+    }
+    
+    if (libpinyin->type != LPT_Zhuyin && libpinyin->owner->pinyin_context == NULL) {
+        char* user_path = NULL;
+        FILE* fp = FcitxXDGGetFileUserWithPrefix("libpinyin", "data/.place_holder", "w", NULL);
+        if (fp)
+            fclose(fp);
+        FcitxXDGGetFileUserWithPrefix("libpinyin", "data", NULL, &user_path);
+        FcitxLog(INFO, "Libpinyin storage path %s", user_path);
+        libpinyinaddon->pinyin_context = pinyin_init( LIBPINYIN_PKGDATADIR "/data", user_path);
+        free(user_path);
+    }
+    
+    if (libpinyin->type == LPT_Zhuyin)
+        libpinyin->inst = pinyin_alloc_instance(libpinyinaddon->zhuyin_context);
+    else
+        libpinyin->inst = pinyin_alloc_instance(libpinyinaddon->pinyin_context);
+    
+    ConfigLibpinyin(libpinyinaddon);
+}
+
 boolean FcitxLibpinyinInit(void* arg)
 {
     FcitxLibpinyin* libpinyin = (FcitxLibpinyin*) arg;
@@ -332,6 +370,8 @@ boolean FcitxLibpinyinInit(void* arg)
         FcitxInstanceSetContext(libpinyin->owner->owner, CONTEXT_ALTERNATIVE_PREVPAGE_KEY, libpinyin->owner->config.hkPrevPage);
         FcitxInstanceSetContext(libpinyin->owner->owner, CONTEXT_ALTERNATIVE_NEXTPAGE_KEY, libpinyin->owner->config.hkNextPage);
     }
+    
+    FcitxLibpinyinLoad(libpinyin);
     
     return true;
 }
@@ -697,10 +737,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWord (void* arg, FcitxCandidateWord* can
 FcitxLibpinyin* FcitxLibpinyinNew(FcitxLibpinyinAddonInstance* libpinyinaddon, LIBPINYIN_TYPE type)
 {
     FcitxLibpinyin* libpinyin = (FcitxLibpinyin*) fcitx_utils_malloc0(sizeof(FcitxLibpinyin));
-    if (type == LPT_Zhuyin)
-        libpinyin->inst = pinyin_alloc_instance(libpinyinaddon->zhuyin_context);
-    else
-        libpinyin->inst = pinyin_alloc_instance(libpinyinaddon->pinyin_context);
+    libpinyin->inst = NULL;
     libpinyin->fixed_string = g_array_new(FALSE, FALSE, sizeof(FcitxLibpinyinFixed));
     libpinyin->type = type;
     libpinyin->owner = libpinyinaddon;
@@ -709,7 +746,8 @@ FcitxLibpinyin* FcitxLibpinyinNew(FcitxLibpinyinAddonInstance* libpinyinaddon, L
 
 void FcitxLibpinyinDelete(FcitxLibpinyin* libpinyin)
 {
-    pinyin_free_instance(libpinyin->inst);
+    if (libpinyin->inst)
+        pinyin_free_instance(libpinyin->inst);
     g_array_free(libpinyin->fixed_string, TRUE);
 }
 
@@ -731,23 +769,6 @@ void* FcitxLibpinyinCreate (FcitxInstance* instance)
         free(libpinyinaddon);
         return NULL;
     }
-    
-    char* user_path = NULL;
-    FILE* fp = FcitxXDGGetFileUserWithPrefix("libpinyin", "data/.place_holder", "w", NULL);
-    if (fp)
-        fclose(fp);
-    FcitxXDGGetFileUserWithPrefix("libpinyin", "data", NULL, &user_path);
-    FcitxLog(INFO, "Libpinyin storage path %s", user_path);
-    libpinyinaddon->pinyin_context = pinyin_init( LIBPINYIN_PKGDATADIR "/data", user_path);
-    free(user_path);
-    
-    fp = FcitxXDGGetFileUserWithPrefix("libpinyin", "zhuyin_data/.place_holder", "w", NULL);
-    if (fp)
-        fclose(fp);
-    FcitxXDGGetFileUserWithPrefix("libpinyin", "zhuyin_data", NULL, &user_path);
-    FcitxLog(INFO, "Libpinyin Zhuyin storage path %s", user_path);
-    libpinyinaddon->zhuyin_context = pinyin_init( FCITX_LIBPINYIN_ZHUYIN_DATADIR, user_path);
-    free(user_path);
     
     libpinyinaddon->pinyin = FcitxLibpinyinNew(libpinyinaddon, LPT_Pinyin);
     libpinyinaddon->shuangpin = FcitxLibpinyinNew(libpinyinaddon, LPT_Shuangpin);
@@ -821,8 +842,10 @@ void FcitxLibpinyinDestroy (void* arg)
     FcitxLibpinyinDelete(libpinyin->pinyin);
     FcitxLibpinyinDelete(libpinyin->zhuyin);
     FcitxLibpinyinDelete(libpinyin->shuangpin);
-    pinyin_fini(libpinyin->pinyin_context);
-    pinyin_fini(libpinyin->zhuyin_context);
+    if (libpinyin->pinyin_context)
+        pinyin_fini(libpinyin->pinyin_context);
+    if (libpinyin->zhuyin_context)
+        pinyin_fini(libpinyin->zhuyin_context);
 }
 
 /**
@@ -856,8 +879,10 @@ boolean LoadLibpinyinConfig(FcitxLibpinyinConfig* fs)
 void ConfigLibpinyin(FcitxLibpinyinAddonInstance* libpinyinaddon)
 {
     FcitxLibpinyinConfig *config = &libpinyinaddon->config;
-    pinyin_set_chewing_scheme(libpinyinaddon->zhuyin_context, FcitxLibpinyinTransZhuyinLayout(config->zhuyinLayout));
-    pinyin_set_double_pinyin_scheme(libpinyinaddon->pinyin_context, FcitxLibpinyinTransShuangpinScheme(config->spScheme));
+    if (libpinyinaddon->zhuyin_context)
+        pinyin_set_chewing_scheme(libpinyinaddon->zhuyin_context, FcitxLibpinyinTransZhuyinLayout(config->zhuyinLayout));
+    if (libpinyinaddon->pinyin_context)
+        pinyin_set_double_pinyin_scheme(libpinyinaddon->pinyin_context, FcitxLibpinyinTransShuangpinScheme(config->spScheme));
     pinyin::pinyin_option_t settings = 0;
     for (int i = 0; i <= FCITX_CR_LAST; i ++) {
         if (config->cr[i])
@@ -881,8 +906,10 @@ void ConfigLibpinyin(FcitxLibpinyinAddonInstance* libpinyinaddon)
     }
     settings |= IS_PINYIN;
     settings |= IS_CHEWING;
-    pinyin_set_options(libpinyinaddon->pinyin_context, settings);
-    pinyin_set_options(libpinyinaddon->zhuyin_context, settings);
+    if (libpinyinaddon->pinyin_context)
+        pinyin_set_options(libpinyinaddon->pinyin_context, settings);
+    if (libpinyinaddon->zhuyin_context)
+        pinyin_set_options(libpinyinaddon->zhuyin_context, settings);
 }
 
 __EXPORT_API void ReloadConfigFcitxLibpinyin(void* arg)
@@ -910,8 +937,10 @@ void SaveLibpinyinConfig(FcitxLibpinyinConfig* fs)
 void FcitxLibpinyinSave(void* arg)
 {
     FcitxLibpinyin* libpinyin = (FcitxLibpinyin*) arg;
-    pinyin_save(libpinyin->owner->zhuyin_context);
-    pinyin_save(libpinyin->owner->pinyin_context);
+    if (libpinyin->owner->zhuyin_context)
+        pinyin_save(libpinyin->owner->zhuyin_context);
+    if (libpinyin->owner->pinyin_context)
+        pinyin_save(libpinyin->owner->pinyin_context);
 }
 
 
