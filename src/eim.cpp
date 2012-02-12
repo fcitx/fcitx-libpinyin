@@ -100,6 +100,14 @@ static const char *tone_keys [] = {
      0
 };
 
+static const FcitxKeyState candidateModifierMap[] = {
+    FcitxKeyState_Ctrl,
+    FcitxKeyState_Alt,
+    FcitxKeyState_Shift,
+};
+
+
+
 bool LibpinyinCheckZhuyinKey(FcitxKeySym sym, FCITX_ZHUYIN_LAYOUT layout, boolean useTone) {
     char key = sym & 0xff;
     const char* keys = input_keys[layout];
@@ -565,8 +573,10 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
     FcitxInputStateSetShowCursor(input, true);
     FcitxInputStateSetClientCursorPos(input, 0);
     
-    if (libpinyin->type == LPT_Zhuyin)
-        FcitxCandidateWordSetChooseAndModifier(candList, "1234567890", FcitxKeyState_Alt);
+    if (libpinyin->type == LPT_Zhuyin) {
+        FcitxKeyState state = candidateModifierMap[pyConfig->candidateModifiers];
+        FcitxCandidateWordSetChooseAndModifier(candList, "1234567890", state);
+    }
     else
         FcitxCandidateWordSetChoose(candList, "1234567890");
     

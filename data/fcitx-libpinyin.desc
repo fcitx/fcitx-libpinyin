@@ -23,6 +23,15 @@ Enum3=ET
 EnumCount=4
 DefaultValue=Standard
 
+[Zhuyin/CandidateModifiers]
+Description=Zhuyin candidate choosing modifiers
+Type=Enum
+Enum0=Ctrl
+Enum1=Alt
+Enum2=Shift
+EnumCount=3
+DefaultValue=Alt
+
 [Zhuyin/PrevPage]
 Description=Zhuyin Prev Page
 Type=Hotkey

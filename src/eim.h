@@ -86,11 +86,18 @@ enum FCITX_AMBIGUITY {
     FCITX_AMB_LAST = FCITX_AMB_InIng
 };
 
+enum FCITX_ZHUYIN_MODIFIERS {
+    FZM_Ctrl = 0,
+    FZM_Alt = 1,
+    FZM_Shift = 2,
+};
+
 struct FcitxLibpinyinConfig
 {
     FcitxGenericConfig gconfig;
     FCITX_ZHUYIN_LAYOUT zhuyinLayout;
     FCITX_SHUANGPIN_SCHEME spScheme;
+    FCITX_ZHUYIN_MODIFIERS candidateModifiers;
     boolean amb[FCITX_AMB_LAST + 1];
     boolean cr[FCITX_CR_LAST + 1];
     boolean incomplete;

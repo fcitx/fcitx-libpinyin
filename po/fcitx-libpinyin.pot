@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-04 12:41+0800\n"
+"POT-Creation-Date: 2012-02-12 17:18+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,86 +34,90 @@ msgid "Zhuyin Layout"
 msgstr ""
 
 #: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:27
+msgid "Zhuyin candidate choosing modifiers"
+msgstr ""
+
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:36
 msgid "Zhuyin Prev Page"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:32
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:41
 msgid "Zhuyin Next Page"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:37
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:46
 msgid "Shuangpin Scheme"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:49
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:58
 msgid "V -> U"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:54
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:63
 msgid "GN -> NG"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:59
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:68
 msgid "MG -> NG"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:64
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:73
 msgid "IOU -> IU"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:69
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:78
 msgid "UEI -> UI"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:74
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:83
 msgid "UEN -> UN"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:79
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:88
 msgid "UE -> VE"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:84
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:93
 msgid "ON -> ONG"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:89
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:98
 msgid "Ci <-> Chi"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:94
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:103
 msgid "Zi <-> Zhi"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:99
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:108
 msgid "Si <-> Shi"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:104
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:113
 msgid "Ne <-> Le"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:109
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:118
 msgid "Fo <-> He"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:114
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:123
 msgid "Le <-> Ri"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:119
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:128
 msgid "Ge <-> Ke"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:124
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:133
 msgid "An <-> Ang"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:129
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:138
 msgid "En <-> Eng"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:134
+#: /home/saber/Develop/fcitx-libpinyin/data/fcitx-libpinyin.desc:143
 msgid "In <-> Ing"
 msgstr ""
 
@@ -142,6 +146,14 @@ msgid "ABC"
 msgstr ""
 
 #: unknown
+msgid "Alt"
+msgstr ""
+
+#: unknown
+msgid "Ctrl"
+msgstr ""
+
+#: unknown
 msgid "ET"
 msgstr ""
 
@@ -159,6 +171,10 @@ msgstr ""
 
 #: unknown
 msgid "PinyinJiaJia"
+msgstr ""
+
+#: unknown
+msgid "Shift"
 msgstr ""
 
 #: unknown
@@ -186,16 +202,16 @@ msgid "LibPinyin Wrapper For Fcitx"
 msgstr ""
 
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/pinyin-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:749
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:792
 msgid "Pinyin (LibPinyin)"
 msgstr ""
 
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/shuangpin-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:766
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:809
 msgid "Shuangpin (LibPinyin)"
 msgstr ""
 
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/zhuyin-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:783
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:826
 msgid "Bopomofo (LibPinyin)"
 msgstr ""
