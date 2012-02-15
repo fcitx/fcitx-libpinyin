@@ -3,6 +3,11 @@ Description=Use Incomplete pinyin
 Type=Boolean
 DefaultValue=True
 
+[Pinyin/UseTraditionalChineseData]
+Description=Use Traditional Chinese Data for Pinyin and Shuangpin (Need Restart)
+Type=Boolean
+DefaultValue=False
+
 [Zhuyin/UseTone]
 Description=Use Tone
 Type=Boolean
@@ -41,6 +46,11 @@ DefaultValue=PGUP UP
 Description=Zhuyin Next Page
 Type=Hotkey
 DefaultValue=PGDN DOWN
+
+[Zhuyin/UseSimplifiedChineseData]
+Description=Use Simplified Chinese Data for Zhuyin (Need Restart)
+Type=Boolean
+DefaultValue=False
 
 [Shuangpin/Scheme]
 Description=Shuangpin Scheme

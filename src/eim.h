@@ -102,6 +102,8 @@ struct FcitxLibpinyinConfig
     boolean cr[FCITX_CR_LAST + 1];
     boolean incomplete;
     boolean chewingIncomplete;
+    boolean bTraditionalDataForPinyin;
+    boolean bSimplifiedDataForZhuyin;
     boolean useTone;
     FcitxHotkey hkPrevPage[2];
     FcitxHotkey hkNextPage[2];
@@ -122,6 +124,11 @@ enum LIBPINYIN_TYPE {
     LPT_Pinyin,
     LPT_Zhuyin,
     LPT_Shuangpin
+};
+
+enum LIBPINYIN_LANGUAGE_TYPE {
+    LPLT_Simplified,
+    LPLT_Traditional
 };
 
 struct _FcitxLibpinyin;

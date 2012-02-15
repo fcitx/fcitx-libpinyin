@@ -333,6 +333,56 @@ INPUT_RETURN_VALUE FcitxLibpinyinDoInput(void* arg, FcitxKeySym sym, unsigned in
     return IRV_TO_PROCESS;
 }
 
+char* FcitxLibpinyinGetSysPath(LIBPINYIN_LANGUAGE_TYPE type)
+{
+    char* syspath = NULL;
+    if (type == LPLT_Simplified) {
+#if FCITX_CHECK_VERSION(4,2,1)
+        /* portable detect here */
+        if (getenv("FCITXDIR")) {
+            syspath = fcitx_utils_get_fcitx_path_with_filename("datadir", "libpinyin/data");
+        }
+        else
+#endif
+        {
+            syspath = strdup(LIBPINYIN_PKGDATADIR "/data");
+        }
+    }
+    else {
+#if FCITX_CHECK_VERSION(4,2,1)
+        /* portable detect here */
+        if (getenv("FCITXDIR")) {
+            syspath = fcitx_utils_get_fcitx_path_with_filename("pkgdatadir", "libpinyin/zhuyin_data");
+        }
+        else
+#endif
+        {
+            syspath = strdup(FCITX_LIBPINYIN_ZHUYIN_DATADIR);
+        }
+    }
+    return syspath;
+}
+
+
+char* FcitxLibpinyinGetUserPath(LIBPINYIN_LANGUAGE_TYPE type)
+{
+    char* user_path = NULL;
+    if (type == LPLT_Simplified) {
+        FILE* fp = FcitxXDGGetFileUserWithPrefix("libpinyin", "data/.place_holder", "w", NULL);
+        if (fp)
+            fclose(fp);
+        FcitxXDGGetFileUserWithPrefix("libpinyin", "data", NULL, &user_path);
+        FcitxLog(INFO, "Libpinyin storage path %s", user_path);
+    }
+    else {
+        FILE* fp = FcitxXDGGetFileUserWithPrefix("libpinyin", "zhuyin_data/.place_holder", "w", NULL);
+        if (fp)
+            fclose(fp);
+        FcitxXDGGetFileUserWithPrefix("libpinyin", "zhuyin_data", NULL, &user_path);
+    }
+    return user_path;
+}
+
 void FcitxLibpinyinLoad(FcitxLibpinyin* libpinyin)
 {
     if (libpinyin->inst != NULL)
@@ -341,25 +391,19 @@ void FcitxLibpinyinLoad(FcitxLibpinyin* libpinyin)
     FcitxLibpinyinAddonInstance* libpinyinaddon = libpinyin->owner;
     
     if (libpinyin->type == LPT_Zhuyin && libpinyin->owner->zhuyin_context == NULL) {
-        char* user_path = NULL;
-        FILE* fp = FcitxXDGGetFileUserWithPrefix("libpinyin", "zhuyin_data/.place_holder", "w", NULL);
-        if (fp)
-            fclose(fp);
-        FcitxXDGGetFileUserWithPrefix("libpinyin", "zhuyin_data", NULL, &user_path);
-        FcitxLog(INFO, "Libpinyin Zhuyin storage path %s", user_path);
-        libpinyinaddon->zhuyin_context = pinyin_init( FCITX_LIBPINYIN_ZHUYIN_DATADIR, user_path);
+        char* user_path = FcitxLibpinyinGetUserPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified );
+        char* syspath = FcitxLibpinyinGetSysPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified );
+        libpinyinaddon->zhuyin_context = pinyin_init( syspath, user_path);
         free(user_path);
+        free(syspath);
     }
     
     if (libpinyin->type != LPT_Zhuyin && libpinyin->owner->pinyin_context == NULL) {
-        char* user_path = NULL;
-        FILE* fp = FcitxXDGGetFileUserWithPrefix("libpinyin", "data/.place_holder", "w", NULL);
-        if (fp)
-            fclose(fp);
-        FcitxXDGGetFileUserWithPrefix("libpinyin", "data", NULL, &user_path);
-        FcitxLog(INFO, "Libpinyin storage path %s", user_path);
-        libpinyinaddon->pinyin_context = pinyin_init( LIBPINYIN_PKGDATADIR "/data", user_path);
+        char* user_path = FcitxLibpinyinGetUserPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional );
+        char* syspath = FcitxLibpinyinGetSysPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional );
+        libpinyinaddon->pinyin_context = pinyin_init(syspath, user_path);
         free(user_path);
+        free(syspath);
     }
     
     if (libpinyin->type == LPT_Zhuyin)
@@ -800,7 +844,7 @@ void* FcitxLibpinyinCreate (FcitxInstance* instance)
                     ReloadConfigFcitxLibpinyin,
                     NULL,
                     5,
-                    "zh_CN"
+                    libpinyinaddon->config.bTraditionalDataForPinyin ? "zh_TW" : "zh_CN"
                    );
     
     FcitxInstanceRegisterIM(instance,
@@ -817,7 +861,7 @@ void* FcitxLibpinyinCreate (FcitxInstance* instance)
                     ReloadConfigFcitxLibpinyin,
                     NULL,
                     5,
-                    "zh_CN"
+                    libpinyinaddon->config.bTraditionalDataForPinyin ? "zh_TW" : "zh_CN"
                    );
     
     FcitxInstanceRegisterIM(instance,
@@ -834,7 +878,7 @@ void* FcitxLibpinyinCreate (FcitxInstance* instance)
                     ReloadConfigFcitxLibpinyin,
                     NULL,
                     5,
-                    "zh_TW"
+                    libpinyinaddon->config.bSimplifiedDataForZhuyin ? "zh_CN" : "zh_TW"
                    );
 
     return libpinyinaddon;
