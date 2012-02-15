@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 03:44+0800\n"
+"POT-Creation-Date: 2012-02-16 03:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -210,16 +210,16 @@ msgid "LibPinyin Wrapper For Fcitx"
 msgstr ""
 
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/pinyin-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:828
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:836
 msgid "Pinyin (LibPinyin)"
 msgstr ""
 
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/shuangpin-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:845
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:853
 msgid "Shuangpin (LibPinyin)"
 msgstr ""
 
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/zhuyin-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:862
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:870
 msgid "Bopomofo (LibPinyin)"
 msgstr ""

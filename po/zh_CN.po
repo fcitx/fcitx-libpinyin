@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 03:44+0800\n"
+"POT-Creation-Date: 2012-02-16 03:55+0800\n"
 "PO-Revision-Date: 2012-02-16 03:44+0800\n"
 "Last-Translator: Weng Xuetian <wengxt@gmail.com>\n"
 "Language-Team: Chinese Simplified <fcitx-dev@googlegroups.com>\n"
@@ -35,7 +35,7 @@ msgid "An <-> Ang"
 msgstr "An <-> Ang"
 
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/zhuyin-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:862
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:870
 msgid "Bopomofo (LibPinyin)"
 msgstr "注音 (LibPinyin)"
 
@@ -120,7 +120,7 @@ msgid "Pinyin"
 msgstr "拼音"
 
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/pinyin-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:828
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:836
 msgid "Pinyin (LibPinyin)"
 msgstr "拼音 (LibPinyin)"
 
@@ -137,7 +137,7 @@ msgid "Shuangpin"
 msgstr "双拼"
 
 #: /home/saber/Develop/fcitx-libpinyin/build/po/tmp/shuangpin-libpinyin.conf.in.h:1
-#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:845
+#: /home/saber/Develop/fcitx-libpinyin/build/po/../..//src/eim.cpp:853
 msgid "Shuangpin (LibPinyin)"
 msgstr "双拼 (LibPinyin)"
 
