@@ -6,7 +6,7 @@ DefaultValue=True
 [Zhuyin/UseTone]
 Description=Use Tone
 Type=Boolean
-DefaultValue=False
+DefaultValue=True
 
 [Zhuyin/Incomplete]
 Description=Use Incomplete Zhuyin
