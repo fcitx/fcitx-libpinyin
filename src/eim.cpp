@@ -391,16 +391,16 @@ void FcitxLibpinyinLoad(FcitxLibpinyin* libpinyin)
     FcitxLibpinyinAddonInstance* libpinyinaddon = libpinyin->owner;
     
     if (libpinyin->type == LPT_Zhuyin && libpinyin->owner->zhuyin_context == NULL) {
-        char* user_path = FcitxLibpinyinGetUserPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified );
-        char* syspath = FcitxLibpinyinGetSysPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified );
+        char* user_path = FcitxLibpinyinGetUserPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional );
+        char* syspath = FcitxLibpinyinGetSysPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional );
         libpinyinaddon->zhuyin_context = pinyin_init( syspath, user_path);
         free(user_path);
         free(syspath);
     }
     
     if (libpinyin->type != LPT_Zhuyin && libpinyin->owner->pinyin_context == NULL) {
-        char* user_path = FcitxLibpinyinGetUserPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional );
-        char* syspath = FcitxLibpinyinGetSysPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional );
+        char* user_path = FcitxLibpinyinGetUserPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified );
+        char* syspath = FcitxLibpinyinGetSysPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified );
         libpinyinaddon->pinyin_context = pinyin_init(syspath, user_path);
         free(user_path);
         free(syspath);
@@ -498,7 +498,7 @@ void FcitxLibpinyinUpdatePreedit(FcitxLibpinyin* libpinyin, char* sentence)
                 if (pykeypos->length() == 2) {
                     const char* initial = 0;
                     if (pykey->m_initial == CHEWING_ZERO_INITIAL)
-                        initial = "*";
+                        initial = "'";
                     else
                         initial = get_initial_string(pykey);
                     if (curoffset + 1 <= libpinyin->cursor_pos) {
