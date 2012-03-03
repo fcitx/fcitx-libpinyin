@@ -106,7 +106,10 @@ static const FcitxKeyState candidateModifierMap[] = {
     FcitxKeyState_Shift,
 };
 
-
+static const FcitxHotkey FCITX_LIBPINYIN_SHIFT_ENTER[2] = {
+    {NULL, FcitxKey_Return, FcitxKeyState_Shift},
+    {NULL, FcitxKey_None, FcitxKeyState_None}
+};
 
 bool LibpinyinCheckZhuyinKey(FcitxKeySym sym, FCITX_ZHUYIN_LAYOUT layout, boolean useTone) {
     char key = sym & 0xff;
@@ -228,14 +231,26 @@ INPUT_RETURN_VALUE FcitxLibpinyinDoInput(void* arg, FcitxKeySym sym, unsigned in
             else
                 return IRV_DO_NOTHING;
         }
-        else if (FcitxHotkeyIsHotKey(sym, state, FCITX_SPACE))
-        {
-            size_t len = strlen(libpinyin->buf);
-            if (len == 0)
-                return IRV_TO_PROCESS;
+    }
+    
+    if (FcitxHotkeyIsHotKey(sym, state, FCITX_SPACE)
+        || (libpinyin->type == LPT_Zhuyin && FcitxHotkeyIsHotKey(sym, state, FCITX_ENTER)))
+    {
+        size_t len = strlen(libpinyin->buf);
+        if (len == 0)
+            return IRV_TO_PROCESS;
 
-            return FcitxCandidateWordChooseByIndex(FcitxInputStateGetCandidateList(input), 0);
-        }
+        return FcitxCandidateWordChooseByIndex(FcitxInputStateGetCandidateList(input), 0);
+    }
+    
+    if (FcitxHotkeyIsHotKey(sym, state, FCITX_LIBPINYIN_SHIFT_ENTER)) {
+        size_t len = strlen(libpinyin->buf);
+        if (len == 0)
+            return IRV_TO_PROCESS;
+        
+        strcpy(FcitxInputStateGetOutputString(input), libpinyin->buf);
+
+        return IRV_COMMIT_STRING;
     }
     
     if (FcitxHotkeyIsHotKey(sym, state, FCITX_BACKSPACE) || FcitxHotkeyIsHotKey(sym, state, FCITX_DELETE))
