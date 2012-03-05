@@ -928,7 +928,7 @@ boolean LoadLibpinyinConfig(FcitxLibpinyinConfig* fs)
     if (!configDesc)
         return false;
 
-    FILE *fp = FcitxXDGGetFileUserWithPrefix("conf", "fcitx-libpinyin.config", "rt", NULL);
+    FILE *fp = FcitxXDGGetFileUserWithPrefix("conf", "fcitx-libpinyin.config", "r", NULL);
 
     if (!fp)
     {
@@ -997,7 +997,7 @@ __EXPORT_API void ReloadConfigFcitxLibpinyin(void* arg)
 void SaveLibpinyinConfig(FcitxLibpinyinConfig* fs)
 {
     FcitxConfigFileDesc *configDesc = GetLibpinyinConfigDesc();
-    FILE *fp = FcitxXDGGetFileUserWithPrefix("conf", "fcitx-libpinyin.config", "wt", NULL);
+    FILE *fp = FcitxXDGGetFileUserWithPrefix("conf", "fcitx-libpinyin.config", "w", NULL);
     FcitxConfigSaveConfigFileFp(fp, &fs->gconfig, configDesc);
     if (fp)
         fclose(fp);
