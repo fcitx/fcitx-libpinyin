@@ -36,7 +36,7 @@ find_program(LIBPINYIN_GEN_UNIGRAM gen_unigram HINTS "${LIBPINYIN_EXECPREFIX}/bi
 find_program(LIBPINYIN_IMPORT_INTERPOLATION import_interpolation HINTS "${LIBPINYIN_EXECPREFIX}/bin")
 
 include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(LIBPINYIN  DEFAULT_MSG 
+find_package_handle_standard_args(Libpinyin  DEFAULT_MSG 
                                   LIBPINYIN_LIBRARIES
                                   LIBPINYIN_MAIN_INCLUDE_DIR
                                   LIBPINYIN_PKGDATADIR
