@@ -64,12 +64,12 @@ extern "C" {
 typedef struct _FcitxLibpinyinCandWord {
     boolean issentence;
     boolean ispunc;
-    phrase_token_t token;
+    lookup_candidate_t token;
 } FcitxLibpinyinCandWord;
 
 typedef struct _FcitxLibpinyinFixed {
     int len;
-    phrase_token_t token;
+    lookup_candidate_t token;
 } FcitxLibpinyinFixed;
 
 CONFIG_DESC_DEFINE(GetLibpinyinConfigDesc, "fcitx-libpinyin.desc")
@@ -82,7 +82,7 @@ static void FcitxLibpinyinSave(void *arg);
 static bool LibpinyinCheckZhuyinKey(FcitxKeySym sym, FCITX_ZHUYIN_LAYOUT layout, boolean useTone) ;
 inline char* LibPinyinTransString(FcitxLibpinyin* libpinyin, char* sentence);
 char* LibpinyinGetSentence(FcitxLibpinyin* libpinyin);
-char* LibpinyinTransToken(FcitxLibpinyin* libpinyin, phrase_token_t token);
+char* LibpinyinTransToken(FcitxLibpinyin* libpinyin, lookup_candidate_t* token);
 
 static const char *input_keys [] = {
      "1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-",       /* standard kb */
@@ -603,10 +603,10 @@ char* LibpinyinGetSentence(FcitxLibpinyin* libpinyin)
     return LibPinyinTransString(libpinyin, sentence);
 }
 
-char* LibpinyinTransToken(FcitxLibpinyin* libpinyin, phrase_token_t token)
+char* LibpinyinTransToken(FcitxLibpinyin* libpinyin, lookup_candidate_t* token)
 {
     char* sentence = NULL;
-    pinyin_translate_token(libpinyin->inst, token, &sentence);
+    pinyin_translate_token(libpinyin->inst, token->m_token, &sentence);
     return LibPinyinTransString(libpinyin, sentence);
 }
 
@@ -639,11 +639,6 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
     else
         FcitxCandidateWordSetChoose(candList, "1234567890");
 
-    char* sentence = NULL;
-
-    pinyin_guess_sentence(libpinyin->inst);
-    sentence = LibpinyinGetSentence(libpinyin);
-
     /* add punc */
     if (libpinyin->type == LPT_Zhuyin
         && strlen(libpinyin->buf) == 1
@@ -662,7 +657,6 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
             FcitxLibpinyinCandWord* pyCand = (FcitxLibpinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinCandWord));
             pyCand->issentence = false;
             pyCand->ispunc = true;
-            pyCand->token = 0;
             candWord.callback = FcitxLibpinyinGetCandWord;
             candWord.extraType = MSG_OTHER;
             candWord.owner = libpinyin;
@@ -674,13 +668,15 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
             FcitxCandidateWordAppend(FcitxInputStateGetCandidateList(input), &candWord);
         }
     }
+    char* sentence = NULL;
 
+    pinyin_guess_sentence(libpinyin->inst);
+    sentence = LibpinyinGetSentence(libpinyin);
     if (sentence) {
         FcitxCandidateWord candWord;
         FcitxLibpinyinCandWord* pyCand = (FcitxLibpinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinCandWord));
         pyCand->issentence = true;
         pyCand->ispunc = false;
-        pyCand->token = 0;
         candWord.callback = FcitxLibpinyinGetCandWord;
         candWord.extraType = MSG_OTHER;
         candWord.owner = libpinyin;
@@ -701,12 +697,12 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
         FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_INPUT, "%s", libpinyin->buf);
     }
 
-    TokenVector array = g_array_new(FALSE, FALSE, sizeof(phrase_token_t));
-    pinyin_get_candidates(libpinyin->inst, LibpinyinGetOffset(libpinyin), array);
+    CandidateVector array = g_array_new(FALSE, FALSE, sizeof(lookup_candidate_t));
+    pinyin_get_full_pinyin_candidates(libpinyin->inst, LibpinyinGetOffset(libpinyin), array);
     int i = 0;
     for (i = 0 ; i < array->len; i ++) {
-        phrase_token_t token = g_array_index(array, phrase_token_t, i);
-        char* tokenstring = LibpinyinTransToken(libpinyin, token);
+        lookup_candidate_t token = g_array_index(array, lookup_candidate_t, i);
+        char* tokenstring = LibpinyinTransToken(libpinyin, &token);
 
         if (tokenstring) {
             if (sentence && strcmp(sentence, tokenstring) == 0)
@@ -766,8 +762,8 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWord (void* arg, FcitxCandidateWord* can
         strcpy(FcitxInputStateGetOutputString(input), candWord->strWord);
         return IRV_COMMIT_STRING;
     } else {
-        pinyin_choose_candidate(libpinyin->inst, LibpinyinGetOffset(libpinyin), pyCand->token);
-        char* tokenstring = LibpinyinTransToken(libpinyin, pyCand->token);
+        pinyin_choose_full_pinyin_candidate(libpinyin->inst, LibpinyinGetOffset(libpinyin), &pyCand->token);
+        char* tokenstring = LibpinyinTransToken(libpinyin, &pyCand->token);
 
         if (tokenstring) {
             FcitxLibpinyinFixed f;
@@ -953,6 +949,8 @@ void ConfigLibpinyin(FcitxLibpinyinAddonInstance* libpinyinaddon)
     if (libpinyinaddon->pinyin_context)
         pinyin_set_double_pinyin_scheme(libpinyinaddon->pinyin_context, FcitxLibpinyinTransShuangpinScheme(config->spScheme));
     pinyin::pinyin_option_t settings = 0;
+    settings |= DYNAMIC_ADJUST;
+    //settings |= USE_DIVIDED_TABLE | USE_RESPLIT_TABLE;
     for (int i = 0; i <= FCITX_CR_LAST; i ++) {
         if (config->cr[i])
             settings |= FcitxLibpinyinTransCorrection((FCITX_CORRECTION) i);
