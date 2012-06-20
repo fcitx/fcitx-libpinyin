@@ -449,6 +449,14 @@ void FcitxLibpinyinUpdatePreedit(FcitxLibpinyin* libpinyin, char* sentence)
     FcitxInputState* input = FcitxInstanceGetInputState(instance);
     int offset = LibpinyinGetOffset(libpinyin);
 
+    int libpinyinLen = strlen(libpinyin->inst->m_raw_full_pinyin);
+    int fcitxLen = strlen(libpinyin->buf);
+    if (fcitxLen != libpinyinLen) {
+        strcpy(libpinyin->buf, libpinyin->inst->m_raw_full_pinyin);
+        libpinyin->cursor_pos += libpinyinLen - fcitxLen;
+    }
+
+
     int pyoffset = LibpinyinGetPinyinOffset(libpinyin);
     if (pyoffset > libpinyin->cursor_pos)
         libpinyin->cursor_pos = pyoffset;
@@ -950,7 +958,7 @@ void ConfigLibpinyin(FcitxLibpinyinAddonInstance* libpinyinaddon)
         pinyin_set_double_pinyin_scheme(libpinyinaddon->pinyin_context, FcitxLibpinyinTransShuangpinScheme(config->spScheme));
     pinyin::pinyin_option_t settings = 0;
     settings |= DYNAMIC_ADJUST;
-    //settings |= USE_DIVIDED_TABLE | USE_RESPLIT_TABLE;
+    settings |= USE_DIVIDED_TABLE | USE_RESPLIT_TABLE;
     for (int i = 0; i <= FCITX_CR_LAST; i ++) {
         if (config->cr[i])
             settings |= FcitxLibpinyinTransCorrection((FCITX_CORRECTION) i);
