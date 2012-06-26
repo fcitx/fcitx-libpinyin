@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 
     string s;
     cin >> s ;
-    pinyin_parse_more_full_pinyins(inst, s.c_str());
+    pinyin_parse_more_double_pinyins(inst, s.c_str());
 
     int cursor = 0;
 
@@ -63,8 +63,8 @@ int main(int argc, char *argv[])
     while (true)
     {
         cout << get_lookup_cursor(inst, cursor) << endl;
-        GArray* array = g_array_new(FALSE, FALSE, sizeof(lookup_candidate_t));
-        pinyin_get_full_pinyin_candidates(inst, get_lookup_cursor(inst, cursor), array);
+        GArray* array = g_array_new(FALSE, FALSE, sizeof(phrase_token_t));
+        pinyin_get_candidates(inst, get_lookup_cursor(inst, cursor), array);
         cout << array->len << endl;
 
         pinyin_guess_sentence(inst);
@@ -79,9 +79,9 @@ int main(int argc, char *argv[])
 
         for (int i = 0 ; i < array->len; i ++ )
         {
-            lookup_candidate_t token = g_array_index(array, lookup_candidate_t, i);
+            phrase_token_t token = g_array_index(array, phrase_token_t, i);
             char* word = NULL;
-            pinyin_translate_token(inst, token.m_token, &word);
+            pinyin_translate_token(inst, token, &word);
             if (word)
                 cout << word << " ";
             g_free(word);
