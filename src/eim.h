@@ -154,6 +154,7 @@ typedef struct _FcitxLibpinyin
     char buf[MAX_USER_INPUT + 1];
     int cursor_pos;
     LIBPINYIN_TYPE type;
+    CandidateVector candidate;
     
     FcitxLibpinyinAddonInstance* owner;
 } FcitxLibpinyin;

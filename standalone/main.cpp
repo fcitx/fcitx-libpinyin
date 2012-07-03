@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
     while (true)
     {
         cout << get_lookup_cursor(inst, cursor) << endl;
-        GArray* array = g_array_new(FALSE, FALSE, sizeof(phrase_token_t));
+        GArray* array = g_array_new(FALSE, FALSE, sizeof(lookup_candidate_t));
         pinyin_get_candidates(inst, get_lookup_cursor(inst, cursor), array);
         cout << array->len << endl;
 
@@ -79,9 +79,9 @@ int main(int argc, char *argv[])
 
         for (int i = 0 ; i < array->len; i ++ )
         {
-            phrase_token_t token = g_array_index(array, phrase_token_t, i);
+            lookup_candidate_t token = g_array_index(array, lookup_candidate_t, i);
             char* word = NULL;
-            pinyin_translate_token(inst, token, &word);
+            pinyin_translate_token(inst, token.m_token, &word);
             if (word)
                 cout << word << " ";
             g_free(word);
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
         cin >> cursor >> cand;
 
         if (cand >= 0)
-            pinyin_choose_candidate(inst, 0, g_array_index(array, phrase_token_t, cand));
+            pinyin_choose_candidate(inst, 0, &g_array_index(array, lookup_candidate_t, cand));
         else if (cand != -1) {
             pinyin_clear_constraints(inst);
         }

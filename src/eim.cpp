@@ -62,10 +62,8 @@ extern "C" {
 #endif
 
 typedef struct _FcitxLibpinyinCandWord {
-    boolean issentence;
     boolean ispunc;
-    lookup_candidate_t cand;
-    phrase_token_t token;
+    int idx;
 } FcitxLibpinyinCandWord;
 
 typedef struct _FcitxLibpinyinFixed {
@@ -80,9 +78,7 @@ static void ConfigLibpinyin(FcitxLibpinyinAddonInstance* libpinyin);
 static int LibpinyinGetOffset(FcitxLibpinyin* libpinyin);
 static void FcitxLibpinyinSave(void *arg);
 static bool LibpinyinCheckZhuyinKey(FcitxKeySym sym, FCITX_ZHUYIN_LAYOUT layout, boolean useTone) ;
-inline char* LibPinyinTransString(FcitxLibpinyin* libpinyin, char* sentence);
 char* LibpinyinGetSentence(FcitxLibpinyin* libpinyin);
-char* LibpinyinTransToken(FcitxLibpinyin* libpinyin, lookup_candidate_t* token);
 
 static const char *input_keys [] = {
      "1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-",       /* standard kb */
@@ -159,6 +155,12 @@ void FcitxLibpinyinReset (void* arg)
     FcitxLibpinyin* libpinyin = (FcitxLibpinyin*) arg;
     libpinyin->buf[0] = '\0';
     libpinyin->cursor_pos = 0;
+
+    if (libpinyin->candidate) {
+        g_array_free(libpinyin->candidate, TRUE);
+        libpinyin->candidate = NULL;
+    }
+
     if (libpinyin->fixed_string->len > 0)
         g_array_remove_range(libpinyin->fixed_string, 0, libpinyin->fixed_string->len);
     if (libpinyin->inst)
@@ -596,27 +598,12 @@ void FcitxLibpinyinUpdatePreedit(FcitxLibpinyin* libpinyin, char* sentence)
     FcitxInputStateSetCursorPos(input, charcurpos);
 }
 
-inline char* LibPinyinTransString(FcitxLibpinyin* libpinyin, char* sentence)
-{
-    if (sentence == NULL)
-        return NULL;
-
-    return sentence;
-}
-
 char* LibpinyinGetSentence(FcitxLibpinyin* libpinyin)
 {
     char* sentence = NULL;
     pinyin_get_sentence(libpinyin->inst, &sentence);
 
-    return LibPinyinTransString(libpinyin, sentence);
-}
-
-char* LibpinyinTransToken(FcitxLibpinyin* libpinyin, lookup_candidate_t* token)
-{
-    char* sentence = NULL;
-    pinyin_translate_token(libpinyin->inst, token->m_token, &sentence);
-    return LibPinyinTransString(libpinyin, sentence);
+    return sentence;
 }
 
 /**
@@ -664,7 +651,6 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
         if (result) {
             FcitxCandidateWord candWord;
             FcitxLibpinyinCandWord* pyCand = (FcitxLibpinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinCandWord));
-            pyCand->issentence = false;
             pyCand->ispunc = true;
             candWord.callback = FcitxLibpinyinGetCandWord;
             candWord.extraType = MSG_OTHER;
@@ -682,23 +668,11 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
     pinyin_guess_sentence(libpinyin->inst);
     sentence = LibpinyinGetSentence(libpinyin);
     if (sentence) {
-        FcitxCandidateWord candWord;
-        FcitxLibpinyinCandWord* pyCand = (FcitxLibpinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinCandWord));
-        pyCand->issentence = true;
-        pyCand->ispunc = false;
-        candWord.callback = FcitxLibpinyinGetCandWord;
-        candWord.extraType = MSG_OTHER;
-        candWord.owner = libpinyin;
-        candWord.priv = pyCand;
-        candWord.strExtra = NULL;
-        candWord.strWord = strdup(sentence);
-        candWord.wordType = MSG_OTHER;
-
-        FcitxCandidateWordAppend(FcitxInputStateGetCandidateList(input), &candWord);
-
         FcitxLibpinyinUpdatePreedit(libpinyin, sentence);
 
         FcitxMessagesAddMessageAtLast(FcitxInputStateGetClientPreedit(input), MSG_INPUT, "%s", sentence);
+
+        g_free(sentence);
     }
     else {
         FcitxInputStateSetCursorPos(input, libpinyin->cursor_pos);
@@ -706,75 +680,28 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
         FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_INPUT, "%s", libpinyin->buf);
     }
 
-    if (libpinyin->type == LPT_Pinyin) {
-        CandidateVector array = g_array_new(FALSE, FALSE, sizeof(lookup_candidate_t));
-        pinyin_get_full_pinyin_candidates(libpinyin->inst, LibpinyinGetOffset(libpinyin), array);
-        int i = 0;
-        for (i = 0 ; i < array->len; i ++) {
-            lookup_candidate_t token = g_array_index(array, lookup_candidate_t, i);
-            char* tokenstring = LibpinyinTransToken(libpinyin, &token);
+    if (libpinyin->candidate)
+        g_array_free(libpinyin->candidate, TRUE);
 
-            if (tokenstring) {
-                if (sentence && strcmp(sentence, tokenstring) == 0)
-                    continue;
+    libpinyin->candidate = g_array_new(FALSE, FALSE, sizeof(lookup_candidate_t));
+    pinyin_get_candidates(libpinyin->inst, LibpinyinGetOffset(libpinyin), libpinyin->candidate);
+    int i = 0;
+    for (i = 0 ; i < libpinyin->candidate->len; i ++) {
+        lookup_candidate_t token = g_array_index(libpinyin->candidate, lookup_candidate_t, i);
+        FcitxCandidateWord candWord;
+        FcitxLibpinyinCandWord* pyCand = (FcitxLibpinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinCandWord));
+        pyCand->ispunc = false;
+        pyCand->idx = i;
+        candWord.callback = FcitxLibpinyinGetCandWord;
+        candWord.extraType = MSG_OTHER;
+        candWord.owner = libpinyin;
+        candWord.priv = pyCand;
+        candWord.strExtra = NULL;
+        candWord.strWord = strdup(token.m_phrase_string);
+        candWord.wordType = MSG_OTHER;
 
-                FcitxCandidateWord candWord;
-                FcitxLibpinyinCandWord* pyCand = (FcitxLibpinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinCandWord));
-                pyCand->issentence = false;
-                pyCand->ispunc = false;
-                pyCand->cand = token;
-                candWord.callback = FcitxLibpinyinGetCandWord;
-                candWord.extraType = MSG_OTHER;
-                candWord.owner = libpinyin;
-                candWord.priv = pyCand;
-                candWord.strExtra = NULL;
-                candWord.strWord = strdup(tokenstring);
-                candWord.wordType = MSG_OTHER;
-
-                FcitxCandidateWordAppend(FcitxInputStateGetCandidateList(input), &candWord);
-            }
-
-            g_free(tokenstring);
-        }
-
-        g_array_free(array, TRUE);
+        FcitxCandidateWordAppend(FcitxInputStateGetCandidateList(input), &candWord);
     }
-    else {
-        TokenVector array = g_array_new(FALSE, FALSE, sizeof(phrase_token_t));
-        pinyin_get_candidates(libpinyin->inst, LibpinyinGetOffset(libpinyin), array);
-        int i = 0;
-        for (i = 0 ; i < array->len; i ++) {
-            phrase_token_t token = g_array_index(array, phrase_token_t, i);
-            char* tokenstring = NULL;
-            pinyin_translate_token(libpinyin->inst, token, &tokenstring);
-
-            if (tokenstring) {
-                if (sentence && strcmp(sentence, tokenstring) == 0)
-                    continue;
-
-                FcitxCandidateWord candWord;
-                FcitxLibpinyinCandWord* pyCand = (FcitxLibpinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinCandWord));
-                pyCand->issentence = false;
-                pyCand->ispunc = false;
-                pyCand->token = token;
-                candWord.callback = FcitxLibpinyinGetCandWord;
-                candWord.extraType = MSG_OTHER;
-                candWord.owner = libpinyin;
-                candWord.priv = pyCand;
-                candWord.strExtra = NULL;
-                candWord.strWord = strdup(tokenstring);
-                candWord.wordType = MSG_OTHER;
-
-                FcitxCandidateWordAppend(FcitxInputStateGetCandidateList(input), &candWord);
-            }
-
-            g_free(tokenstring);
-        }
-
-        g_array_free(array, TRUE);
-    }
-
-    g_free(sentence);
 
     return IRV_DISPLAY_CANDWORDS;
 }
@@ -793,33 +720,18 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWord (void* arg, FcitxCandidateWord* can
     FcitxInstance* instance = libpinyin->owner->owner;
     FcitxInputState* input = FcitxInstanceGetInputState(instance);
 
-    if (pyCand->issentence) {
-        char* sentence = LibpinyinGetSentence(libpinyin);
-        if (sentence) {
-            strcpy(FcitxInputStateGetOutputString(input), sentence);
-            pinyin_train(libpinyin->inst);
-        }
-        else
-            strcpy(FcitxInputStateGetOutputString(input), "");
-
-        return IRV_COMMIT_STRING;
-    } else if (pyCand->ispunc) {
+    if (pyCand->ispunc) {
         strcpy(FcitxInputStateGetOutputString(input), candWord->strWord);
         return IRV_COMMIT_STRING;
     } else {
-        if (libpinyin->type == LPT_Pinyin)
-            pinyin_choose_full_pinyin_candidate(libpinyin->inst, LibpinyinGetOffset(libpinyin), &pyCand->cand);
-        else
-            pinyin_choose_candidate(libpinyin->inst, LibpinyinGetOffset(libpinyin), pyCand->token);
-        char* tokenstring = LibpinyinTransToken(libpinyin, &pyCand->cand);
+        if (!libpinyin->candidate || libpinyin->candidate->len <= pyCand->idx)
+            return IRV_TO_PROCESS;
+        lookup_candidate_t* cand = &g_array_index(libpinyin->candidate, lookup_candidate_t, pyCand->idx);
+        pinyin_choose_candidate(libpinyin->inst, LibpinyinGetOffset(libpinyin), cand);
 
-        if (tokenstring) {
-            FcitxLibpinyinFixed f;
-            f.len = fcitx_utf8_strlen(tokenstring);
-            g_array_append_val(libpinyin->fixed_string, f);
-        }
-
-        g_free(tokenstring);
+        FcitxLibpinyinFixed f;
+        f.len = fcitx_utf8_strlen(cand->m_phrase_string);
+        g_array_append_val(libpinyin->fixed_string, f);
 
         int offset = LibpinyinGetOffset(libpinyin);
         if (offset >= libpinyin->inst->m_pinyin_keys->len)
@@ -829,6 +741,7 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWord (void* arg, FcitxCandidateWord* can
             sentence = LibpinyinGetSentence(libpinyin);
             if (sentence) {
                 strcpy(FcitxInputStateGetOutputString(input), sentence);
+                g_free(sentence);
                 pinyin_train(libpinyin->inst);
             }
             else
