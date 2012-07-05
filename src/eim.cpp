@@ -411,6 +411,7 @@ void FcitxLibpinyinLoad(FcitxLibpinyin* libpinyin)
         char* user_path = FcitxLibpinyinGetUserPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional );
         char* syspath = FcitxLibpinyinGetSysPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional );
         libpinyinaddon->zhuyin_context = pinyin_init( syspath, user_path);
+        pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, 15);
         free(user_path);
         free(syspath);
     }
@@ -419,6 +420,7 @@ void FcitxLibpinyinLoad(FcitxLibpinyin* libpinyin)
         char* user_path = FcitxLibpinyinGetUserPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified );
         char* syspath = FcitxLibpinyinGetSysPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified );
         libpinyinaddon->pinyin_context = pinyin_init(syspath, user_path);
+        pinyin_load_phrase_library(libpinyinaddon->pinyin_context, 15);
         free(user_path);
         free(syspath);
     }
@@ -776,6 +778,29 @@ void FcitxLibpinyinDelete(FcitxLibpinyin* libpinyin)
     g_array_free(libpinyin->fixed_string, TRUE);
 }
 
+void* LibpinyinSavePinyinWord(void* arg, FcitxModuleFunctionArg args)
+{
+#if 0
+    FcitxLibpinyinAddonInstance* libpinyinaddon = (FcitxLibpinyinAddonInstance*) arg;
+    FcitxIM* im = FcitxInstanceGetCurrentIM(libpinyinaddon->owner);
+    pinyin_context_t* context = NULL;
+    if (strcmp(im->uniqueName, "pinyin-libpinyin") == 0 ||
+        strcmp(im->uniqueName, "shuangpin-libpinyin") == 0)
+    {
+        context = libpinyinaddon->pinyin_context;
+    }
+    if (!context)
+        return NULL;
+
+    FcitxLibpinyin* libpinyin = (FcitxLibpinyin*) im->klass;
+    import_iterator_t* iter = pinyin_begin_add_phrases(context, 15);
+    char* hz = (char*) args.args[0];
+    pinyin_iterator_add_phrase(iter, hz, libpinyin->inst->m_raw_full_pinyin, -1);
+    pinyin_end_add_phrases(iter);
+#endif
+    return NULL;
+}
+
 /**
  * @brief initialize the extra input method
  *
@@ -788,6 +813,7 @@ void* FcitxLibpinyinCreate (FcitxInstance* instance)
     FcitxLibpinyinAddonInstance* libpinyinaddon = (FcitxLibpinyinAddonInstance*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinAddonInstance));
     bindtextdomain("fcitx-libpinyin", LOCALEDIR);
     libpinyinaddon->owner = instance;
+    FcitxAddon* addon = FcitxAddonsGetAddonByName(FcitxInstanceGetAddons(instance), "fcitx-libpinyin");
 
     if (!LoadLibpinyinConfig(&libpinyinaddon->config))
     {
@@ -851,6 +877,8 @@ void* FcitxLibpinyinCreate (FcitxInstance* instance)
                     5,
                     libpinyinaddon->config.bSimplifiedDataForZhuyin ? "zh_CN" : "zh_TW"
                    );
+
+    AddFunction(addon, (void*) LibpinyinSavePinyinWord);
 
     return libpinyinaddon;
 }
