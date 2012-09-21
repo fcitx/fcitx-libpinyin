@@ -7,8 +7,9 @@ fcitx_add_inputmethod_conf_file(zhuyin-libpinyin.conf)
 
 install(FILES bopomofo.png RENAME fcitx-bopomofo.png DESTINATION share/icons/hicolor/48x48/status/)
 
-set(ZHUYIN_URL "https://github.com/downloads/fcitx/fcitx-libpinyin/model.text.tar.gz")
-set(ZHUYIN_TAR "${CMAKE_CURRENT_SOURCE_DIR}/model.text.tar.gz")
+set(ZHUYIN_DATA_FILE_NAME model.text.20120921.tar.gz)
+set(ZHUYIN_URL "https://github.com/downloads/fcitx/fcitx-libpinyin/${ZHUYIN_DATA_FILE_NAME}")
+set(ZHUYIN_TAR "${CMAKE_CURRENT_SOURCE_DIR}/${ZHUYIN_DATA_FILE_NAME}")
 set(ZHUYIN_ORGDATA gb_char.table gbk_char.table interpolation.text)
 set(ZHUYIN_DATA bigram.db  gb_char.bin  gbk_char.bin  phrase_index.bin  pinyin_index.bin)
 
