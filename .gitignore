@@ -1,6 +1,6 @@
 *~
 build/*
-data/model.text.tar.gz
+data/model.text*tar.gz
 *.kdev4
 tools/pybase.mb
 tools/pyphrase.mb
