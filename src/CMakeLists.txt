@@ -21,9 +21,8 @@ set( fcitx_libpinyin_sources
 
 add_definitions( -DLOCALEDIR=\"${CMAKE_INSTALL_PREFIX}/share/locale\" )
 
-fcitx_add_addon(fcitx-libpinyin ${fcitx_libpinyin_sources} )
-target_link_libraries (fcitx-libpinyin
-                       ${LIBPINYIN_LIBRARIES}
-                       ${LIBINTL_LIBRARIES}
-                       ${GLIB2_LIBRARIES}
-                       )
+fcitx_add_addon_full(libpinyin DESC
+SOURCES ${fcitx_libpinyin_sources}
+IM_CONFIG pinyin-libpinyin.conf shuangpin-libpinyin.conf zhuyin-libpinyin.conf
+LINK_LIBS ${LIBPINYIN_LIBRARIES} ${LIBINTL_LIBRARIES} ${GLIB2_LIBRARIES}
+)

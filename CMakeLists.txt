@@ -6,7 +6,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 FIND_PACKAGE(Libintl REQUIRED)
 FIND_PACKAGE(Gettext REQUIRED)
-FIND_PACKAGE(Fcitx 4.2.0 REQUIRED)
+FIND_PACKAGE(Fcitx 4.2.7 REQUIRED)
 find_package(GLIB2 REQUIRED)
 find_package(Libpinyin REQUIRED)
 find_program(WGET wget REQUIRED)
@@ -39,8 +39,8 @@ set(libdir ${LIB_INSTALL_DIR})
 
 configure_file(config.h.in config.h)
 
+add_subdirectory(po)
 add_subdirectory(src)
 add_subdirectory(data)
-add_subdirectory(po)
 
 add_subdirectory(standalone)
