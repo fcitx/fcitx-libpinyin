@@ -33,7 +33,7 @@
 #include <fcitx/keys.h>
 #include <fcitx/module.h>
 #include <fcitx/context.h>
-#include <fcitx/module/punc/punc.h>
+#include <fcitx/module/punc/fcitx-punc.h>
 #include <string>
 #include <libintl.h>
 
@@ -646,10 +646,8 @@ INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords(void* arg)
         && !(libpinyin->buf[0] >= 'A' && libpinyin->buf[0] <= 'Z') /* not A-Z /*/
         && !(libpinyin->buf[0] >= '0' && libpinyin->buf[0] <= '9') /* not digit */
     ) {
-        FcitxModuleFunctionArg arg;
         int c = libpinyin->buf[0];
-        arg.args[0] = &c;
-        char* result = InvokeFunction(instance, FCITX_PUNC, GETPUNC, arg);
+        char *result = FcitxPuncGetPunc(instance, &c);
         if (result) {
             FcitxCandidateWord candWord;
             FcitxLibpinyinCandWord* pyCand = (FcitxLibpinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibpinyinCandWord));
@@ -878,7 +876,7 @@ void* FcitxLibpinyinCreate (FcitxInstance* instance)
                     libpinyinaddon->config.bSimplifiedDataForZhuyin ? "zh_CN" : "zh_TW"
                    );
 
-    AddFunction(addon, (void*) LibpinyinSavePinyinWord);
+    FcitxModuleAddFunction(addon, LibpinyinSavePinyinWord);
 
     return libpinyinaddon;
 }

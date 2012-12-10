@@ -1,4 +1,5 @@
-install(FILES bopomofo.png RENAME fcitx-bopomofo.png DESTINATION share/icons/hicolor/48x48/status/)
+install(FILES bopomofo.png RENAME fcitx-bopomofo.png
+  DESTINATION share/icons/hicolor/48x48/status/)
 
 set(ZHUYIN_DATA_FILE_NAME model.text.20120921.tar.gz)
 set(ZHUYIN_URL "https://github.com/downloads/fcitx/fcitx-libpinyin/${ZHUYIN_DATA_FILE_NAME}")
