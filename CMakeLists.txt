@@ -7,7 +7,6 @@ FIND_PACKAGE(Libintl REQUIRED)
 FIND_PACKAGE(Fcitx 4.2.7 REQUIRED)
 find_package(GLIB2 REQUIRED)
 find_package(Libpinyin REQUIRED)
-find_program(TAR tar REQUIRED)
 
 _fcitx_add_uninstall_target()
 
