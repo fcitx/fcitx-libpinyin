@@ -104,7 +104,7 @@ static const char* __pinyin_middle_finals[4][18] =
 {
     {"", "a",   "ai",  "an",  "ang",  "ao",  "e",  "ea",  "ei",  "en",   "eng",  "er",  "ng",  "o",   "ong",  "ou",  "in",  "ing" },
     {"i", "ia", "iai", "ian", "iang", "iao", "ie", "iea", "iei", "ien",  "ieng", "ier", "ing", "io",  "iong", "iu", "iin", "iing" },
-    {"u", "ua", "uai", "uan", "uang", "uao", "ue", "uea", "uei", "un",   "ueng", "uer", "ung", "uo",  "uong", "uou", "uin", "uing" },
+    {"u", "ua", "uai", "uan", "uang", "uao", "ue", "uea", "ui",  "un",   "ueng", "uer", "ung", "uo",  "uong", "uou", "uin", "uing" },
     {"v", "ua", "uai", "uan", "uang", "uao", "ve", "vea", "vei", "un",   "veng", "ver", "vng", "uo",  "uong", "uou", "uin", "uing" },
 };
 

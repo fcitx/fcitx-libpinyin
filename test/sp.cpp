@@ -112,6 +112,8 @@ int main()
     assert(test_sp(inst, "yj", "yan"));
     assert(test_sp(inst, "ya", "ya"));
 
+    assert(test_sp(inst, "dv", "dui"));
+
     pinyin_free_instance(inst);
     pinyin_fini(context);
 
