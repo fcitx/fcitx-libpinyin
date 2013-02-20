@@ -1,7 +1,30 @@
+/***************************************************************************
+ *   Copyright (C) 2011~2013 by CSSlayer                                   *
+ *   wengxt@gmail.com                                                      *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
+ ***************************************************************************/
+
 #include <pinyin.h>
 #include "pystring.h"
 
-// Internal data definition
+/*
+ * Internal data definition, libpinyin removes old api which breaks our use case,
+ * then we do it on our own
+ */
 
 /**
 * struct of pinyin token.
@@ -82,7 +105,7 @@ static const char* __pinyin_middle_finals[4][18] =
     {"", "a",   "ai",  "an",  "ang",  "ao",  "e",  "ea",  "ei",  "en",   "eng",  "er",  "ng",  "o",   "ong",  "ou",  "in",  "ing" },
     {"i", "ia", "iai", "ian", "iang", "iao", "ie", "iea", "iei", "ien",  "ieng", "ier", "ing", "io",  "iong", "iu", "iin", "iing" },
     {"u", "ua", "uai", "uan", "uang", "uao", "ue", "uea", "uei", "un",   "ueng", "uer", "ung", "uo",  "uong", "uou", "uin", "uing" },
-    {"v", "ua", "uai", "uan", "uang", "uao", "ve", "vea", "vei", "un",   "eng",  "ver", "vng", "uo",  "uong", "uou", "uin", "uing" },
+    {"v", "ua", "uai", "uan", "uang", "uao", "ve", "vea", "vei", "un",   "veng", "ver", "vng", "uo",  "uong", "uou", "uin", "uing" },
 };
 
 static const FcitxPinyinToken __pinyin_tones [] =
