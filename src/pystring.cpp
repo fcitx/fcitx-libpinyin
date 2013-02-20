@@ -1,4 +1,5 @@
 #include <pinyin.h>
+#include "pystring.h"
 
 // Internal data definition
 
@@ -76,6 +77,14 @@ static const FcitxPinyinToken __pinyin_finals[] =
     {"ing", "PINYIN_ING"}
 };
 
+static const char* __pinyin_middle_finals[4][18] =
+{
+    {"", "a",   "ai",  "an",  "ang",  "ao",  "e",  "ea",  "ei",  "en",   "eng",  "er",  "ng",  "o",   "ong",  "ou",  "in",  "ing" },
+    {"i", "ia", "iai", "ian", "iang", "iao", "ie", "iea", "iei", "ien",  "ieng", "ier", "ing", "io",  "iong", "iu", "iin", "iing" },
+    {"u", "ua", "uai", "uan", "uang", "uao", "ue", "uea", "uei", "un",   "ueng", "uer", "ung", "uo",  "uong", "uou", "uin", "uing" },
+    {"v", "ua", "uai", "uan", "uang", "uao", "ve", "vea", "vei", "un",   "eng",  "ver", "vng", "uo",  "uong", "uou", "uin", "uing" },
+};
+
 static const FcitxPinyinToken __pinyin_tones [] =
 {
     {"", ""},
@@ -104,6 +113,36 @@ get_final_string (ChewingKey* key)
 {
     guint16 final = key->m_final;
     return __pinyin_finals [final].latin;
+}
+
+const char*
+get_middle_final_string (ChewingKey* key)
+{
+    const char* initial_string = get_initial_string(key);
+    const char* middle_string = get_middle_string(key);
+    guint16 middle = key->m_middle;
+    guint16 final = key->m_final;
+
+    /* wei */
+    if (final != 0
+        && ((initial_string[0] == 'y' && middle_string[0] == 'i')
+            || (initial_string[0] == 'w' && middle_string[0] == 'u'))
+    ) {
+        middle = 0;
+    }
+
+    /* v -> u */
+    if ((initial_string[0] == 'j' || initial_string[0] == 'q' || initial_string[0] == 'x' || initial_string[0] == 'y')
+        && middle_string[0] == 'v') {
+        middle = 2;
+    }
+
+    /* special hack */
+    if (initial_string[0] == 'w' && middle == 0 && final == 14) {
+        return "eng";
+    }
+
+    return __pinyin_middle_finals [middle][final];
 }
 
 const char*

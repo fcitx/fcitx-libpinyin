@@ -537,9 +537,9 @@ void FcitxLibpinyinUpdatePreedit(FcitxLibpinyin* libpinyin, char* sentence)
 
                     if (curoffset + 1 <= libpinyin->cursor_pos) {
                         curoffset += 1;
-                        charcurpos += strlen(get_middle_string(pykey)) + strlen(get_final_string(pykey));
+                        charcurpos += strlen(get_middle_final_string(pykey));
                     }
-                    FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s%s", get_middle_string(pykey), get_final_string(pykey));
+                    FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", get_middle_final_string(pykey));
                 }
                 else if (pykeypos->length() == 1) {
                     gchar* pystring = pykey->get_pinyin_string();
