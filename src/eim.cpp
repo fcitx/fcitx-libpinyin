@@ -40,7 +40,6 @@
 #include "config.h"
 #include "eim.h"
 #include "enummap.h"
-#include "pystring.h"
 
 
 #define FCITX_LIBPINYIN_MAX(x, y) ((x) > (y)? (x) : (y))
@@ -508,7 +507,8 @@ void FcitxLibpinyinUpdatePreedit(FcitxLibpinyin* libpinyin, char* sentence)
 
         switch (libpinyin->type) {
             case LPT_Pinyin: {
-                gchar* pystring = pykey->get_pinyin_string();
+                gchar* pystring;
+                pinyin_get_pinyin_string(libpinyin->inst, pykey, &pystring);
                 FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", pystring);
                 size_t pylen = strlen(pystring);
                 if (curoffset + pylen < libpinyin->cursor_pos) {
@@ -524,11 +524,13 @@ void FcitxLibpinyinUpdatePreedit(FcitxLibpinyin* libpinyin, char* sentence)
             }
             case LPT_Shuangpin: {
                 if (pykeypos->length() == 2) {
-                    const char* initial = 0;
+                    const gchar* initial = NULL;
+                    gchar *middle_final = NULL, *_initial = NULL;
+                    pinyin_get_pinyin_strings(libpinyin->inst, pykey, &_initial, &middle_final);
                     if (pykey->m_initial == CHEWING_ZERO_INITIAL)
                         initial = "'";
                     else
-                        initial = get_initial_string(pykey);
+                        initial = _initial;
                     if (curoffset + 1 <= libpinyin->cursor_pos) {
                         curoffset += 1;
                         charcurpos += strlen(initial);
@@ -537,12 +539,15 @@ void FcitxLibpinyinUpdatePreedit(FcitxLibpinyin* libpinyin, char* sentence)
 
                     if (curoffset + 1 <= libpinyin->cursor_pos) {
                         curoffset += 1;
-                        charcurpos += strlen(get_middle_final_string(pykey));
+                        charcurpos += strlen(middle_final);
                     }
-                    FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", get_middle_final_string(pykey));
+                    FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", middle_final);
+                    g_free(_initial);
+                    g_free(middle_final);
                 }
                 else if (pykeypos->length() == 1) {
-                    gchar* pystring = pykey->get_pinyin_string();
+                    gchar* pystring;
+                    pinyin_get_pinyin_string(libpinyin->inst, pykey, &pystring);
                     if (curoffset + 1 <= libpinyin->cursor_pos) {
                         curoffset += 1;
                         charcurpos += strlen(pystring);
@@ -553,7 +558,8 @@ void FcitxLibpinyinUpdatePreedit(FcitxLibpinyin* libpinyin, char* sentence)
                 break;
             }
             case LPT_Zhuyin: {
-                gchar* pystring = pykey->get_chewing_string();
+                gchar* pystring;
+                pinyin_get_chewing_string(libpinyin->inst, pykey, &pystring);
                 FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", pystring);
 
                 if (curoffset + pykeypos->length() <= libpinyin->cursor_pos) {
@@ -778,7 +784,6 @@ void FcitxLibpinyinDelete(FcitxLibpinyin* libpinyin)
 
 void* LibpinyinSavePinyinWord(void* arg, FcitxModuleFunctionArg args)
 {
-#if 0
     FcitxLibpinyinAddonInstance* libpinyinaddon = (FcitxLibpinyinAddonInstance*) arg;
     FcitxIM* im = FcitxInstanceGetCurrentIM(libpinyinaddon->owner);
     pinyin_context_t* context = NULL;
@@ -795,7 +800,6 @@ void* LibpinyinSavePinyinWord(void* arg, FcitxModuleFunctionArg args)
     char* hz = (char*) args.args[0];
     pinyin_iterator_add_phrase(iter, hz, libpinyin->inst->m_raw_full_pinyin, -1);
     pinyin_end_add_phrases(iter);
-#endif
     return NULL;
 }
 

@@ -50,8 +50,9 @@ int main(int argc, char *argv[])
     for (int i = 0; i < inst->m_pinyin_keys->len; i ++)
     {
         PinyinKey* pykey = &g_array_index(inst->m_pinyin_keys, PinyinKey, i);
-        gchar* py = pykey->get_pinyin_string();
-        gchar* chewing = pykey->get_chewing_string();
+        gchar *py, *chewing;
+        pinyin_get_pinyin_string(inst, pykey, &py);
+        pinyin_get_chewing_string(inst, pykey, &chewing);
         cout << py << " "
              << chewing
              << endl;
@@ -80,8 +81,7 @@ int main(int argc, char *argv[])
         for (int i = 0 ; i < array->len; i ++ )
         {
             lookup_candidate_t token = g_array_index(array, lookup_candidate_t, i);
-            char* word = NULL;
-            pinyin_translate_token(inst, token.m_token, &word);
+            char* word = token.m_phrase_string;
             if (word)
                 cout << word << " ";
             g_free(word);

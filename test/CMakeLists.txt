@@ -4,7 +4,7 @@ include_directories(../src/
     ${PROJECT_BINARY_DIR}
 )
 
-add_executable(sptest sp.cpp ../src/pystring.cpp)
+add_executable(sptest sp.cpp )
 
 target_link_libraries(sptest
   ${LIBPINYIN_LIBRARIES}

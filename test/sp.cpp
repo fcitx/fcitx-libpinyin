@@ -1,5 +1,5 @@
-#include "pystring.h"
 #include "config.h"
+#include <pinyin.h>
 #include <string>
 #include <iostream>
 #include <assert.h>
@@ -12,24 +12,19 @@ bool test_sp(pinyin_instance_t* inst, const char* sp, const char* expect)
     for (int i = 0; i < inst->m_pinyin_keys->len; i ++)
     {
         PinyinKey* pykey = &g_array_index(inst->m_pinyin_keys, PinyinKey, i);
-        PinyinKeyPos* pykeypos = &g_array_index(inst->m_pinyin_key_rests, PinyinKeyPos, i);
+        gchar *s, *y;
+        pinyin_get_pinyin_strings(inst, pykey, &s, &y);
 
-        if (pykeypos->length() == 2) {
-            const char* initial = 0;
-            if (pykey->m_initial == CHEWING_ZERO_INITIAL)
-                initial = "'";
-            else
-                initial = get_initial_string(pykey);
-            result += initial;
-
-            result += get_middle_final_string(pykey);
+        if (s) {
+            result += s;
         }
-        else if (pykeypos->length() == 1) {
-            gchar* pystring = pykey->get_pinyin_string();
 
-            result += pystring;
-            g_free(pystring);
+        if (y) {
+            result += y;
         }
+
+        g_free(s);
+        g_free(y);
         // std::cout << pykey->m_initial << " " << pykey->m_middle << " " << pykey->m_final << std::endl;
     }
 
@@ -45,6 +40,8 @@ int main()
     pinyin_instance_t* inst = pinyin_alloc_instance(context);
 
     pinyin_set_options(context, IS_PINYIN | USE_DIVIDED_TABLE | USE_RESPLIT_TABLE);
+
+    assert(test_sp(inst, "oa", "a"));
 
     assert(test_sp(inst, "xp", "xun"));
     assert(test_sp(inst, "xt", "xue"));

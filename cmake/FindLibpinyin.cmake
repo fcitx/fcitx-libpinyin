@@ -16,7 +16,7 @@ if(LIBPINYIN_INCLUDE_DIR AND LIBPINYIN_LIBRARIES)
 endif(LIBPINYIN_INCLUDE_DIR AND LIBPINYIN_LIBRARIES)
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(PC_LIBPINYIN "libpinyin>=0.6.92")
+pkg_check_modules(PC_LIBPINYIN "libpinyin>=0.8.92")
 _pkgconfig_invoke("libpinyin" PC_LIBPINYIN LIBPINYININCLUDEDIR "" "--variable=libpinyinincludedir")
 _pkgconfig_invoke("libpinyin" LIBPINYIN PKGDATADIR "" "--variable=pkgdatadir")
 _pkgconfig_invoke("libpinyin" LIBPINYIN EXECPREFIX "" "--variable=exec_prefix")

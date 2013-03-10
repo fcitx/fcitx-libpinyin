@@ -16,7 +16,6 @@ set( fcitx_libpinyin_sources
     eim.cpp
     enummap.cpp
     config.cpp
-    pystring.cpp
     )
 
 add_definitions( -DLOCALEDIR=\"${CMAKE_INSTALL_PREFIX}/share/locale\" )
