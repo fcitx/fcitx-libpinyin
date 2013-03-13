@@ -8,6 +8,7 @@
 #define RET_BUF_LEN 256
 
 using namespace std;
+using namespace pinyin;
 
 guint get_pinyin_cursor (pinyin_instance_t* inst, int cursor)
 {
@@ -94,10 +95,10 @@ int main(int argc, char *argv[])
 
         if (cand >= 0)
             pinyin_choose_candidate(inst, 0, &g_array_index(array, lookup_candidate_t, cand));
-        else if (cand != -1) {
-            pinyin_clear_constraints(inst);
+        else if (cand == -1) {
+            // pinyin_clear_constraints(inst);
         }
-        else if (cand != -2) {
+        else if (cand == -2) {
             break;
         }
 

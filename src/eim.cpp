@@ -41,6 +41,7 @@
 #include "eim.h"
 #include "enummap.h"
 
+using namespace pinyin;
 
 #define FCITX_LIBPINYIN_MAX(x, y) ((x) > (y)? (x) : (y))
 #define FCITX_LIBPINYIN_MIN(x, y) ((x) < (y)? (x) : (y))

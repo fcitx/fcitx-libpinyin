@@ -20,6 +20,8 @@
 
 #include "enummap.h"
 
+using namespace pinyin;
+
 pinyin::PinyinAmbiguity2 FcitxLibpinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
 {
     switch(ambiguity) {
