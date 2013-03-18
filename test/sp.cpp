@@ -4,6 +4,8 @@
 #include <iostream>
 #include <assert.h>
 
+using namespace pinyin;
+
 bool test_sp(pinyin_instance_t* inst, const char* sp, const char* expect)
 {
     pinyin_reset(inst);
