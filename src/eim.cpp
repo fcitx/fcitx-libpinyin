@@ -18,6 +18,7 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
+#include <sstream>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -799,8 +800,24 @@ void* LibpinyinSavePinyinWord(void* arg, FcitxModuleFunctionArg args)
     FcitxLibpinyin* libpinyin = (FcitxLibpinyin*) im->klass;
     import_iterator_t* iter = pinyin_begin_add_phrases(context, 15);
     char* hz = (char*) args.args[0];
-    pinyin_iterator_add_phrase(iter, hz, libpinyin->inst->m_raw_full_pinyin, -1);
-    pinyin_end_add_phrases(iter);
+
+    std::stringstream ss;
+
+    for (int i = 0; i < libpinyin->inst->m_pinyin_keys->len; i ++)
+    {
+        PinyinKey* pykey = &g_array_index(libpinyin->inst->m_pinyin_keys, PinyinKey, i);
+
+        gchar* pystring;
+        pinyin_get_pinyin_string(libpinyin->inst, pykey, &pystring);
+        ss << pystring;
+        g_free(pystring);
+    }
+
+    if (ss.str().length() > 0) {
+        pinyin_iterator_add_phrase(iter, hz, ss.str().c_str(), -1);
+        pinyin_end_add_phrases(iter);
+    }
+
     return NULL;
 }
 
