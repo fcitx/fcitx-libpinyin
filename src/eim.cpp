@@ -798,8 +798,6 @@ void* LibpinyinSavePinyinWord(void* arg, FcitxModuleFunctionArg args)
         return NULL;
 
     FcitxLibpinyin* libpinyin = (FcitxLibpinyin*) im->klass;
-    import_iterator_t* iter = pinyin_begin_add_phrases(context, 15);
-    char* hz = (char*) args.args[0];
 
     std::stringstream ss;
 
@@ -814,6 +812,8 @@ void* LibpinyinSavePinyinWord(void* arg, FcitxModuleFunctionArg args)
     }
 
     if (ss.str().length() > 0) {
+        import_iterator_t* iter = pinyin_begin_add_phrases(context, 15);
+        char* hz = (char*) args.args[0];
         pinyin_iterator_add_phrase(iter, hz, ss.str().c_str(), -1);
         pinyin_end_add_phrases(iter);
     }
