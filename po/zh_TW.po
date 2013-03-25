@@ -1,25 +1,25 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
 # Alisha <alisha.4m@gmail.com>, 2012.
 #   <hiunnhue108@ymail.com>, 2012.
-# Weng Xuetian <wengxt@gmail.com>, 2012.
+# Weng Xuetian <wengxt@gmail.com>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2012-12-10 01:39-0500\n"
-"PO-Revision-Date: 2012-12-06 16:36+0000\n"
-"Last-Translator: Hiunn_Hue <hiunnhue108@ymail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/fcitx/"
+"POT-Creation-Date: 2013-03-25 17:45-0400\n"
+"PO-Revision-Date: 2013-03-25 17:51-0400\n"
+"Last-Translator: Weng Xuetian <wengxt@gmail.com>\n"
+"Language-Team: Chinese Simplified <kde-china@kde.org>\n"
 "language/zh_TW/)\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: src/fcitx-libpinyin.desc:61
 msgid "ABC"
@@ -42,6 +42,10 @@ msgstr "模糊音"
 msgid "An <-> Ang"
 msgstr "An <-> Ang"
 
+#: src/fcitx-libpinyin.desc:158
+msgid "Art"
+msgstr "藝術"
+
 #: src/eim.cpp:865 src/zhuyin-libpinyin.conf.in:3
 msgid "Bopomofo (LibPinyin)"
 msgstr "注音（LibPinyin）"
@@ -62,9 +66,25 @@ msgstr "糾正"
 msgid "Ctrl"
 msgstr "Ctrl"
 
+#: src/fcitx-libpinyin.desc:163
+msgid "Culture"
+msgstr "文化"
+
+#: src/fcitx-libpinyin.desc:157 src/fcitx-libpinyin.desc:162
+#: src/fcitx-libpinyin.desc:167 src/fcitx-libpinyin.desc:172
+#: src/fcitx-libpinyin.desc:177 src/fcitx-libpinyin.desc:182
+#: src/fcitx-libpinyin.desc:187 src/fcitx-libpinyin.desc:192
+#: src/fcitx-libpinyin.desc:197 src/fcitx-libpinyin.desc:202
+msgid "Dictionary"
+msgstr "辭典"
+
 #: src/fcitx-libpinyin.desc:27
 msgid "ET"
 msgstr "倚天"
+
+#: src/fcitx-libpinyin.desc:168
+msgid "Economy"
+msgstr "經濟"
 
 #: src/fcitx-libpinyin.desc:148
 msgid "En <-> Eng"
@@ -82,9 +102,17 @@ msgstr "GN -> NG"
 msgid "Ge <-> Ke"
 msgstr "Ge <-> Ke"
 
+#: src/fcitx-libpinyin.desc:173
+msgid "Geology"
+msgstr "地質學"
+
 #: src/fcitx-libpinyin.desc:26
 msgid "GinYieh"
 msgstr "精業"
+
+#: src/fcitx-libpinyin.desc:178
+msgid "History"
+msgstr "歷史"
 
 #: src/fcitx-libpinyin.desc:25
 msgid "IBM"
@@ -110,6 +138,10 @@ msgstr "LibPinyin"
 msgid "LibPinyin Wrapper For Fcitx"
 msgstr "Fcitx 的 LibPinyin 封装"
 
+#: src/fcitx-libpinyin.desc:183
+msgid "Life"
+msgstr "生活"
+
 #: src/fcitx-libpinyin.desc:78
 msgid "MG -> NG"
 msgstr "MG -> NG"
@@ -117,6 +149,10 @@ msgstr "MG -> NG"
 #: src/fcitx-libpinyin.desc:59
 msgid "Microsoft"
 msgstr "微軟"
+
+#: src/fcitx-libpinyin.desc:188
+msgid "Nature"
+msgstr "自然"
 
 #: src/fcitx-libpinyin.desc:123
 msgid "Ne <-> Le"
@@ -139,6 +175,10 @@ msgstr "拼音（LibPinyin）"
 msgid "PinyinJiaJia"
 msgstr "拼音加加"
 
+#: src/fcitx-libpinyin.desc:193
+msgid "Science & Technology"
+msgstr "科學技術"
+
 #: src/fcitx-libpinyin.desc:36
 msgid "Shift"
 msgstr "Shift"
@@ -159,6 +199,14 @@ msgstr "雙拼機制"
 #: src/fcitx-libpinyin.desc:118
 msgid "Si <-> Shi"
 msgstr "Si <-> Shi"
+
+#: src/fcitx-libpinyin.desc:198
+msgid "Society"
+msgstr "社會"
+
+#: src/fcitx-libpinyin.desc:203
+msgid "Sport"
+msgstr "運動"
 
 #: src/fcitx-libpinyin.desc:24
 msgid "Standard"
@@ -239,3 +287,4 @@ msgstr "紫光"
 #: src/fcitx-libpinyin.desc:58
 msgid "Ziranma"
 msgstr "自然碼"
+

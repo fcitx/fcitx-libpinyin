@@ -18,6 +18,7 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
+#include <assert.h>
 #include "enummap.h"
 
 using namespace pinyin;
@@ -108,4 +109,26 @@ pinyin::ChewingScheme FcitxLibpinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout
         default:
             return CHEWING_STANDARD;
     }
+}
+
+static const pinyin::PHRASE_INDEX_LIBRARIES dictMap[] =
+{
+    ART_DICTIONARY,
+    CULTURE_DICTIONARY,
+    ECONOMY_DICTIONARY,
+    GEOLOGY_DICTIONARY,
+    HISTORY_DICTIONARY,
+    LIFE_DICTIONARY,
+    NATURE_DICTIONARY,
+    SCITECH_DICTIONARY,
+    SOCIETY_DICTIONARY,
+    SPORT_DICTIONARY,
+};
+
+pinyin::PHRASE_INDEX_LIBRARIES FcitxLibpinyinTransDictionary(FCITX_DICTIONARY dict)
+{
+    int sz = sizeof(dictMap) / sizeof(dictMap[0]);
+    int sz2 = FCITX_DICT_LAST + 1;
+    assert(sz == sz2);
+    return dictMap[dict];
 }

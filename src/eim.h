@@ -72,6 +72,20 @@ enum FCITX_CORRECTION {
     FCITX_CR_LAST = FCITX_CR_ON_ONG
 };
 
+enum FCITX_DICTIONARY {
+    FCITX_DICT_ART,
+    FCITX_DICT_CULTURE,
+    FCITX_DICT_ECONOMY,
+    FCITX_DICT_GEOLOGY,
+    FCITX_DICT_HISTORY,
+    FCITX_DICT_LIFE,
+    FCITX_DICT_NATURE,
+    FCITX_DICT_SCITECH,
+    FCITX_DICT_SOCIETY,
+    FCITX_DICT_SPORT,
+    FCITX_DICT_LAST = FCITX_DICT_SPORT
+};
+
 enum FCITX_AMBIGUITY {
     FCITX_AMB_CiChi,
     FCITX_AMB_ZiZhi,
@@ -100,6 +114,7 @@ struct FcitxLibpinyinConfig
     FCITX_ZHUYIN_MODIFIERS candidateModifiers;
     boolean amb[FCITX_AMB_LAST + 1];
     boolean cr[FCITX_CR_LAST + 1];
+    boolean dict[FCITX_DICT_LAST + 1];
     boolean incomplete;
     boolean chewingIncomplete;
     boolean bTraditionalDataForPinyin;

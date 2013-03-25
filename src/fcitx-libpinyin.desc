@@ -72,7 +72,7 @@ DefaultValue=False
 [Correction/GNNG]
 Description=GN -> NG
 Type=Boolean
-DefaultValue=False
+DefaultValue=True
 
 [Correction/MGNG]
 Description=MG -> NG
@@ -153,6 +153,56 @@ DefaultValue=False
 Description=In <-> Ing
 Type=Boolean
 DefaultValue=False
+
+[Dictionary/Art]
+Description=Art
+Type=Boolean
+DefaultValue=True
+
+[Dictionary/Culture]
+Description=Culture
+Type=Boolean
+DefaultValue=True
+
+[Dictionary/Economy]
+Description=Economy
+Type=Boolean
+DefaultValue=True
+
+[Dictionary/Geology]
+Description=Geology
+Type=Boolean
+DefaultValue=True
+
+[Dictionary/History]
+Description=History
+Type=Boolean
+DefaultValue=True
+
+[Dictionary/Life]
+Description=Life
+Type=Boolean
+DefaultValue=True
+
+[Dictionary/Nature]
+Description=Nature
+Type=Boolean
+DefaultValue=True
+
+[Dictionary/Scitech]
+Description=Science & Technology
+Type=Boolean
+DefaultValue=True
+
+[Dictionary/Society]
+Description=Society
+Type=Boolean
+DefaultValue=True
+
+[Dictionary/Sport]
+Description=Sport
+Type=Boolean
+DefaultValue=True
 
 [DescriptionFile]
 LocaleDomain=fcitx-libpinyin

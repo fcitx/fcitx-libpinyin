@@ -412,7 +412,9 @@ void FcitxLibpinyinLoad(FcitxLibpinyin* libpinyin)
         char* user_path = FcitxLibpinyinGetUserPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional );
         char* syspath = FcitxLibpinyinGetSysPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional );
         libpinyinaddon->zhuyin_context = pinyin_init( syspath, user_path);
-        pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, 15);
+        pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, GBK_DICTIONARY);
+        pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, MERGED_DICTIONARY);
+        pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, USER_DICTIONARY);
         free(user_path);
         free(syspath);
     }
@@ -421,7 +423,9 @@ void FcitxLibpinyinLoad(FcitxLibpinyin* libpinyin)
         char* user_path = FcitxLibpinyinGetUserPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified );
         char* syspath = FcitxLibpinyinGetSysPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified );
         libpinyinaddon->pinyin_context = pinyin_init(syspath, user_path);
-        pinyin_load_phrase_library(libpinyinaddon->pinyin_context, 15);
+        pinyin_load_phrase_library(libpinyinaddon->pinyin_context, GBK_DICTIONARY);
+        pinyin_load_phrase_library(libpinyinaddon->pinyin_context, MERGED_DICTIONARY);
+        pinyin_load_phrase_library(libpinyinaddon->pinyin_context, USER_DICTIONARY);
         free(user_path);
         free(syspath);
     }
@@ -952,10 +956,28 @@ boolean LoadLibpinyinConfig(FcitxLibpinyinConfig* fs)
 void ConfigLibpinyin(FcitxLibpinyinAddonInstance* libpinyinaddon)
 {
     FcitxLibpinyinConfig *config = &libpinyinaddon->config;
-    if (libpinyinaddon->zhuyin_context)
+
+    if (libpinyinaddon->zhuyin_context) {
         pinyin_set_chewing_scheme(libpinyinaddon->zhuyin_context, FcitxLibpinyinTransZhuyinLayout(config->zhuyinLayout));
-    if (libpinyinaddon->pinyin_context)
+
+        for (int i = 0; i <= FCITX_DICT_LAST; i++) {
+            if (config->dict[i]) {
+                pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, FcitxLibpinyinTransDictionary(static_cast<FCITX_DICTIONARY>(i)));
+            } else {
+                pinyin_unload_phrase_library(libpinyinaddon->zhuyin_context, FcitxLibpinyinTransDictionary(static_cast<FCITX_DICTIONARY>(i)));
+            }
+        }
+    }
+    if (libpinyinaddon->pinyin_context) {
         pinyin_set_double_pinyin_scheme(libpinyinaddon->pinyin_context, FcitxLibpinyinTransShuangpinScheme(config->spScheme));
+        for (int i = 0; i <= FCITX_DICT_LAST; i++) {
+            if (config->dict[i]) {
+                pinyin_load_phrase_library(libpinyinaddon->pinyin_context, FcitxLibpinyinTransDictionary(static_cast<FCITX_DICTIONARY>(i)));
+            } else {
+                pinyin_unload_phrase_library(libpinyinaddon->pinyin_context, FcitxLibpinyinTransDictionary(static_cast<FCITX_DICTIONARY>(i)));
+            }
+        }
+    }
     pinyin::pinyin_option_t settings = 0;
     settings |= DYNAMIC_ADJUST;
     settings |= USE_DIVIDED_TABLE | USE_RESPLIT_TABLE;

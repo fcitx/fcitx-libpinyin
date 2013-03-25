@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2012-12-10 01:39-0500\n"
+"POT-Creation-Date: 2013-03-25 17:45-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -229,4 +229,52 @@ msgstr ""
 
 #: src/fcitx-libpinyin.desc:153
 msgid "In <-> Ing"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:157 src/fcitx-libpinyin.desc:162
+#: src/fcitx-libpinyin.desc:167 src/fcitx-libpinyin.desc:172
+#: src/fcitx-libpinyin.desc:177 src/fcitx-libpinyin.desc:182
+#: src/fcitx-libpinyin.desc:187 src/fcitx-libpinyin.desc:192
+#: src/fcitx-libpinyin.desc:197 src/fcitx-libpinyin.desc:202
+msgid "Dictionary"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:158
+msgid "Art"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:163
+msgid "Culture"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:168
+msgid "Economy"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:173
+msgid "Geology"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:178
+msgid "History"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:183
+msgid "Life"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:188
+msgid "Nature"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:193
+msgid "Science & Technology"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:198
+msgid "Society"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:203
+msgid "Sport"
 msgstr ""
