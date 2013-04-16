@@ -26,6 +26,8 @@
 #include <fcitx/instance.h>
 #include <fcitx/candidate.h>
 #include <pinyin.h>
+#include "bus.h"
+#include "common.h"
 
 #ifdef __cplusplus
 #define __EXPORT_API extern "C"
@@ -106,7 +108,7 @@ enum FCITX_ZHUYIN_MODIFIERS {
     FZM_Shift = 2,
 };
 
-struct FcitxLibpinyinConfig
+struct FcitxLibPinyinConfig
 {
     FcitxGenericConfig gconfig;
     FCITX_ZHUYIN_LAYOUT zhuyinLayout;
@@ -126,53 +128,46 @@ struct FcitxLibpinyinConfig
 
 #define BUF_SIZE 4096
 
-CONFIG_BINDING_DECLARE(FcitxLibpinyinConfig);
-__EXPORT_API void* FcitxLibpinyinCreate(FcitxInstance* instance);
-__EXPORT_API void FcitxLibpinyinDestroy(void* arg);
-__EXPORT_API INPUT_RETURN_VALUE FcitxLibpinyinDoInput(void* arg, FcitxKeySym sym, unsigned int state);
-__EXPORT_API INPUT_RETURN_VALUE FcitxLibpinyinGetCandWords (void *arg);
-__EXPORT_API INPUT_RETURN_VALUE FcitxLibpinyinGetCandWord (void *arg, FcitxCandidateWord* candWord);
-__EXPORT_API boolean FcitxLibpinyinInit(void*);
-__EXPORT_API void ReloadConfigFcitxLibpinyin(void*);
+CONFIG_BINDING_DECLARE(FcitxLibPinyinConfig);
+__EXPORT_API void* FcitxLibPinyinCreate(FcitxInstance* instance);
+__EXPORT_API void FcitxLibPinyinDestroy(void* arg);
+__EXPORT_API INPUT_RETURN_VALUE FcitxLibPinyinDoInput(void* arg, FcitxKeySym sym, unsigned int state);
+__EXPORT_API INPUT_RETURN_VALUE FcitxLibPinyinGetCandWords (void *arg);
+__EXPORT_API INPUT_RETURN_VALUE FcitxLibPinyinGetCandWord (void *arg, FcitxCandidateWord* candWord);
+__EXPORT_API boolean FcitxLibPinyinInit(void*);
+__EXPORT_API void FcitxLibPinyinReloadConfig(void*);
 
-enum LIBPINYIN_TYPE {
-    LPT_Pinyin,
-    LPT_Zhuyin,
-    LPT_Shuangpin
-};
+struct _FcitxLibPinyin;
 
-enum LIBPINYIN_LANGUAGE_TYPE {
-    LPLT_Simplified,
-    LPLT_Traditional
-};
+typedef struct _FcitxLibPinyinAddonInstance {
+    FcitxLibPinyinConfig config;
 
-struct _FcitxLibpinyin;
-
-typedef struct _FcitxLibpinyinAddonInstance {
-    FcitxLibpinyinConfig config;
-    
     pinyin_context_t* pinyin_context;
     pinyin_context_t* zhuyin_context;
-    
-    struct _FcitxLibpinyin* pinyin;
-    struct _FcitxLibpinyin* shuangpin;
-    struct _FcitxLibpinyin* zhuyin;
-    FcitxInstance* owner;
-} FcitxLibpinyinAddonInstance;
 
-typedef struct _FcitxLibpinyin
+    struct _FcitxLibPinyin* pinyin;
+    struct _FcitxLibPinyin* shuangpin;
+    struct _FcitxLibPinyin* zhuyin;
+    FcitxInstance* owner;
+    FcitxLibPinyinBus* bus;
+} FcitxLibPinyinAddonInstance;
+
+typedef struct _FcitxLibPinyin
 {
     pinyin_instance_t* inst;
-    
+
     GArray* fixed_string;
-    
+
     char buf[MAX_USER_INPUT + 1];
     int cursor_pos;
     LIBPINYIN_TYPE type;
     CandidateVector candidate;
-    
-    FcitxLibpinyinAddonInstance* owner;
-} FcitxLibpinyin;
+
+    FcitxLibPinyinAddonInstance* owner;
+} FcitxLibPinyin;
+
+void FcitxLibPinyinImport(FcitxLibPinyin* libpinyin);
+void FcitxLibPinyinCleanData(FcitxLibPinyin* libpinyin, bool onlyUser);
 
 #endif
 // kate: indent-mode cstyle; space-indent on; indent-width 0;

@@ -24,10 +24,10 @@
 #include <pinyin.h>
 #include "eim.h"
 
-pinyin::ChewingScheme FcitxLibpinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout);
-pinyin::DoublePinyinScheme FcitxLibpinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme);
-pinyin::PinyinAmbiguity2 FcitxLibpinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity);
-pinyin::PinyinCorrection2 FcitxLibpinyinTransCorrection(FCITX_CORRECTION correction);
-pinyin::PHRASE_INDEX_LIBRARIES FcitxLibpinyinTransDictionary(FCITX_DICTIONARY dict);
+pinyin::ChewingScheme FcitxLibPinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout);
+pinyin::DoublePinyinScheme FcitxLibPinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme);
+pinyin::PinyinAmbiguity2 FcitxLibPinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity);
+pinyin::PinyinCorrection2 FcitxLibPinyinTransCorrection(FCITX_CORRECTION correction);
+pinyin::PHRASE_INDEX_LIBRARIES FcitxLibPinyinTransDictionary(FCITX_DICTIONARY dict);
 
 #endif

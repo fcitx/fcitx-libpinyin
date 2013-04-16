@@ -1,4 +1,3 @@
-find_package(PkgConfig REQUIRED)
 
 include_directories (
     ${PROJECT_BINARY_DIR}
@@ -8,6 +7,8 @@ include_directories (
     ${FCITX4_FCITX_INCLUDE_DIRS}
     ${LIBINTL_INCLUDE_DIR}
     ${GLIB2_INCLUDE_DIR}
+    ${DBUS_INCLUDE_DIR}
+    ${DBUS_ARCH_INCLUDE_DIR}
     )
 
 link_directories (${LIBPINYIN_LIBRARY_DIRS})
@@ -16,6 +17,8 @@ set( fcitx_libpinyin_sources
     eim.cpp
     enummap.cpp
     config.cpp
+    bus.cpp
+    utils.cpp
     )
 
 add_definitions( -DLOCALEDIR=\"${CMAKE_INSTALL_PREFIX}/share/locale\" )
@@ -23,5 +26,5 @@ add_definitions( -DLOCALEDIR=\"${CMAKE_INSTALL_PREFIX}/share/locale\" )
 fcitx_add_addon_full(libpinyin DESC
 SOURCES ${fcitx_libpinyin_sources}
 IM_CONFIG pinyin-libpinyin.conf shuangpin-libpinyin.conf zhuyin-libpinyin.conf
-LINK_LIBS ${LIBPINYIN_LIBRARIES} ${LIBINTL_LIBRARIES} ${GLIB2_LIBRARIES}
+LINK_LIBS ${LIBPINYIN_LIBRARIES} ${LIBINTL_LIBRARIES} ${GLIB2_LIBRARIES} ${DBUS_LIBRARIES}
 )

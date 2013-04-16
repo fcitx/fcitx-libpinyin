@@ -23,7 +23,7 @@
 
 using namespace pinyin;
 
-pinyin::PinyinAmbiguity2 FcitxLibpinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
+pinyin::PinyinAmbiguity2 FcitxLibPinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
 {
     switch(ambiguity) {
         case FCITX_AMB_CiChi:
@@ -51,7 +51,7 @@ pinyin::PinyinAmbiguity2 FcitxLibpinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
     }
 }
 
-pinyin::PinyinCorrection2 FcitxLibpinyinTransCorrection(FCITX_CORRECTION correction)
+pinyin::PinyinCorrection2 FcitxLibPinyinTransCorrection(FCITX_CORRECTION correction)
 {
     switch(correction) {
         case FCITX_CR_V_U:
@@ -75,7 +75,7 @@ pinyin::PinyinCorrection2 FcitxLibpinyinTransCorrection(FCITX_CORRECTION correct
     }
 }
 
-pinyin::DoublePinyinScheme FcitxLibpinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme)
+pinyin::DoublePinyinScheme FcitxLibPinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme)
 {
     switch(scheme) {
         case FCITX_SHUANG_PIN_ZRM:
@@ -95,7 +95,7 @@ pinyin::DoublePinyinScheme FcitxLibpinyinTransShuangpinScheme(FCITX_SHUANGPIN_SC
     }
 }
 
-pinyin::ChewingScheme FcitxLibpinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout)
+pinyin::ChewingScheme FcitxLibPinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout)
 {
     switch(layout) {
         case FCITX_ZHUYIN_STANDARD:
@@ -125,7 +125,7 @@ static const pinyin::PHRASE_INDEX_LIBRARIES dictMap[] =
     SPORT_DICTIONARY,
 };
 
-pinyin::PHRASE_INDEX_LIBRARIES FcitxLibpinyinTransDictionary(FCITX_DICTIONARY dict)
+pinyin::PHRASE_INDEX_LIBRARIES FcitxLibPinyinTransDictionary(FCITX_DICTIONARY dict)
 {
     int sz = sizeof(dictMap) / sizeof(dictMap[0]);
     int sz2 = FCITX_DICT_LAST + 1;

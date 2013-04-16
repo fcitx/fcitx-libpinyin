@@ -1,0 +1,58 @@
+set(DICT_MANAGER_SRCS
+    importer.cpp
+    dictmanager.cpp
+    main.cpp
+    )
+set(DICT_MANAGER_HDRS
+    dictmanager.h
+    importer.h
+    )
+fcitx_translate_add_sources(
+    ${DICT_MANAGER_SRCS}
+    ${DICT_MANAGER_HDRS})
+
+find_package(Qt4 REQUIRED)
+pkg_check_modules(FCITX_QT "fcitx-qt" REQUIRED)
+
+if (NOT QT_FOUND OR NOT FCITX_QT_FOUND OR NOT ENABLE_QT)
+    return()
+endif (NOT QT_FOUND OR NOT FCITX_QT_FOUND OR NOT ENABLE_QT)
+
+include_directories(
+    ${FCITX_QT_INCLUDE_DIRS}
+    ${QT_QTCORE_INCLUDE_DIR}
+    ${QT_QTGUI_INCLUDE_DIR}
+    ${CMAKE_CURRENT_BINARY_DIR}
+    ../src/
+    )
+
+include_directories (
+    ${PROJECT_BINARY_DIR}
+    ${LIBPINYIN_INCLUDE_DIR}
+    ${FCITX4_FCITX_UTILS_INCLUDE_DIRS}
+    ${FCITX4_FCITX_CONFIG_INCLUDE_DIRS}
+    ${FCITX4_FCITX_INCLUDE_DIRS}
+    ${LIBINTL_INCLUDE_DIR}
+    ${GLIB2_INCLUDE_DIR}
+    ${DBUS_INCLUDE_DIR}
+    ${DBUS_ARCH_INCLUDE_DIR}
+    )
+
+link_directories(
+${FCITX4_FCITX_UTILS_LIBRARY_DIRS}
+${FCITX4_FCITX_CONFIG_LIBRARY_DIRS}
+${FCITX_QT_LIBRARY_DIRS}
+)
+
+qt4_wrap_ui(DICT_MANAGER_SRCS dictmanager.ui)
+qt4_wrap_cpp(DICT_MANAGER_MOCS ${DICT_MANAGER_HDRS})
+
+add_executable(dictmanager ${DICT_MANAGER_SRCS} ${DICT_MANAGER_MOCS})
+
+target_link_libraries(dictmanager
+${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTDBUS_LIBRARY}
+${FCITX_QT_LIBRARIES}
+${LIBPINYIN_LIBRARIES} ${FCITX4_FCITX_UTILS_LIBRARIES}
+ ${FCITX4_FCITX_CONFIG_LIBRARIES}
+ )
+
