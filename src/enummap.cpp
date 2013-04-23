@@ -21,9 +21,7 @@
 #include <assert.h>
 #include "enummap.h"
 
-using namespace pinyin;
-
-pinyin::PinyinAmbiguity2 FcitxLibpinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
+PinyinAmbiguity2 FcitxLibpinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
 {
     switch(ambiguity) {
         case FCITX_AMB_CiChi:
@@ -51,7 +49,7 @@ pinyin::PinyinAmbiguity2 FcitxLibpinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
     }
 }
 
-pinyin::PinyinCorrection2 FcitxLibpinyinTransCorrection(FCITX_CORRECTION correction)
+PinyinCorrection2 FcitxLibpinyinTransCorrection(FCITX_CORRECTION correction)
 {
     switch(correction) {
         case FCITX_CR_V_U:
@@ -75,7 +73,7 @@ pinyin::PinyinCorrection2 FcitxLibpinyinTransCorrection(FCITX_CORRECTION correct
     }
 }
 
-pinyin::DoublePinyinScheme FcitxLibpinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme)
+DoublePinyinScheme FcitxLibpinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme)
 {
     switch(scheme) {
         case FCITX_SHUANG_PIN_ZRM:
@@ -95,7 +93,7 @@ pinyin::DoublePinyinScheme FcitxLibpinyinTransShuangpinScheme(FCITX_SHUANGPIN_SC
     }
 }
 
-pinyin::ChewingScheme FcitxLibpinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout)
+ChewingScheme FcitxLibpinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout)
 {
     switch(layout) {
         case FCITX_ZHUYIN_STANDARD:
@@ -111,21 +109,21 @@ pinyin::ChewingScheme FcitxLibpinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout
     }
 }
 
-static const pinyin::PHRASE_INDEX_LIBRARIES dictMap[] =
+static const int dictMap[] =
 {
-    ART_DICTIONARY,
-    CULTURE_DICTIONARY,
-    ECONOMY_DICTIONARY,
-    GEOLOGY_DICTIONARY,
-    HISTORY_DICTIONARY,
-    LIFE_DICTIONARY,
-    NATURE_DICTIONARY,
-    SCITECH_DICTIONARY,
-    SOCIETY_DICTIONARY,
-    SPORT_DICTIONARY,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
 };
 
-pinyin::PHRASE_INDEX_LIBRARIES FcitxLibpinyinTransDictionary(FCITX_DICTIONARY dict)
+int FcitxLibpinyinTransDictionary(FCITX_DICTIONARY dict)
 {
     int sz = sizeof(dictMap) / sizeof(dictMap[0]);
     int sz2 = FCITX_DICT_LAST + 1;

@@ -28,12 +28,7 @@ set(FCITX_LIBPINYIN_ZHUYIN_DATADIR
 set(libdir ${LIB_INSTALL_DIR})
 
 configure_file(config.h.in config.h)
-enable_testing()
 
 add_subdirectory(po)
 add_subdirectory(src)
 add_subdirectory(data)
-
-add_subdirectory(standalone)
-
-add_subdirectory(test)

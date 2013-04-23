@@ -16,6 +16,8 @@ set(ZHUYIN_URL "http://fcitx.googlecode.com/files/${ZHUYIN_DATA_FILE_NAME}")
 set(ZHUYIN_ORGDATA ${_LIBPINYIN_TABLE_FILES} interpolation2.text)
 set(ZHUYIN_DATA bigram.db ${_LIBPINYIN_BIN_FILES}  phrase_index.bin  pinyin_index.bin)
 
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/table.conf ${CMAKE_CURRENT_BINARY_DIR}/table.conf COPYONLY)
+
 fcitx_download(zhuyin_data_tar "${ZHUYIN_URL}" "${ZHUYIN_DATA_FILE_NAME}"
   MD5SUM f908d19ebef9527fea06ea7d072500b0)
 fcitx_extract(zhuyin-data-extract "${ZHUYIN_DATA_FILE_NAME}"
@@ -36,4 +38,5 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/bigram.db
               ${_LIBPINYIN_GEN_BIN_FILES}
               ${CMAKE_CURRENT_BINARY_DIR}/phrase_index.bin
               ${CMAKE_CURRENT_BINARY_DIR}/pinyin_index.bin
+              table.conf
         DESTINATION ${FCITX_LIBPINYIN_ZHUYIN_DATADIR})
