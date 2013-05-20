@@ -138,22 +138,15 @@ int LibpinyinGetPinyinOffset(FcitxLibpinyin* libpinyin)
 
     guint len;
 
-    do {
-        if (!pinyin_get_n_pinyin(libpinyin->inst, &len)) {
-            break;
-        }
-        int i = FCITX_LIBPINYIN_MIN(offset, len) - 1;
-        if (i >= 0)
-        {
-            PinyinKeyPos* pykey = NULL;
-            if (!pinyin_get_pinyin_key_rest(libpinyin->inst, i, &pykey)) {
-                break;
-            }
-            if (!pinyin_get_pinyin_key_rest_positions(libpinyin->inst, pykey, NULL, &pyoffset)) {
-                break;
-            }
-        }
-    } while(0);
+    pinyin_get_n_pinyin(libpinyin->inst, &len);
+
+    int i = FCITX_LIBPINYIN_MIN(offset, len) - 1;
+    if (i >= 0) {
+        PinyinKeyPos* pykey = NULL;
+        pinyin_get_pinyin_key_rest(libpinyin->inst, i, &pykey);
+        pinyin_get_pinyin_key_rest_positions(libpinyin->inst, pykey, NULL, &pyoffset);
+    }
+
     return pyoffset;
 }
 
