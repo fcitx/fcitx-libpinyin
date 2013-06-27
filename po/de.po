@@ -1,188 +1,52 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # mar well <marwell.1980@freenet.de>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-04-30 01:03-0400\n"
+"POT-Creation-Date: 2013-06-27 10:32-0400\n"
 "PO-Revision-Date: 2013-06-01 09:49+0000\n"
 "Last-Translator: mar well <marwell.1980@freenet.de>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/fcitx/language/de/)\n"
+"Language-Team: German (http://www.transifex.com/projects/p/fcitx/language/"
+"de/)\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/eim.cpp:886 src/pinyin-libpinyin.conf.in:3
-msgid "Pinyin (LibPinyin)"
-msgstr "Pinyin (LibPinyin)"
+#: dictmanager/dictmanager.cpp:56
+msgid "&Clear All Data"
+msgstr ""
 
-#: src/eim.cpp:903 src/shuangpin-libpinyin.conf.in:3
-msgid "Shuangpin (LibPinyin)"
-msgstr "Shuangpin (LibPinyin)"
+#: dictmanager/dictmanager.cpp:66
+msgid "&Clear Dict"
+msgstr ""
 
-#: src/eim.cpp:920 src/zhuyin-libpinyin.conf.in:3
-msgid "Bopomofo (LibPinyin)"
-msgstr "Bopomofo (LibPinyin)"
+#: dictmanager/dictmanager.cpp:55
+msgid "&Clear User Data"
+msgstr ""
 
-#: src/fcitx-libpinyin.conf.in:3
-msgid "LibPinyin"
-msgstr "LibPinyin"
+#: dictmanager/dictmanager.cpp:63
+#, fuzzy
+msgid "&Import"
+msgstr "Sport"
 
-#: src/fcitx-libpinyin.conf.in:4
-msgid "LibPinyin Wrapper For Fcitx"
-msgstr "LibPinyin Wrapper für Fcitx"
-
-#: src/fcitx-libpinyin.desc:1 src/fcitx-libpinyin.desc:6
-msgid "Pinyin"
-msgstr "Pinyin"
-
-#: src/fcitx-libpinyin.desc:2
-msgid "Use Incomplete pinyin"
-msgstr "Unvollständiges Pinyin eingeben erlauben"
-
-#: src/fcitx-libpinyin.desc:7
-msgid "Use Traditional Chinese Data for Pinyin and Shuangpin (Need Restart)"
-msgstr "Traditionelles Chinesisch für Pinyin und Shuangpin benutzen (Erfordert Neustart von Fcitx)"
-
-#: src/fcitx-libpinyin.desc:11 src/fcitx-libpinyin.desc:16
-#: src/fcitx-libpinyin.desc:21 src/fcitx-libpinyin.desc:31
-#: src/fcitx-libpinyin.desc:40 src/fcitx-libpinyin.desc:45
-#: src/fcitx-libpinyin.desc:50
-msgid "Zhuyin"
-msgstr "Zhuyin"
-
-#: src/fcitx-libpinyin.desc:12
-msgid "Use Tone"
-msgstr "Töne benutzen"
-
-#: src/fcitx-libpinyin.desc:17
-msgid "Use Incomplete Zhuyin"
-msgstr "Unvollständiges Zhuyin zulassen"
-
-#: src/fcitx-libpinyin.desc:22
-msgid "Zhuyin Layout"
-msgstr "Zhuyin Layout"
-
-#: src/fcitx-libpinyin.desc:24
-msgid "Standard"
-msgstr "Standard"
-
-#: src/fcitx-libpinyin.desc:25
-msgid "IBM"
-msgstr "IBM"
-
-#: src/fcitx-libpinyin.desc:26
-msgid "GinYieh"
-msgstr "GinYieh"
-
-#: src/fcitx-libpinyin.desc:27
-msgid "ET"
-msgstr "ET"
-
-#: src/fcitx-libpinyin.desc:32
-msgid "Zhuyin candidate choosing modifiers"
-msgstr "Modifikanten für die Auswahl der Zhuyin-Kandidaten"
-
-#: src/fcitx-libpinyin.desc:34
-msgid "Ctrl"
-msgstr "Ctrl"
-
-#: src/fcitx-libpinyin.desc:35
-msgid "Alt"
-msgstr "Alt"
-
-#: src/fcitx-libpinyin.desc:36
-msgid "Shift"
-msgstr "Shift"
-
-#: src/fcitx-libpinyin.desc:41
-msgid "Zhuyin Prev Page"
-msgstr "Zhuyin vorherige Seite"
-
-#: src/fcitx-libpinyin.desc:46
-msgid "Zhuyin Next Page"
-msgstr "Zhuyin nächste Seite"
-
-#: src/fcitx-libpinyin.desc:51
-msgid "Use Simplified Chinese Data for Zhuyin (Need Restart)"
-msgstr "Verinfachtes Chinesisch für Zhuyin benutzen (Erfordert Neustart von Fcitx)"
-
-#: src/fcitx-libpinyin.desc:55
-msgid "Shuangpin"
-msgstr "Shuangpin"
-
-#: src/fcitx-libpinyin.desc:56
-msgid "Shuangpin Scheme"
-msgstr "Shuangpin Schema"
-
-#: src/fcitx-libpinyin.desc:58
-msgid "Ziranma"
-msgstr "Ziranma"
-
-#: src/fcitx-libpinyin.desc:59
-msgid "Microsoft"
-msgstr "Microsoft"
-
-#: src/fcitx-libpinyin.desc:60
-msgid "ZiGuang"
-msgstr "ZiGuang"
+#: dictmanager/dictmanager.cpp:64
+msgid "&Remove"
+msgstr ""
 
 #: src/fcitx-libpinyin.desc:61
 msgid "ABC"
 msgstr "ABC"
 
-#: src/fcitx-libpinyin.desc:62
-msgid "PinyinJiaJia"
-msgstr "PinyinJiaJia"
-
-#: src/fcitx-libpinyin.desc:63
-msgid "XiaoHe"
-msgstr "XiaoHe"
-
-#: src/fcitx-libpinyin.desc:67 src/fcitx-libpinyin.desc:72
-#: src/fcitx-libpinyin.desc:77 src/fcitx-libpinyin.desc:82
-#: src/fcitx-libpinyin.desc:87 src/fcitx-libpinyin.desc:92
-#: src/fcitx-libpinyin.desc:97 src/fcitx-libpinyin.desc:102
-msgid "Correction"
-msgstr "Korrektur"
-
-#: src/fcitx-libpinyin.desc:68
-msgid "V -> U"
-msgstr "V -> U"
-
-#: src/fcitx-libpinyin.desc:73
-msgid "GN -> NG"
-msgstr "GN -> NG"
-
-#: src/fcitx-libpinyin.desc:78
-msgid "MG -> NG"
-msgstr "MG -> NG"
-
-#: src/fcitx-libpinyin.desc:83
-msgid "IOU -> IU"
-msgstr "IOU -> IU"
-
-#: src/fcitx-libpinyin.desc:88
-msgid "UEI -> UI"
-msgstr "UEI -> UI"
-
-#: src/fcitx-libpinyin.desc:93
-msgid "UEN -> UN"
-msgstr "UEN -> UN"
-
-#: src/fcitx-libpinyin.desc:98
-msgid "UE -> VE"
-msgstr "UE -> VE"
-
-#: src/fcitx-libpinyin.desc:103
-msgid "ON -> ONG"
-msgstr "ON -> ONG"
+#: src/fcitx-libpinyin.desc:35
+msgid "Alt"
+msgstr "Alt"
 
 #: src/fcitx-libpinyin.desc:107 src/fcitx-libpinyin.desc:112
 #: src/fcitx-libpinyin.desc:117 src/fcitx-libpinyin.desc:122
@@ -192,85 +56,266 @@ msgstr "ON -> ONG"
 msgid "Ambiguity"
 msgstr "Mehrdeutigkeit"
 
-#: src/fcitx-libpinyin.desc:108
-msgid "Ci <-> Chi"
-msgstr "Ci <-> Chi"
-
-#: src/fcitx-libpinyin.desc:113
-msgid "Zi <-> Zhi"
-msgstr "Zi <-> Zhi"
-
-#: src/fcitx-libpinyin.desc:118
-msgid "Si <-> Shi"
-msgstr "Si <-> Shi"
-
-#: src/fcitx-libpinyin.desc:123
-msgid "Ne <-> Le"
-msgstr "Ne <-> Le"
-
-#: src/fcitx-libpinyin.desc:128
-msgid "Fo <-> He"
-msgstr "Fo <-> He"
-
-#: src/fcitx-libpinyin.desc:133
-msgid "Le <-> Ri"
-msgstr "Le <-> Ri"
-
-#: src/fcitx-libpinyin.desc:138
-msgid "Ge <-> Ke"
-msgstr "Ge <-> Ke"
-
 #: src/fcitx-libpinyin.desc:143
 msgid "An <-> Ang"
 msgstr "An <-> Ang"
 
-#: src/fcitx-libpinyin.desc:148
-msgid "En <-> Eng"
-msgstr "En <-> Eng"
-
-#: src/fcitx-libpinyin.desc:153
-msgid "In <-> Ing"
-msgstr "In <-> Ing"
-
-#: src/fcitx-libpinyin.desc:157 src/fcitx-libpinyin.desc:162
-#: src/fcitx-libpinyin.desc:167 src/fcitx-libpinyin.desc:172
-#: src/fcitx-libpinyin.desc:177 src/fcitx-libpinyin.desc:182
-#: src/fcitx-libpinyin.desc:187 src/fcitx-libpinyin.desc:192
-#: src/fcitx-libpinyin.desc:197 src/fcitx-libpinyin.desc:202
-msgid "Dictionary"
-msgstr "Wörterbuch"
+#: dictmanager/dictmanager.cpp:184
+#, kde-format
+msgid "Are you sure to delete %1?"
+msgstr ""
 
 #: src/fcitx-libpinyin.desc:158
 msgid "Art"
 msgstr "Kunst"
 
+#: src/eim.cpp:860 src/zhuyin-libpinyin.conf.in:3
+msgid "Bopomofo (LibPinyin)"
+msgstr "Bopomofo (LibPinyin)"
+
+#: dictmanager/dictmanager.cpp:48
+msgid "Browse &Sogou Cell Online"
+msgstr ""
+
+#: dictmanager/browserdialog.cpp:45
+msgid "Browse Sogou Cell Dict repository"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:108
+msgid "Ci <-> Chi"
+msgstr "Ci <-> Chi"
+
+#: dictmanager/dictmanager.cpp:183
+#, fuzzy
+msgid "Confirm deletion"
+msgstr "Korrektur"
+
+#: dictmanager/scelconverter.cpp:75
+msgid "Convert failed."
+msgstr ""
+
+#: dictmanager/scelconverter.cpp:69
+msgid "Converter crashed."
+msgstr ""
+
+#: dictmanager/dictmanager.cpp:108
+msgid "Copy file failed"
+msgstr ""
+
+#: dictmanager/dictmanager.cpp:108
+msgid "Copy file failed. Please check you have permission or disk is not full."
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:67 src/fcitx-libpinyin.desc:72
+#: src/fcitx-libpinyin.desc:77 src/fcitx-libpinyin.desc:82
+#: src/fcitx-libpinyin.desc:87 src/fcitx-libpinyin.desc:92
+#: src/fcitx-libpinyin.desc:97 src/fcitx-libpinyin.desc:102
+msgid "Correction"
+msgstr "Korrektur"
+
+#: dictmanager/filedownloader.cpp:18 dictmanager/scelconverter.cpp:40
+msgid "Create temporary file failed."
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:34
+msgid "Ctrl"
+msgstr "Ctrl"
+
 #: src/fcitx-libpinyin.desc:163
 msgid "Culture"
 msgstr "Kultur"
+
+#: dictmanager/dictmanager.cpp:100 dictmanager/dictmanager.cpp:136
+#, fuzzy
+msgid "Dict name"
+msgstr "Wörterbuch"
+
+#: src/fcitx-libpinyin.conf.in:10 src/fcitx-libpinyin.desc:157
+#: src/fcitx-libpinyin.desc:162 src/fcitx-libpinyin.desc:167
+#: src/fcitx-libpinyin.desc:172 src/fcitx-libpinyin.desc:177
+#: src/fcitx-libpinyin.desc:182 src/fcitx-libpinyin.desc:187
+#: src/fcitx-libpinyin.desc:192 src/fcitx-libpinyin.desc:197
+#: src/fcitx-libpinyin.desc:202
+msgid "Dictionary"
+msgstr "Wörterbuch"
+
+#: dictmanager/dictmanager.cpp:100 dictmanager/dictmanager.cpp:136
+#, fuzzy
+msgid "Dictionary Name"
+msgstr "Wörterbuch"
+
+#: dictmanager/filedownloader.cpp:53
+msgid "Download Finished"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:27
+msgid "ET"
+msgstr "ET"
 
 #: src/fcitx-libpinyin.desc:168
 msgid "Economy"
 msgstr "Ökonomie"
 
+#: src/fcitx-libpinyin.desc:148
+msgid "En <-> Eng"
+msgstr "En <-> Eng"
+
+#: dictmanager/dictmanager.cpp:192
+#, kde-format
+msgid "Error while deleting %1."
+msgstr ""
+
+#: dictmanager/filedownloader.cpp:30
+msgid "Failed to create request."
+msgstr ""
+
+#: dictmanager/dictmanager.cpp:191
+msgid "File Operation Failed"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:128
+msgid "Fo <-> He"
+msgstr "Fo <-> He"
+
+#: dictmanager/dictmanager.cpp:46
+msgid "From &File"
+msgstr ""
+
+#: dictmanager/dictmanager.cpp:47
+msgid "From &Sogou Cell"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:73
+msgid "GN -> NG"
+msgstr "GN -> NG"
+
+#: src/fcitx-libpinyin.desc:138
+msgid "Ge <-> Ke"
+msgstr "Ge <-> Ke"
+
 #: src/fcitx-libpinyin.desc:173
 msgid "Geology"
 msgstr "Geologie"
+
+#: src/fcitx-libpinyin.desc:26
+msgid "GinYieh"
+msgstr "GinYieh"
 
 #: src/fcitx-libpinyin.desc:178
 msgid "History"
 msgstr "Geschichte"
 
+#: src/fcitx-libpinyin.desc:25
+msgid "IBM"
+msgstr "IBM"
+
+#: src/fcitx-libpinyin.desc:83
+msgid "IOU -> IU"
+msgstr "IOU -> IU"
+
+#: src/fcitx-libpinyin.desc:153
+msgid "In <-> Ing"
+msgstr "In <-> Ing"
+
+#: src/fcitx-libpinyin.desc:133
+msgid "Le <-> Ri"
+msgstr "Le <-> Ri"
+
+#: src/fcitx-libpinyin.conf.in:3
+msgid "LibPinyin"
+msgstr "LibPinyin"
+
+#: src/fcitx-libpinyin.conf.in:4
+msgid "LibPinyin Wrapper For Fcitx"
+msgstr "LibPinyin Wrapper für Fcitx"
+
 #: src/fcitx-libpinyin.desc:183
 msgid "Life"
 msgstr ""
+
+#: src/fcitx-libpinyin.desc:78
+msgid "MG -> NG"
+msgstr "MG -> NG"
+
+#: dictmanager/dictmanager.cpp:44
+msgid "Manage Pinyin dictionary"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:59
+msgid "Microsoft"
+msgstr "Microsoft"
 
 #: src/fcitx-libpinyin.desc:188
 msgid "Nature"
 msgstr "Natur"
 
+#: src/fcitx-libpinyin.desc:123
+msgid "Ne <-> Le"
+msgstr "Ne <-> Le"
+
+#: dictmanager/browserdialog.cpp:93
+msgid "No browsing outside pinyin.sogou.com, now redirect to home page."
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:103
+msgid "ON -> ONG"
+msgstr "ON -> ONG"
+
+#: src/fcitx-libpinyin.desc:1 src/fcitx-libpinyin.desc:6
+msgid "Pinyin"
+msgstr "Pinyin"
+
+#: src/eim.cpp:826 src/pinyin-libpinyin.conf.in:3
+msgid "Pinyin (LibPinyin)"
+msgstr "Pinyin (LibPinyin)"
+
+#: src/fcitx-libpinyin.desc:62
+msgid "PinyinJiaJia"
+msgstr "PinyinJiaJia"
+
+#: dictmanager/dictmanager.cpp:65
+msgid "Remove &All"
+msgstr ""
+
+#: dictmanager/scelconverter.cpp:86
+msgid "Rename failed."
+msgstr ""
+
+#: dictmanager/dictmanager.cpp:122
+msgid "Scel file (*.scel)"
+msgstr ""
+
 #: src/fcitx-libpinyin.desc:193
 msgid "Science & Technology"
 msgstr "Wissenschaft und Technik"
+
+#: dictmanager/dictmanager.cpp:87
+msgid "Select dictionary file"
+msgstr ""
+
+#: dictmanager/dictmanager.cpp:120
+msgid "Select scel file"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:36
+msgid "Shift"
+msgstr "Shift"
+
+#: src/fcitx-libpinyin.desc:55
+msgid "Shuangpin"
+msgstr "Shuangpin"
+
+#: src/eim.cpp:843 src/shuangpin-libpinyin.conf.in:3
+msgid "Shuangpin (LibPinyin)"
+msgstr "Shuangpin (LibPinyin)"
+
+#: src/fcitx-libpinyin.desc:56
+msgid "Shuangpin Scheme"
+msgstr "Shuangpin Schema"
+
+#: src/fcitx-libpinyin.desc:118
+msgid "Si <-> Shi"
+msgstr "Si <-> Shi"
 
 #: src/fcitx-libpinyin.desc:198
 msgid "Society"
@@ -279,3 +324,93 @@ msgstr "Gesellschaft"
 #: src/fcitx-libpinyin.desc:203
 msgid "Sport"
 msgstr "Sport"
+
+#: src/fcitx-libpinyin.desc:24
+msgid "Standard"
+msgstr "Standard"
+
+#: dictmanager/filedownloader.cpp:22 dictmanager/scelconverter.cpp:44
+msgid "Temporary file created."
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:98
+msgid "UE -> VE"
+msgstr "UE -> VE"
+
+#: src/fcitx-libpinyin.desc:88
+msgid "UEI -> UI"
+msgstr "UEI -> UI"
+
+#: src/fcitx-libpinyin.desc:93
+msgid "UEN -> UN"
+msgstr "UEN -> UN"
+
+#: src/fcitx-libpinyin.desc:17
+msgid "Use Incomplete Zhuyin"
+msgstr "Unvollständiges Zhuyin zulassen"
+
+#: src/fcitx-libpinyin.desc:2
+msgid "Use Incomplete pinyin"
+msgstr "Unvollständiges Pinyin eingeben erlauben"
+
+#: src/fcitx-libpinyin.desc:51
+msgid "Use Simplified Chinese Data for Zhuyin (Need Restart)"
+msgstr ""
+"Verinfachtes Chinesisch für Zhuyin benutzen (Erfordert Neustart von Fcitx)"
+
+#: src/fcitx-libpinyin.desc:12
+msgid "Use Tone"
+msgstr "Töne benutzen"
+
+#: src/fcitx-libpinyin.desc:7
+msgid "Use Traditional Chinese Data for Pinyin and Shuangpin (Need Restart)"
+msgstr ""
+"Traditionelles Chinesisch für Pinyin und Shuangpin benutzen (Erfordert "
+"Neustart von Fcitx)"
+
+#: src/fcitx-libpinyin.desc:68
+msgid "V -> U"
+msgstr "V -> U"
+
+#: dictmanager/browserdialog.cpp:92
+msgid "Wrong Link"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:63
+msgid "XiaoHe"
+msgstr "XiaoHe"
+
+#: src/fcitx-libpinyin.desc:11 src/fcitx-libpinyin.desc:16
+#: src/fcitx-libpinyin.desc:21 src/fcitx-libpinyin.desc:31
+#: src/fcitx-libpinyin.desc:40 src/fcitx-libpinyin.desc:45
+#: src/fcitx-libpinyin.desc:50
+msgid "Zhuyin"
+msgstr "Zhuyin"
+
+#: src/fcitx-libpinyin.desc:22
+msgid "Zhuyin Layout"
+msgstr "Zhuyin Layout"
+
+#: src/fcitx-libpinyin.desc:46
+msgid "Zhuyin Next Page"
+msgstr "Zhuyin nächste Seite"
+
+#: src/fcitx-libpinyin.desc:41
+msgid "Zhuyin Prev Page"
+msgstr "Zhuyin vorherige Seite"
+
+#: src/fcitx-libpinyin.desc:32
+msgid "Zhuyin candidate choosing modifiers"
+msgstr "Modifikanten für die Auswahl der Zhuyin-Kandidaten"
+
+#: src/fcitx-libpinyin.desc:113
+msgid "Zi <-> Zhi"
+msgstr "Zi <-> Zhi"
+
+#: src/fcitx-libpinyin.desc:60
+msgid "ZiGuang"
+msgstr "ZiGuang"
+
+#: src/fcitx-libpinyin.desc:58
+msgid "Ziranma"
+msgstr "Ziranma"
