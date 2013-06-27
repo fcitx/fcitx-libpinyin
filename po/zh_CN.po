@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Xuetian Weng <wengxt@gmail.com>, 2013
 # Xuetian Weng <wengxt@gmail.com>, 2010-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-27 12:02-0400\n"
-"PO-Revision-Date: 2013-06-27 14:38+0000\n"
+"POT-Creation-Date: 2013-06-27 18:02-0400\n"
+"PO-Revision-Date: 2013-06-27 21:31+0000\n"
 "Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
 "Language-Team: Chinese (China) <fcitx-dev@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -24,19 +25,19 @@ msgstr ""
 
 #: dictmanager/dictmanager.cpp:66
 msgid "&Clear Dict"
-msgstr ""
+msgstr "清理词库(&C)"
 
 #: dictmanager/dictmanager.cpp:55
 msgid "&Clear User Data"
-msgstr ""
+msgstr "清理用户数据 (&C)"
 
 #: dictmanager/dictmanager.cpp:63
 msgid "&Import"
-msgstr ""
+msgstr "导入(&I)"
 
 #: dictmanager/dictmanager.cpp:64
 msgid "&Remove"
-msgstr ""
+msgstr "移除(&R)"
 
 #: src/fcitx-libpinyin.desc:61
 msgid "ABC"
@@ -61,7 +62,7 @@ msgstr "An <-> Ang"
 #: dictmanager/dictmanager.cpp:184
 #, kde-format
 msgid "Are you sure to delete %1?"
-msgstr ""
+msgstr "您确定要删除 %1？"
 
 #: src/fcitx-libpinyin.desc:158
 msgid "Art"
@@ -77,7 +78,7 @@ msgstr ""
 
 #: dictmanager/browserdialog.cpp:45
 msgid "Browse Sogou Cell Dict repository"
-msgstr ""
+msgstr "浏览搜狗细胞词库"
 
 #: src/fcitx-libpinyin.desc:108
 msgid "Ci <-> Chi"
@@ -85,23 +86,23 @@ msgstr "Ci <-> Chi"
 
 #: dictmanager/dictmanager.cpp:183
 msgid "Confirm deletion"
-msgstr ""
+msgstr "确认删除"
 
 #: dictmanager/scelconverter.cpp:75
 msgid "Convert failed."
-msgstr ""
+msgstr "转换失败。"
 
 #: dictmanager/scelconverter.cpp:69
 msgid "Converter crashed."
-msgstr ""
+msgstr "转换器崩溃。"
 
 #: dictmanager/dictmanager.cpp:108
 msgid "Copy file failed"
-msgstr ""
+msgstr "复制文件失败"
 
 #: dictmanager/dictmanager.cpp:108
 msgid "Copy file failed. Please check you have permission or disk is not full."
-msgstr ""
+msgstr "复制文件失败。请检查是否有权限或者磁盘是否已满。"
 
 #: src/fcitx-libpinyin.desc:67 src/fcitx-libpinyin.desc:72
 #: src/fcitx-libpinyin.desc:77 src/fcitx-libpinyin.desc:82
@@ -112,7 +113,7 @@ msgstr "纠正"
 
 #: dictmanager/filedownloader.cpp:18 dictmanager/scelconverter.cpp:40
 msgid "Create temporary file failed."
-msgstr ""
+msgstr "创建临时文件失败。"
 
 #: src/fcitx-libpinyin.desc:34
 msgid "Ctrl"
@@ -124,7 +125,7 @@ msgstr "文化"
 
 #: dictmanager/dictmanager.cpp:100 dictmanager/dictmanager.cpp:136
 msgid "Dict name"
-msgstr ""
+msgstr "词典名称"
 
 #: src/fcitx-libpinyin.conf.in:10 src/fcitx-libpinyin.desc:157
 #: src/fcitx-libpinyin.desc:162 src/fcitx-libpinyin.desc:167
@@ -137,11 +138,11 @@ msgstr "词典"
 
 #: dictmanager/dictmanager.cpp:100 dictmanager/dictmanager.cpp:136
 msgid "Dictionary Name"
-msgstr ""
+msgstr "词典名称"
 
 #: dictmanager/filedownloader.cpp:53
 msgid "Download Finished"
-msgstr ""
+msgstr "下载已完成"
 
 #: src/fcitx-libpinyin.desc:27
 msgid "ET"
@@ -158,15 +159,15 @@ msgstr "En <-> Eng"
 #: dictmanager/dictmanager.cpp:192
 #, kde-format
 msgid "Error while deleting %1."
-msgstr ""
+msgstr "删除 %1 时出错。"
 
 #: dictmanager/filedownloader.cpp:30
 msgid "Failed to create request."
-msgstr ""
+msgstr "创建请求失败。"
 
 #: dictmanager/dictmanager.cpp:191
 msgid "File Operation Failed"
-msgstr ""
+msgstr "文件操作失败"
 
 #: src/fcitx-libpinyin.desc:128
 msgid "Fo <-> He"
@@ -174,7 +175,7 @@ msgstr "Fo <-> He"
 
 #: dictmanager/dictmanager.cpp:46
 msgid "From &File"
-msgstr ""
+msgstr "从文件 (&F)"
 
 #: dictmanager/dictmanager.cpp:47
 msgid "From &Sogou Cell"
@@ -234,7 +235,7 @@ msgstr "MG -> NG"
 
 #: dictmanager/dictmanager.cpp:44
 msgid "Manage Pinyin dictionary"
-msgstr ""
+msgstr "管理拼音词典"
 
 #: src/fcitx-libpinyin.desc:59
 msgid "Microsoft"
@@ -250,7 +251,7 @@ msgstr "Ne <-> Le"
 
 #: dictmanager/browserdialog.cpp:93
 msgid "No browsing outside pinyin.sogou.com, now redirect to home page."
-msgstr ""
+msgstr "不允许访问 pinyin.sogou.com 之外的网页，将重定向到主页。"
 
 #: src/fcitx-libpinyin.desc:103
 msgid "ON -> ONG"
@@ -270,15 +271,15 @@ msgstr "拼音加加"
 
 #: dictmanager/dictmanager.cpp:65
 msgid "Remove &All"
-msgstr ""
+msgstr "移除全部(&A)"
 
 #: dictmanager/scelconverter.cpp:86
 msgid "Rename failed."
-msgstr ""
+msgstr "重命名失败。"
 
 #: dictmanager/dictmanager.cpp:122
 msgid "Scel file (*.scel)"
-msgstr ""
+msgstr "Scel 文件 (*.scel)"
 
 #: src/fcitx-libpinyin.desc:193
 msgid "Science & Technology"
@@ -286,11 +287,11 @@ msgstr "科学技术"
 
 #: dictmanager/dictmanager.cpp:87
 msgid "Select dictionary file"
-msgstr ""
+msgstr "选择词典文件"
 
 #: dictmanager/dictmanager.cpp:120
 msgid "Select scel file"
-msgstr ""
+msgstr "选择 scel 文件"
 
 #: src/fcitx-libpinyin.desc:36
 msgid "Shift"
@@ -326,7 +327,7 @@ msgstr "标准"
 
 #: dictmanager/filedownloader.cpp:22 dictmanager/scelconverter.cpp:44
 msgid "Temporary file created."
-msgstr ""
+msgstr "已创建临时文件。"
 
 #: src/fcitx-libpinyin.desc:98
 msgid "UE -> VE"
@@ -366,7 +367,7 @@ msgstr "V -> U"
 
 #: dictmanager/browserdialog.cpp:92
 msgid "Wrong Link"
-msgstr ""
+msgstr "链接错误"
 
 #: src/fcitx-libpinyin.desc:63
 msgid "XiaoHe"
