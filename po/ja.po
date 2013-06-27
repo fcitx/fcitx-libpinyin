@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-27 10:32-0400\n"
-"PO-Revision-Date: 2013-04-29 10:03+0000\n"
+"POT-Creation-Date: 2013-06-27 12:02-0400\n"
+"PO-Revision-Date: 2013-06-27 14:38+0000\n"
 "Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/fcitx/language/"
 "ja/)\n"
@@ -32,9 +32,8 @@ msgid "&Clear User Data"
 msgstr ""
 
 #: dictmanager/dictmanager.cpp:63
-#, fuzzy
 msgid "&Import"
-msgstr "スポーツ"
+msgstr ""
 
 #: dictmanager/dictmanager.cpp:64
 msgid "&Remove"
@@ -86,9 +85,8 @@ msgid "Ci <-> Chi"
 msgstr "Ci <-> Chi"
 
 #: dictmanager/dictmanager.cpp:183
-#, fuzzy
 msgid "Confirm deletion"
-msgstr "修正"
+msgstr ""
 
 #: dictmanager/scelconverter.cpp:75
 msgid "Convert failed."
@@ -126,9 +124,8 @@ msgid "Culture"
 msgstr "文化"
 
 #: dictmanager/dictmanager.cpp:100 dictmanager/dictmanager.cpp:136
-#, fuzzy
 msgid "Dict name"
-msgstr "辞書"
+msgstr ""
 
 #: src/fcitx-libpinyin.conf.in:10 src/fcitx-libpinyin.desc:157
 #: src/fcitx-libpinyin.desc:162 src/fcitx-libpinyin.desc:167
@@ -140,9 +137,8 @@ msgid "Dictionary"
 msgstr "辞書"
 
 #: dictmanager/dictmanager.cpp:100 dictmanager/dictmanager.cpp:136
-#, fuzzy
 msgid "Dictionary Name"
-msgstr "辞書"
+msgstr ""
 
 #: dictmanager/filedownloader.cpp:53
 msgid "Download Finished"
