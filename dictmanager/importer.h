@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2011~2011 by CSSlayer                                   *
+ *   Copyright (C) 2013~2013 by CSSlayer                                   *
  *   wengxt@gmail.com                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -18,16 +18,33 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
-#ifndef ENUMMAP_H
-#define ENUMMAP_H
+#ifndef IMPORTER_H
+#define IMPORTER_H
 
-#include <pinyin.h>
-#include "eim.h"
+#include <QString>
+#include <fcitx-qt/fcitxqtconnection.h>
 
-ChewingScheme FcitxLibPinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout);
-DoublePinyinScheme FcitxLibPinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme);
-PinyinAmbiguity2 FcitxLibPinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity);
-PinyinCorrection2 FcitxLibPinyinTransCorrection(FCITX_CORRECTION correction);
-int FcitxLibPinyinTransDictionary(FCITX_DICTIONARY dict);
+class Importer : public QObject {
+    Q_OBJECT
+    void realRun();
+public:
+    explicit Importer(QObject* parent = 0);
+    virtual ~Importer();
 
-#endif
+    void run();
+    void import();
+
+signals:
+    void finished();
+
+private:
+    FcitxQtConnection* m_connection;
+    bool m_running;
+public slots:
+    void onConnected();
+    void onDisconnected();
+    void clearDict(int type);
+};
+
+
+#endif // IMPORTER_H

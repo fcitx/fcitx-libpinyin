@@ -7,3 +7,4 @@ Enabled=True
 Library=fcitx-libpinyin.so
 Type=SharedLibrary
 IMRegisterMethod=ConfigFile
+SubConfig=Dictionary:program:fcitx-libpinyin-dictmanager,fcitx-libpinyin:domain

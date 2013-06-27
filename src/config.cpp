@@ -20,7 +20,7 @@
 
 #include "eim.h"
 
-CONFIG_BINDING_BEGIN(FcitxLibpinyinConfig)
+CONFIG_BINDING_BEGIN(FcitxLibPinyinConfig)
 CONFIG_BINDING_REGISTER("Pinyin", "Incomplete", incomplete)
 CONFIG_BINDING_REGISTER("Pinyin", "UseTraditionalChineseData", bTraditionalDataForPinyin)
 CONFIG_BINDING_REGISTER("Zhuyin", "Incomplete", chewingIncomplete)

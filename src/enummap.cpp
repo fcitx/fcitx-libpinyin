@@ -21,7 +21,7 @@
 #include <assert.h>
 #include "enummap.h"
 
-PinyinAmbiguity2 FcitxLibpinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
+PinyinAmbiguity2 FcitxLibPinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
 {
     switch(ambiguity) {
         case FCITX_AMB_CiChi:
@@ -49,7 +49,7 @@ PinyinAmbiguity2 FcitxLibpinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
     }
 }
 
-PinyinCorrection2 FcitxLibpinyinTransCorrection(FCITX_CORRECTION correction)
+PinyinCorrection2 FcitxLibPinyinTransCorrection(FCITX_CORRECTION correction)
 {
     switch(correction) {
         case FCITX_CR_V_U:
@@ -73,7 +73,7 @@ PinyinCorrection2 FcitxLibpinyinTransCorrection(FCITX_CORRECTION correction)
     }
 }
 
-DoublePinyinScheme FcitxLibpinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme)
+DoublePinyinScheme FcitxLibPinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme)
 {
     switch(scheme) {
         case FCITX_SHUANG_PIN_ZRM:
@@ -93,7 +93,7 @@ DoublePinyinScheme FcitxLibpinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME sch
     }
 }
 
-ChewingScheme FcitxLibpinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout)
+ChewingScheme FcitxLibPinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout)
 {
     switch(layout) {
         case FCITX_ZHUYIN_STANDARD:
@@ -123,7 +123,7 @@ static const int dictMap[] =
     13
 };
 
-int FcitxLibpinyinTransDictionary(FCITX_DICTIONARY dict)
+int FcitxLibPinyinTransDictionary(FCITX_DICTIONARY dict)
 {
     int sz = sizeof(dictMap) / sizeof(dictMap[0]);
     int sz2 = FCITX_DICT_LAST + 1;

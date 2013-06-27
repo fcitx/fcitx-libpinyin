@@ -1,0 +1,8 @@
+#ifndef FCITX_LIBPINYIN_UTILS_H
+#define FCITX_LIBPINYIN_UTILS_H
+
+char* FcitxLibPinyinGetSysPath(LIBPINYIN_LANGUAGE_TYPE type);
+char* FcitxLibPinyinGetUserPath(LIBPINYIN_LANGUAGE_TYPE type);
+
+
+#endif // FCITX_LIBPINYIN_UTILS_H

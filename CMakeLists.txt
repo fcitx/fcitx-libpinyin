@@ -1,12 +1,15 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8.6)
 project(fcitx-libpinyin)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
-FIND_PACKAGE(Libintl REQUIRED)
-FIND_PACKAGE(Fcitx 4.2.7 REQUIRED)
+option(ENABLE_QT "Enable Qt for dictmanager" On)
+
+find_package(Libintl REQUIRED)
+find_package(Fcitx 4.2.8 REQUIRED)
 find_package(GLIB2 REQUIRED)
 find_package(Libpinyin REQUIRED)
+find_package(DBus REQUIRED)
 
 _fcitx_add_uninstall_target()
 
@@ -32,3 +35,4 @@ configure_file(config.h.in config.h)
 add_subdirectory(po)
 add_subdirectory(src)
 add_subdirectory(data)
+add_subdirectory(dictmanager)

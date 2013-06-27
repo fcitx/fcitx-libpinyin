@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2011~2011 by CSSlayer                                   *
+ *   Copyright (C) 2013~2013 by CSSlayer                                   *
  *   wengxt@gmail.com                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -18,16 +18,17 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
-#ifndef ENUMMAP_H
-#define ENUMMAP_H
+#include <QApplication>
+#include <fcitx-qt/fcitxqtconnection.h>
+#include "importer.h"
+#include "dictmanager.h"
 
-#include <pinyin.h>
-#include "eim.h"
+int main(int argc, char* argv[])
+{
+    QApplication app(argc, argv);
 
-ChewingScheme FcitxLibPinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout);
-DoublePinyinScheme FcitxLibPinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme);
-PinyinAmbiguity2 FcitxLibPinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity);
-PinyinCorrection2 FcitxLibPinyinTransCorrection(FCITX_CORRECTION correction);
-int FcitxLibPinyinTransDictionary(FCITX_DICTIONARY dict);
+    DictManager win;
+    win.show();
 
-#endif
+    return app.exec();
+}

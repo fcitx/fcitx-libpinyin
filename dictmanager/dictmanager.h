@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2011~2011 by CSSlayer                                   *
+ *   Copyright (C) 2013~2013 by CSSlayer                                   *
  *   wengxt@gmail.com                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -18,16 +18,39 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
-#ifndef ENUMMAP_H
-#define ENUMMAP_H
+#ifndef FCITX_DICTMANAGER_H
+#define FCITX_DICTMANAGER_H
 
-#include <pinyin.h>
-#include "eim.h"
+#include <QMainWindow>
+#include "ui_dictmanager.h"
 
-ChewingScheme FcitxLibPinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout);
-DoublePinyinScheme FcitxLibPinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme);
-PinyinAmbiguity2 FcitxLibPinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity);
-PinyinCorrection2 FcitxLibPinyinTransCorrection(FCITX_CORRECTION correction);
-int FcitxLibPinyinTransDictionary(FCITX_DICTIONARY dict);
+class Importer;
+class FileListModel;
+class DictManager : public QMainWindow
+{
+    Q_OBJECT
+public:
+    explicit DictManager(QWidget* parent = 0);
+    virtual ~DictManager();
 
-#endif
+private:
+    Ui::DictManager *m_ui;
+    QAction* m_importFromFileAction;
+    QAction* m_importFromSogou;
+    QAction* m_importFromSogouOnline;
+    FileListModel* m_model;
+    Importer* m_importer;
+    QAction* m_clearUserDictAction;
+    QAction* m_clearAllDataAction;
+public slots:
+    void importFromFile();
+    void importFromSogou();
+    void importFromSogouOnline();
+    void removeDict();
+    void removeAllDict();
+    void clearUserDict();
+    void clearAllDict();
+    void convertFinished(bool);
+};
+
+#endif // FCITX_DICTMANAGER_H
