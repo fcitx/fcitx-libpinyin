@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-28 00:03-0400\n"
-"PO-Revision-Date: 2013-06-27 14:38+0000\n"
+"POT-Creation-Date: 2013-06-28 06:02-0400\n"
+"PO-Revision-Date: 2013-06-28 04:09+0000\n"
 "Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/fcitx/language/"
 "ja/)\n"
@@ -206,9 +206,8 @@ msgid "In <-> Ing"
 msgstr "In <-> Ing"
 
 #: dictmanager/dictmanager.cpp:101 dictmanager/dictmanager.cpp:137
-#, fuzzy
 msgid "Input Dictionary Name"
-msgstr "辞書"
+msgstr ""
 
 #: src/fcitx-libpinyin.desc:133
 msgid "Le <-> Ri"
@@ -247,9 +246,8 @@ msgid "Ne <-> Le"
 msgstr "Ne <-> Le"
 
 #: dictmanager/dictmanager.cpp:101 dictmanager/dictmanager.cpp:137
-#, fuzzy
 msgid "New Dictionary Name:"
-msgstr "辞書"
+msgstr ""
 
 #: dictmanager/browserdialog.cpp:92
 msgid "No browsing outside pinyin.sogou.com, now redirect to home page."
@@ -288,9 +286,8 @@ msgid "Science & Technology"
 msgstr "科学技術"
 
 #: dictmanager/dictmanager.cpp:88
-#, fuzzy
 msgid "Select Dictionary File"
-msgstr "辞書"
+msgstr ""
 
 #: dictmanager/dictmanager.cpp:121
 msgid "Select scel file"
