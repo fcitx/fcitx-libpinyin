@@ -19,11 +19,13 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
-#include "guicommon.h"
 #include <QProcess>
 #include <QTemporaryFile>
+
 #include <fcitx-utils/utils.h>
 #include <fcitx-config/xdg.h>
+
+#include "guicommon.h"
 
 ScelConverter::ScelConverter(QObject* parent): QObject(parent)
 {

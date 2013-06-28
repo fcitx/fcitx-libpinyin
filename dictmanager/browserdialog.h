@@ -18,6 +18,9 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
+#ifndef FCITX_BROWSERDIALOG_H
+#define FCITX_BROWSERDIALOG_H
+
 #include <QDialog>
 #include <QUrl>
 
@@ -44,3 +47,5 @@ public slots:
     void downloadFinished(bool succ);
     void convertFinished(bool);
 };
+
+#endif // FCITX_BROWSERDIALOG_H

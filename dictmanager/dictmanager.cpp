@@ -18,21 +18,22 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
-#include "dictmanager.h"
-#include "filelistmodel.h"
-#include "importer.h"
-#include "browserdialog.h"
-#include <libintl.h>
+#include <fcitx-utils/utils.h>
+#include <fcitx-config/xdg.h>
+
 #include <QMenu>
 #include <QInputDialog>
-#include <fcitx-utils/utils.h>
 #include <QFileInfo>
 #include <QMessageBox>
 #include <QProcess>
 #include <QDebug>
-#include <fcitx-config/xdg.h>
 #include <QFileDialog>
+
 #include "guicommon.h"
+#include "dictmanager.h"
+#include "filelistmodel.h"
+#include "importer.h"
+#include "browserdialog.h"
 #include "scelconverter.h"
 
 DictManager::DictManager(QWidget* parent): QMainWindow(parent)
@@ -41,11 +42,11 @@ DictManager::DictManager(QWidget* parent): QMainWindow(parent)
 {
     m_ui->setupUi(this);
     setWindowIcon(QIcon::fromTheme("accessories-dictionary"));
-    setWindowTitle(_("Manage Pinyin dictionary"));
+    setWindowTitle(_("Manage Pinyin Dictionary"));
     QMenu* menu = new QMenu(this);
     m_importFromFileAction = new QAction(_("From &File"), this);
-    m_importFromSogou = new QAction(_("From &Sogou Cell"), this);
-    m_importFromSogouOnline = new QAction(_("Browse &Sogou Cell Online"), this);
+    m_importFromSogou = new QAction(_("From &Sogou Cell Dictionary File"), this);
+    m_importFromSogouOnline = new QAction(_("&Browse Sogou Cell Dictionary Online"), this);
     menu->addAction(m_importFromFileAction);
     menu->addAction(m_importFromSogou);
     menu->addAction(m_importFromSogouOnline);
@@ -53,7 +54,7 @@ DictManager::DictManager(QWidget* parent): QMainWindow(parent)
 
     menu = new QMenu(this);
     m_clearUserDictAction = new QAction(_("&Clear User Data"), this);
-    m_clearAllDataAction = new QAction(_("&Clear All Data"), this);
+    m_clearAllDataAction = new QAction(_("Clear &All Data"), this);
     menu->addAction(m_clearUserDictAction);
     menu->addAction(m_clearAllDataAction);
     m_ui->clearDictButton->setMenu(menu);
@@ -84,7 +85,7 @@ DictManager::~DictManager()
 
 void DictManager::importFromFile()
 {
-    QString name = QFileDialog::getOpenFileName(this, _("Select dictionary file"));
+    QString name = QFileDialog::getOpenFileName(this, _("Select Dictionary File"));
     if (name.isEmpty()) {
         return;
     }
@@ -97,7 +98,7 @@ void DictManager::importFromFile()
     }
 
     bool ok;
-    importName = QInputDialog::getText(this, _("Dict name"), _("Dictionary Name"), QLineEdit::Normal, importName, &ok);
+    importName = QInputDialog::getText(this, _("Input Dictionary Name"), _("New Dictionary Name:"), QLineEdit::Normal, importName, &ok);
     if (!ok || importName.isEmpty()) {
         return;
     }
@@ -133,7 +134,7 @@ void DictManager::importFromSogou()
     }
 
     bool ok;
-    importName = QInputDialog::getText(this, _("Dict name"), _("Dictionary Name"), QLineEdit::Normal, importName, &ok);
+    importName = QInputDialog::getText(this, _("Input Dictionary Name"), _("New Dictionary Name:"), QLineEdit::Normal, importName, &ok);
     if (!ok || importName.isEmpty()) {
         return;
     }

@@ -10,11 +10,14 @@ set(DICT_MANAGER_SRCS
 fcitx_translate_add_sources(
     ${DICT_MANAGER_SRCS})
 
+if (ENABLE_QT)
 find_package(Qt4 4.8 REQUIRED COMPONENTS QtCore QtGui QtWebkit QtNetwork)
+pkg_check_modules(FCITX_QT "fcitx-qt>=4.2.8" REQUIRED )
+endif (ENABLE_QT)
 
-if (NOT QT_FOUND OR NOT FCITX_QT_FOUND OR NOT ENABLE_QT)
+if (NOT QT_FOUND OR NOT ENABLE_QT)
     return()
-endif (NOT QT_FOUND OR NOT FCITX_QT_FOUND OR NOT ENABLE_QT)
+endif (NOT QT_FOUND OR NOT ENABLE_QT)
 
 include_directories(
     ${FCITX_QT_INCLUDE_DIRS}
@@ -53,8 +56,8 @@ set_target_properties(fcitx-libpinyin-dictmanager PROPERTIES AUTOMOC TRUE)
 target_link_libraries(fcitx-libpinyin-dictmanager
 ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTDBUS_LIBRARY} ${QT_QTNETWORK_LIBRARY} ${QT_QTWEBKIT_LIBRARY}
 ${FCITX_QT_LIBRARIES}
-${LIBPINYIN_LIBRARIES} ${FCITX4_FCITX_UTILS_LIBRARIES}
- ${FCITX4_FCITX_CONFIG_LIBRARIES}
- )
+${FCITX4_FCITX_UTILS_LIBRARIES}
+${FCITX4_FCITX_CONFIG_LIBRARIES}
+)
 
 install(TARGETS fcitx-libpinyin-dictmanager DESTINATION bin)

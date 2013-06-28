@@ -17,9 +17,10 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <fcitx-config/xdg.h>
+
 #include "common.h"
 #include "filelistmodel.h"
-#include "fcitx-config/xdg.h"
 
 FileListModel::FileListModel(QObject* parent): QAbstractListModel(parent)
     ,m_langType(LPLT_Simplified)

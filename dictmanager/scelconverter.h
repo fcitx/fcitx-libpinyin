@@ -21,31 +21,30 @@
 #ifndef SCELCONVERTER_H
 #define SCELCONVERTER_H
 
-
 #include <QObject>
 #include <QProcess>
 #include <QTemporaryFile>
+
 class ScelConverter : public QObject
 {
     Q_OBJECT
 public:
     explicit ScelConverter(QObject* parent = 0);
-
     void convert(const QString& from, const QString& to, bool removeOriginFile = true);
 
 signals:
     void message(const QString& msg);
     void finished(bool succ);
 
-private:
-    QProcess m_process;
-
-    QTemporaryFile m_file;
-    QString m_name;
-    QString m_fromFile;
 public slots:
     void finished(int,QProcess::ExitStatus);
     void removeTempFile();
+
+private:
+    QProcess m_process;
+    QTemporaryFile m_file;
+    QString m_name;
+    QString m_fromFile;
 };
 
 

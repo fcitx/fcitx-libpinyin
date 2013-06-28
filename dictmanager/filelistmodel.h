@@ -17,8 +17,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef FCITX_TOOLS_GUI_FILE_LIST_MODEL_H_
-#define FCITX_TOOLS_GUI_FILE_LIST_MODEL_H_
+#ifndef FCITX_FILE_LIST_MODEL_H_
+#define FCITX_FILE_LIST_MODEL_H_
 
 #include <QAbstractListModel>
 #include <QStringList>
@@ -44,4 +44,4 @@ private:
     LIBPINYIN_LANGUAGE_TYPE m_langType;
 };
 
-#endif // FCITX_TOOLS_GUI_FILE_LIST_MODEL_H_
+#endif // FCITX_FILE_LIST_MODEL_H_

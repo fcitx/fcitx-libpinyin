@@ -19,15 +19,15 @@
  ***************************************************************************/
 
 #include <QFile>
-
-#include "importer.h"
-#include "common.h"
-#include <pinyin.h>
 #include <QDBusInterface>
 #include <QDBusPendingCall>
 #include <QDebug>
+
 #include <fcitx-config/xdg.h>
 #include <fcitx-utils/utf8.h>
+
+#include "importer.h"
+#include "common.h"
 
 Importer::Importer(QObject* parent): QObject(parent)
     ,m_connection(new FcitxQtConnection(this))

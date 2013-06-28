@@ -18,23 +18,22 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
-#include "browserdialog.h"
-#include "ui_browserdialog.h"
 #include <QMessageBox>
-#include <QDebug>
+#include <QIcon>
 #include <QTextCodec>
 #include <QTemporaryFile>
+#include <QDebug>
+
 #include "guicommon.h"
 #include "filedownloader.h"
 #include "scelconverter.h"
+#include "browserdialog.h"
+#include "ui_browserdialog.h"
 
 /*
  * a typical link looks like this.
  * http://download.pinyin.sogou.com/dict/download_cell.php?id=15207&name=%D6%B2%CE%EF%B4%CA%BB%E3%B4%F3%C8%AB%A1%BE%B9%D9%B7%BD%CD%C6%BC%F6%A1%BF
  */
-#define DOWNLOAD_HOST_BASE "download.pinyin.sogou.com"
-#define HOST_BASE "pinyin.sogou.com"
-#define URL_BASE "http://" HOST_BASE "/dict/"
 
 BrowserDialog::BrowserDialog(QWidget* parent): QDialog(parent)
     ,m_ui(new Ui::BrowserDialog)

@@ -18,8 +18,8 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
-#ifndef FILEDOWNLOADER_H
-#define FILEDOWNLOADER_H
+#ifndef FCITX_FILEDOWNLOADER_H
+#define FCITX_FILEDOWNLOADER_H
 
 #include <QObject>
 #include <QByteArray>
@@ -42,15 +42,15 @@ signals:
     void message(const QString& msg);
     void finished(bool succ);
 
+public slots:
+    void readyToRead();
+    void finished();
+
 private:
 
     QTemporaryFile m_file;
     QNetworkAccessManager m_WebCtrl;
     QNetworkReply* m_reply;
-
-public slots:
-    void readyToRead();
-    void finished();
 };
 
 #endif

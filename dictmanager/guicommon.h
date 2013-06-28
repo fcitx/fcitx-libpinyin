@@ -25,5 +25,9 @@
 
 #define _(x) QString::fromUtf8(dgettext("fcitx-libpinyin", (x)))
 
+#define DOWNLOAD_HOST_BASE "download.pinyin.sogou.com"
+#define HOST_BASE "pinyin.sogou.com"
+#define URL_BASE "http://" HOST_BASE "/dict/"
+
 
 #endif // GUICOMMON_H

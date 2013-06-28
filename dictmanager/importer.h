@@ -18,8 +18,8 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
-#ifndef IMPORTER_H
-#define IMPORTER_H
+#ifndef FCITX_IMPORTER_H
+#define FCITX_IMPORTER_H
 
 #include <QString>
 #include <fcitx-qt/fcitxqtconnection.h>
@@ -37,14 +37,15 @@ public:
 signals:
     void finished();
 
-private:
-    FcitxQtConnection* m_connection;
-    bool m_running;
 public slots:
     void onConnected();
     void onDisconnected();
     void clearDict(int type);
+
+private:
+    FcitxQtConnection* m_connection;
+    bool m_running;
 };
 
 
-#endif // IMPORTER_H
+#endif // FCITX_IMPORTER_H
