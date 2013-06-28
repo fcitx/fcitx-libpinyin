@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-27 12:02-0400\n"
+"POT-Creation-Date: 2013-06-28 00:03-0400\n"
 "PO-Revision-Date: 2013-06-27 14:38+0000\n"
 "Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/fcitx/language/"
@@ -19,23 +19,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: dictmanager/dictmanager.cpp:56
-msgid "&Clear All Data"
+#: dictmanager/dictmanager.cpp:49
+msgid "&Browse Sogou Cell Dictionary Online"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:66
+#: dictmanager/dictmanager.cpp:67
 msgid "&Clear Dict"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:55
+#: dictmanager/dictmanager.cpp:56
 msgid "&Clear User Data"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:63
+#: dictmanager/dictmanager.cpp:64
 msgid "&Import"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:64
+#: dictmanager/dictmanager.cpp:65
 msgid "&Remove"
 msgstr ""
 
@@ -59,7 +59,7 @@ msgstr "Mehrdeutigkeit"
 msgid "An <-> Ang"
 msgstr "An <-> Ang"
 
-#: dictmanager/dictmanager.cpp:184
+#: dictmanager/dictmanager.cpp:185
 #, kde-format
 msgid "Are you sure to delete %1?"
 msgstr ""
@@ -72,11 +72,7 @@ msgstr "Kunst"
 msgid "Bopomofo (LibPinyin)"
 msgstr "Bopomofo (LibPinyin)"
 
-#: dictmanager/dictmanager.cpp:48
-msgid "Browse &Sogou Cell Online"
-msgstr ""
-
-#: dictmanager/browserdialog.cpp:45
+#: dictmanager/browserdialog.cpp:44
 msgid "Browse Sogou Cell Dict repository"
 msgstr ""
 
@@ -84,23 +80,27 @@ msgstr ""
 msgid "Ci <-> Chi"
 msgstr "Ci <-> Chi"
 
-#: dictmanager/dictmanager.cpp:183
+#: dictmanager/dictmanager.cpp:57
+msgid "Clear &All Data"
+msgstr ""
+
+#: dictmanager/dictmanager.cpp:184
 msgid "Confirm deletion"
 msgstr ""
 
-#: dictmanager/scelconverter.cpp:75
+#: dictmanager/scelconverter.cpp:77
 msgid "Convert failed."
 msgstr ""
 
-#: dictmanager/scelconverter.cpp:69
+#: dictmanager/scelconverter.cpp:71
 msgid "Converter crashed."
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:108
+#: dictmanager/dictmanager.cpp:109
 msgid "Copy file failed"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:108
+#: dictmanager/dictmanager.cpp:109
 msgid "Copy file failed. Please check you have permission or disk is not full."
 msgstr ""
 
@@ -111,7 +111,7 @@ msgstr ""
 msgid "Correction"
 msgstr "Korrektur"
 
-#: dictmanager/filedownloader.cpp:18 dictmanager/scelconverter.cpp:40
+#: dictmanager/filedownloader.cpp:39 dictmanager/scelconverter.cpp:42
 msgid "Create temporary file failed."
 msgstr ""
 
@@ -123,10 +123,6 @@ msgstr "Ctrl"
 msgid "Culture"
 msgstr "Kultur"
 
-#: dictmanager/dictmanager.cpp:100 dictmanager/dictmanager.cpp:136
-msgid "Dict name"
-msgstr ""
-
 #: src/fcitx-libpinyin.conf.in:10 src/fcitx-libpinyin.desc:157
 #: src/fcitx-libpinyin.desc:162 src/fcitx-libpinyin.desc:167
 #: src/fcitx-libpinyin.desc:172 src/fcitx-libpinyin.desc:177
@@ -136,11 +132,7 @@ msgstr ""
 msgid "Dictionary"
 msgstr "Wörterbuch"
 
-#: dictmanager/dictmanager.cpp:100 dictmanager/dictmanager.cpp:136
-msgid "Dictionary Name"
-msgstr ""
-
-#: dictmanager/filedownloader.cpp:53
+#: dictmanager/filedownloader.cpp:74
 msgid "Download Finished"
 msgstr ""
 
@@ -156,16 +148,16 @@ msgstr "Ökonomie"
 msgid "En <-> Eng"
 msgstr "En <-> Eng"
 
-#: dictmanager/dictmanager.cpp:192
+#: dictmanager/dictmanager.cpp:193
 #, kde-format
 msgid "Error while deleting %1."
 msgstr ""
 
-#: dictmanager/filedownloader.cpp:30
+#: dictmanager/filedownloader.cpp:51
 msgid "Failed to create request."
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:191
+#: dictmanager/dictmanager.cpp:192
 msgid "File Operation Failed"
 msgstr ""
 
@@ -173,12 +165,12 @@ msgstr ""
 msgid "Fo <-> He"
 msgstr "Fo <-> He"
 
-#: dictmanager/dictmanager.cpp:46
+#: dictmanager/dictmanager.cpp:47
 msgid "From &File"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:47
-msgid "From &Sogou Cell"
+#: dictmanager/dictmanager.cpp:48
+msgid "From &Sogou Cell Dictionary File"
 msgstr ""
 
 #: src/fcitx-libpinyin.desc:73
@@ -213,6 +205,11 @@ msgstr "IOU -> IU"
 msgid "In <-> Ing"
 msgstr "In <-> Ing"
 
+#: dictmanager/dictmanager.cpp:101 dictmanager/dictmanager.cpp:137
+#, fuzzy
+msgid "Input Dictionary Name"
+msgstr "Wörterbuch"
+
 #: src/fcitx-libpinyin.desc:133
 msgid "Le <-> Ri"
 msgstr "Le <-> Ri"
@@ -233,8 +230,8 @@ msgstr ""
 msgid "MG -> NG"
 msgstr "MG -> NG"
 
-#: dictmanager/dictmanager.cpp:44
-msgid "Manage Pinyin dictionary"
+#: dictmanager/dictmanager.cpp:45
+msgid "Manage Pinyin Dictionary"
 msgstr ""
 
 #: src/fcitx-libpinyin.desc:59
@@ -249,7 +246,12 @@ msgstr "Natur"
 msgid "Ne <-> Le"
 msgstr "Ne <-> Le"
 
-#: dictmanager/browserdialog.cpp:93
+#: dictmanager/dictmanager.cpp:101 dictmanager/dictmanager.cpp:137
+#, fuzzy
+msgid "New Dictionary Name:"
+msgstr "Wörterbuch"
+
+#: dictmanager/browserdialog.cpp:92
 msgid "No browsing outside pinyin.sogou.com, now redirect to home page."
 msgstr ""
 
@@ -269,15 +271,15 @@ msgstr "Pinyin (LibPinyin)"
 msgid "PinyinJiaJia"
 msgstr "PinyinJiaJia"
 
-#: dictmanager/dictmanager.cpp:65
+#: dictmanager/dictmanager.cpp:66
 msgid "Remove &All"
 msgstr ""
 
-#: dictmanager/scelconverter.cpp:86
+#: dictmanager/scelconverter.cpp:88
 msgid "Rename failed."
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:122
+#: dictmanager/dictmanager.cpp:123
 msgid "Scel file (*.scel)"
 msgstr ""
 
@@ -285,11 +287,12 @@ msgstr ""
 msgid "Science & Technology"
 msgstr "Wissenschaft und Technik"
 
-#: dictmanager/dictmanager.cpp:87
-msgid "Select dictionary file"
-msgstr ""
+#: dictmanager/dictmanager.cpp:88
+#, fuzzy
+msgid "Select Dictionary File"
+msgstr "Wörterbuch"
 
-#: dictmanager/dictmanager.cpp:120
+#: dictmanager/dictmanager.cpp:121
 msgid "Select scel file"
 msgstr ""
 
@@ -325,7 +328,7 @@ msgstr "Sport"
 msgid "Standard"
 msgstr "Standard"
 
-#: dictmanager/filedownloader.cpp:22 dictmanager/scelconverter.cpp:44
+#: dictmanager/filedownloader.cpp:43 dictmanager/scelconverter.cpp:46
 msgid "Temporary file created."
 msgstr ""
 
@@ -368,7 +371,7 @@ msgstr ""
 msgid "V -> U"
 msgstr "V -> U"
 
-#: dictmanager/browserdialog.cpp:92
+#: dictmanager/browserdialog.cpp:91
 msgid "Wrong Link"
 msgstr ""
 
