@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-28 12:03-0400\n"
-"PO-Revision-Date: 2013-06-28 16:06+0000\n"
+"POT-Creation-Date: 2013-06-28 18:02-0400\n"
+"PO-Revision-Date: 2013-06-28 16:09+0000\n"
 "Last-Translator: wwj402 <wwj402@gmail.com>\n"
 "Language-Team: Chinese (China) <fcitx-dev@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: dictmanager/dictmanager.cpp:49
 msgid "&Browse Sogou Cell Dictionary Online"
-msgstr ""
+msgstr "在线浏览搜狗细胞词典(&B)"
 
 #: dictmanager/dictmanager.cpp:67
 msgid "&Clear Dict"
@@ -172,7 +172,7 @@ msgstr "从文件 (&F)"
 
 #: dictmanager/dictmanager.cpp:48
 msgid "From &Sogou Cell Dictionary File"
-msgstr ""
+msgstr "来自搜狗细胞词典文件(&S)"
 
 #: src/fcitx-libpinyin.desc:73
 msgid "GN -> NG"
@@ -208,7 +208,7 @@ msgstr "In <-> Ing"
 
 #: dictmanager/dictmanager.cpp:101 dictmanager/dictmanager.cpp:137
 msgid "Input Dictionary Name"
-msgstr ""
+msgstr "输入词典名称"
 
 #: src/fcitx-libpinyin.desc:133
 msgid "Le <-> Ri"
@@ -248,7 +248,7 @@ msgstr "Ne <-> Le"
 
 #: dictmanager/dictmanager.cpp:101 dictmanager/dictmanager.cpp:137
 msgid "New Dictionary Name:"
-msgstr ""
+msgstr "新词典名称："
 
 #: dictmanager/browserdialog.cpp:92
 msgid "No browsing outside pinyin.sogou.com, now redirect to home page."
@@ -288,7 +288,7 @@ msgstr "科学技术"
 
 #: dictmanager/dictmanager.cpp:88
 msgid "Select Dictionary File"
-msgstr ""
+msgstr "选择词典文件"
 
 #: dictmanager/dictmanager.cpp:121
 msgid "Select scel file"
