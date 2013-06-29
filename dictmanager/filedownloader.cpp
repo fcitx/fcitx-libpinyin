@@ -23,8 +23,9 @@
 #include "filedownloader.h"
 #include "guicommon.h"
 
-FileDownloader::FileDownloader(QObject *parent) :
-    QObject(parent)
+FileDownloader::FileDownloader(QObject *parent) : QObject(parent)
+    ,m_file(getTempdir().append("/fcitx_dictmanager_XXXXXX"))
+    ,m_progress(0)
 {
 }
 
@@ -36,11 +37,11 @@ FileDownloader::~FileDownloader()
 void FileDownloader::download(const QUrl& url)
 {
     if (!m_file.open()) {
-        emit message(_("Create temporary file failed."));
+        emit message(QMessageBox::Warning, _("Create temporary file failed."));
         emit finished(false);
         return;
     } else {
-        emit message(_("Temporary file created."));
+        emit message(QMessageBox::Information, _("Temporary file created."));
     }
 
     QNetworkRequest request(url);
@@ -48,13 +49,15 @@ void FileDownloader::download(const QUrl& url)
     m_reply = m_WebCtrl.get(request);
 
     if (!m_reply) {
-        emit message(_("Failed to create request."));
+        emit message(QMessageBox::Warning, _("Failed to create request."));
         emit finished(false);
         return;
     }
+    emit message(QMessageBox::Information, _("Download started."));
 
     connect(m_reply, SIGNAL(readyRead()), SLOT(readyToRead()));
     connect(m_reply, SIGNAL(finished()), SLOT(finished()));
+    connect(m_reply, SIGNAL(downloadProgress(qint64,qint64)), SLOT(updateProgress(qint64,qint64)));
 }
 
 QString FileDownloader::fileName()
@@ -67,10 +70,26 @@ void FileDownloader::readyToRead()
     m_file.write(m_reply->readAll());
 }
 
+void FileDownloader::updateProgress(qint64 downloaded, qint64 total)
+{
+    if (total <= 0) {
+        return;
+    }
+
+    int percent = (int) (((qreal) downloaded / total) * 100);
+    if (percent > 100) {
+        percent = 100;
+    }
+    if (percent >= m_progress + 10) {
+        emit message(QMessageBox::Information, _("%1% Downloaded.").arg(percent));
+        m_progress = percent;
+    }
+}
+
 void FileDownloader::finished()
 {
     m_file.close();
     m_file.setAutoRemove(false);
-    emit message(_("Download Finished"));
+    emit message(QMessageBox::Information, _("Download Finished"));
     emit finished(true);
 }

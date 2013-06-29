@@ -29,5 +29,6 @@
 #define HOST_BASE "pinyin.sogou.com"
 #define URL_BASE "http://" HOST_BASE "/dict/"
 
+QString getTempdir();
 
 #endif // GUICOMMON_H

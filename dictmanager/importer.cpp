@@ -32,6 +32,7 @@
 Importer::Importer(QObject* parent): QObject(parent)
     ,m_connection(new FcitxQtConnection(this))
     ,m_running(false)
+    ,m_iface(0)
 {
     m_connection->setAutoReconnect(true);
 
@@ -40,61 +41,67 @@ Importer::Importer(QObject* parent): QObject(parent)
     m_connection->startConnection();
 }
 
-void Importer::onConnected()
-{
-    if (m_running) {
-        realRun();
-    }
-
-}
-
-void Importer::onDisconnected()
-{
-    if (m_running) {
-        m_running = false;
-        emit finished();
-    }
-}
-
 Importer::~Importer()
 {
 
 }
 
-void Importer::run()
+void Importer::onConnected()
 {
-    if (m_running) {
+    m_iface = new QDBusInterface(m_connection->serviceName(),
+                                 FCITX_LIBPINYIN_PATH,
+                                 FCITX_LIBPINYIN_INTERFACE,
+                                 *m_connection->connection());
+}
+
+void Importer::onDisconnected()
+{
+    delete m_iface;
+    m_iface = 0;
+    setIsRunning(false);
+}
+
+void Importer::callFinished(QDBusPendingCallWatcher* watcher)
+{
+    watcher->deleteLater();
+    setIsRunning(false);
+}
+
+void Importer::import()
+{
+    if (!m_iface || !m_iface->isValid() || m_running) {
         return;
     }
 
-    m_running = true;
-    realRun();
-}
-
-void Importer::realRun()
-{
-    if (m_connection->isConnected()) {
-        QDBusInterface iface(m_connection->serviceName(),
-                             FCITX_LIBPINYIN_PATH,
-                             FCITX_LIBPINYIN_INTERFACE,
-                             *m_connection->connection());
-        QDBusPendingCall call1 = iface.asyncCall("ImportDict");
-        call1.waitForFinished();
-
-        m_running = false;
-        emit finished();
-    }
+    setIsRunning(true);
+    
+    QDBusPendingCall call = m_iface->asyncCall("ImportDict");
+    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(call, m_iface);
+    connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), SLOT(callFinished(QDBusPendingCallWatcher*)));
 }
 
 void Importer::clearDict(int type)
 {
-    if (m_connection->isConnected()) {
-        QDBusInterface iface(m_connection->serviceName(),
-                             FCITX_LIBPINYIN_PATH,
-                             FCITX_LIBPINYIN_INTERFACE,
-                             *m_connection->connection());
-        QDBusPendingCall call1 = iface.asyncCall("ClearDict", type);
-        call1.waitForFinished();
+    if (!m_iface || !m_iface->isValid() || m_running) {
+        return;
+    }
+
+    setIsRunning(true);
+
+    QDBusPendingCall call = m_iface->asyncCall("ClearDict", type);
+    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(call, m_iface);
+    connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), SLOT(callFinished(QDBusPendingCallWatcher*)));
+}
+
+void Importer::setIsRunning(bool running)
+{
+    if (running != m_running) {
+        m_running = running;
+        if (m_running) {
+            emit started();
+        } else {
+            emit finished();
+        }
     }
 }
 

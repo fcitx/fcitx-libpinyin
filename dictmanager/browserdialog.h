@@ -22,6 +22,7 @@
 #define FCITX_BROWSERDIALOG_H
 
 #include <QDialog>
+#include <QMessageBox>
 #include <QUrl>
 
 namespace Ui {
@@ -43,7 +44,7 @@ private:
 
 public slots:
     void linkClicked(const QUrl& url);
-    void showMessage(const QString& message);
+    void showMessage(QMessageBox::Icon msgLevel, const QString& message);
     void downloadFinished(bool succ);
     void convertFinished(bool);
 };

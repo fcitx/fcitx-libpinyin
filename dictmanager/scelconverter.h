@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QProcess>
 #include <QTemporaryFile>
+#include <QMessageBox>
 
 class ScelConverter : public QObject
 {
@@ -33,7 +34,7 @@ public:
     void convert(const QString& from, const QString& to, bool removeOriginFile = true);
 
 signals:
-    void message(const QString& msg);
+    void message(QMessageBox::Icon msgLevel, const QString& msg);
     void finished(bool succ);
 
 public slots:

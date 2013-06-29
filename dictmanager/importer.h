@@ -24,6 +24,8 @@
 #include <QString>
 #include <fcitx-qt/fcitxqtconnection.h>
 
+class QDBusInterface;
+class QDBusPendingCallWatcher;
 class Importer : public QObject {
     Q_OBJECT
     void realRun();
@@ -31,20 +33,25 @@ public:
     explicit Importer(QObject* parent = 0);
     virtual ~Importer();
 
-    void run();
     void import();
+    void clearDict(int type);
 
 signals:
+    void started();
     void finished();
 
 public slots:
+    void callFinished(QDBusPendingCallWatcher*);
+
+private slots:
     void onConnected();
     void onDisconnected();
-    void clearDict(int type);
+    void setIsRunning(bool running);
 
 private:
     FcitxQtConnection* m_connection;
     bool m_running;
+    QDBusInterface* m_iface;
 };
 
 

@@ -51,6 +51,8 @@ public slots:
     void clearUserDict();
     void clearAllDict();
     void convertFinished(bool);
+    void importerStarted();
+    void importerFinished();
 };
 
 #endif // FCITX_DICTMANAGER_H

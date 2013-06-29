@@ -1,4 +1,3 @@
-#include "scelconverter.h"
 /***************************************************************************
  *   Copyright (C) 2013~2013 by CSSlayer                                   *
  *   wengxt@gmail.com                                                      *
@@ -25,9 +24,11 @@
 #include <fcitx-utils/utils.h>
 #include <fcitx-config/xdg.h>
 
+#include "scelconverter.h"
 #include "guicommon.h"
 
 ScelConverter::ScelConverter(QObject* parent): QObject(parent)
+    ,m_file(getTempdir().append("/fcitx_dictmanager_XXXXXX"))
 {
 }
 
@@ -39,11 +40,11 @@ void ScelConverter::removeTempFile()
 void ScelConverter::convert(const QString& from, const QString& to, bool removeOriginFile)
 {
     if (!m_file.open()) {
-        emit message(_("Create temporary file failed."));
+        emit message(QMessageBox::Warning, _("Create temporary file failed."));
         emit finished(false);
         return;
     } else {
-        emit message(_("Temporary file created."));
+        emit message(QMessageBox::Information, _("Temporary file created."));
     }
 
     m_file.close();
@@ -68,13 +69,13 @@ void ScelConverter::convert(const QString& from, const QString& to, bool removeO
 void ScelConverter::finished(int exitCode, QProcess::ExitStatus status)
 {
     if (status == QProcess::CrashExit) {
-        emit message(_("Converter crashed."));
+        emit message(QMessageBox::Critical, _("Converter crashed."));
         emit finished(false);
         return;
     }
 
     if (exitCode != 0) {
-        emit message(_("Convert failed."));
+        emit message(QMessageBox::Warning, _("Convert failed."));
         emit finished(false);
     }
 
@@ -85,7 +86,7 @@ void ScelConverter::finished(int exitCode, QProcess::ExitStatus status)
         emit finished(true);
     } else {
         QFile::remove(m_file.fileName());
-        emit message(_("Rename failed."));
+        emit message(QMessageBox::Warning, _("Rename failed."));
         emit finished(true);
     }
 

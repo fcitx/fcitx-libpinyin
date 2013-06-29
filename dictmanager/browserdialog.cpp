@@ -99,20 +99,37 @@ void BrowserDialog::linkClicked(const QUrl& url)
 
 void BrowserDialog::download(const QUrl& url)
 {
+    m_ui->webView->stop();
     m_ui->webView->hide();
+    m_ui->progressBar->hide();
     m_ui->listWidget->show();
 
-    FileDownloader* downloader = new FileDownloader;
-    connect(downloader, SIGNAL(message(QString)), SLOT(showMessage(QString)));
+    FileDownloader* downloader = new FileDownloader(this);
+    connect(downloader, SIGNAL(message(QMessageBox::Icon,QString)), SLOT(showMessage(QMessageBox::Icon,QString)));
     connect(downloader, SIGNAL(finished(bool)), SLOT(downloadFinished(bool)));
     connect(downloader, SIGNAL(finished(bool)), downloader, SLOT(deleteLater()));
 
     downloader->download(url);
 }
 
-void BrowserDialog::showMessage(const QString& message)
+void BrowserDialog::showMessage(QMessageBox::Icon msgLevel, const QString& message)
 {
-    m_ui->listWidget->addItem(message);
+    QString iconName;
+    switch(msgLevel) {
+        case QMessageBox::Warning:
+            iconName = "dialog-warning";
+            break;
+        case QMessageBox::Critical:
+            iconName = "dialog-error";
+            break;
+        case QMessageBox::Information:
+            iconName = "dialog-information";
+            break;
+        default:
+            break;
+    }
+    QListWidgetItem* item = new QListWidgetItem(QIcon::fromTheme(iconName), message, m_ui->listWidget);
+    m_ui->listWidget->addItem(item);
 }
 
 void BrowserDialog::downloadFinished(bool succ)
@@ -124,8 +141,8 @@ void BrowserDialog::downloadFinished(bool succ)
 
     QString fileName = downloader->fileName();
 
-    ScelConverter* converter = new ScelConverter;
-    connect(converter, SIGNAL(message(QString)), SLOT(showMessage(QString)));
+    ScelConverter* converter = new ScelConverter(this);
+    connect(converter, SIGNAL(message(QMessageBox::Icon,QString)), SLOT(showMessage(QMessageBox::Icon,QString)));
     connect(converter, SIGNAL(finished(bool)), SLOT(convertFinished(bool)));
     connect(converter, SIGNAL(finished(bool)), converter, SLOT(deleteLater()));
     converter->convert(fileName, m_name.append(".txt"));

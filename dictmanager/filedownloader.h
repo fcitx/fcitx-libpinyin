@@ -27,6 +27,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
+#include <QMessageBox>
 
 class FileDownloader : public QObject
 {
@@ -39,18 +40,20 @@ public:
     QString fileName();
 
 signals:
-    void message(const QString& msg);
+    void message(QMessageBox::Icon msgLevel, const QString& msg);
     void finished(bool succ);
 
 public slots:
     void readyToRead();
     void finished();
+    void updateProgress(qint64,qint64);
 
 private:
 
     QTemporaryFile m_file;
     QNetworkAccessManager m_WebCtrl;
     QNetworkReply* m_reply;
+    int m_progress;
 };
 
 #endif

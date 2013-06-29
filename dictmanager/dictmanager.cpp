@@ -76,11 +76,24 @@ DictManager::DictManager(QWidget* parent): QMainWindow(parent)
     connect(m_ui->removeButton, SIGNAL(clicked(bool)), SLOT(removeDict()));
     connect(m_ui->removeAllButton, SIGNAL(clicked(bool)), SLOT(removeAllDict()));
 
+    connect(m_importer, SIGNAL(started()), SLOT(importerStarted()));
+    connect(m_importer, SIGNAL(finished()), SLOT(importerFinished()));
+
 }
 
 DictManager::~DictManager()
 {
     delete m_ui;
+}
+
+void DictManager::importerStarted()
+{
+    setEnabled(false);
+}
+
+void DictManager::importerFinished()
+{
+    setEnabled(true);
 }
 
 void DictManager::importFromFile()
@@ -108,7 +121,7 @@ void DictManager::importFromFile()
     if (!QFile::copy(name, QString::fromLocal8Bit(fullname))) {
         QMessageBox::warning(this, _("Copy file failed"), _("Copy file failed. Please check you have permission or disk is not full."));
     } else {
-        m_importer->run();
+        m_importer->import();
         m_model->loadFileList();
     }
 
@@ -153,7 +166,7 @@ void DictManager::convertFinished(bool succ)
     if (!succ) {
         QMessageBox::warning(this, "Convertion failed", "Convert failed, please check this file is valid scel file or not.");
     } else {
-        m_importer->run();
+        m_importer->import();
         m_model->loadFileList();
     }
 }
@@ -163,7 +176,7 @@ void DictManager::importFromSogouOnline()
     BrowserDialog dialog(this);
     int result = dialog.exec();
     if (result == QDialog::Accepted) {
-        m_importer->run();
+        m_importer->import();
         m_model->loadFileList();
     }
 }
@@ -193,7 +206,7 @@ void DictManager::removeDict()
                                  _("Error while deleting %1.").arg(curName)
                                 );
         } else {
-            m_importer->run();
+            m_importer->import();
             m_model->loadFileList();
         }
     }
@@ -227,3 +240,16 @@ void DictManager::clearAllDict()
     m_importer->clearDict(2);
 }
 
+QString getTempdir()
+{
+    // do some modern temp dir check
+    QByteArray tempDir = qgetenv("XDG_RUNTIME_DIR");
+    if (!tempDir.isEmpty()) {
+        QFileInfo dir(tempDir);
+        if (dir.isDir() && dir.isReadable() && dir.isWritable() && dir.isExecutable()) {
+            return tempDir;
+        }
+    }
+
+    return QDir::tempPath();
+}
