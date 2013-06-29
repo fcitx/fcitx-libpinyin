@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-29 12:02-0400\n"
-"PO-Revision-Date: 2013-06-28 16:09+0000\n"
-"Last-Translator: wwj402 <wwj402@gmail.com>\n"
+"POT-Creation-Date: 2013-06-29 18:02-0400\n"
+"PO-Revision-Date: 2013-06-29 19:48+0000\n"
+"Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
 "Language-Team: Chinese (China) <fcitx-dev@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -21,27 +21,27 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: dictmanager/filedownloader.cpp:84
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1% Downloaded."
-msgstr "下载已完成"
+msgstr "已下载 %1%。"
 
-#: dictmanager/dictmanager.cpp:52
+#: dictmanager/dictmanager.cpp:50
 msgid "&Browse Sogou Cell Dictionary Online"
 msgstr "在线浏览搜狗细胞词典(&B)"
 
-#: dictmanager/dictmanager.cpp:70
+#: dictmanager/dictmanager.cpp:68
 msgid "&Clear Dict"
 msgstr "清理词库(&C)"
 
-#: dictmanager/dictmanager.cpp:59
+#: dictmanager/dictmanager.cpp:57
 msgid "&Clear User Data"
-msgstr "清理用户数据 (&C)"
+msgstr "清理用户数据(&C)"
 
-#: dictmanager/dictmanager.cpp:67
+#: dictmanager/dictmanager.cpp:65
 msgid "&Import"
 msgstr "导入(&I)"
 
-#: dictmanager/dictmanager.cpp:68
+#: dictmanager/dictmanager.cpp:66
 msgid "&Remove"
 msgstr "移除(&R)"
 
@@ -65,7 +65,7 @@ msgstr "模糊音"
 msgid "An <-> Ang"
 msgstr "An <-> Ang"
 
-#: dictmanager/dictmanager.cpp:207
+#: dictmanager/dictmanager.cpp:230
 #, kde-format
 msgid "Are you sure to delete %1?"
 msgstr "您确定要删除 %1？"
@@ -84,17 +84,17 @@ msgstr "浏览搜狗细胞词库"
 
 #: dictmanager/erroroverlay.cpp:41
 msgid "Cannot connect to Fcitx by DBus, is Fcitx running?"
-msgstr ""
+msgstr "无法通过 DBus 连接到 Fcitx，Fcitx 是否正在运行？"
 
 #: src/fcitx-libpinyin.desc:108
 msgid "Ci <-> Chi"
 msgstr "Ci <-> Chi"
 
-#: dictmanager/dictmanager.cpp:60
+#: dictmanager/dictmanager.cpp:58
 msgid "Clear &All Data"
 msgstr "清理所有数据(&A)"
 
-#: dictmanager/dictmanager.cpp:206
+#: dictmanager/dictmanager.cpp:229
 msgid "Confirm deletion"
 msgstr "确认删除"
 
@@ -106,11 +106,11 @@ msgstr "转换失败。"
 msgid "Converter crashed."
 msgstr "转换器崩溃。"
 
-#: dictmanager/dictmanager.cpp:131
+#: dictmanager/dictmanager.cpp:154
 msgid "Copy file failed"
 msgstr "复制文件失败"
 
-#: dictmanager/dictmanager.cpp:131
+#: dictmanager/dictmanager.cpp:154
 msgid "Copy file failed. Please check you have permission or disk is not full."
 msgstr "复制文件失败。请检查是否有权限或者磁盘是否已满。"
 
@@ -147,9 +147,8 @@ msgid "Download Finished"
 msgstr "下载已完成"
 
 #: dictmanager/filedownloader.cpp:56
-#, fuzzy
 msgid "Download started."
-msgstr "下载已完成"
+msgstr "下载已开始。"
 
 #: src/fcitx-libpinyin.desc:27
 msgid "ET"
@@ -163,7 +162,7 @@ msgstr "经济"
 msgid "En <-> Eng"
 msgstr "En <-> Eng"
 
-#: dictmanager/dictmanager.cpp:215
+#: dictmanager/dictmanager.cpp:238
 #, kde-format
 msgid "Error while deleting %1."
 msgstr "删除 %1 时出错。"
@@ -172,7 +171,7 @@ msgstr "删除 %1 时出错。"
 msgid "Failed to create request."
 msgstr "创建请求失败。"
 
-#: dictmanager/dictmanager.cpp:214
+#: dictmanager/dictmanager.cpp:237
 msgid "File Operation Failed"
 msgstr "文件操作失败"
 
@@ -180,11 +179,11 @@ msgstr "文件操作失败"
 msgid "Fo <-> He"
 msgstr "Fo <-> He"
 
-#: dictmanager/dictmanager.cpp:50
+#: dictmanager/dictmanager.cpp:48
 msgid "From &File"
-msgstr "从文件 (&F)"
+msgstr "从文件(&F)"
 
-#: dictmanager/dictmanager.cpp:51
+#: dictmanager/dictmanager.cpp:49
 msgid "From &Sogou Cell Dictionary File"
 msgstr "来自搜狗细胞词典文件(&S)"
 
@@ -220,7 +219,7 @@ msgstr "IOU -> IU"
 msgid "In <-> Ing"
 msgstr "In <-> Ing"
 
-#: dictmanager/dictmanager.cpp:123 dictmanager/dictmanager.cpp:159
+#: dictmanager/dictmanager.cpp:146 dictmanager/dictmanager.cpp:182
 msgid "Input Dictionary Name"
 msgstr "输入词典名称"
 
@@ -244,7 +243,7 @@ msgstr "生活"
 msgid "MG -> NG"
 msgstr "MG -> NG"
 
-#: dictmanager/dictmanager.cpp:48
+#: dictmanager/dictmanager.cpp:113
 msgid "Manage Pinyin Dictionary"
 msgstr "管理拼音词典"
 
@@ -260,7 +259,7 @@ msgstr "自然"
 msgid "Ne <-> Le"
 msgstr "Ne <-> Le"
 
-#: dictmanager/dictmanager.cpp:123 dictmanager/dictmanager.cpp:159
+#: dictmanager/dictmanager.cpp:146 dictmanager/dictmanager.cpp:182
 msgid "New Dictionary Name:"
 msgstr "新词典名称："
 
@@ -284,7 +283,7 @@ msgstr "拼音 (LibPinyin)"
 msgid "PinyinJiaJia"
 msgstr "拼音加加"
 
-#: dictmanager/dictmanager.cpp:69
+#: dictmanager/dictmanager.cpp:67
 msgid "Remove &All"
 msgstr "移除全部(&A)"
 
@@ -292,7 +291,7 @@ msgstr "移除全部(&A)"
 msgid "Rename failed."
 msgstr "重命名失败。"
 
-#: dictmanager/dictmanager.cpp:145
+#: dictmanager/dictmanager.cpp:168
 msgid "Scel file (*.scel)"
 msgstr "Scel 文件 (*.scel)"
 
@@ -300,11 +299,11 @@ msgstr "Scel 文件 (*.scel)"
 msgid "Science & Technology"
 msgstr "科学技术"
 
-#: dictmanager/dictmanager.cpp:110
+#: dictmanager/dictmanager.cpp:133
 msgid "Select Dictionary File"
 msgstr "选择词典文件"
 
-#: dictmanager/dictmanager.cpp:143
+#: dictmanager/dictmanager.cpp:166
 msgid "Select scel file"
 msgstr "选择 scel 文件"
 
