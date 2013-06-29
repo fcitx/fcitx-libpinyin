@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Xuetian Weng <wengxt@gmail.com>, 2013
 # Xuetian Weng <wengxt@gmail.com>, 2010-2013
@@ -10,27 +10,51 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-28 18:02-0400\n"
+"POT-Creation-Date: 2013-06-28 00:03-0400\n"
 "PO-Revision-Date: 2013-06-28 16:09+0000\n"
 "Last-Translator: wwj402 <wwj402@gmail.com>\n"
 "Language-Team: Chinese (China) <fcitx-dev@googlegroups.com>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: dictmanager/browserdialog.cpp:44
+msgid "Browse Sogou Cell Dict repository"
+msgstr "浏览搜狗细胞词库"
+
+#: dictmanager/browserdialog.cpp:91
+msgid "Wrong Link"
+msgstr "链接错误"
+
+#: dictmanager/browserdialog.cpp:92
+msgid "No browsing outside pinyin.sogou.com, now redirect to home page."
+msgstr "不允许访问 pinyin.sogou.com 之外的网页，将重定向到主页。"
+
+#: dictmanager/dictmanager.cpp:45
+msgid "Manage Pinyin Dictionary"
+msgstr "管理拼音词典"
+
+#: dictmanager/dictmanager.cpp:47
+msgid "From &File"
+msgstr "从文件 (&F)"
+
+#: dictmanager/dictmanager.cpp:48
+msgid "From &Sogou Cell Dictionary File"
+msgstr "来自搜狗细胞词典文件(&S)"
 
 #: dictmanager/dictmanager.cpp:49
 msgid "&Browse Sogou Cell Dictionary Online"
 msgstr "在线浏览搜狗细胞词典(&B)"
 
-#: dictmanager/dictmanager.cpp:67
-msgid "&Clear Dict"
-msgstr "清理词库(&C)"
-
 #: dictmanager/dictmanager.cpp:56
 msgid "&Clear User Data"
 msgstr "清理用户数据 (&C)"
+
+#: dictmanager/dictmanager.cpp:57
+msgid "Clear &All Data"
+msgstr "清理所有数据(&A)"
 
 #: dictmanager/dictmanager.cpp:64
 msgid "&Import"
@@ -40,89 +64,108 @@ msgstr "导入(&I)"
 msgid "&Remove"
 msgstr "移除(&R)"
 
-#: src/fcitx-libpinyin.desc:61
-msgid "ABC"
-msgstr "智能 ABC"
+#: dictmanager/dictmanager.cpp:66
+msgid "Remove &All"
+msgstr "移除全部(&A)"
 
-#: src/fcitx-libpinyin.desc:35
-msgid "Alt"
-msgstr "Alt"
+#: dictmanager/dictmanager.cpp:67
+msgid "&Clear Dict"
+msgstr "清理词库(&C)"
 
-#: src/fcitx-libpinyin.desc:107 src/fcitx-libpinyin.desc:112
-#: src/fcitx-libpinyin.desc:117 src/fcitx-libpinyin.desc:122
-#: src/fcitx-libpinyin.desc:127 src/fcitx-libpinyin.desc:132
-#: src/fcitx-libpinyin.desc:137 src/fcitx-libpinyin.desc:142
-#: src/fcitx-libpinyin.desc:147 src/fcitx-libpinyin.desc:152
-msgid "Ambiguity"
-msgstr "模糊音"
+#: dictmanager/dictmanager.cpp:88
+msgid "Select Dictionary File"
+msgstr "选择词典文件"
 
-#: src/fcitx-libpinyin.desc:143
-msgid "An <-> Ang"
-msgstr "An <-> Ang"
+#: dictmanager/dictmanager.cpp:101 dictmanager/dictmanager.cpp:137
+msgid "Input Dictionary Name"
+msgstr "输入词典名称"
 
-#: dictmanager/dictmanager.cpp:185
-#, kde-format
-msgid "Are you sure to delete %1?"
-msgstr "您确定要删除 %1？"
-
-#: src/fcitx-libpinyin.desc:158
-msgid "Art"
-msgstr "艺术"
-
-#: src/eim.cpp:860 src/zhuyin-libpinyin.conf.in:3
-msgid "Bopomofo (LibPinyin)"
-msgstr "注音 (LibPinyin)"
-
-#: dictmanager/browserdialog.cpp:44
-msgid "Browse Sogou Cell Dict repository"
-msgstr "浏览搜狗细胞词库"
-
-#: src/fcitx-libpinyin.desc:108
-msgid "Ci <-> Chi"
-msgstr "Ci <-> Chi"
-
-#: dictmanager/dictmanager.cpp:57
-msgid "Clear &All Data"
-msgstr "清理所有数据(&A)"
-
-#: dictmanager/dictmanager.cpp:184
-msgid "Confirm deletion"
-msgstr "确认删除"
-
-#: dictmanager/scelconverter.cpp:77
-msgid "Convert failed."
-msgstr "转换失败。"
-
-#: dictmanager/scelconverter.cpp:71
-msgid "Converter crashed."
-msgstr "转换器崩溃。"
+#: dictmanager/dictmanager.cpp:101 dictmanager/dictmanager.cpp:137
+msgid "New Dictionary Name:"
+msgstr "新词典名称："
 
 #: dictmanager/dictmanager.cpp:109
 msgid "Copy file failed"
 msgstr "复制文件失败"
 
 #: dictmanager/dictmanager.cpp:109
-msgid "Copy file failed. Please check you have permission or disk is not full."
+msgid ""
+"Copy file failed. Please check you have permission or disk is not full."
 msgstr "复制文件失败。请检查是否有权限或者磁盘是否已满。"
 
-#: src/fcitx-libpinyin.desc:67 src/fcitx-libpinyin.desc:72
-#: src/fcitx-libpinyin.desc:77 src/fcitx-libpinyin.desc:82
-#: src/fcitx-libpinyin.desc:87 src/fcitx-libpinyin.desc:92
-#: src/fcitx-libpinyin.desc:97 src/fcitx-libpinyin.desc:102
-msgid "Correction"
-msgstr "纠正"
+#: dictmanager/dictmanager.cpp:121
+msgid "Select scel file"
+msgstr "选择 scel 文件"
+
+#: dictmanager/dictmanager.cpp:123
+msgid "Scel file (*.scel)"
+msgstr "Scel 文件 (*.scel)"
+
+#: dictmanager/dictmanager.cpp:184
+msgid "Confirm deletion"
+msgstr "确认删除"
+
+#: dictmanager/dictmanager.cpp:185
+#, kde-format
+msgid "Are you sure to delete %1?"
+msgstr "您确定要删除 %1？"
+
+#: dictmanager/dictmanager.cpp:192
+msgid "File Operation Failed"
+msgstr "文件操作失败"
+
+#: dictmanager/dictmanager.cpp:193
+#, kde-format
+msgid "Error while deleting %1."
+msgstr "删除 %1 时出错。"
 
 #: dictmanager/filedownloader.cpp:39 dictmanager/scelconverter.cpp:42
 msgid "Create temporary file failed."
 msgstr "创建临时文件失败。"
 
-#: src/fcitx-libpinyin.desc:34
-msgid "Ctrl"
-msgstr "Ctrl"
+#: dictmanager/filedownloader.cpp:43 dictmanager/scelconverter.cpp:46
+msgid "Temporary file created."
+msgstr "已创建临时文件。"
 
-#: src/fcitx-libpinyin.desc:163
-msgid "Culture"
-msgstr "文化"
+#: dictmanager/filedownloader.cpp:51
+msgid "Failed to create request."
+msgstr "创建请求失败。"
+
+#: dictmanager/filedownloader.cpp:74
+msgid "Download Finished"
+msgstr "下载已完成"
+
+#: dictmanager/scelconverter.cpp:71
+msgid "Converter crashed."
+msgstr "转换器崩溃。"
+
+#: dictmanager/scelconverter.cpp:77
+msgid "Convert failed."
+msgstr "转换失败。"
+
+#: dictmanager/scelconverter.cpp:88
+msgid "Rename failed."
+msgstr "重命名失败。"
+
+#: src/eim.cpp:826 src/pinyin-libpinyin.conf.in:3
+msgid "Pinyin (LibPinyin)"
+msgstr "拼音 (LibPinyin)"
+
+#: src/eim.cpp:843 src/shuangpin-libpinyin.conf.in:3
+msgid "Shuangpin (LibPinyin)"
+msgstr "双拼 (LibPinyin)"
+
+#: src/eim.cpp:860 src/zhuyin-libpinyin.conf.in:3
+msgid "Bopomofo (LibPinyin)"
+msgstr "注音 (LibPinyin)"
+
+#: src/fcitx-libpinyin.conf.in:3
+msgid "LibPinyin"
+msgstr "LibPinyin"
+
+#: src/fcitx-libpinyin.conf.in:4
+msgid "LibPinyin Wrapper For Fcitx"
+msgstr "Fcitx 的 LibPinyin 封装"
 
 #: src/fcitx-libpinyin.conf.in:10 src/fcitx-libpinyin.desc:157
 #: src/fcitx-libpinyin.desc:162 src/fcitx-libpinyin.desc:167
@@ -133,206 +176,135 @@ msgstr "文化"
 msgid "Dictionary"
 msgstr "词典"
 
-#: dictmanager/filedownloader.cpp:74
-msgid "Download Finished"
-msgstr "下载已完成"
-
-#: src/fcitx-libpinyin.desc:27
-msgid "ET"
-msgstr "倚天"
-
-#: src/fcitx-libpinyin.desc:168
-msgid "Economy"
-msgstr "经济"
-
-#: src/fcitx-libpinyin.desc:148
-msgid "En <-> Eng"
-msgstr "En <-> Eng"
-
-#: dictmanager/dictmanager.cpp:193
-#, kde-format
-msgid "Error while deleting %1."
-msgstr "删除 %1 时出错。"
-
-#: dictmanager/filedownloader.cpp:51
-msgid "Failed to create request."
-msgstr "创建请求失败。"
-
-#: dictmanager/dictmanager.cpp:192
-msgid "File Operation Failed"
-msgstr "文件操作失败"
-
-#: src/fcitx-libpinyin.desc:128
-msgid "Fo <-> He"
-msgstr "Fo <-> He"
-
-#: dictmanager/dictmanager.cpp:47
-msgid "From &File"
-msgstr "从文件 (&F)"
-
-#: dictmanager/dictmanager.cpp:48
-msgid "From &Sogou Cell Dictionary File"
-msgstr "来自搜狗细胞词典文件(&S)"
-
-#: src/fcitx-libpinyin.desc:73
-msgid "GN -> NG"
-msgstr "GN -> NG"
-
-#: src/fcitx-libpinyin.desc:138
-msgid "Ge <-> Ke"
-msgstr "Ge <-> Ke"
-
-#: src/fcitx-libpinyin.desc:173
-msgid "Geology"
-msgstr "地理"
-
-#: src/fcitx-libpinyin.desc:26
-msgid "GinYieh"
-msgstr "精业"
-
-#: src/fcitx-libpinyin.desc:178
-msgid "History"
-msgstr "历史"
-
-#: src/fcitx-libpinyin.desc:25
-msgid "IBM"
-msgstr "IBM"
-
-#: src/fcitx-libpinyin.desc:83
-msgid "IOU -> IU"
-msgstr "IOU -> IU"
-
-#: src/fcitx-libpinyin.desc:153
-msgid "In <-> Ing"
-msgstr "In <-> Ing"
-
-#: dictmanager/dictmanager.cpp:101 dictmanager/dictmanager.cpp:137
-msgid "Input Dictionary Name"
-msgstr "输入词典名称"
-
-#: src/fcitx-libpinyin.desc:133
-msgid "Le <-> Ri"
-msgstr "Le <-> Ri"
-
-#: src/fcitx-libpinyin.conf.in:3
-msgid "LibPinyin"
-msgstr "LibPinyin"
-
-#: src/fcitx-libpinyin.conf.in:4
-msgid "LibPinyin Wrapper For Fcitx"
-msgstr "Fcitx 的 LibPinyin 封装"
-
-#: src/fcitx-libpinyin.desc:183
-msgid "Life"
-msgstr "生活"
-
-#: src/fcitx-libpinyin.desc:78
-msgid "MG -> NG"
-msgstr "MG -> NG"
-
-#: dictmanager/dictmanager.cpp:45
-msgid "Manage Pinyin Dictionary"
-msgstr "管理拼音词典"
-
-#: src/fcitx-libpinyin.desc:59
-msgid "Microsoft"
-msgstr "微软"
-
-#: src/fcitx-libpinyin.desc:188
-msgid "Nature"
-msgstr "自然"
-
-#: src/fcitx-libpinyin.desc:123
-msgid "Ne <-> Le"
-msgstr "Ne <-> Le"
-
-#: dictmanager/dictmanager.cpp:101 dictmanager/dictmanager.cpp:137
-msgid "New Dictionary Name:"
-msgstr "新词典名称："
-
-#: dictmanager/browserdialog.cpp:92
-msgid "No browsing outside pinyin.sogou.com, now redirect to home page."
-msgstr "不允许访问 pinyin.sogou.com 之外的网页，将重定向到主页。"
-
-#: src/fcitx-libpinyin.desc:103
-msgid "ON -> ONG"
-msgstr "ON -> ONG"
-
 #: src/fcitx-libpinyin.desc:1 src/fcitx-libpinyin.desc:6
 msgid "Pinyin"
 msgstr "拼音"
 
-#: src/eim.cpp:826 src/pinyin-libpinyin.conf.in:3
-msgid "Pinyin (LibPinyin)"
-msgstr "拼音 (LibPinyin)"
+#: src/fcitx-libpinyin.desc:2
+msgid "Use Incomplete pinyin"
+msgstr "使用不完整拼音"
 
-#: src/fcitx-libpinyin.desc:62
-msgid "PinyinJiaJia"
-msgstr "拼音加加"
+#: src/fcitx-libpinyin.desc:7
+msgid "Use Traditional Chinese Data for Pinyin and Shuangpin (Need Restart)"
+msgstr "拼音和双拼使用繁体中文数据 (需要重启)"
 
-#: dictmanager/dictmanager.cpp:66
-msgid "Remove &All"
-msgstr "移除全部(&A)"
+#: src/fcitx-libpinyin.desc:11 src/fcitx-libpinyin.desc:16
+#: src/fcitx-libpinyin.desc:21 src/fcitx-libpinyin.desc:31
+#: src/fcitx-libpinyin.desc:40 src/fcitx-libpinyin.desc:45
+#: src/fcitx-libpinyin.desc:50
+msgid "Zhuyin"
+msgstr "注音"
 
-#: dictmanager/scelconverter.cpp:88
-msgid "Rename failed."
-msgstr "重命名失败。"
+#: src/fcitx-libpinyin.desc:12
+msgid "Use Tone"
+msgstr "使用声调"
 
-#: dictmanager/dictmanager.cpp:123
-msgid "Scel file (*.scel)"
-msgstr "Scel 文件 (*.scel)"
+#: src/fcitx-libpinyin.desc:17
+msgid "Use Incomplete Zhuyin"
+msgstr "使用不完整注音"
 
-#: src/fcitx-libpinyin.desc:193
-msgid "Science & Technology"
-msgstr "科学技术"
-
-#: dictmanager/dictmanager.cpp:88
-msgid "Select Dictionary File"
-msgstr "选择词典文件"
-
-#: dictmanager/dictmanager.cpp:121
-msgid "Select scel file"
-msgstr "选择 scel 文件"
-
-#: src/fcitx-libpinyin.desc:36
-msgid "Shift"
-msgstr "Shift"
-
-#: src/fcitx-libpinyin.desc:55
-msgid "Shuangpin"
-msgstr "双拼"
-
-#: src/eim.cpp:843 src/shuangpin-libpinyin.conf.in:3
-msgid "Shuangpin (LibPinyin)"
-msgstr "双拼 (LibPinyin)"
-
-#: src/fcitx-libpinyin.desc:56
-msgid "Shuangpin Scheme"
-msgstr "双拼方案"
-
-#: src/fcitx-libpinyin.desc:118
-msgid "Si <-> Shi"
-msgstr "Si <-> Shi"
-
-#: src/fcitx-libpinyin.desc:198
-msgid "Society"
-msgstr "社会"
-
-#: src/fcitx-libpinyin.desc:203
-msgid "Sport"
-msgstr "运动"
+#: src/fcitx-libpinyin.desc:22
+msgid "Zhuyin Layout"
+msgstr "注音布局"
 
 #: src/fcitx-libpinyin.desc:24
 msgid "Standard"
 msgstr "标准"
 
-#: dictmanager/filedownloader.cpp:43 dictmanager/scelconverter.cpp:46
-msgid "Temporary file created."
-msgstr "已创建临时文件。"
+#: src/fcitx-libpinyin.desc:25
+msgid "IBM"
+msgstr "IBM"
 
-#: src/fcitx-libpinyin.desc:98
-msgid "UE -> VE"
-msgstr "UE -> VE"
+#: src/fcitx-libpinyin.desc:26
+msgid "GinYieh"
+msgstr "精业"
+
+#: src/fcitx-libpinyin.desc:27
+msgid "ET"
+msgstr "倚天"
+
+#: src/fcitx-libpinyin.desc:32
+msgid "Zhuyin candidate choosing modifiers"
+msgstr "注音候选词修饰键"
+
+#: src/fcitx-libpinyin.desc:34
+msgid "Ctrl"
+msgstr "Ctrl"
+
+#: src/fcitx-libpinyin.desc:35
+msgid "Alt"
+msgstr "Alt"
+
+#: src/fcitx-libpinyin.desc:36
+msgid "Shift"
+msgstr "Shift"
+
+#: src/fcitx-libpinyin.desc:41
+msgid "Zhuyin Prev Page"
+msgstr "注音前一页"
+
+#: src/fcitx-libpinyin.desc:46
+msgid "Zhuyin Next Page"
+msgstr "注音下一页"
+
+#: src/fcitx-libpinyin.desc:51
+msgid "Use Simplified Chinese Data for Zhuyin (Need Restart)"
+msgstr "注音使用简体中文数据 (需要重启)"
+
+#: src/fcitx-libpinyin.desc:55
+msgid "Shuangpin"
+msgstr "双拼"
+
+#: src/fcitx-libpinyin.desc:56
+msgid "Shuangpin Scheme"
+msgstr "双拼方案"
+
+#: src/fcitx-libpinyin.desc:58
+msgid "Ziranma"
+msgstr "自然码"
+
+#: src/fcitx-libpinyin.desc:59
+msgid "Microsoft"
+msgstr "微软"
+
+#: src/fcitx-libpinyin.desc:60
+msgid "ZiGuang"
+msgstr "紫光"
+
+#: src/fcitx-libpinyin.desc:61
+msgid "ABC"
+msgstr "智能 ABC"
+
+#: src/fcitx-libpinyin.desc:62
+msgid "PinyinJiaJia"
+msgstr "拼音加加"
+
+#: src/fcitx-libpinyin.desc:63
+msgid "XiaoHe"
+msgstr "小鹤"
+
+#: src/fcitx-libpinyin.desc:67 src/fcitx-libpinyin.desc:72
+#: src/fcitx-libpinyin.desc:77 src/fcitx-libpinyin.desc:82
+#: src/fcitx-libpinyin.desc:87 src/fcitx-libpinyin.desc:92
+#: src/fcitx-libpinyin.desc:97 src/fcitx-libpinyin.desc:102
+msgid "Correction"
+msgstr "纠正"
+
+#: src/fcitx-libpinyin.desc:68
+msgid "V -> U"
+msgstr "V -> U"
+
+#: src/fcitx-libpinyin.desc:73
+msgid "GN -> NG"
+msgstr "GN -> NG"
+
+#: src/fcitx-libpinyin.desc:78
+msgid "MG -> NG"
+msgstr "MG -> NG"
+
+#: src/fcitx-libpinyin.desc:83
+msgid "IOU -> IU"
+msgstr "IOU -> IU"
 
 #: src/fcitx-libpinyin.desc:88
 msgid "UEI -> UI"
@@ -342,69 +314,98 @@ msgstr "UEI -> UI"
 msgid "UEN -> UN"
 msgstr "UEN -> UN"
 
-#: src/fcitx-libpinyin.desc:17
-msgid "Use Incomplete Zhuyin"
-msgstr "使用不完整注音"
+#: src/fcitx-libpinyin.desc:98
+msgid "UE -> VE"
+msgstr "UE -> VE"
 
-#: src/fcitx-libpinyin.desc:2
-msgid "Use Incomplete pinyin"
-msgstr "使用不完整拼音"
+#: src/fcitx-libpinyin.desc:103
+msgid "ON -> ONG"
+msgstr "ON -> ONG"
 
-#: src/fcitx-libpinyin.desc:51
-msgid "Use Simplified Chinese Data for Zhuyin (Need Restart)"
-msgstr "注音使用简体中文数据 (需要重启)"
+#: src/fcitx-libpinyin.desc:107 src/fcitx-libpinyin.desc:112
+#: src/fcitx-libpinyin.desc:117 src/fcitx-libpinyin.desc:122
+#: src/fcitx-libpinyin.desc:127 src/fcitx-libpinyin.desc:132
+#: src/fcitx-libpinyin.desc:137 src/fcitx-libpinyin.desc:142
+#: src/fcitx-libpinyin.desc:147 src/fcitx-libpinyin.desc:152
+msgid "Ambiguity"
+msgstr "模糊音"
 
-#: src/fcitx-libpinyin.desc:12
-msgid "Use Tone"
-msgstr "使用声调"
-
-#: src/fcitx-libpinyin.desc:7
-msgid "Use Traditional Chinese Data for Pinyin and Shuangpin (Need Restart)"
-msgstr "拼音和双拼使用繁体中文数据 (需要重启)"
-
-#: src/fcitx-libpinyin.desc:68
-msgid "V -> U"
-msgstr "V -> U"
-
-#: dictmanager/browserdialog.cpp:91
-msgid "Wrong Link"
-msgstr "链接错误"
-
-#: src/fcitx-libpinyin.desc:63
-msgid "XiaoHe"
-msgstr "小鹤"
-
-#: src/fcitx-libpinyin.desc:11 src/fcitx-libpinyin.desc:16
-#: src/fcitx-libpinyin.desc:21 src/fcitx-libpinyin.desc:31
-#: src/fcitx-libpinyin.desc:40 src/fcitx-libpinyin.desc:45
-#: src/fcitx-libpinyin.desc:50
-msgid "Zhuyin"
-msgstr "注音"
-
-#: src/fcitx-libpinyin.desc:22
-msgid "Zhuyin Layout"
-msgstr "注音布局"
-
-#: src/fcitx-libpinyin.desc:46
-msgid "Zhuyin Next Page"
-msgstr "注音下一页"
-
-#: src/fcitx-libpinyin.desc:41
-msgid "Zhuyin Prev Page"
-msgstr "注音前一页"
-
-#: src/fcitx-libpinyin.desc:32
-msgid "Zhuyin candidate choosing modifiers"
-msgstr "注音候选词修饰键"
+#: src/fcitx-libpinyin.desc:108
+msgid "Ci <-> Chi"
+msgstr "Ci <-> Chi"
 
 #: src/fcitx-libpinyin.desc:113
 msgid "Zi <-> Zhi"
 msgstr "Zi <-> Zhi"
 
-#: src/fcitx-libpinyin.desc:60
-msgid "ZiGuang"
-msgstr "紫光"
+#: src/fcitx-libpinyin.desc:118
+msgid "Si <-> Shi"
+msgstr "Si <-> Shi"
 
-#: src/fcitx-libpinyin.desc:58
-msgid "Ziranma"
-msgstr "自然码"
+#: src/fcitx-libpinyin.desc:123
+msgid "Ne <-> Le"
+msgstr "Ne <-> Le"
+
+#: src/fcitx-libpinyin.desc:128
+msgid "Fo <-> He"
+msgstr "Fo <-> He"
+
+#: src/fcitx-libpinyin.desc:133
+msgid "Le <-> Ri"
+msgstr "Le <-> Ri"
+
+#: src/fcitx-libpinyin.desc:138
+msgid "Ge <-> Ke"
+msgstr "Ge <-> Ke"
+
+#: src/fcitx-libpinyin.desc:143
+msgid "An <-> Ang"
+msgstr "An <-> Ang"
+
+#: src/fcitx-libpinyin.desc:148
+msgid "En <-> Eng"
+msgstr "En <-> Eng"
+
+#: src/fcitx-libpinyin.desc:153
+msgid "In <-> Ing"
+msgstr "In <-> Ing"
+
+#: src/fcitx-libpinyin.desc:158
+msgid "Art"
+msgstr "艺术"
+
+#: src/fcitx-libpinyin.desc:163
+msgid "Culture"
+msgstr "文化"
+
+#: src/fcitx-libpinyin.desc:168
+msgid "Economy"
+msgstr "经济"
+
+#: src/fcitx-libpinyin.desc:173
+msgid "Geology"
+msgstr "地理"
+
+#: src/fcitx-libpinyin.desc:178
+msgid "History"
+msgstr "历史"
+
+#: src/fcitx-libpinyin.desc:183
+msgid "Life"
+msgstr "生活"
+
+#: src/fcitx-libpinyin.desc:188
+msgid "Nature"
+msgstr "自然"
+
+#: src/fcitx-libpinyin.desc:193
+msgid "Science & Technology"
+msgstr "科学技术"
+
+#: src/fcitx-libpinyin.desc:198
+msgid "Society"
+msgstr "社会"
+
+#: src/fcitx-libpinyin.desc:203
+msgid "Sport"
+msgstr "运动"
