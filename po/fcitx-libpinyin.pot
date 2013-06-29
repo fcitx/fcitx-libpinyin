@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-28 00:03-0400\n"
+"POT-Creation-Date: 2013-06-29 12:02-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,117 +29,130 @@ msgstr ""
 msgid "No browsing outside pinyin.sogou.com, now redirect to home page."
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:45
+#: dictmanager/dictmanager.cpp:48
 msgid "Manage Pinyin Dictionary"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:47
+#: dictmanager/dictmanager.cpp:50
 msgid "From &File"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:48
+#: dictmanager/dictmanager.cpp:51
 msgid "From &Sogou Cell Dictionary File"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:49
+#: dictmanager/dictmanager.cpp:52
 msgid "&Browse Sogou Cell Dictionary Online"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:56
+#: dictmanager/dictmanager.cpp:59
 msgid "&Clear User Data"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:57
+#: dictmanager/dictmanager.cpp:60
 msgid "Clear &All Data"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:64
+#: dictmanager/dictmanager.cpp:67
 msgid "&Import"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:65
+#: dictmanager/dictmanager.cpp:68
 msgid "&Remove"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:66
+#: dictmanager/dictmanager.cpp:69
 msgid "Remove &All"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:67
+#: dictmanager/dictmanager.cpp:70
 msgid "&Clear Dict"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:88
+#: dictmanager/dictmanager.cpp:110
 msgid "Select Dictionary File"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:101 dictmanager/dictmanager.cpp:137
+#: dictmanager/dictmanager.cpp:123 dictmanager/dictmanager.cpp:159
 msgid "Input Dictionary Name"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:101 dictmanager/dictmanager.cpp:137
+#: dictmanager/dictmanager.cpp:123 dictmanager/dictmanager.cpp:159
 msgid "New Dictionary Name:"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:109
+#: dictmanager/dictmanager.cpp:131
 msgid "Copy file failed"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:109
+#: dictmanager/dictmanager.cpp:131
 msgid "Copy file failed. Please check you have permission or disk is not full."
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:121
+#: dictmanager/dictmanager.cpp:143
 msgid "Select scel file"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:123
+#: dictmanager/dictmanager.cpp:145
 msgid "Scel file (*.scel)"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:184
+#: dictmanager/dictmanager.cpp:206
 msgid "Confirm deletion"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:185
+#: dictmanager/dictmanager.cpp:207
 #, kde-format
 msgid "Are you sure to delete %1?"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:192
+#: dictmanager/dictmanager.cpp:214
 msgid "File Operation Failed"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:193
+#: dictmanager/dictmanager.cpp:215
 #, kde-format
 msgid "Error while deleting %1."
 msgstr ""
 
-#: dictmanager/filedownloader.cpp:39 dictmanager/scelconverter.cpp:42
+#: dictmanager/erroroverlay.cpp:41
+msgid "Cannot connect to Fcitx by DBus, is Fcitx running?"
+msgstr ""
+
+#: dictmanager/filedownloader.cpp:40 dictmanager/scelconverter.cpp:43
 msgid "Create temporary file failed."
 msgstr ""
 
-#: dictmanager/filedownloader.cpp:43 dictmanager/scelconverter.cpp:46
+#: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."
 msgstr ""
 
-#: dictmanager/filedownloader.cpp:51
+#: dictmanager/filedownloader.cpp:52
 msgid "Failed to create request."
 msgstr ""
 
-#: dictmanager/filedownloader.cpp:74
+#: dictmanager/filedownloader.cpp:56
+msgid "Download started."
+msgstr ""
+
+#: dictmanager/filedownloader.cpp:84
+#, kde-format
+msgid "%1% Downloaded."
+msgstr ""
+
+#: dictmanager/filedownloader.cpp:93
 msgid "Download Finished"
 msgstr ""
 
-#: dictmanager/scelconverter.cpp:71
+#: dictmanager/scelconverter.cpp:72
 msgid "Converter crashed."
 msgstr ""
 
-#: dictmanager/scelconverter.cpp:77
+#: dictmanager/scelconverter.cpp:78
 msgid "Convert failed."
 msgstr ""
 
-#: dictmanager/scelconverter.cpp:88
+#: dictmanager/scelconverter.cpp:89
 msgid "Rename failed."
 msgstr ""
 
