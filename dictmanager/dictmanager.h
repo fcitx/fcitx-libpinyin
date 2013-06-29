@@ -22,17 +22,25 @@
 #define FCITX_DICTMANAGER_H
 
 #include <QMainWindow>
+#include <fcitx-qt/fcitxqtconfiguiwidget.h>
 #include "ui_dictmanager.h"
 
 class ErrorOverlay;
 class Importer;
 class FileListModel;
-class DictManager : public QMainWindow
+class DictManager : public FcitxQtConfigUIWidget
 {
     Q_OBJECT
 public:
     explicit DictManager(QWidget* parent = 0);
     virtual ~DictManager();
+
+    virtual QString title();
+    virtual void load();
+    virtual void save();
+    virtual QString addon();
+    virtual QString icon();
+
 public slots:
     void importFromFile();
     void importFromSogou();

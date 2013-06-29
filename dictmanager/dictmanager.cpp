@@ -37,15 +37,13 @@
 #include "scelconverter.h"
 #include "erroroverlay.h"
 
-DictManager::DictManager(QWidget* parent): QMainWindow(parent)
+DictManager::DictManager(QWidget* parent): FcitxQtConfigUIWidget(parent)
     ,m_ui(new Ui::DictManager)
     ,m_importer(new Importer(this))
     ,m_errorOverlay(0)
 {
     m_ui->setupUi(this);
-    m_errorOverlay = new ErrorOverlay(centralWidget());
-    setWindowIcon(QIcon::fromTheme("accessories-dictionary"));
-    setWindowTitle(_("Manage Pinyin Dictionary"));
+    m_errorOverlay = new ErrorOverlay(this);
     QMenu* menu = new QMenu(this);
     m_importFromFileAction = new QAction(_("From &File"), this);
     m_importFromSogou = new QAction(_("From &Sogou Cell Dictionary File"), this);
@@ -93,6 +91,31 @@ DictManager::DictManager(QWidget* parent): QMainWindow(parent)
 DictManager::~DictManager()
 {
     delete m_ui;
+}
+
+void DictManager::load()
+{
+
+}
+
+void DictManager::save()
+{
+
+}
+
+QString DictManager::addon()
+{
+    return "fcitx-libpinyin";
+}
+
+QString DictManager::title()
+{
+    return _("Manage Pinyin Dictionary");
+}
+
+QString DictManager::icon()
+{
+    return "accessories-dictionary";
 }
 
 void DictManager::importerStarted()

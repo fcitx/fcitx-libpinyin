@@ -18,16 +18,42 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
-#include <QApplication>
-
+#include <fcitx-qt/fcitxqtconfiguiplugin.h>
+#include <qplugin.h>
 #include "dictmanager.h"
 
-int main(int argc, char* argv[])
+class LibPinyinDictManagerPlugin : public FcitxQtConfigUIPlugin
 {
-    QApplication app(argc, argv);
+    Q_OBJECT
+    Q_INTERFACES(FcitxQtConfigUIFactoryInterface)
+public:
+    explicit LibPinyinDictManagerPlugin(FcitxQtConfigUIPlugin* parent = 0)
+        : FcitxQtConfigUIPlugin(parent)
+    {
+    }
+    virtual QString name()
+    {
+        return "libpinyin-dictmanager";
+    }
+    virtual QStringList files()
+    {
+        QStringList list;
+        list << "libpinyin-dictmanager";
+        return list;
+    }
+    virtual QString domain()
+    {
+        return "fcitx-libpinyin";
+    }
+    virtual FcitxQtConfigUIWidget* create(const QString& key)
+    {
+        if (key == "libpinyin-dictmanager") {
+            return new DictManager;
+        }
+        return 0;
+    }
+};
 
-    DictManager win;
-    win.show();
+Q_EXPORT_PLUGIN2(fcitx_libpinyin_dictmanager, LibPinyinDictManagerPlugin)
 
-    return app.exec();
-}
+#include "main.moc"

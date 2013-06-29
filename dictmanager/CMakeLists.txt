@@ -51,8 +51,9 @@ ${FCITX_QT_LIBRARY_DIRS}
 
 qt4_wrap_ui(DICT_MANAGER_SRCS dictmanager.ui browserdialog.ui)
 
-add_executable(fcitx-libpinyin-dictmanager ${DICT_MANAGER_SRCS})
-set_target_properties(fcitx-libpinyin-dictmanager PROPERTIES AUTOMOC TRUE)
+add_library(fcitx-libpinyin-dictmanager MODULE ${DICT_MANAGER_SRCS})
+set_target_properties(fcitx-libpinyin-dictmanager PROPERTIES
+                      LINK_FLAGS "-Wl,--no-undefined" AUTOMOC TRUE)
 
 target_link_libraries(fcitx-libpinyin-dictmanager
 ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTDBUS_LIBRARY} ${QT_QTNETWORK_LIBRARY} ${QT_QTWEBKIT_LIBRARY}
@@ -61,4 +62,4 @@ ${FCITX4_FCITX_UTILS_LIBRARIES}
 ${FCITX4_FCITX_CONFIG_LIBRARIES}
 )
 
-install(TARGETS fcitx-libpinyin-dictmanager DESTINATION bin)
+install(TARGETS fcitx-libpinyin-dictmanager DESTINATION ${FCITX4_ADDON_INSTALL_DIR}/qt)
