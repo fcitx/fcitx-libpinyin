@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>DictManager</class>
  <widget class="QMainWindow" name="DictManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>631</width>
+    <height>412</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -54,7 +62,9 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset theme="document-revert"/>
+         <iconset theme="document-revert">
+          <normaloff/>
+         </iconset>
         </property>
        </widget>
       </item>

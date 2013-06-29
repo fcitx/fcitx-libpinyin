@@ -35,6 +35,7 @@ public:
 
     void import();
     void clearDict(int type);
+    FcitxQtConnection* connection() { return m_connection; }
 
 signals:
     void started();

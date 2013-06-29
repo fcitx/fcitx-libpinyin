@@ -24,6 +24,7 @@
 #include <QMainWindow>
 #include "ui_dictmanager.h"
 
+class ErrorOverlay;
 class Importer;
 class FileListModel;
 class DictManager : public QMainWindow
@@ -32,16 +33,6 @@ class DictManager : public QMainWindow
 public:
     explicit DictManager(QWidget* parent = 0);
     virtual ~DictManager();
-
-private:
-    Ui::DictManager *m_ui;
-    QAction* m_importFromFileAction;
-    QAction* m_importFromSogou;
-    QAction* m_importFromSogouOnline;
-    FileListModel* m_model;
-    Importer* m_importer;
-    QAction* m_clearUserDictAction;
-    QAction* m_clearAllDataAction;
 public slots:
     void importFromFile();
     void importFromSogou();
@@ -53,6 +44,17 @@ public slots:
     void convertFinished(bool);
     void importerStarted();
     void importerFinished();
+
+private:
+    Ui::DictManager *m_ui;
+    QAction* m_importFromFileAction;
+    QAction* m_importFromSogou;
+    QAction* m_importFromSogouOnline;
+    FileListModel* m_model;
+    Importer* m_importer;
+    QAction* m_clearUserDictAction;
+    QAction* m_clearAllDataAction;
+    ErrorOverlay* m_errorOverlay;
 };
 
 #endif // FCITX_DICTMANAGER_H

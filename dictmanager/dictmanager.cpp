@@ -35,12 +35,15 @@
 #include "importer.h"
 #include "browserdialog.h"
 #include "scelconverter.h"
+#include "erroroverlay.h"
 
 DictManager::DictManager(QWidget* parent): QMainWindow(parent)
     ,m_ui(new Ui::DictManager)
     ,m_importer(new Importer(this))
+    ,m_errorOverlay(0)
 {
     m_ui->setupUi(this);
+    m_errorOverlay = new ErrorOverlay(centralWidget());
     setWindowIcon(QIcon::fromTheme("accessories-dictionary"));
     setWindowTitle(_("Manage Pinyin Dictionary"));
     QMenu* menu = new QMenu(this);
@@ -78,6 +81,12 @@ DictManager::DictManager(QWidget* parent): QMainWindow(parent)
 
     connect(m_importer, SIGNAL(started()), SLOT(importerStarted()));
     connect(m_importer, SIGNAL(finished()), SLOT(importerFinished()));
+    connect(m_importer->connection(), SIGNAL(connected()), m_errorOverlay, SLOT(connected()));
+    connect(m_importer->connection(), SIGNAL(disconnected()), m_errorOverlay, SLOT(disconnected()));
+
+    if (!m_importer->connection()->isConnected()) {
+        m_errorOverlay->disconnected();
+    }
 
 }
 

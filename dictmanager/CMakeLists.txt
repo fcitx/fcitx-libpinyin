@@ -6,6 +6,7 @@ set(DICT_MANAGER_SRCS
     browserdialog.cpp
     filedownloader.cpp
     scelconverter.cpp
+    erroroverlay.cpp
     )
 fcitx_translate_add_sources(
     ${DICT_MANAGER_SRCS})
