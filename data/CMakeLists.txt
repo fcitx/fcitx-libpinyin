@@ -12,7 +12,7 @@ foreach(f ${_LIBPINYIN_TABLE})
 endforeach()
 
 set(ZHUYIN_DATA_FILE_NAME model.text.20130308.tar.gz)
-set(ZHUYIN_URL "http://fcitx.googlecode.com/files/${ZHUYIN_DATA_FILE_NAME}")
+set(ZHUYIN_URL "http://download.fcitx-im.org/data/${ZHUYIN_DATA_FILE_NAME}")
 set(ZHUYIN_ORGDATA ${_LIBPINYIN_TABLE_FILES} interpolation2.text)
 set(ZHUYIN_DATA bigram.db ${_LIBPINYIN_BIN_FILES}  phrase_index.bin  pinyin_index.bin)
 
