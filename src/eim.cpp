@@ -48,16 +48,16 @@
 #define FCITX_LIBPINYIN_MAX(x, y) ((x) > (y)? (x) : (y))
 #define FCITX_LIBPINYIN_MIN(x, y) ((x) < (y)? (x) : (y))
 extern "C" {
-FCITX_DEFINE_PLUGIN(fcitx_libpinyin, ime2, FcitxIMClass2) = {
-    FcitxLibPinyinCreate,
-    FcitxLibPinyinDestroy,
-    FcitxLibPinyinReloadConfig,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-};
+    FCITX_DEFINE_PLUGIN(fcitx_libpinyin, ime2, FcitxIMClass2) = {
+        FcitxLibPinyinCreate,
+        FcitxLibPinyinDestroy,
+        FcitxLibPinyinReloadConfig,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+    };
 }
 
 typedef struct _FcitxLibPinyinCandWord {
@@ -73,24 +73,24 @@ CONFIG_DEFINE_LOAD_AND_SAVE(FcitxLibPinyinConfig, FcitxLibPinyinConfig, "fcitx-l
 
 static void FcitxLibPinyinReconfigure(FcitxLibPinyinAddonInstance* libpinyin);
 static int LibPinyinGetOffset(FcitxLibPinyin* libpinyin);
-static void FcitxLibPinyinSave(void *arg);
+static void FcitxLibPinyinSave(void* arg);
 static bool LibPinyinCheckZhuyinKey(FcitxKeySym sym, FCITX_ZHUYIN_LAYOUT layout, boolean useTone) ;
 char* LibPinyinGetSentence(FcitxLibPinyin* libpinyin);
 
-static const char *input_keys [] = {
-     "1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-",       /* standard kb */
-     "1234567890-qwertyuiopasdfghjkl;zxcvbn",       /* IBM */
-     "2wsx3edcrfvtgb6yhnujm8ik,9ol.0p;/-['=",       /* Gin-yieh */
-     "bpmfdtnlvkhg7c,./j;'sexuaorwiqzy890-=",       /* ET  */
-     0
+static const char* input_keys [] = {
+    "1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-",       /* standard kb */
+    "1234567890-qwertyuiopasdfghjkl;zxcvbn",       /* IBM */
+    "2wsx3edcrfvtgb6yhnujm8ik,9ol.0p;/-['=",       /* Gin-yieh */
+    "bpmfdtnlvkhg7c,./j;'sexuaorwiqzy890-=",       /* ET  */
+    0
 };
 
-static const char *tone_keys [] = {
-     "7634 ",       /* standard kb */
-     "/m,. ",       /* IBM */
-     "1qaz ",       /* Gin-yieh */
-     "1234 ",       /* ET  */
-     0
+static const char* tone_keys [] = {
+    "7634 ",       /* standard kb */
+    "/m,. ",       /* IBM */
+    "1qaz ",       /* Gin-yieh */
+    "1234 ",       /* ET  */
+    0
 };
 
 static const FcitxKeyState candidateModifierMap[] = {
@@ -104,7 +104,8 @@ static const FcitxHotkey FCITX_LIBPINYIN_SHIFT_ENTER[2] = {
     {NULL, FcitxKey_None, FcitxKeyState_None}
 };
 
-bool LibPinyinCheckZhuyinKey(FcitxKeySym sym, FCITX_ZHUYIN_LAYOUT layout, boolean useTone) {
+bool LibPinyinCheckZhuyinKey(FcitxKeySym sym, FCITX_ZHUYIN_LAYOUT layout, boolean useTone)
+{
     char key = sym & 0xff;
     const char* keys = input_keys[layout];
     const char* tones = tone_keys[layout];
@@ -121,8 +122,7 @@ int LibPinyinGetOffset(FcitxLibPinyin* libpinyin)
 {
     GArray* array = libpinyin->fixed_string;
     int sum = 0;
-    for (int i = 0; i < array->len; i ++)
-    {
+    for (int i = 0; i < array->len; i ++) {
         FcitxLibPinyinFixed* f = &g_array_index(array, FcitxLibPinyinFixed, i);
         sum += f->len;
     }
@@ -152,7 +152,7 @@ int LibPinyinGetPinyinOffset(FcitxLibPinyin* libpinyin)
  * @brief Reset the status.
  *
  **/
-void FcitxLibPinyinReset (void* arg)
+void FcitxLibPinyinReset(void* arg)
 {
     FcitxLibPinyin* libpinyin = (FcitxLibPinyin*) arg;
     libpinyin->buf[0] = '\0';
@@ -166,14 +166,13 @@ void FcitxLibPinyinReset (void* arg)
 
 size_t FcitxLibPinyinParse(FcitxLibPinyin* libpinyin, const char* str)
 {
-    switch(libpinyin->type)
-    {
-        case LPT_Pinyin:
-            return pinyin_parse_more_full_pinyins(libpinyin->inst, str);
-        case LPT_Shuangpin:
-            return pinyin_parse_more_double_pinyins(libpinyin->inst, str);
-        case LPT_Zhuyin:
-            return pinyin_parse_more_chewings(libpinyin->inst, str);
+    switch (libpinyin->type) {
+    case LPT_Pinyin:
+        return pinyin_parse_more_full_pinyins(libpinyin->inst, str);
+    case LPT_Shuangpin:
+        return pinyin_parse_more_double_pinyins(libpinyin->inst, str);
+    case LPT_Zhuyin:
+        return pinyin_parse_more_chewings(libpinyin->inst, str);
     }
     return 0;
 }
@@ -190,50 +189,44 @@ INPUT_RETURN_VALUE FcitxLibPinyinDoInput(void* arg, FcitxKeySym sym, unsigned in
 {
     FcitxLibPinyin* libpinyin = (FcitxLibPinyin*) arg;
     FcitxLibPinyinConfig* config = &libpinyin->owner->config;
+    FcitxInstance* instance = libpinyin->owner->owner;
     FcitxInputState* input = FcitxInstanceGetInputState(libpinyin->owner->owner);
 
-    if (FcitxHotkeyIsHotKeySimple(sym, state))
-    {
+    if (FcitxHotkeyIsHotKeySimple(sym, state)) {
         /* there is some special case that ';' is used */
         if (FcitxHotkeyIsHotKeyLAZ(sym, state)
-            || sym == '\''
-            || (FcitxHotkeyIsHotKey(sym, state, FCITX_SEMICOLON) && libpinyin->type == LPT_Shuangpin && (config->spScheme == FCITX_SHUANG_PIN_MS || config->spScheme == FCITX_SHUANG_PIN_ZIGUANG))
-            || (libpinyin->type == LPT_Zhuyin && LibPinyinCheckZhuyinKey(sym, config->zhuyinLayout, config->useTone))
-        )
-        {
+                || sym == '\''
+                || (FcitxHotkeyIsHotKey(sym, state, FCITX_SEMICOLON) && libpinyin->type == LPT_Shuangpin && (config->spScheme == FCITX_SHUANG_PIN_MS || config->spScheme == FCITX_SHUANG_PIN_ZIGUANG))
+                || (libpinyin->type == LPT_Zhuyin && LibPinyinCheckZhuyinKey(sym, config->zhuyinLayout, config->useTone))
+           ) {
             if (strlen(libpinyin->buf) == 0 && (sym == '\'' || sym == ';'))
                 return IRV_TO_PROCESS;
 
-            if (strlen(libpinyin->buf) < MAX_PINYIN_INPUT)
-            {
+            if (strlen(libpinyin->buf) < MAX_PINYIN_INPUT) {
                 size_t len = strlen(libpinyin->buf);
-                if (libpinyin->buf[libpinyin->cursor_pos] != 0)
-                {
+                if (libpinyin->buf[libpinyin->cursor_pos] != 0) {
                     memmove(libpinyin->buf + libpinyin->cursor_pos + 1, libpinyin->buf + libpinyin->cursor_pos, len - libpinyin->cursor_pos);
                 }
                 libpinyin->buf[len + 1] = 0;
-                libpinyin->buf[libpinyin->cursor_pos] = (char) (sym & 0xff);
+                libpinyin->buf[libpinyin->cursor_pos] = (char)(sym & 0xff);
                 libpinyin->cursor_pos ++;
 
                 size_t parselen = FcitxLibPinyinParse(libpinyin, libpinyin->buf);
 
                 if (parselen == 0 && strlen(libpinyin->buf) == 1 && libpinyin->type != LPT_Shuangpin
-                    && !(libpinyin->type == LPT_Pinyin && !libpinyin->owner->config.incomplete)
-                    && !(libpinyin->type == LPT_Zhuyin && !libpinyin->owner->config.chewingIncomplete))
-                {
+                        && !(libpinyin->type == LPT_Pinyin && !libpinyin->owner->config.incomplete)
+                        && !(libpinyin->type == LPT_Zhuyin && !libpinyin->owner->config.chewingIncomplete)) {
                     FcitxLibPinyinReset(libpinyin);
                     return IRV_TO_PROCESS;
                 }
                 return IRV_DISPLAY_CANDWORDS;
-            }
-            else
+            } else
                 return IRV_DO_NOTHING;
         }
     }
 
     if (FcitxHotkeyIsHotKey(sym, state, FCITX_SPACE)
-        || (libpinyin->type == LPT_Zhuyin && FcitxHotkeyIsHotKey(sym, state, FCITX_ENTER)))
-    {
+            || (libpinyin->type == LPT_Zhuyin && FcitxHotkeyIsHotKey(sym, state, FCITX_ENTER))) {
         size_t len = strlen(libpinyin->buf);
         if (len == 0)
             return IRV_TO_PROCESS;
@@ -241,34 +234,57 @@ INPUT_RETURN_VALUE FcitxLibPinyinDoInput(void* arg, FcitxKeySym sym, unsigned in
         return FcitxCandidateWordChooseByIndex(FcitxInputStateGetCandidateList(input), 0);
     }
 
-    if (FcitxHotkeyIsHotKey(sym, state, FCITX_LIBPINYIN_SHIFT_ENTER)) {
-        size_t len = strlen(libpinyin->buf);
-        if (len == 0)
+    if ((libpinyin->type != LPT_Zhuyin && FcitxHotkeyIsHotKey(sym, state, FCITX_ENTER))
+        || (libpinyin->type == LPT_Zhuyin && FcitxHotkeyIsHotKey(sym, state, FCITX_LIBPINYIN_SHIFT_ENTER))) {
+        if (libpinyin->buf[0] == 0)
             return IRV_TO_PROCESS;
 
-        strcpy(FcitxInputStateGetOutputString(input), libpinyin->buf);
+        char* sentence = LibPinyinGetSentence(libpinyin);
+        if (sentence) {
+            int offset = LibPinyinGetOffset(libpinyin);
+            int hzlen = 0;
+            if (fcitx_utf8_strlen(sentence) > offset) {
+                hzlen = fcitx_utf8_get_nth_char(sentence, offset) - sentence;
+            } else {
+                hzlen = strlen(sentence);
+            }
 
-        return IRV_COMMIT_STRING;
+            int start = LibPinyinGetPinyinOffset(libpinyin);
+            int pylen = strlen(libpinyin->buf) - start;
+
+            if (pylen < 0) {
+                pylen = 0;
+            }
+
+            char* buf = (char*) fcitx_utils_malloc0((hzlen + pylen + 1) * sizeof(char));
+            strncpy(buf, sentence, hzlen);
+            if (pylen) {
+                strcpy(&buf[hzlen], &libpinyin->buf[start]);
+            }
+            buf[hzlen + pylen] = '\0';
+            FcitxInstanceCommitString(instance, FcitxInstanceGetCurrentIC(instance), buf);
+            g_free(sentence);
+            free(buf);
+        } else {
+            FcitxInstanceCommitString(instance, FcitxInstanceGetCurrentIC(instance), libpinyin->buf);
+        }
+
+        return IRV_CLEAN;
     }
 
-    if (FcitxHotkeyIsHotKey(sym, state, FCITX_BACKSPACE) || FcitxHotkeyIsHotKey(sym, state, FCITX_DELETE))
-    {
-        if (strlen(libpinyin->buf) > 0)
-        {
+    if (FcitxHotkeyIsHotKey(sym, state, FCITX_BACKSPACE) || FcitxHotkeyIsHotKey(sym, state, FCITX_DELETE)) {
+        if (strlen(libpinyin->buf) > 0) {
             int offset = LibPinyinGetOffset(libpinyin);
-            if (offset != 0 && FcitxHotkeyIsHotKey(sym, state, FCITX_BACKSPACE))
-            {
+            if (offset != 0 && FcitxHotkeyIsHotKey(sym, state, FCITX_BACKSPACE)) {
                 g_array_remove_index_fast(libpinyin->fixed_string, libpinyin->fixed_string->len - 1);
                 pinyin_clear_constraint(libpinyin->inst, LibPinyinGetOffset(libpinyin));
-            }
-            else
-            {
-                if (FcitxHotkeyIsHotKey(sym, state, FCITX_BACKSPACE))
-                {
-                    if (libpinyin->cursor_pos > 0)
+            } else {
+                if (FcitxHotkeyIsHotKey(sym, state, FCITX_BACKSPACE)) {
+                    if (libpinyin->cursor_pos > 0) {
                         libpinyin->cursor_pos -- ;
-                    else
+                    } else {
                         return IRV_DO_NOTHING;
+                    }
                 }
                 size_t len = strlen(libpinyin->buf);
                 if (libpinyin->cursor_pos == (int)len)
@@ -281,65 +297,46 @@ INPUT_RETURN_VALUE FcitxLibPinyinDoInput(void* arg, FcitxKeySym sym, unsigned in
                     FcitxLibPinyinParse(libpinyin, libpinyin->buf);
             }
             return IRV_DISPLAY_CANDWORDS;
-        }
-        else
+        } else
             return IRV_TO_PROCESS;
-    }
-    else
-    {
-        if (strlen(libpinyin->buf) > 0)
-        {
-            if (FcitxHotkeyIsHotKey(sym, state, FCITX_LEFT))
-            {
-                if (libpinyin->cursor_pos > 0)
-                {
-                    if ( libpinyin->cursor_pos == LibPinyinGetPinyinOffset(libpinyin))
-                    {
+    } else {
+        if (strlen(libpinyin->buf) > 0) {
+            if (FcitxHotkeyIsHotKey(sym, state, FCITX_LEFT)) {
+                if (libpinyin->cursor_pos > 0) {
+                    if (libpinyin->cursor_pos == LibPinyinGetPinyinOffset(libpinyin)) {
                         g_array_remove_index_fast(libpinyin->fixed_string, libpinyin->fixed_string->len - 1);
                         pinyin_clear_constraint(libpinyin->inst, LibPinyinGetOffset(libpinyin));
                         return IRV_DISPLAY_CANDWORDS;
-                    }
-                    else
-                    {
+                    } else {
                         libpinyin->cursor_pos--;
                         return IRV_DISPLAY_CANDWORDS;
                     }
                 }
 
                 return IRV_DO_NOTHING;
-            }
-            else if (FcitxHotkeyIsHotKey(sym, state, FCITX_RIGHT))
-            {
+            } else if (FcitxHotkeyIsHotKey(sym, state, FCITX_RIGHT)) {
                 size_t len = strlen(libpinyin->buf);
-                if (libpinyin->cursor_pos < (int) len)
-                {
+                if (libpinyin->cursor_pos < (int) len) {
                     libpinyin->cursor_pos ++ ;
                     return IRV_DISPLAY_CANDWORDS;
                 }
                 return IRV_DO_NOTHING;
-            }
-            else if (FcitxHotkeyIsHotKey(sym, state, FCITX_HOME))
-            {
+            } else if (FcitxHotkeyIsHotKey(sym, state, FCITX_HOME)) {
                 int offset = LibPinyinGetPinyinOffset(libpinyin);
-                if ( libpinyin->cursor_pos != offset)
-                {
+                if (libpinyin->cursor_pos != offset) {
                     libpinyin->cursor_pos = offset;
                     return IRV_DISPLAY_CANDWORDS;
                 }
                 return IRV_DO_NOTHING;
-            }
-            else if (FcitxHotkeyIsHotKey(sym, state, FCITX_END))
-            {
+            } else if (FcitxHotkeyIsHotKey(sym, state, FCITX_END)) {
                 size_t len = strlen(libpinyin->buf);
-                if (libpinyin->cursor_pos != (int) len)
-                {
+                if (libpinyin->cursor_pos != (int) len) {
                     libpinyin->cursor_pos = len ;
                     return IRV_DISPLAY_CANDWORDS;
                 }
                 return IRV_DO_NOTHING;
             }
-        }
-        else {
+        } else {
             return IRV_TO_PROCESS;
         }
     }
@@ -354,9 +351,9 @@ void FcitxLibPinyinLoad(FcitxLibPinyin* libpinyin)
     FcitxLibPinyinAddonInstance* libpinyinaddon = libpinyin->owner;
 
     if (libpinyin->type == LPT_Zhuyin && libpinyin->owner->zhuyin_context == NULL) {
-        char* user_path = FcitxLibPinyinGetUserPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional );
-        char* syspath = FcitxLibPinyinGetSysPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional );
-        libpinyinaddon->zhuyin_context = pinyin_init( syspath, user_path);
+        char* user_path = FcitxLibPinyinGetUserPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional);
+        char* syspath = FcitxLibPinyinGetSysPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional);
+        libpinyinaddon->zhuyin_context = pinyin_init(syspath, user_path);
         pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, GBK_DICTIONARY);
         pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, MERGED_DICTIONARY);
         pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, 14);
@@ -366,8 +363,8 @@ void FcitxLibPinyinLoad(FcitxLibPinyin* libpinyin)
     }
 
     if (libpinyin->type != LPT_Zhuyin && libpinyin->owner->pinyin_context == NULL) {
-        char* user_path = FcitxLibPinyinGetUserPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified );
-        char* syspath = FcitxLibPinyinGetSysPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified );
+        char* user_path = FcitxLibPinyinGetUserPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified);
+        char* syspath = FcitxLibPinyinGetSysPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified);
         libpinyinaddon->pinyin_context = pinyin_init(syspath, user_path);
         pinyin_load_phrase_library(libpinyinaddon->pinyin_context, GBK_DICTIONARY);
         pinyin_load_phrase_library(libpinyinaddon->pinyin_context, MERGED_DICTIONARY);
@@ -421,10 +418,11 @@ void FcitxLibPinyinUpdatePreedit(FcitxLibPinyin* libpinyin, char* sentence)
         libpinyin->cursor_pos = pyoffset;
 
     int hzlen = 0;
-    if (fcitx_utf8_strlen(sentence) > offset)
+    if (fcitx_utf8_strlen(sentence) > offset) {
         hzlen = fcitx_utf8_get_nth_char(sentence, offset) - sentence;
-    else
+    } else {
         hzlen = strlen(sentence);
+    }
 
     if (hzlen > 0) {
         char* buf = (char*) fcitx_utils_malloc0((hzlen + 1) * sizeof(char));
@@ -440,8 +438,7 @@ void FcitxLibPinyinUpdatePreedit(FcitxLibPinyin* libpinyin, char* sentence)
     int curoffset = pyoffset;
     guint pinyinLen = 0;
     pinyin_get_n_pinyin(libpinyin->inst, &pinyinLen);
-    for (int i = offset; i < pinyinLen; i ++)
-    {
+    for (int i = offset; i < pinyinLen; i ++) {
         PinyinKey* pykey = NULL;
         PinyinKeyPos* pykeypos = NULL;
         pinyin_get_pinyin_key(libpinyin->inst, i, &pykey);
@@ -450,15 +447,14 @@ void FcitxLibPinyinUpdatePreedit(FcitxLibPinyin* libpinyin, char* sentence)
         guint16 rawBegin = 0, rawEnd = 0;
         pinyin_get_pinyin_key_rest_positions(libpinyin->inst, pykeypos, &rawBegin, &rawEnd);
         if (lastpos > 0) {
-            FcitxMessagesMessageConcatLast (FcitxInputStateGetPreedit(input), " ");
+            FcitxMessagesMessageConcatLast(FcitxInputStateGetPreedit(input), " ");
             if (curoffset < libpinyin->cursor_pos)
                 charcurpos ++;
             for (int j = lastpos; j < rawBegin; j ++) {
                 char temp[2] = {'\0', '\0'};
                 temp[0] = libpinyin->buf[j];
-                FcitxMessagesMessageConcatLast (FcitxInputStateGetPreedit(input), temp);
-                if (curoffset < libpinyin->cursor_pos)
-                {
+                FcitxMessagesMessageConcatLast(FcitxInputStateGetPreedit(input), temp);
+                if (curoffset < libpinyin->cursor_pos) {
                     curoffset ++;
                     charcurpos ++;
                 }
@@ -467,99 +463,95 @@ void FcitxLibPinyinUpdatePreedit(FcitxLibPinyin* libpinyin, char* sentence)
         lastpos = rawEnd;
 
         switch (libpinyin->type) {
-            case LPT_Pinyin: {
+        case LPT_Pinyin: {
+            gchar* pystring;
+            pinyin_get_pinyin_string(libpinyin->inst, pykey, &pystring);
+            FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", pystring);
+            size_t pylen = strlen(pystring);
+            if (curoffset + pylen < libpinyin->cursor_pos) {
+                curoffset += pylen;
+                charcurpos += pylen;
+            } else {
+                charcurpos += libpinyin->cursor_pos - curoffset;
+                curoffset = libpinyin->cursor_pos;
+            }
+            g_free(pystring);
+            break;
+        }
+        case LPT_Shuangpin: {
+            guint16 pykeyposLen = 0;
+            pinyin_get_pinyin_key_rest_length(libpinyin->inst, pykeypos, &pykeyposLen);
+            if (pykeyposLen == 2) {
+                const gchar* initial = NULL;
+                gchar* middle_final = NULL, *_initial = NULL;
+                pinyin_get_pinyin_strings(libpinyin->inst, pykey, &_initial, &middle_final);
+                if (!_initial[0])
+                    initial = "'";
+                else
+                    initial = _initial;
+                if (curoffset + 1 <= libpinyin->cursor_pos) {
+                    curoffset += 1;
+                    charcurpos += strlen(initial);
+                }
+                FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", initial);
+
+                if (curoffset + 1 <= libpinyin->cursor_pos) {
+                    curoffset += 1;
+                    charcurpos += strlen(middle_final);
+                }
+                FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", middle_final);
+                g_free(_initial);
+                g_free(middle_final);
+            } else if (pykeyposLen == 1) {
                 gchar* pystring;
                 pinyin_get_pinyin_string(libpinyin->inst, pykey, &pystring);
-                FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", pystring);
-                size_t pylen = strlen(pystring);
-                if (curoffset + pylen < libpinyin->cursor_pos) {
-                    curoffset += pylen;
-                    charcurpos += pylen;
-                }
-                else {
-                    charcurpos += libpinyin->cursor_pos - curoffset;
-                    curoffset = libpinyin->cursor_pos;
-                }
-                g_free(pystring);
-                break;
-            }
-            case LPT_Shuangpin: {
-                guint16 pykeyposLen = 0;
-                pinyin_get_pinyin_key_rest_length(libpinyin->inst, pykeypos, &pykeyposLen);
-                if (pykeyposLen == 2) {
-                    const gchar* initial = NULL;
-                    gchar *middle_final = NULL, *_initial = NULL;
-                    pinyin_get_pinyin_strings(libpinyin->inst, pykey, &_initial, &middle_final);
-                    if (!_initial[0])
-                        initial = "'";
-                    else
-                        initial = _initial;
-                    if (curoffset + 1 <= libpinyin->cursor_pos) {
-                        curoffset += 1;
-                        charcurpos += strlen(initial);
-                    }
-                    FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", initial);
-
-                    if (curoffset + 1 <= libpinyin->cursor_pos) {
-                        curoffset += 1;
-                        charcurpos += strlen(middle_final);
-                    }
-                    FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", middle_final);
-                    g_free(_initial);
-                    g_free(middle_final);
-                }
-                else if (pykeyposLen == 1) {
-                    gchar* pystring;
-                    pinyin_get_pinyin_string(libpinyin->inst, pykey, &pystring);
-                    if (curoffset + 1 <= libpinyin->cursor_pos) {
-                        curoffset += 1;
-                        charcurpos += strlen(pystring);
-                    }
-                    FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", pystring);
-                    g_free(pystring);
-                }
-                break;
-            }
-            case LPT_Zhuyin: {
-                guint16 pykeyposLen = 0;
-                pinyin_get_pinyin_key_rest_length(libpinyin->inst, pykeypos, &pykeyposLen);
-                gchar* pystring;
-                pinyin_get_chewing_string(libpinyin->inst, pykey, &pystring);
-                FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", pystring);
-
-                if (curoffset + pykeyposLen <= libpinyin->cursor_pos) {
-                    curoffset += pykeyposLen;
+                if (curoffset + 1 <= libpinyin->cursor_pos) {
+                    curoffset += 1;
                     charcurpos += strlen(pystring);
                 }
-                else {
-                    int diff = libpinyin->cursor_pos - curoffset;
-                    curoffset = libpinyin->cursor_pos;
-                    size_t len = fcitx_utf8_strlen(pystring);
-
-                    if (diff > len)
-                        charcurpos += strlen(pystring);
-                    else {
-                        charcurpos += fcitx_utf8_get_nth_char(pystring, diff) - pystring;
-                    }
-                }
+                FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", pystring);
                 g_free(pystring);
-                break;
             }
+            break;
+        }
+        case LPT_Zhuyin: {
+            guint16 pykeyposLen = 0;
+            pinyin_get_pinyin_key_rest_length(libpinyin->inst, pykeypos, &pykeyposLen);
+            gchar* pystring;
+            pinyin_get_chewing_string(libpinyin->inst, pykey, &pystring);
+            FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", pystring);
+
+            if (curoffset + pykeyposLen <= libpinyin->cursor_pos) {
+                curoffset += pykeyposLen;
+                charcurpos += strlen(pystring);
+            } else {
+                int diff = libpinyin->cursor_pos - curoffset;
+                curoffset = libpinyin->cursor_pos;
+                size_t len = fcitx_utf8_strlen(pystring);
+
+                if (diff > len)
+                    charcurpos += strlen(pystring);
+                else {
+                    charcurpos += fcitx_utf8_get_nth_char(pystring, diff) - pystring;
+                }
+            }
+            g_free(pystring);
+            break;
+        }
         }
     }
 
     int buflen = strlen(libpinyin->buf);
 
     if (lastpos < buflen) {
-        FcitxMessagesMessageConcatLast (FcitxInputStateGetPreedit(input), " ");
+        FcitxMessagesMessageConcatLast(FcitxInputStateGetPreedit(input), " ");
         if (lastpos < libpinyin->cursor_pos)
             charcurpos ++;
 
-        for (int i = lastpos; i < buflen; i ++)
-        {
+        for (int i = lastpos; i < buflen; i ++) {
             char temp[2] = {'\0', '\0'};
             temp[0] = libpinyin->buf[i];
-            FcitxMessagesMessageConcatLast (FcitxInputStateGetPreedit(input), temp);
+            FcitxMessagesMessageConcatLast(FcitxInputStateGetPreedit(input), temp);
             if (lastpos < libpinyin->cursor_pos) {
                 charcurpos ++;
                 lastpos++;
@@ -585,7 +577,7 @@ char* LibPinyinGetSentence(FcitxLibPinyin* libpinyin)
  **/
 INPUT_RETURN_VALUE FcitxLibPinyinGetCandWords(void* arg)
 {
-    FcitxLibPinyin* libpinyin = (FcitxLibPinyin* )arg;
+    FcitxLibPinyin* libpinyin = (FcitxLibPinyin*)arg;
     FcitxInstance* instance = libpinyin->owner->owner;
     FcitxInputState* input = FcitxInstanceGetInputState(instance);
     FcitxGlobalConfig* config = FcitxInstanceGetGlobalConfig(libpinyin->owner->owner);
@@ -601,21 +593,20 @@ INPUT_RETURN_VALUE FcitxLibPinyinGetCandWords(void* arg)
     if (libpinyin->type == LPT_Zhuyin) {
         FcitxKeyState state = candidateModifierMap[pyConfig->candidateModifiers];
         FcitxCandidateWordSetChooseAndModifier(candList, "1234567890", state);
-    }
-    else
+    } else
         FcitxCandidateWordSetChoose(candList, "1234567890");
 
     /* add punc */
     if (libpinyin->type == LPT_Zhuyin
-        && strlen(libpinyin->buf) == 1
-        && LibPinyinCheckZhuyinKey((FcitxKeySym) libpinyin->buf[0], pyConfig->zhuyinLayout, pyConfig->useTone)
-        && (libpinyin->buf[0] >= ' ' && libpinyin->buf[0] <= '\x7e') /* simple */
-        && !(libpinyin->buf[0] >= 'a' && libpinyin->buf[0] <= 'z') /* not a-z */
-        && !(libpinyin->buf[0] >= 'A' && libpinyin->buf[0] <= 'Z') /* not A-Z /*/
-        && !(libpinyin->buf[0] >= '0' && libpinyin->buf[0] <= '9') /* not digit */
-    ) {
+            && strlen(libpinyin->buf) == 1
+            && LibPinyinCheckZhuyinKey((FcitxKeySym) libpinyin->buf[0], pyConfig->zhuyinLayout, pyConfig->useTone)
+            && (libpinyin->buf[0] >= ' ' && libpinyin->buf[0] <= '\x7e') /* simple */
+            && !(libpinyin->buf[0] >= 'a' && libpinyin->buf[0] <= 'z') /* not a-z */
+            && !(libpinyin->buf[0] >= 'A' && libpinyin->buf[0] <= 'Z') /* not A-Z /*/
+            && !(libpinyin->buf[0] >= '0' && libpinyin->buf[0] <= '9') /* not digit */
+       ) {
         int c = libpinyin->buf[0];
-        char *result = FcitxPuncGetPunc(instance, &c);
+        char* result = FcitxPuncGetPunc(instance, &c);
         if (result) {
             FcitxCandidateWord candWord;
             FcitxLibPinyinCandWord* pyCand = (FcitxLibPinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibPinyinCandWord));
@@ -641,8 +632,7 @@ INPUT_RETURN_VALUE FcitxLibPinyinGetCandWords(void* arg)
         FcitxMessagesAddMessageAtLast(FcitxInputStateGetClientPreedit(input), MSG_INPUT, "%s", sentence);
 
         g_free(sentence);
-    }
-    else {
+    } else {
         FcitxInputStateSetCursorPos(input, libpinyin->cursor_pos);
         FcitxMessagesAddMessageAtLast(FcitxInputStateGetClientPreedit(input), MSG_INPUT, "%s", libpinyin->buf);
         FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_INPUT, "%s", libpinyin->buf);
@@ -682,9 +672,9 @@ INPUT_RETURN_VALUE FcitxLibPinyinGetCandWords(void* arg)
  * @param iIndex index of candidate word
  * @return the string of canidate word
  **/
-INPUT_RETURN_VALUE FcitxLibPinyinGetCandWord (void* arg, FcitxCandidateWord* candWord)
+INPUT_RETURN_VALUE FcitxLibPinyinGetCandWord(void* arg, FcitxCandidateWord* candWord)
 {
-    FcitxLibPinyin* libpinyin = (FcitxLibPinyin* )arg;
+    FcitxLibPinyin* libpinyin = (FcitxLibPinyin*)arg;
     FcitxLibPinyinCandWord* pyCand = (FcitxLibPinyinCandWord*) candWord->priv;
     FcitxInstance* instance = libpinyin->owner->owner;
     FcitxInputState* input = FcitxInstanceGetInputState(instance);
@@ -711,8 +701,7 @@ INPUT_RETURN_VALUE FcitxLibPinyinGetCandWord (void* arg, FcitxCandidateWord* can
 
         guint pykeysLen = 0;
         pinyin_get_n_pinyin(libpinyin->inst, &pykeysLen);
-        if (offset >= pykeysLen)
-        {
+        if (offset >= pykeysLen) {
             char* sentence = NULL;
             pinyin_guess_sentence(libpinyin->inst);
             sentence = LibPinyinGetSentence(libpinyin);
@@ -720,8 +709,7 @@ INPUT_RETURN_VALUE FcitxLibPinyinGetCandWord (void* arg, FcitxCandidateWord* can
                 strcpy(FcitxInputStateGetOutputString(input), sentence);
                 g_free(sentence);
                 pinyin_train(libpinyin->inst);
-            }
-            else
+            } else
                 strcpy(FcitxInputStateGetOutputString(input), "");
 
             return IRV_COMMIT_STRING;
@@ -759,7 +747,7 @@ void* LibPinyinSavePinyinWord(void* arg, FcitxModuleFunctionArg args)
     FcitxIM* im = FcitxInstanceGetCurrentIM(libpinyinaddon->owner);
     pinyin_context_t* context = NULL;
     if (strcmp(im->uniqueName, "pinyin-libpinyin") == 0 ||
-        strcmp(im->uniqueName, "shuangpin-libpinyin") == 0) {
+            strcmp(im->uniqueName, "shuangpin-libpinyin") == 0) {
         context = libpinyinaddon->pinyin_context;
     }
     if (!context)
@@ -771,8 +759,7 @@ void* LibPinyinSavePinyinWord(void* arg, FcitxModuleFunctionArg args)
 
     guint pinyinLen = 0;
     pinyin_get_n_pinyin(libpinyin->inst, &pinyinLen);
-    for (int i = 0; i < pinyinLen; i ++)
-    {
+    for (int i = 0; i < pinyinLen; i ++) {
         PinyinKey* pykey;
         pinyin_get_pinyin_key(libpinyin->inst, i, &pykey);
 
@@ -801,15 +788,14 @@ void* LibPinyinSavePinyinWord(void* arg, FcitxModuleFunctionArg args)
  * @param arg
  * @return successful or not
  **/
-void* FcitxLibPinyinCreate (FcitxInstance* instance)
+void* FcitxLibPinyinCreate(FcitxInstance* instance)
 {
     FcitxLibPinyinAddonInstance* libpinyinaddon = (FcitxLibPinyinAddonInstance*) fcitx_utils_malloc0(sizeof(FcitxLibPinyinAddonInstance));
     bindtextdomain("fcitx-libpinyin", LOCALEDIR);
     libpinyinaddon->owner = instance;
     FcitxAddon* addon = FcitxAddonsGetAddonByName(FcitxInstanceGetAddons(instance), "fcitx-libpinyin");
 
-    if (!FcitxLibPinyinConfigLoadConfig(&libpinyinaddon->config))
-    {
+    if (!FcitxLibPinyinConfigLoadConfig(&libpinyinaddon->config)) {
         free(libpinyinaddon);
         return NULL;
     }
@@ -821,55 +807,55 @@ void* FcitxLibPinyinCreate (FcitxInstance* instance)
     FcitxLibPinyinReconfigure(libpinyinaddon);
 
     FcitxInstanceRegisterIM(instance,
-                    libpinyinaddon->pinyin,
-                    "pinyin-libpinyin",
-                    _("Pinyin (LibPinyin)"),
-                    "pinyin",
-                    FcitxLibPinyinInit,
-                    FcitxLibPinyinReset,
-                    FcitxLibPinyinDoInput,
-                    FcitxLibPinyinGetCandWords,
-                    NULL,
-                    FcitxLibPinyinSave,
-                    NULL,
-                    NULL,
-                    5,
-                    libpinyinaddon->config.bTraditionalDataForPinyin ? "zh_TW" : "zh_CN"
-                   );
+                            libpinyinaddon->pinyin,
+                            "pinyin-libpinyin",
+                            _("Pinyin (LibPinyin)"),
+                            "pinyin",
+                            FcitxLibPinyinInit,
+                            FcitxLibPinyinReset,
+                            FcitxLibPinyinDoInput,
+                            FcitxLibPinyinGetCandWords,
+                            NULL,
+                            FcitxLibPinyinSave,
+                            NULL,
+                            NULL,
+                            5,
+                            libpinyinaddon->config.bTraditionalDataForPinyin ? "zh_TW" : "zh_CN"
+                           );
 
     FcitxInstanceRegisterIM(instance,
-                    libpinyinaddon->shuangpin,
-                    "shuangpin-libpinyin",
-                    _("Shuangpin (LibPinyin)"),
-                    "shuangpin",
-                    FcitxLibPinyinInit,
-                    FcitxLibPinyinReset,
-                    FcitxLibPinyinDoInput,
-                    FcitxLibPinyinGetCandWords,
-                    NULL,
-                    FcitxLibPinyinSave,
-                    NULL,
-                    NULL,
-                    5,
-                    libpinyinaddon->config.bTraditionalDataForPinyin ? "zh_TW" : "zh_CN"
-                   );
+                            libpinyinaddon->shuangpin,
+                            "shuangpin-libpinyin",
+                            _("Shuangpin (LibPinyin)"),
+                            "shuangpin",
+                            FcitxLibPinyinInit,
+                            FcitxLibPinyinReset,
+                            FcitxLibPinyinDoInput,
+                            FcitxLibPinyinGetCandWords,
+                            NULL,
+                            FcitxLibPinyinSave,
+                            NULL,
+                            NULL,
+                            5,
+                            libpinyinaddon->config.bTraditionalDataForPinyin ? "zh_TW" : "zh_CN"
+                           );
 
     FcitxInstanceRegisterIM(instance,
-                    libpinyinaddon->zhuyin,
-                    "zhuyin-libpinyin",
-                    _("Bopomofo (LibPinyin)"),
-                    "bopomofo",
-                    FcitxLibPinyinInit,
-                    FcitxLibPinyinReset,
-                    FcitxLibPinyinDoInput,
-                    FcitxLibPinyinGetCandWords,
-                    NULL,
-                    FcitxLibPinyinSave,
-                    FcitxLibPinyinReloadConfig,
-                    NULL,
-                    5,
-                    libpinyinaddon->config.bSimplifiedDataForZhuyin ? "zh_CN" : "zh_TW"
-                   );
+                            libpinyinaddon->zhuyin,
+                            "zhuyin-libpinyin",
+                            _("Bopomofo (LibPinyin)"),
+                            "bopomofo",
+                            FcitxLibPinyinInit,
+                            FcitxLibPinyinReset,
+                            FcitxLibPinyinDoInput,
+                            FcitxLibPinyinGetCandWords,
+                            NULL,
+                            FcitxLibPinyinSave,
+                            FcitxLibPinyinReloadConfig,
+                            NULL,
+                            5,
+                            libpinyinaddon->config.bSimplifiedDataForZhuyin ? "zh_CN" : "zh_TW"
+                           );
 
     FcitxModuleAddFunction(addon, LibPinyinSavePinyinWord);
 
@@ -883,7 +869,7 @@ void* FcitxLibPinyinCreate (FcitxInstance* instance)
  *
  * @return int
  **/
-void FcitxLibPinyinDestroy (void* arg)
+void FcitxLibPinyinDestroy(void* arg)
 {
     FcitxLibPinyinAddonInstance* libpinyin = (FcitxLibPinyinAddonInstance*) arg;
     FcitxLibPinyinDelete(libpinyin->pinyin);
@@ -901,7 +887,7 @@ void FcitxLibPinyinDestroy (void* arg)
 
 void FcitxLibPinyinReconfigure(FcitxLibPinyinAddonInstance* libpinyinaddon)
 {
-    FcitxLibPinyinConfig *config = &libpinyinaddon->config;
+    FcitxLibPinyinConfig* config = &libpinyinaddon->config;
 
     if (libpinyinaddon->zhuyin_context) {
         pinyin_set_chewing_scheme(libpinyinaddon->zhuyin_context, FcitxLibPinyinTransZhuyinLayout(config->zhuyinLayout));
@@ -971,7 +957,8 @@ void FcitxLibPinyinSave(void* arg)
         pinyin_save(libpinyin->owner->pinyin_context);
 }
 
-void FcitxLibPinyinClearData(FcitxLibPinyin* libpinyin, int type) {
+void FcitxLibPinyinClearData(FcitxLibPinyin* libpinyin, int type)
+{
     FcitxLibPinyinAddonInstance* libpinyinaddon = libpinyin->owner;
     FcitxLibPinyinReset(libpinyin);
 
@@ -981,15 +968,15 @@ void FcitxLibPinyinClearData(FcitxLibPinyin* libpinyin, int type) {
     }
 
     switch (type) {
-        case 0:
-            pinyin_mask_out(context, PHRASE_INDEX_LIBRARY_MASK, PHRASE_INDEX_MAKE_TOKEN (15, null_token));
-            break;
-        case 1:
-            pinyin_mask_out(context, PHRASE_INDEX_LIBRARY_MASK, PHRASE_INDEX_MAKE_TOKEN (14, null_token));
-            break;
-        case 2:
-            pinyin_mask_out(context, 0, 0);
-            break;
+    case 0:
+        pinyin_mask_out(context, PHRASE_INDEX_LIBRARY_MASK, PHRASE_INDEX_MAKE_TOKEN(15, null_token));
+        break;
+    case 1:
+        pinyin_mask_out(context, PHRASE_INDEX_LIBRARY_MASK, PHRASE_INDEX_MAKE_TOKEN(14, null_token));
+        break;
+    case 2:
+        pinyin_mask_out(context, 0, 0);
+        break;
     }
 
     pinyin_train(libpinyin->inst);
@@ -1002,8 +989,8 @@ void FcitxLibPinyinImport(FcitxLibPinyin* libpinyin)
     FcitxLibPinyinReset(libpinyin);
 
     LIBPINYIN_LANGUAGE_TYPE langType = libpinyin->type == LPT_Zhuyin ?
-            (libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional)
-            : (libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified);
+                                       (libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional)
+                                           : (libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified);
 
     pinyin_context_t* context = libpinyin->type != LPT_Zhuyin ? libpinyinaddon->pinyin_context : libpinyinaddon->zhuyin_context;
     if (!context)
@@ -1011,9 +998,9 @@ void FcitxLibPinyinImport(FcitxLibPinyin* libpinyin)
 
     const char* path = langType == LPLT_Simplified ? "libpinyin/importdict" : "libpinyin/importdict_zhuyin";
 
-    pinyin_mask_out(context, PHRASE_INDEX_LIBRARY_MASK, PHRASE_INDEX_MAKE_TOKEN (14, null_token));
+    pinyin_mask_out(context, PHRASE_INDEX_LIBRARY_MASK, PHRASE_INDEX_MAKE_TOKEN(14, null_token));
 
-    import_iterator_t * iter = pinyin_begin_add_phrases(context, 14);
+    import_iterator_t* iter = pinyin_begin_add_phrases(context, 14);
     if (iter == NULL) {
         return;
     }
@@ -1026,26 +1013,27 @@ void FcitxLibPinyinImport(FcitxLibPinyin* libpinyin)
             continue;
         }
 
-        char* linebuf = NULL; size_t size = 0;
-        while (getline (&linebuf, &size, dictfile) != -1) {
-            if (0 == strlen (linebuf))
+        char* linebuf = NULL;
+        size_t size = 0;
+        while (getline(&linebuf, &size, dictfile) != -1) {
+            if (0 == strlen(linebuf))
                 continue;
 
-            if ( '\n' == linebuf[strlen (linebuf) - 1] ) {
-                linebuf[strlen (linebuf) - 1] = '\0';
+            if ('\n' == linebuf[strlen(linebuf) - 1]) {
+                linebuf[strlen(linebuf) - 1] = '\0';
             }
 
-            gchar ** items = g_strsplit_set (linebuf, " \t", 3);
-            guint len = g_strv_length (items);
+            gchar** items = g_strsplit_set(linebuf, " \t", 3);
+            guint len = g_strv_length(items);
             do {
 
-                gchar * phrase = NULL, * pinyin = NULL;
+                gchar* phrase = NULL, * pinyin = NULL;
                 gint count = -1;
                 if (2 == len || 3 == len) {
                     phrase = items[0];
                     pinyin = items[1];
                     if (3 == len)
-                        count = atoi (items[2]);
+                        count = atoi(items[2]);
                 } else {
                     break;
                 }
@@ -1054,19 +1042,19 @@ void FcitxLibPinyinImport(FcitxLibPinyin* libpinyin)
                     continue;
                 }
 
-                pinyin_iterator_add_phrase (iter, phrase, pinyin, count);
+                pinyin_iterator_add_phrase(iter, phrase, pinyin, count);
             } while (0);
 
             g_strfreev(items);
         }
         free(linebuf);
-        fclose (dictfile);
+        fclose(dictfile);
     }
 
-    pinyin_end_add_phrases (iter);
+    pinyin_end_add_phrases(iter);
 
     pinyin_train(libpinyin->inst);
-    pinyin_save (context);
+    pinyin_save(context);
 }
 
-// kate: indent-mode cstyle; space-indent on; indent-width 0;
+// kate: indent-mode cstyle; indent-width 4; replace-tabs on;
