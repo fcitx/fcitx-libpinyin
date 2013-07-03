@@ -80,6 +80,7 @@ void ScelConverter::finished(int exitCode, QProcess::ExitStatus status)
     }
 
     char* fullName;
+    FcitxXDGMakeDirUser("libpinyin/importdict");
     FcitxXDGGetFileUserWithPrefix("libpinyin/importdict", m_name.toLocal8Bit().constData(), NULL, &fullName);
 
     if (QFile::rename(m_file.fileName(), QString::fromLocal8Bit(fullName))) {
@@ -87,7 +88,7 @@ void ScelConverter::finished(int exitCode, QProcess::ExitStatus status)
     } else {
         QFile::remove(m_file.fileName());
         emit message(QMessageBox::Warning, _("Rename failed."));
-        emit finished(true);
+        emit finished(false);
     }
 
     free(fullName);

@@ -149,7 +149,8 @@ void DictManager::importFromFile()
     }
 
     char* fullname;
-    FcitxXDGGetFileUserWithPrefix(m_model->dictDir().toLocal8Bit(), importName.append(".txt").toLocal8Bit(), NULL, &fullname);
+    FcitxXDGMakeDirUser(m_model->dictDir().toLocal8Bit().constData());
+    FcitxXDGGetFileUserWithPrefix(m_model->dictDir().toLocal8Bit().constData(), importName.append(".txt").toLocal8Bit(), NULL, &fullname);
     if (!QFile::copy(name, QString::fromLocal8Bit(fullname))) {
         QMessageBox::warning(this, _("Copy file failed"), _("Copy file failed. Please check you have permission or disk is not full."));
     } else {
