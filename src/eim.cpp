@@ -810,7 +810,7 @@ void* FcitxLibPinyinCreate(FcitxInstance* instance)
                             libpinyinaddon->pinyin,
                             "pinyin-libpinyin",
                             _("Pinyin (LibPinyin)"),
-                            "pinyin",
+                            "pinyin-libpinyin",
                             FcitxLibPinyinInit,
                             FcitxLibPinyinReset,
                             FcitxLibPinyinDoInput,
@@ -827,7 +827,7 @@ void* FcitxLibPinyinCreate(FcitxInstance* instance)
                             libpinyinaddon->shuangpin,
                             "shuangpin-libpinyin",
                             _("Shuangpin (LibPinyin)"),
-                            "shuangpin",
+                            "shuangpin-libpinyin",
                             FcitxLibPinyinInit,
                             FcitxLibPinyinReset,
                             FcitxLibPinyinDoInput,
@@ -851,7 +851,7 @@ void* FcitxLibPinyinCreate(FcitxInstance* instance)
                             FcitxLibPinyinGetCandWords,
                             NULL,
                             FcitxLibPinyinSave,
-                            FcitxLibPinyinReloadConfig,
+                            NULL,
                             NULL,
                             5,
                             libpinyinaddon->config.bSimplifiedDataForZhuyin ? "zh_CN" : "zh_TW"
@@ -987,6 +987,7 @@ void FcitxLibPinyinImport(FcitxLibPinyin* libpinyin)
 {
     FcitxLibPinyinAddonInstance* libpinyinaddon = libpinyin->owner;
     FcitxLibPinyinReset(libpinyin);
+    FcitxLibPinyinLoad(libpinyin);
 
     LIBPINYIN_LANGUAGE_TYPE langType = libpinyin->type == LPT_Zhuyin ?
                                        (libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional)
@@ -1053,7 +1054,9 @@ void FcitxLibPinyinImport(FcitxLibPinyin* libpinyin)
 
     pinyin_end_add_phrases(iter);
 
-    pinyin_train(libpinyin->inst);
+    if (libpinyin->inst) {
+        pinyin_train(libpinyin->inst);
+    }
     pinyin_save(context);
 }
 
