@@ -1,0 +1,5 @@
+2013-07-15: CSSlayer <wengxt@gmail.com>
+	* 0.3.1
+	  - add new icon
+	  - fix import if import directory doesn't exists
+	  - a possible fix for Issue 699
