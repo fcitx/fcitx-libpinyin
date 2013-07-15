@@ -1,6 +1,9 @@
-install(FILES bopomofo.png RENAME fcitx-bopomofo.png
-  DESTINATION share/icons/hicolor/48x48/status/)
-
+foreach(icon pinyin-libpinyin shuangpin-libpinyin bopomofo)
+    install(FILES ${icon}.png RENAME fcitx-${icon}.png
+            DESTINATION share/icons/hicolor/48x48/status/)
+    install(FILES ${icon}.png
+            DESTINATION share/fcitx/imicon)
+endforeach()
 set(_LIBPINYIN_TABLE art gb_char history nature scitech
                      culture gbk_char life society economy geology merged
                      sport)
