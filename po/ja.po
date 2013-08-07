@@ -4,13 +4,14 @@
 #
 # Translators:
 # しろう, 2013
+# しろう, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-29 12:02-0400\n"
-"PO-Revision-Date: 2013-06-28 04:09+0000\n"
-"Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
+"POT-Creation-Date: 2013-08-07 12:02-0400\n"
+"PO-Revision-Date: 2013-08-07 15:07+0000\n"
+"Last-Translator: しろう\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/fcitx/language/"
 "ja/)\n"
 "Language: ja\n"
@@ -22,25 +23,25 @@ msgstr ""
 #: dictmanager/filedownloader.cpp:84
 #, kde-format
 msgid "%1% Downloaded."
-msgstr ""
+msgstr "%1%ダウンロード済み。"
 
-#: dictmanager/dictmanager.cpp:52
+#: dictmanager/dictmanager.cpp:50
 msgid "&Browse Sogou Cell Dictionary Online"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:70
+#: dictmanager/dictmanager.cpp:68
 msgid "&Clear Dict"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:59
+#: dictmanager/dictmanager.cpp:57
 msgid "&Clear User Data"
-msgstr ""
+msgstr "ユーザーデータを消去 (&C)"
 
-#: dictmanager/dictmanager.cpp:67
+#: dictmanager/dictmanager.cpp:65
 msgid "&Import"
-msgstr ""
+msgstr "インポート (&I)"
 
-#: dictmanager/dictmanager.cpp:68
+#: dictmanager/dictmanager.cpp:66
 msgid "&Remove"
 msgstr ""
 
@@ -64,16 +65,16 @@ msgstr "曖昧さ"
 msgid "An <-> Ang"
 msgstr "An <-> Ang"
 
-#: dictmanager/dictmanager.cpp:207
+#: dictmanager/dictmanager.cpp:231
 #, kde-format
 msgid "Are you sure to delete %1?"
-msgstr ""
+msgstr "本当に %1 を削除しますか?"
 
 #: src/fcitx-libpinyin.desc:158
 msgid "Art"
 msgstr "芸術"
 
-#: src/eim.cpp:860 src/zhuyin-libpinyin.conf.in:3
+#: src/eim.cpp:846 src/zhuyin-libpinyin.conf.in:3
 msgid "Bopomofo (LibPinyin)"
 msgstr "Bopomofo (LibPinyin)"
 
@@ -83,35 +84,37 @@ msgstr ""
 
 #: dictmanager/erroroverlay.cpp:41
 msgid "Cannot connect to Fcitx by DBus, is Fcitx running?"
-msgstr ""
+msgstr "FcitxにDBusでつなげません。Fcitxは動作していますか?"
 
 #: src/fcitx-libpinyin.desc:108
 msgid "Ci <-> Chi"
 msgstr "Ci <-> Chi"
 
-#: dictmanager/dictmanager.cpp:60
+#: dictmanager/dictmanager.cpp:58
 msgid "Clear &All Data"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:206
+#: dictmanager/dictmanager.cpp:230
 msgid "Confirm deletion"
-msgstr ""
+msgstr "削除の確認"
 
 #: dictmanager/scelconverter.cpp:78
 msgid "Convert failed."
-msgstr ""
+msgstr "コンバートに失敗しました。"
 
 #: dictmanager/scelconverter.cpp:72
 msgid "Converter crashed."
-msgstr ""
+msgstr "コンバーターがクラッシュしました。"
 
-#: dictmanager/dictmanager.cpp:131
+#: dictmanager/dictmanager.cpp:155
 msgid "Copy file failed"
-msgstr ""
+msgstr "ファイルコピー失敗"
 
-#: dictmanager/dictmanager.cpp:131
+#: dictmanager/dictmanager.cpp:155
 msgid "Copy file failed. Please check you have permission or disk is not full."
 msgstr ""
+"ファイルのコピーに失敗しました。権限やディスクがいっぱいでないかなどを確認し"
+"てください。"
 
 #: src/fcitx-libpinyin.desc:67 src/fcitx-libpinyin.desc:72
 #: src/fcitx-libpinyin.desc:77 src/fcitx-libpinyin.desc:82
@@ -122,7 +125,7 @@ msgstr "修正"
 
 #: dictmanager/filedownloader.cpp:40 dictmanager/scelconverter.cpp:43
 msgid "Create temporary file failed."
-msgstr ""
+msgstr "一時ファイルの作成に失敗しました。"
 
 #: src/fcitx-libpinyin.desc:34
 msgid "Ctrl"
@@ -143,11 +146,11 @@ msgstr "辞書"
 
 #: dictmanager/filedownloader.cpp:93
 msgid "Download Finished"
-msgstr ""
+msgstr "ダウンロード完了"
 
 #: dictmanager/filedownloader.cpp:56
 msgid "Download started."
-msgstr ""
+msgstr "ダウンロードを開始しました。"
 
 #: src/fcitx-libpinyin.desc:27
 msgid "ET"
@@ -161,28 +164,28 @@ msgstr "経済"
 msgid "En <-> Eng"
 msgstr "En <-> Eng"
 
-#: dictmanager/dictmanager.cpp:215
+#: dictmanager/dictmanager.cpp:239
 #, kde-format
 msgid "Error while deleting %1."
-msgstr ""
+msgstr "%1 を削除中にエラーが起きました。"
 
 #: dictmanager/filedownloader.cpp:52
 msgid "Failed to create request."
-msgstr ""
+msgstr "リクエストの作成に失敗しました。"
 
-#: dictmanager/dictmanager.cpp:214
+#: dictmanager/dictmanager.cpp:238
 msgid "File Operation Failed"
-msgstr ""
+msgstr "ファイル処理に失敗しました"
 
 #: src/fcitx-libpinyin.desc:128
 msgid "Fo <-> He"
 msgstr "Fo <-> He"
 
-#: dictmanager/dictmanager.cpp:50
+#: dictmanager/dictmanager.cpp:48
 msgid "From &File"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:51
+#: dictmanager/dictmanager.cpp:49
 msgid "From &Sogou Cell Dictionary File"
 msgstr ""
 
@@ -218,9 +221,9 @@ msgstr "IOU -> IU"
 msgid "In <-> Ing"
 msgstr "In <-> Ing"
 
-#: dictmanager/dictmanager.cpp:123 dictmanager/dictmanager.cpp:159
+#: dictmanager/dictmanager.cpp:146 dictmanager/dictmanager.cpp:183
 msgid "Input Dictionary Name"
-msgstr ""
+msgstr "辞書名を入力してください"
 
 #: src/fcitx-libpinyin.desc:133
 msgid "Le <-> Ri"
@@ -242,9 +245,9 @@ msgstr "生活"
 msgid "MG -> NG"
 msgstr "MG -> NG"
 
-#: dictmanager/dictmanager.cpp:48
+#: dictmanager/dictmanager.cpp:113
 msgid "Manage Pinyin Dictionary"
-msgstr ""
+msgstr "Pinyinディレクトリの管理"
 
 #: src/fcitx-libpinyin.desc:59
 msgid "Microsoft"
@@ -258,13 +261,14 @@ msgstr "自然"
 msgid "Ne <-> Le"
 msgstr "Ne <-> Le"
 
-#: dictmanager/dictmanager.cpp:123 dictmanager/dictmanager.cpp:159
+#: dictmanager/dictmanager.cpp:146 dictmanager/dictmanager.cpp:183
 msgid "New Dictionary Name:"
-msgstr ""
+msgstr "新しい辞書名:"
 
 #: dictmanager/browserdialog.cpp:92
 msgid "No browsing outside pinyin.sogou.com, now redirect to home page."
 msgstr ""
+"pinyin.sogou.com 以外は表示できません。ホームページにリダイレクトします。"
 
 #: src/fcitx-libpinyin.desc:103
 msgid "ON -> ONG"
@@ -274,7 +278,7 @@ msgstr "ON -> ONG"
 msgid "Pinyin"
 msgstr "Pinyin"
 
-#: src/eim.cpp:826 src/pinyin-libpinyin.conf.in:3
+#: src/eim.cpp:812 src/pinyin-libpinyin.conf.in:3
 msgid "Pinyin (LibPinyin)"
 msgstr "Pinyin (LibPinyin)"
 
@@ -282,27 +286,27 @@ msgstr "Pinyin (LibPinyin)"
 msgid "PinyinJiaJia"
 msgstr "PinyinJiaJia"
 
-#: dictmanager/dictmanager.cpp:69
+#: dictmanager/dictmanager.cpp:67
 msgid "Remove &All"
 msgstr ""
 
-#: dictmanager/scelconverter.cpp:89
+#: dictmanager/scelconverter.cpp:90
 msgid "Rename failed."
-msgstr ""
+msgstr "名前の変更に失敗しました。"
 
-#: dictmanager/dictmanager.cpp:145
+#: dictmanager/dictmanager.cpp:169
 msgid "Scel file (*.scel)"
-msgstr ""
+msgstr "Scel ファイル (*.scel)"
 
 #: src/fcitx-libpinyin.desc:193
 msgid "Science & Technology"
 msgstr "科学技術"
 
-#: dictmanager/dictmanager.cpp:110
+#: dictmanager/dictmanager.cpp:133
 msgid "Select Dictionary File"
-msgstr ""
+msgstr "辞書ファイルの選択"
 
-#: dictmanager/dictmanager.cpp:143
+#: dictmanager/dictmanager.cpp:167
 msgid "Select scel file"
 msgstr ""
 
@@ -314,7 +318,7 @@ msgstr "Shift"
 msgid "Shuangpin"
 msgstr "Shuangpin"
 
-#: src/eim.cpp:843 src/shuangpin-libpinyin.conf.in:3
+#: src/eim.cpp:829 src/shuangpin-libpinyin.conf.in:3
 msgid "Shuangpin (LibPinyin)"
 msgstr "Shuangpin (LibPinyin)"
 
@@ -340,7 +344,7 @@ msgstr "スタンダード"
 
 #: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."
-msgstr ""
+msgstr "一時ファイルを作成しました。"
 
 #: src/fcitx-libpinyin.desc:98
 msgid "UE -> VE"
