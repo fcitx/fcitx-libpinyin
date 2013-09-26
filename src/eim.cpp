@@ -792,6 +792,7 @@ void* FcitxLibPinyinCreate(FcitxInstance* instance)
 {
     FcitxLibPinyinAddonInstance* libpinyinaddon = (FcitxLibPinyinAddonInstance*) fcitx_utils_malloc0(sizeof(FcitxLibPinyinAddonInstance));
     bindtextdomain("fcitx-libpinyin", LOCALEDIR);
+    bind_textdomain_codeset("fcitx-libpinyin", "UTF-8");
     libpinyinaddon->owner = instance;
     FcitxAddon* addon = FcitxAddonsGetAddonByName(FcitxInstanceGetAddons(instance), "fcitx-libpinyin");
 
