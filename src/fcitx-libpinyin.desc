@@ -157,52 +157,52 @@ DefaultValue=False
 [Dictionary/Art]
 Description=Art
 Type=Boolean
-DefaultValue=True
+DefaultValue=False
 
 [Dictionary/Culture]
 Description=Culture
 Type=Boolean
-DefaultValue=True
+DefaultValue=False
 
 [Dictionary/Economy]
 Description=Economy
 Type=Boolean
-DefaultValue=True
+DefaultValue=False
 
 [Dictionary/Geology]
 Description=Geology
 Type=Boolean
-DefaultValue=True
+DefaultValue=False
 
 [Dictionary/History]
 Description=History
 Type=Boolean
-DefaultValue=True
+DefaultValue=False
 
 [Dictionary/Life]
 Description=Life
 Type=Boolean
-DefaultValue=True
+DefaultValue=False
 
 [Dictionary/Nature]
 Description=Nature
 Type=Boolean
-DefaultValue=True
+DefaultValue=False
 
 [Dictionary/Scitech]
 Description=Science & Technology
 Type=Boolean
-DefaultValue=True
+DefaultValue=False
 
 [Dictionary/Society]
 Description=Society
 Type=Boolean
-DefaultValue=True
+DefaultValue=False
 
 [Dictionary/Sport]
 Description=Sport
 Type=Boolean
-DefaultValue=True
+DefaultValue=False
 
 [DescriptionFile]
 LocaleDomain=fcitx-libpinyin
