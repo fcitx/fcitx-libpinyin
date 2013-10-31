@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-29 12:02-0400\n"
-"PO-Revision-Date: 2013-06-28 04:09+0000\n"
-"Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
+"POT-Creation-Date: 2013-10-31 06:02-0400\n"
+"PO-Revision-Date: 2013-10-31 04:23+0000\n"
+"Last-Translator: mar well <marwell.1980@freenet.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/fcitx/language/"
 "de/)\n"
 "Language: de\n"
@@ -22,27 +22,27 @@ msgstr ""
 #: dictmanager/filedownloader.cpp:84
 #, kde-format
 msgid "%1% Downloaded."
-msgstr ""
+msgstr "%1% heruntergeladen."
 
-#: dictmanager/dictmanager.cpp:52
+#: dictmanager/dictmanager.cpp:50
 msgid "&Browse Sogou Cell Dictionary Online"
-msgstr ""
-
-#: dictmanager/dictmanager.cpp:70
-msgid "&Clear Dict"
-msgstr ""
-
-#: dictmanager/dictmanager.cpp:59
-msgid "&Clear User Data"
-msgstr ""
-
-#: dictmanager/dictmanager.cpp:67
-msgid "&Import"
-msgstr ""
+msgstr "&Sogou Mobile Wörterbuchverzeichnis online durchsuchen"
 
 #: dictmanager/dictmanager.cpp:68
+msgid "&Clear Dict"
+msgstr "&Wörterbuch löschen"
+
+#: dictmanager/dictmanager.cpp:57
+msgid "&Clear User Data"
+msgstr "&Benutzerdaten löschen"
+
+#: dictmanager/dictmanager.cpp:65
+msgid "&Import"
+msgstr "&Importieren"
+
+#: dictmanager/dictmanager.cpp:66
 msgid "&Remove"
-msgstr ""
+msgstr "&Entfernen"
 
 #: src/fcitx-libpinyin.desc:61
 msgid "ABC"
@@ -64,54 +64,57 @@ msgstr "Mehrdeutigkeit"
 msgid "An <-> Ang"
 msgstr "An <-> Ang"
 
-#: dictmanager/dictmanager.cpp:207
+#: dictmanager/dictmanager.cpp:231
 #, kde-format
 msgid "Are you sure to delete %1?"
-msgstr ""
+msgstr "Sind Sie sicher %1 zu löschen?"
 
 #: src/fcitx-libpinyin.desc:158
 msgid "Art"
 msgstr "Kunst"
 
-#: src/eim.cpp:860 src/zhuyin-libpinyin.conf.in:3
+#: src/eim.cpp:847 src/zhuyin-libpinyin.conf.in:3
 msgid "Bopomofo (LibPinyin)"
 msgstr "Bopomofo (LibPinyin)"
 
 #: dictmanager/browserdialog.cpp:44
 msgid "Browse Sogou Cell Dict repository"
-msgstr ""
+msgstr "Sogou Mobile Wörterbuchverzeichnis durchsuchen"
 
 #: dictmanager/erroroverlay.cpp:41
 msgid "Cannot connect to Fcitx by DBus, is Fcitx running?"
 msgstr ""
+"Die Verbindung zu fcitx kann von DBus nicht hergestellt werden, läuft fcitx?"
 
 #: src/fcitx-libpinyin.desc:108
 msgid "Ci <-> Chi"
 msgstr "Ci <-> Chi"
 
-#: dictmanager/dictmanager.cpp:60
+#: dictmanager/dictmanager.cpp:58
 msgid "Clear &All Data"
-msgstr ""
+msgstr "löschen &Alle Daten"
 
-#: dictmanager/dictmanager.cpp:206
+#: dictmanager/dictmanager.cpp:230
 msgid "Confirm deletion"
-msgstr ""
+msgstr "Löschen bestätigen"
 
 #: dictmanager/scelconverter.cpp:78
 msgid "Convert failed."
-msgstr ""
+msgstr "Konvertierung fehlgeschlagen."
 
 #: dictmanager/scelconverter.cpp:72
 msgid "Converter crashed."
-msgstr ""
+msgstr "Konverter abgestürzt."
 
-#: dictmanager/dictmanager.cpp:131
+#: dictmanager/dictmanager.cpp:155
 msgid "Copy file failed"
-msgstr ""
+msgstr "Kopieren der Datei fehlgeschlagen"
 
-#: dictmanager/dictmanager.cpp:131
+#: dictmanager/dictmanager.cpp:155
 msgid "Copy file failed. Please check you have permission or disk is not full."
 msgstr ""
+"Kopieren der Datei fehlgeschlagen. Bitte überprüfen Sie die "
+"Dateiberechtigungen oder ob die Festplatte voll ist."
 
 #: src/fcitx-libpinyin.desc:67 src/fcitx-libpinyin.desc:72
 #: src/fcitx-libpinyin.desc:77 src/fcitx-libpinyin.desc:82
@@ -122,7 +125,7 @@ msgstr "Korrektur"
 
 #: dictmanager/filedownloader.cpp:40 dictmanager/scelconverter.cpp:43
 msgid "Create temporary file failed."
-msgstr ""
+msgstr "Erstellen des temporären Verzeichnisses fehlgeschlagen"
 
 #: src/fcitx-libpinyin.desc:34
 msgid "Ctrl"
@@ -143,11 +146,11 @@ msgstr "Wörterbuch"
 
 #: dictmanager/filedownloader.cpp:93
 msgid "Download Finished"
-msgstr ""
+msgstr "Herunterladen abgeschlossen"
 
 #: dictmanager/filedownloader.cpp:56
 msgid "Download started."
-msgstr ""
+msgstr "Herunterladen gestarted."
 
 #: src/fcitx-libpinyin.desc:27
 msgid "ET"
@@ -161,30 +164,30 @@ msgstr "Ökonomie"
 msgid "En <-> Eng"
 msgstr "En <-> Eng"
 
-#: dictmanager/dictmanager.cpp:215
+#: dictmanager/dictmanager.cpp:239
 #, kde-format
 msgid "Error while deleting %1."
-msgstr ""
+msgstr "Fehler beim Löschen von %1"
 
 #: dictmanager/filedownloader.cpp:52
 msgid "Failed to create request."
-msgstr ""
+msgstr "Anforderung fehlgeschlagen."
 
-#: dictmanager/dictmanager.cpp:214
+#: dictmanager/dictmanager.cpp:238
 msgid "File Operation Failed"
-msgstr ""
+msgstr "Dateioperation fehlgeschlagen"
 
 #: src/fcitx-libpinyin.desc:128
 msgid "Fo <-> He"
 msgstr "Fo <-> He"
 
-#: dictmanager/dictmanager.cpp:50
+#: dictmanager/dictmanager.cpp:48
 msgid "From &File"
-msgstr ""
+msgstr "Von &Datei"
 
-#: dictmanager/dictmanager.cpp:51
+#: dictmanager/dictmanager.cpp:49
 msgid "From &Sogou Cell Dictionary File"
-msgstr ""
+msgstr "Von &Sogou Mobile Wörterbuchdatei"
 
 #: src/fcitx-libpinyin.desc:73
 msgid "GN -> NG"
@@ -218,9 +221,9 @@ msgstr "IOU -> IU"
 msgid "In <-> Ing"
 msgstr "In <-> Ing"
 
-#: dictmanager/dictmanager.cpp:123 dictmanager/dictmanager.cpp:159
+#: dictmanager/dictmanager.cpp:146 dictmanager/dictmanager.cpp:183
 msgid "Input Dictionary Name"
-msgstr ""
+msgstr "Wörterbuchnamen eingeben"
 
 #: src/fcitx-libpinyin.desc:133
 msgid "Le <-> Ri"
@@ -236,15 +239,15 @@ msgstr "LibPinyin Wrapper für Fcitx"
 
 #: src/fcitx-libpinyin.desc:183
 msgid "Life"
-msgstr ""
+msgstr "Life"
 
 #: src/fcitx-libpinyin.desc:78
 msgid "MG -> NG"
 msgstr "MG -> NG"
 
-#: dictmanager/dictmanager.cpp:48
+#: dictmanager/dictmanager.cpp:113
 msgid "Manage Pinyin Dictionary"
-msgstr ""
+msgstr "Pinyin Wörterbuch verwalten"
 
 #: src/fcitx-libpinyin.desc:59
 msgid "Microsoft"
@@ -258,13 +261,15 @@ msgstr "Natur"
 msgid "Ne <-> Le"
 msgstr "Ne <-> Le"
 
-#: dictmanager/dictmanager.cpp:123 dictmanager/dictmanager.cpp:159
+#: dictmanager/dictmanager.cpp:146 dictmanager/dictmanager.cpp:183
 msgid "New Dictionary Name:"
-msgstr ""
+msgstr "Neuer Wörterbuchname:"
 
 #: dictmanager/browserdialog.cpp:92
 msgid "No browsing outside pinyin.sogou.com, now redirect to home page."
 msgstr ""
+"Browsen außerhalb von pinyin.sogou.com nicht möglich. Sie werden zur "
+"Homepage umgeleitet."
 
 #: src/fcitx-libpinyin.desc:103
 msgid "ON -> ONG"
@@ -274,7 +279,7 @@ msgstr "ON -> ONG"
 msgid "Pinyin"
 msgstr "Pinyin"
 
-#: src/eim.cpp:826 src/pinyin-libpinyin.conf.in:3
+#: src/eim.cpp:813 src/pinyin-libpinyin.conf.in:3
 msgid "Pinyin (LibPinyin)"
 msgstr "Pinyin (LibPinyin)"
 
@@ -282,29 +287,29 @@ msgstr "Pinyin (LibPinyin)"
 msgid "PinyinJiaJia"
 msgstr "PinyinJiaJia"
 
-#: dictmanager/dictmanager.cpp:69
+#: dictmanager/dictmanager.cpp:67
 msgid "Remove &All"
-msgstr ""
+msgstr "entferne &Alle"
 
-#: dictmanager/scelconverter.cpp:89
+#: dictmanager/scelconverter.cpp:90
 msgid "Rename failed."
-msgstr ""
+msgstr "Umbennen fehlgeschlagen."
 
-#: dictmanager/dictmanager.cpp:145
+#: dictmanager/dictmanager.cpp:169
 msgid "Scel file (*.scel)"
-msgstr ""
+msgstr "scel-Datei (*.scel)"
 
 #: src/fcitx-libpinyin.desc:193
 msgid "Science & Technology"
 msgstr "Wissenschaft und Technik"
 
-#: dictmanager/dictmanager.cpp:110
+#: dictmanager/dictmanager.cpp:133
 msgid "Select Dictionary File"
-msgstr ""
+msgstr "Wörterbuchdatei auswählen"
 
-#: dictmanager/dictmanager.cpp:143
+#: dictmanager/dictmanager.cpp:167
 msgid "Select scel file"
-msgstr ""
+msgstr "scel-Datei auswählen"
 
 #: src/fcitx-libpinyin.desc:36
 msgid "Shift"
@@ -314,7 +319,7 @@ msgstr "Shift"
 msgid "Shuangpin"
 msgstr "Shuangpin"
 
-#: src/eim.cpp:843 src/shuangpin-libpinyin.conf.in:3
+#: src/eim.cpp:830 src/shuangpin-libpinyin.conf.in:3
 msgid "Shuangpin (LibPinyin)"
 msgstr "Shuangpin (LibPinyin)"
 
@@ -340,7 +345,7 @@ msgstr "Standard"
 
 #: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."
-msgstr ""
+msgstr "Temporäre Datei erstellt."
 
 #: src/fcitx-libpinyin.desc:98
 msgid "UE -> VE"
@@ -365,7 +370,7 @@ msgstr "Unvollständiges Pinyin eingeben erlauben"
 #: src/fcitx-libpinyin.desc:51
 msgid "Use Simplified Chinese Data for Zhuyin (Need Restart)"
 msgstr ""
-"Verinfachtes Chinesisch für Zhuyin benutzen (Erfordert Neustart von Fcitx)"
+"Vereinfachtes Chinesisch für Zhuyin benutzen (Erfordert Neustart von Fcitx)"
 
 #: src/fcitx-libpinyin.desc:12
 msgid "Use Tone"
@@ -383,7 +388,7 @@ msgstr "V -> U"
 
 #: dictmanager/browserdialog.cpp:91
 msgid "Wrong Link"
-msgstr ""
+msgstr "Falscher Link"
 
 #: src/fcitx-libpinyin.desc:63
 msgid "XiaoHe"
