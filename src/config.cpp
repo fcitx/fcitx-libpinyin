@@ -19,17 +19,22 @@
  ***************************************************************************/
 
 #include "eim.h"
+#include "config.h"
 
 CONFIG_BINDING_BEGIN(FcitxLibPinyinConfig)
 CONFIG_BINDING_REGISTER("Pinyin", "Incomplete", incomplete)
+#ifdef LIBPINYIN_TOOLS_FOUND
 CONFIG_BINDING_REGISTER("Pinyin", "UseTraditionalChineseData", bTraditionalDataForPinyin)
+#endif
 CONFIG_BINDING_REGISTER("Zhuyin", "Incomplete", chewingIncomplete)
 CONFIG_BINDING_REGISTER("Zhuyin", "UseTone", useTone)
 CONFIG_BINDING_REGISTER("Zhuyin", "Layout", zhuyinLayout)
 CONFIG_BINDING_REGISTER("Zhuyin", "PrevPage", hkPrevPage)
 CONFIG_BINDING_REGISTER("Zhuyin", "NextPage", hkNextPage)
 CONFIG_BINDING_REGISTER("Zhuyin", "CandidateModifiers", candidateModifiers)
+#ifdef LIBPINYIN_TOOLS_FOUND
 CONFIG_BINDING_REGISTER("Zhuyin", "UseSimplifiedChineseData", bSimplifiedDataForZhuyin)
+#endif
 CONFIG_BINDING_REGISTER("Shuangpin", "Scheme", spScheme)
 CONFIG_BINDING_REGISTER("Correction", "VU", cr[FCITX_CR_V_U])
 CONFIG_BINDING_REGISTER("Correction", "GNNG", cr[FCITX_CR_GN_NG])

@@ -38,9 +38,6 @@ find_package_handle_standard_args(Libpinyin  DEFAULT_MSG
                                   LIBPINYIN_LIBRARIES
                                   LIBPINYIN_INCLUDE_DIR
                                   LIBPINYIN_PKGDATADIR
-                                  LIBPINYIN_GEN_BINARY_FILES
-                                  LIBPINYIN_GEN_UNIGRAM
-                                  LIBPINYIN_IMPORT_INTERPOLATION
                                   PC_LIBPINYIN_FOUND
                                   )
 

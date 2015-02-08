@@ -4,6 +4,9 @@ foreach(icon pinyin-libpinyin shuangpin-libpinyin bopomofo)
     install(FILES ${icon}.png
             DESTINATION share/fcitx/imicon)
 endforeach()
+
+if (LIBPINYIN_TOOLS_FOUND)
+
 set(_LIBPINYIN_TABLE art gb_char history nature scitech
                      culture gbk_char life society economy geology merged
                      sport)
@@ -43,3 +46,5 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/bigram.db
               ${CMAKE_CURRENT_BINARY_DIR}/pinyin_index.bin
               table.conf
         DESTINATION ${FCITX_LIBPINYIN_ZHUYIN_DATADIR})
+
+endif()
