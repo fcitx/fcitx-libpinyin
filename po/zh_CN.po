@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Xuetian Weng <wengxt@gmail.com>, 2013
-# Xuetian Weng <wengxt@gmail.com>, 2010-2013
+# csslayer <wengxt@gmail.com>, 2013
+# csslayer <wengxt@gmail.com>, 2010-2013
 # wwj402 <wwj402@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-10-26 14:42-0400\n"
+"POT-Creation-Date: 2015-07-08 00:02+0200\n"
 "PO-Revision-Date: 2013-06-29 19:48+0000\n"
-"Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
+"Last-Translator: csslayer <wengxt@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/fcitx/"
 "language/zh_CN/)\n"
 "Language: zh_CN\n"
@@ -71,11 +71,11 @@ msgstr "An <-> Ang"
 msgid "Are you sure to delete %1?"
 msgstr "您确定要删除 %1？"
 
-#: src/fcitx-libpinyin.desc:158
+#: src/fcitx-libpinyin.desc:158 src/fcitx-libpinyin.desc:218
 msgid "Art"
 msgstr "艺术"
 
-#: src/eim.cpp:847 src/zhuyin-libpinyin.conf.in:3
+#: src/eim.cpp:849 src/zhuyin-libpinyin.conf.in:3
 msgid "Bopomofo (LibPinyin)"
 msgstr "注音 (LibPinyin)"
 
@@ -130,7 +130,7 @@ msgstr "创建临时文件失败。"
 msgid "Ctrl"
 msgstr "Ctrl"
 
-#: src/fcitx-libpinyin.desc:163
+#: src/fcitx-libpinyin.desc:163 src/fcitx-libpinyin.desc:223
 msgid "Culture"
 msgstr "文化"
 
@@ -139,8 +139,18 @@ msgstr "文化"
 #: src/fcitx-libpinyin.desc:172 src/fcitx-libpinyin.desc:177
 #: src/fcitx-libpinyin.desc:182 src/fcitx-libpinyin.desc:187
 #: src/fcitx-libpinyin.desc:192 src/fcitx-libpinyin.desc:197
-#: src/fcitx-libpinyin.desc:202
+#: src/fcitx-libpinyin.desc:202 src/fcitx-libpinyin.desc:207
+#: src/fcitx-libpinyin.desc:212
 msgid "Dictionary"
+msgstr "词典"
+
+#: src/fcitx-libpinyin.desc:217 src/fcitx-libpinyin.desc:222
+#: src/fcitx-libpinyin.desc:227 src/fcitx-libpinyin.desc:232
+#: src/fcitx-libpinyin.desc:237 src/fcitx-libpinyin.desc:242
+#: src/fcitx-libpinyin.desc:247 src/fcitx-libpinyin.desc:252
+#: src/fcitx-libpinyin.desc:257 src/fcitx-libpinyin.desc:262
+#, fuzzy
+msgid "Dictionary Zhuyin"
 msgstr "词典"
 
 #: dictmanager/filedownloader.cpp:93
@@ -155,7 +165,7 @@ msgstr "下载已开始。"
 msgid "ET"
 msgstr "倚天"
 
-#: src/fcitx-libpinyin.desc:168
+#: src/fcitx-libpinyin.desc:168 src/fcitx-libpinyin.desc:228
 msgid "Economy"
 msgstr "经济"
 
@@ -196,7 +206,7 @@ msgstr "GN -> NG"
 msgid "Ge <-> Ke"
 msgstr "Ge <-> Ke"
 
-#: src/fcitx-libpinyin.desc:173
+#: src/fcitx-libpinyin.desc:173 src/fcitx-libpinyin.desc:233
 msgid "Geology"
 msgstr "地理"
 
@@ -204,7 +214,7 @@ msgstr "地理"
 msgid "GinYieh"
 msgstr "精业"
 
-#: src/fcitx-libpinyin.desc:178
+#: src/fcitx-libpinyin.desc:178 src/fcitx-libpinyin.desc:238
 msgid "History"
 msgstr "历史"
 
@@ -236,7 +246,7 @@ msgstr "LibPinyin"
 msgid "LibPinyin Wrapper For Fcitx"
 msgstr "Fcitx 的 LibPinyin 封装"
 
-#: src/fcitx-libpinyin.desc:183
+#: src/fcitx-libpinyin.desc:183 src/fcitx-libpinyin.desc:243
 msgid "Life"
 msgstr "生活"
 
@@ -252,7 +262,7 @@ msgstr "管理拼音词典"
 msgid "Microsoft"
 msgstr "微软"
 
-#: src/fcitx-libpinyin.desc:188
+#: src/fcitx-libpinyin.desc:188 src/fcitx-libpinyin.desc:248
 msgid "Nature"
 msgstr "自然"
 
@@ -272,11 +282,15 @@ msgstr "不允许访问 pinyin.sogou.com 之外的网页，将重定向到主页
 msgid "ON -> ONG"
 msgstr "ON -> ONG"
 
+#: src/fcitx-libpinyin.desc:193
+msgid "People"
+msgstr ""
+
 #: src/fcitx-libpinyin.desc:1 src/fcitx-libpinyin.desc:6
 msgid "Pinyin"
 msgstr "拼音"
 
-#: src/eim.cpp:813 src/pinyin-libpinyin.conf.in:3
+#: src/eim.cpp:815 src/pinyin-libpinyin.conf.in:3
 msgid "Pinyin (LibPinyin)"
 msgstr "拼音 (LibPinyin)"
 
@@ -296,7 +310,11 @@ msgstr "重命名失败。"
 msgid "Scel file (*.scel)"
 msgstr "Scel 文件 (*.scel)"
 
-#: src/fcitx-libpinyin.desc:193
+#: src/fcitx-libpinyin.desc:198
+msgid "Science"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:253
 msgid "Science & Technology"
 msgstr "科学技术"
 
@@ -316,7 +334,7 @@ msgstr "Shift"
 msgid "Shuangpin"
 msgstr "双拼"
 
-#: src/eim.cpp:830 src/shuangpin-libpinyin.conf.in:3
+#: src/eim.cpp:832 src/shuangpin-libpinyin.conf.in:3
 msgid "Shuangpin (LibPinyin)"
 msgstr "双拼 (LibPinyin)"
 
@@ -328,17 +346,22 @@ msgstr "双拼方案"
 msgid "Si <-> Shi"
 msgstr "Si <-> Shi"
 
-#: src/fcitx-libpinyin.desc:198
+#: src/fcitx-libpinyin.desc:203 src/fcitx-libpinyin.desc:258
 msgid "Society"
 msgstr "社会"
 
-#: src/fcitx-libpinyin.desc:203
+#: src/fcitx-libpinyin.desc:208 src/fcitx-libpinyin.desc:263
 msgid "Sport"
 msgstr "运动"
 
 #: src/fcitx-libpinyin.desc:24
 msgid "Standard"
 msgstr "标准"
+
+#: src/fcitx-libpinyin.desc:213
+#, fuzzy
+msgid "Technology"
+msgstr "地理"
 
 #: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."

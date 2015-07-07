@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# mar well <marwell.1980@freenet.de>, 2013
+# mar well <m.wellendorf@gmx.de>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-10-31 06:02-0400\n"
+"POT-Creation-Date: 2015-07-08 00:02+0200\n"
 "PO-Revision-Date: 2013-10-31 04:23+0000\n"
-"Last-Translator: mar well <marwell.1980@freenet.de>\n"
+"Last-Translator: mar well <m.wellendorf@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/fcitx/language/"
 "de/)\n"
 "Language: de\n"
@@ -69,11 +69,11 @@ msgstr "An <-> Ang"
 msgid "Are you sure to delete %1?"
 msgstr "Sind Sie sicher %1 zu löschen?"
 
-#: src/fcitx-libpinyin.desc:158
+#: src/fcitx-libpinyin.desc:158 src/fcitx-libpinyin.desc:218
 msgid "Art"
 msgstr "Kunst"
 
-#: src/eim.cpp:847 src/zhuyin-libpinyin.conf.in:3
+#: src/eim.cpp:849 src/zhuyin-libpinyin.conf.in:3
 msgid "Bopomofo (LibPinyin)"
 msgstr "Bopomofo (LibPinyin)"
 
@@ -131,7 +131,7 @@ msgstr "Erstellen des temporären Verzeichnisses fehlgeschlagen"
 msgid "Ctrl"
 msgstr "Ctrl"
 
-#: src/fcitx-libpinyin.desc:163
+#: src/fcitx-libpinyin.desc:163 src/fcitx-libpinyin.desc:223
 msgid "Culture"
 msgstr "Kultur"
 
@@ -140,8 +140,18 @@ msgstr "Kultur"
 #: src/fcitx-libpinyin.desc:172 src/fcitx-libpinyin.desc:177
 #: src/fcitx-libpinyin.desc:182 src/fcitx-libpinyin.desc:187
 #: src/fcitx-libpinyin.desc:192 src/fcitx-libpinyin.desc:197
-#: src/fcitx-libpinyin.desc:202
+#: src/fcitx-libpinyin.desc:202 src/fcitx-libpinyin.desc:207
+#: src/fcitx-libpinyin.desc:212
 msgid "Dictionary"
+msgstr "Wörterbuch"
+
+#: src/fcitx-libpinyin.desc:217 src/fcitx-libpinyin.desc:222
+#: src/fcitx-libpinyin.desc:227 src/fcitx-libpinyin.desc:232
+#: src/fcitx-libpinyin.desc:237 src/fcitx-libpinyin.desc:242
+#: src/fcitx-libpinyin.desc:247 src/fcitx-libpinyin.desc:252
+#: src/fcitx-libpinyin.desc:257 src/fcitx-libpinyin.desc:262
+#, fuzzy
+msgid "Dictionary Zhuyin"
 msgstr "Wörterbuch"
 
 #: dictmanager/filedownloader.cpp:93
@@ -156,7 +166,7 @@ msgstr "Herunterladen gestarted."
 msgid "ET"
 msgstr "ET"
 
-#: src/fcitx-libpinyin.desc:168
+#: src/fcitx-libpinyin.desc:168 src/fcitx-libpinyin.desc:228
 msgid "Economy"
 msgstr "Ökonomie"
 
@@ -197,7 +207,7 @@ msgstr "GN -> NG"
 msgid "Ge <-> Ke"
 msgstr "Ge <-> Ke"
 
-#: src/fcitx-libpinyin.desc:173
+#: src/fcitx-libpinyin.desc:173 src/fcitx-libpinyin.desc:233
 msgid "Geology"
 msgstr "Geologie"
 
@@ -205,7 +215,7 @@ msgstr "Geologie"
 msgid "GinYieh"
 msgstr "GinYieh"
 
-#: src/fcitx-libpinyin.desc:178
+#: src/fcitx-libpinyin.desc:178 src/fcitx-libpinyin.desc:238
 msgid "History"
 msgstr "Geschichte"
 
@@ -237,7 +247,7 @@ msgstr "LibPinyin"
 msgid "LibPinyin Wrapper For Fcitx"
 msgstr "LibPinyin Wrapper für Fcitx"
 
-#: src/fcitx-libpinyin.desc:183
+#: src/fcitx-libpinyin.desc:183 src/fcitx-libpinyin.desc:243
 msgid "Life"
 msgstr "Life"
 
@@ -253,7 +263,7 @@ msgstr "Pinyin Wörterbuch verwalten"
 msgid "Microsoft"
 msgstr "Microsoft"
 
-#: src/fcitx-libpinyin.desc:188
+#: src/fcitx-libpinyin.desc:188 src/fcitx-libpinyin.desc:248
 msgid "Nature"
 msgstr "Natur"
 
@@ -275,11 +285,15 @@ msgstr ""
 msgid "ON -> ONG"
 msgstr "ON -> ONG"
 
+#: src/fcitx-libpinyin.desc:193
+msgid "People"
+msgstr ""
+
 #: src/fcitx-libpinyin.desc:1 src/fcitx-libpinyin.desc:6
 msgid "Pinyin"
 msgstr "Pinyin"
 
-#: src/eim.cpp:813 src/pinyin-libpinyin.conf.in:3
+#: src/eim.cpp:815 src/pinyin-libpinyin.conf.in:3
 msgid "Pinyin (LibPinyin)"
 msgstr "Pinyin (LibPinyin)"
 
@@ -299,7 +313,11 @@ msgstr "Umbennen fehlgeschlagen."
 msgid "Scel file (*.scel)"
 msgstr "scel-Datei (*.scel)"
 
-#: src/fcitx-libpinyin.desc:193
+#: src/fcitx-libpinyin.desc:198
+msgid "Science"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:253
 msgid "Science & Technology"
 msgstr "Wissenschaft und Technik"
 
@@ -319,7 +337,7 @@ msgstr "Shift"
 msgid "Shuangpin"
 msgstr "Shuangpin"
 
-#: src/eim.cpp:830 src/shuangpin-libpinyin.conf.in:3
+#: src/eim.cpp:832 src/shuangpin-libpinyin.conf.in:3
 msgid "Shuangpin (LibPinyin)"
 msgstr "Shuangpin (LibPinyin)"
 
@@ -331,17 +349,22 @@ msgstr "Shuangpin Schema"
 msgid "Si <-> Shi"
 msgstr "Si <-> Shi"
 
-#: src/fcitx-libpinyin.desc:198
+#: src/fcitx-libpinyin.desc:203 src/fcitx-libpinyin.desc:258
 msgid "Society"
 msgstr "Gesellschaft"
 
-#: src/fcitx-libpinyin.desc:203
+#: src/fcitx-libpinyin.desc:208 src/fcitx-libpinyin.desc:263
 msgid "Sport"
 msgstr "Sport"
 
 #: src/fcitx-libpinyin.desc:24
 msgid "Standard"
 msgstr "Standard"
+
+#: src/fcitx-libpinyin.desc:213
+#, fuzzy
+msgid "Technology"
+msgstr "Geologie"
 
 #: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."

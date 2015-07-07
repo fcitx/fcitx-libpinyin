@@ -4,15 +4,15 @@
 #
 # Translators:
 # Alisha <alisha.4m@gmail.com>, 2012
-# Hiunn_Hue <hiunnhue108@ymail.com>, 2012
-# Xuetian Weng <wengxt@gmail.com>, 2012-2013
+# Hiunn-hué <hiunnhue108@ymail.com>, 2012
+# csslayer <wengxt@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-29 12:02-0400\n"
-"PO-Revision-Date: 2013-06-28 04:09+0000\n"
-"Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
+"POT-Creation-Date: 2015-07-08 00:02+0200\n"
+"PO-Revision-Date: 2013-06-29 16:08+0000\n"
+"Last-Translator: csslayer <wengxt@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/fcitx/"
 "language/zh_TW/)\n"
 "Language: zh_TW\n"
@@ -26,23 +26,23 @@ msgstr ""
 msgid "%1% Downloaded."
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:52
+#: dictmanager/dictmanager.cpp:50
 msgid "&Browse Sogou Cell Dictionary Online"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:70
+#: dictmanager/dictmanager.cpp:68
 msgid "&Clear Dict"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:59
+#: dictmanager/dictmanager.cpp:57
 msgid "&Clear User Data"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:67
+#: dictmanager/dictmanager.cpp:65
 msgid "&Import"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:68
+#: dictmanager/dictmanager.cpp:66
 msgid "&Remove"
 msgstr ""
 
@@ -66,16 +66,16 @@ msgstr "模糊音"
 msgid "An <-> Ang"
 msgstr "An <-> Ang"
 
-#: dictmanager/dictmanager.cpp:207
+#: dictmanager/dictmanager.cpp:231
 #, kde-format
 msgid "Are you sure to delete %1?"
 msgstr ""
 
-#: src/fcitx-libpinyin.desc:158
+#: src/fcitx-libpinyin.desc:158 src/fcitx-libpinyin.desc:218
 msgid "Art"
 msgstr "藝術"
 
-#: src/eim.cpp:860 src/zhuyin-libpinyin.conf.in:3
+#: src/eim.cpp:849 src/zhuyin-libpinyin.conf.in:3
 msgid "Bopomofo (LibPinyin)"
 msgstr "注音（LibPinyin）"
 
@@ -91,11 +91,11 @@ msgstr ""
 msgid "Ci <-> Chi"
 msgstr "Ci <-> Chi"
 
-#: dictmanager/dictmanager.cpp:60
+#: dictmanager/dictmanager.cpp:58
 msgid "Clear &All Data"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:206
+#: dictmanager/dictmanager.cpp:230
 msgid "Confirm deletion"
 msgstr ""
 
@@ -107,11 +107,11 @@ msgstr ""
 msgid "Converter crashed."
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:131
+#: dictmanager/dictmanager.cpp:155
 msgid "Copy file failed"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:131
+#: dictmanager/dictmanager.cpp:155
 msgid "Copy file failed. Please check you have permission or disk is not full."
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Ctrl"
 msgstr "Ctrl"
 
-#: src/fcitx-libpinyin.desc:163
+#: src/fcitx-libpinyin.desc:163 src/fcitx-libpinyin.desc:223
 msgid "Culture"
 msgstr "文化"
 
@@ -139,8 +139,18 @@ msgstr "文化"
 #: src/fcitx-libpinyin.desc:172 src/fcitx-libpinyin.desc:177
 #: src/fcitx-libpinyin.desc:182 src/fcitx-libpinyin.desc:187
 #: src/fcitx-libpinyin.desc:192 src/fcitx-libpinyin.desc:197
-#: src/fcitx-libpinyin.desc:202
+#: src/fcitx-libpinyin.desc:202 src/fcitx-libpinyin.desc:207
+#: src/fcitx-libpinyin.desc:212
 msgid "Dictionary"
+msgstr "辭典"
+
+#: src/fcitx-libpinyin.desc:217 src/fcitx-libpinyin.desc:222
+#: src/fcitx-libpinyin.desc:227 src/fcitx-libpinyin.desc:232
+#: src/fcitx-libpinyin.desc:237 src/fcitx-libpinyin.desc:242
+#: src/fcitx-libpinyin.desc:247 src/fcitx-libpinyin.desc:252
+#: src/fcitx-libpinyin.desc:257 src/fcitx-libpinyin.desc:262
+#, fuzzy
+msgid "Dictionary Zhuyin"
 msgstr "辭典"
 
 #: dictmanager/filedownloader.cpp:93
@@ -155,7 +165,7 @@ msgstr ""
 msgid "ET"
 msgstr "倚天"
 
-#: src/fcitx-libpinyin.desc:168
+#: src/fcitx-libpinyin.desc:168 src/fcitx-libpinyin.desc:228
 msgid "Economy"
 msgstr "經濟"
 
@@ -163,7 +173,7 @@ msgstr "經濟"
 msgid "En <-> Eng"
 msgstr "En <-> Eng"
 
-#: dictmanager/dictmanager.cpp:215
+#: dictmanager/dictmanager.cpp:239
 #, kde-format
 msgid "Error while deleting %1."
 msgstr ""
@@ -172,7 +182,7 @@ msgstr ""
 msgid "Failed to create request."
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:214
+#: dictmanager/dictmanager.cpp:238
 msgid "File Operation Failed"
 msgstr ""
 
@@ -180,11 +190,11 @@ msgstr ""
 msgid "Fo <-> He"
 msgstr "Fo <-> He"
 
-#: dictmanager/dictmanager.cpp:50
+#: dictmanager/dictmanager.cpp:48
 msgid "From &File"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:51
+#: dictmanager/dictmanager.cpp:49
 msgid "From &Sogou Cell Dictionary File"
 msgstr ""
 
@@ -196,7 +206,7 @@ msgstr "GN -> NG"
 msgid "Ge <-> Ke"
 msgstr "Ge <-> Ke"
 
-#: src/fcitx-libpinyin.desc:173
+#: src/fcitx-libpinyin.desc:173 src/fcitx-libpinyin.desc:233
 msgid "Geology"
 msgstr "地質學"
 
@@ -204,7 +214,7 @@ msgstr "地質學"
 msgid "GinYieh"
 msgstr "精業"
 
-#: src/fcitx-libpinyin.desc:178
+#: src/fcitx-libpinyin.desc:178 src/fcitx-libpinyin.desc:238
 msgid "History"
 msgstr "歷史"
 
@@ -220,7 +230,7 @@ msgstr "IOU -> IU"
 msgid "In <-> Ing"
 msgstr "In <-> Ing"
 
-#: dictmanager/dictmanager.cpp:123 dictmanager/dictmanager.cpp:159
+#: dictmanager/dictmanager.cpp:146 dictmanager/dictmanager.cpp:183
 msgid "Input Dictionary Name"
 msgstr ""
 
@@ -236,7 +246,7 @@ msgstr "LibPinyin"
 msgid "LibPinyin Wrapper For Fcitx"
 msgstr "Fcitx 的 LibPinyin 封装"
 
-#: src/fcitx-libpinyin.desc:183
+#: src/fcitx-libpinyin.desc:183 src/fcitx-libpinyin.desc:243
 msgid "Life"
 msgstr "生活"
 
@@ -244,7 +254,7 @@ msgstr "生活"
 msgid "MG -> NG"
 msgstr "MG -> NG"
 
-#: dictmanager/dictmanager.cpp:48
+#: dictmanager/dictmanager.cpp:113
 msgid "Manage Pinyin Dictionary"
 msgstr ""
 
@@ -252,7 +262,7 @@ msgstr ""
 msgid "Microsoft"
 msgstr "微軟"
 
-#: src/fcitx-libpinyin.desc:188
+#: src/fcitx-libpinyin.desc:188 src/fcitx-libpinyin.desc:248
 msgid "Nature"
 msgstr "自然"
 
@@ -260,7 +270,7 @@ msgstr "自然"
 msgid "Ne <-> Le"
 msgstr "Ne <-> Le"
 
-#: dictmanager/dictmanager.cpp:123 dictmanager/dictmanager.cpp:159
+#: dictmanager/dictmanager.cpp:146 dictmanager/dictmanager.cpp:183
 msgid "New Dictionary Name:"
 msgstr ""
 
@@ -272,11 +282,15 @@ msgstr ""
 msgid "ON -> ONG"
 msgstr "ON -> ONG"
 
+#: src/fcitx-libpinyin.desc:193
+msgid "People"
+msgstr ""
+
 #: src/fcitx-libpinyin.desc:1 src/fcitx-libpinyin.desc:6
 msgid "Pinyin"
 msgstr "拼音"
 
-#: src/eim.cpp:826 src/pinyin-libpinyin.conf.in:3
+#: src/eim.cpp:815 src/pinyin-libpinyin.conf.in:3
 msgid "Pinyin (LibPinyin)"
 msgstr "拼音（LibPinyin）"
 
@@ -284,27 +298,31 @@ msgstr "拼音（LibPinyin）"
 msgid "PinyinJiaJia"
 msgstr "拼音加加"
 
-#: dictmanager/dictmanager.cpp:69
+#: dictmanager/dictmanager.cpp:67
 msgid "Remove &All"
 msgstr ""
 
-#: dictmanager/scelconverter.cpp:89
+#: dictmanager/scelconverter.cpp:90
 msgid "Rename failed."
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:145
+#: dictmanager/dictmanager.cpp:169
 msgid "Scel file (*.scel)"
 msgstr ""
 
-#: src/fcitx-libpinyin.desc:193
+#: src/fcitx-libpinyin.desc:198
+msgid "Science"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:253
 msgid "Science & Technology"
 msgstr "科學技術"
 
-#: dictmanager/dictmanager.cpp:110
+#: dictmanager/dictmanager.cpp:133
 msgid "Select Dictionary File"
 msgstr ""
 
-#: dictmanager/dictmanager.cpp:143
+#: dictmanager/dictmanager.cpp:167
 msgid "Select scel file"
 msgstr ""
 
@@ -316,7 +334,7 @@ msgstr "Shift"
 msgid "Shuangpin"
 msgstr "雙拼"
 
-#: src/eim.cpp:843 src/shuangpin-libpinyin.conf.in:3
+#: src/eim.cpp:832 src/shuangpin-libpinyin.conf.in:3
 msgid "Shuangpin (LibPinyin)"
 msgstr "雙拼（LibPinyin）"
 
@@ -328,17 +346,22 @@ msgstr "雙拼機制"
 msgid "Si <-> Shi"
 msgstr "Si <-> Shi"
 
-#: src/fcitx-libpinyin.desc:198
+#: src/fcitx-libpinyin.desc:203 src/fcitx-libpinyin.desc:258
 msgid "Society"
 msgstr "社會"
 
-#: src/fcitx-libpinyin.desc:203
+#: src/fcitx-libpinyin.desc:208 src/fcitx-libpinyin.desc:263
 msgid "Sport"
 msgstr "運動"
 
 #: src/fcitx-libpinyin.desc:24
 msgid "Standard"
 msgstr "標準"
+
+#: src/fcitx-libpinyin.desc:213
+#, fuzzy
+msgid "Technology"
+msgstr "地質學"
 
 #: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."

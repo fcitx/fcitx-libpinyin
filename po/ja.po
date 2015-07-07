@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# しろう, 2013
-# しろう, 2013
+# WAKAYAMA Shirou <shirou.faw@gmail.com>, 2013
+# WAKAYAMA Shirou <shirou.faw@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-08-07 12:02-0400\n"
-"PO-Revision-Date: 2013-08-07 15:07+0000\n"
-"Last-Translator: しろう\n"
+"POT-Creation-Date: 2015-07-08 00:02+0200\n"
+"PO-Revision-Date: 2013-10-18 14:10+0000\n"
+"Last-Translator: WAKAYAMA Shirou <shirou.faw@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/fcitx/language/"
 "ja/)\n"
 "Language: ja\n"
@@ -70,11 +70,11 @@ msgstr "An <-> Ang"
 msgid "Are you sure to delete %1?"
 msgstr "本当に %1 を削除しますか?"
 
-#: src/fcitx-libpinyin.desc:158
+#: src/fcitx-libpinyin.desc:158 src/fcitx-libpinyin.desc:218
 msgid "Art"
 msgstr "芸術"
 
-#: src/eim.cpp:846 src/zhuyin-libpinyin.conf.in:3
+#: src/eim.cpp:849 src/zhuyin-libpinyin.conf.in:3
 msgid "Bopomofo (LibPinyin)"
 msgstr "Bopomofo (LibPinyin)"
 
@@ -131,7 +131,7 @@ msgstr "一時ファイルの作成に失敗しました。"
 msgid "Ctrl"
 msgstr "Ctrl"
 
-#: src/fcitx-libpinyin.desc:163
+#: src/fcitx-libpinyin.desc:163 src/fcitx-libpinyin.desc:223
 msgid "Culture"
 msgstr "文化"
 
@@ -140,8 +140,18 @@ msgstr "文化"
 #: src/fcitx-libpinyin.desc:172 src/fcitx-libpinyin.desc:177
 #: src/fcitx-libpinyin.desc:182 src/fcitx-libpinyin.desc:187
 #: src/fcitx-libpinyin.desc:192 src/fcitx-libpinyin.desc:197
-#: src/fcitx-libpinyin.desc:202
+#: src/fcitx-libpinyin.desc:202 src/fcitx-libpinyin.desc:207
+#: src/fcitx-libpinyin.desc:212
 msgid "Dictionary"
+msgstr "辞書"
+
+#: src/fcitx-libpinyin.desc:217 src/fcitx-libpinyin.desc:222
+#: src/fcitx-libpinyin.desc:227 src/fcitx-libpinyin.desc:232
+#: src/fcitx-libpinyin.desc:237 src/fcitx-libpinyin.desc:242
+#: src/fcitx-libpinyin.desc:247 src/fcitx-libpinyin.desc:252
+#: src/fcitx-libpinyin.desc:257 src/fcitx-libpinyin.desc:262
+#, fuzzy
+msgid "Dictionary Zhuyin"
 msgstr "辞書"
 
 #: dictmanager/filedownloader.cpp:93
@@ -156,7 +166,7 @@ msgstr "ダウンロードを開始しました。"
 msgid "ET"
 msgstr "ET"
 
-#: src/fcitx-libpinyin.desc:168
+#: src/fcitx-libpinyin.desc:168 src/fcitx-libpinyin.desc:228
 msgid "Economy"
 msgstr "経済"
 
@@ -197,7 +207,7 @@ msgstr "GN -> NG"
 msgid "Ge <-> Ke"
 msgstr "Ge <-> Ke"
 
-#: src/fcitx-libpinyin.desc:173
+#: src/fcitx-libpinyin.desc:173 src/fcitx-libpinyin.desc:233
 msgid "Geology"
 msgstr "地理"
 
@@ -205,7 +215,7 @@ msgstr "地理"
 msgid "GinYieh"
 msgstr "GinYieh"
 
-#: src/fcitx-libpinyin.desc:178
+#: src/fcitx-libpinyin.desc:178 src/fcitx-libpinyin.desc:238
 msgid "History"
 msgstr "歴史"
 
@@ -237,7 +247,7 @@ msgstr "LibPinyin"
 msgid "LibPinyin Wrapper For Fcitx"
 msgstr "Fcitx 用 LibPinyin ラッパー"
 
-#: src/fcitx-libpinyin.desc:183
+#: src/fcitx-libpinyin.desc:183 src/fcitx-libpinyin.desc:243
 msgid "Life"
 msgstr "生活"
 
@@ -253,7 +263,7 @@ msgstr "Pinyinディレクトリの管理"
 msgid "Microsoft"
 msgstr "Microsoft"
 
-#: src/fcitx-libpinyin.desc:188
+#: src/fcitx-libpinyin.desc:188 src/fcitx-libpinyin.desc:248
 msgid "Nature"
 msgstr "自然"
 
@@ -274,11 +284,15 @@ msgstr ""
 msgid "ON -> ONG"
 msgstr "ON -> ONG"
 
+#: src/fcitx-libpinyin.desc:193
+msgid "People"
+msgstr ""
+
 #: src/fcitx-libpinyin.desc:1 src/fcitx-libpinyin.desc:6
 msgid "Pinyin"
 msgstr "Pinyin"
 
-#: src/eim.cpp:812 src/pinyin-libpinyin.conf.in:3
+#: src/eim.cpp:815 src/pinyin-libpinyin.conf.in:3
 msgid "Pinyin (LibPinyin)"
 msgstr "Pinyin (LibPinyin)"
 
@@ -298,7 +312,11 @@ msgstr "名前の変更に失敗しました。"
 msgid "Scel file (*.scel)"
 msgstr "Scel ファイル (*.scel)"
 
-#: src/fcitx-libpinyin.desc:193
+#: src/fcitx-libpinyin.desc:198
+msgid "Science"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:253
 msgid "Science & Technology"
 msgstr "科学技術"
 
@@ -318,7 +336,7 @@ msgstr "Shift"
 msgid "Shuangpin"
 msgstr "Shuangpin"
 
-#: src/eim.cpp:829 src/shuangpin-libpinyin.conf.in:3
+#: src/eim.cpp:832 src/shuangpin-libpinyin.conf.in:3
 msgid "Shuangpin (LibPinyin)"
 msgstr "Shuangpin (LibPinyin)"
 
@@ -330,17 +348,22 @@ msgstr "Shuangpin スキーマー"
 msgid "Si <-> Shi"
 msgstr "Si <-> Shi"
 
-#: src/fcitx-libpinyin.desc:198
+#: src/fcitx-libpinyin.desc:203 src/fcitx-libpinyin.desc:258
 msgid "Society"
 msgstr "社会"
 
-#: src/fcitx-libpinyin.desc:203
+#: src/fcitx-libpinyin.desc:208 src/fcitx-libpinyin.desc:263
 msgid "Sport"
 msgstr "スポーツ"
 
 #: src/fcitx-libpinyin.desc:24
 msgid "Standard"
 msgstr "スタンダード"
+
+#: src/fcitx-libpinyin.desc:213
+#, fuzzy
+msgid "Technology"
+msgstr "地理"
 
 #: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."
