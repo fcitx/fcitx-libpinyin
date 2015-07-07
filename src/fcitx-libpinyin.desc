@@ -189,8 +189,13 @@ Description=Nature
 Type=Boolean
 DefaultValue=False
 
-[Dictionary/Scitech]
-Description=Science & Technology
+[Dictionary/People]
+Description=People
+Type=Boolean
+DefaultValue=False
+
+[Dictionary/Science]
+Description=Science
 Type=Boolean
 DefaultValue=False
 
@@ -200,6 +205,61 @@ Type=Boolean
 DefaultValue=False
 
 [Dictionary/Sport]
+Description=Sport
+Type=Boolean
+DefaultValue=False
+
+[Dictionary/Technology]
+Description=Technology
+Type=Boolean
+DefaultValue=False
+
+[Dictionary Zhuyin/Art]
+Description=Art
+Type=Boolean
+DefaultValue=False
+
+[Dictionary Zhuyin/Culture]
+Description=Culture
+Type=Boolean
+DefaultValue=False
+
+[Dictionary Zhuyin/Economy]
+Description=Economy
+Type=Boolean
+DefaultValue=False
+
+[Dictionary Zhuyin/Geology]
+Description=Geology
+Type=Boolean
+DefaultValue=False
+
+[Dictionary Zhuyin/History]
+Description=History
+Type=Boolean
+DefaultValue=False
+
+[Dictionary Zhuyin/Life]
+Description=Life
+Type=Boolean
+DefaultValue=False
+
+[Dictionary Zhuyin/Nature]
+Description=Nature
+Type=Boolean
+DefaultValue=False
+
+[Dictionary Zhuyin/Scitech]
+Description=Science & Technology
+Type=Boolean
+DefaultValue=False
+
+[Dictionary Zhuyin/Society]
+Description=Society
+Type=Boolean
+DefaultValue=False
+
+[Dictionary Zhuyin/Sport]
 Description=Sport
 Type=Boolean
 DefaultValue=False
