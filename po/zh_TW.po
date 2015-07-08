@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2015-07-08 00:02+0200\n"
-"PO-Revision-Date: 2013-06-29 16:08+0000\n"
+"POT-Creation-Date: 2015-07-08 06:02+0200\n"
+"PO-Revision-Date: 2015-07-07 22:02+0000\n"
 "Last-Translator: csslayer <wengxt@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/fcitx/"
 "language/zh_TW/)\n"
@@ -149,9 +149,8 @@ msgstr "辭典"
 #: src/fcitx-libpinyin.desc:237 src/fcitx-libpinyin.desc:242
 #: src/fcitx-libpinyin.desc:247 src/fcitx-libpinyin.desc:252
 #: src/fcitx-libpinyin.desc:257 src/fcitx-libpinyin.desc:262
-#, fuzzy
 msgid "Dictionary Zhuyin"
-msgstr "辭典"
+msgstr ""
 
 #: dictmanager/filedownloader.cpp:93
 msgid "Download Finished"
@@ -359,9 +358,8 @@ msgid "Standard"
 msgstr "標準"
 
 #: src/fcitx-libpinyin.desc:213
-#, fuzzy
 msgid "Technology"
-msgstr "地質學"
+msgstr ""
 
 #: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."

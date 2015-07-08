@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# csslayer <wengxt@gmail.com>, 2013
+# csslayer <wengxt@gmail.com>, 2013,2015
 # csslayer <wengxt@gmail.com>, 2010-2013
 # wwj402 <wwj402@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2015-07-08 00:02+0200\n"
-"PO-Revision-Date: 2013-06-29 19:48+0000\n"
+"POT-Creation-Date: 2015-07-08 06:02+0200\n"
+"PO-Revision-Date: 2015-07-07 23:22+0000\n"
 "Last-Translator: csslayer <wengxt@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/fcitx/"
 "language/zh_CN/)\n"
@@ -149,9 +149,8 @@ msgstr "词典"
 #: src/fcitx-libpinyin.desc:237 src/fcitx-libpinyin.desc:242
 #: src/fcitx-libpinyin.desc:247 src/fcitx-libpinyin.desc:252
 #: src/fcitx-libpinyin.desc:257 src/fcitx-libpinyin.desc:262
-#, fuzzy
 msgid "Dictionary Zhuyin"
-msgstr "词典"
+msgstr "注音词典"
 
 #: dictmanager/filedownloader.cpp:93
 msgid "Download Finished"
@@ -284,7 +283,7 @@ msgstr "ON -> ONG"
 
 #: src/fcitx-libpinyin.desc:193
 msgid "People"
-msgstr ""
+msgstr "人文"
 
 #: src/fcitx-libpinyin.desc:1 src/fcitx-libpinyin.desc:6
 msgid "Pinyin"
@@ -312,7 +311,7 @@ msgstr "Scel 文件 (*.scel)"
 
 #: src/fcitx-libpinyin.desc:198
 msgid "Science"
-msgstr ""
+msgstr "科学"
 
 #: src/fcitx-libpinyin.desc:253
 msgid "Science & Technology"
@@ -359,9 +358,8 @@ msgid "Standard"
 msgstr "标准"
 
 #: src/fcitx-libpinyin.desc:213
-#, fuzzy
 msgid "Technology"
-msgstr "地理"
+msgstr "技术"
 
 #: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2015-07-08 00:02+0200\n"
-"PO-Revision-Date: 2013-10-18 14:10+0000\n"
-"Last-Translator: WAKAYAMA Shirou <shirou.faw@gmail.com>\n"
+"POT-Creation-Date: 2015-07-08 06:02+0200\n"
+"PO-Revision-Date: 2015-07-07 22:02+0000\n"
+"Last-Translator: csslayer <wengxt@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/fcitx/language/"
 "ja/)\n"
 "Language: ja\n"
@@ -150,9 +150,8 @@ msgstr "辞書"
 #: src/fcitx-libpinyin.desc:237 src/fcitx-libpinyin.desc:242
 #: src/fcitx-libpinyin.desc:247 src/fcitx-libpinyin.desc:252
 #: src/fcitx-libpinyin.desc:257 src/fcitx-libpinyin.desc:262
-#, fuzzy
 msgid "Dictionary Zhuyin"
-msgstr "辞書"
+msgstr ""
 
 #: dictmanager/filedownloader.cpp:93
 msgid "Download Finished"
@@ -361,9 +360,8 @@ msgid "Standard"
 msgstr "スタンダード"
 
 #: src/fcitx-libpinyin.desc:213
-#, fuzzy
 msgid "Technology"
-msgstr "地理"
+msgstr ""
 
 #: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."
