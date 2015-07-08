@@ -772,7 +772,7 @@ void* LibPinyinSavePinyinWord(void* arg, FcitxModuleFunctionArg args)
     }
 
     if (ss.str().length() > 0) {
-        import_iterator_t* iter = pinyin_begin_add_phrases(context, 15);
+        import_iterator_t* iter = pinyin_begin_add_phrases(context, USER_DICTIONARY);
         if (iter) {
             char* hz = (char*) args.args[0];
             pinyin_iterator_add_phrase(iter, hz, ss.str().c_str(), -1);
