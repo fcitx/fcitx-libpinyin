@@ -58,7 +58,7 @@ BrowserDialog::~BrowserDialog()
 
 QString BrowserDialog::decodeName(const QByteArray& in)
 {
-    QTextCodec* codec = QTextCodec::codecForName("GB18030");
+    QTextCodec* codec = QTextCodec::codecForName("UTF-8");
     if (!codec) {
         return QString();
     }

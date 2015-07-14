@@ -353,12 +353,7 @@ void FcitxLibPinyinLoad(FcitxLibPinyin* libpinyin)
     if (libpinyin->type == LPT_Zhuyin && libpinyin->owner->zhuyin_context == NULL) {
         char* user_path = FcitxLibPinyinGetUserPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional);
         char* syspath = FcitxLibPinyinGetSysPath(libpinyinaddon->config.bSimplifiedDataForZhuyin ? LPLT_Simplified : LPLT_Traditional);
-        libpinyinaddon->zhuyin_context = pinyin_init(syspath, user_path);/*
-        pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, GB_DICTIONARY);
-        pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, GBK_DICTIONARY);
-        pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, ADDON_DICTIONARY);
-        pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, USER_DICTIONARY);
-        pinyin_load_phrase_library(libpinyinaddon->zhuyin_context, NETWORK_DICTIONARY);*/
+        libpinyinaddon->zhuyin_context = pinyin_init(syspath, user_path);
         free(user_path);
         free(syspath);
     }
@@ -366,12 +361,7 @@ void FcitxLibPinyinLoad(FcitxLibPinyin* libpinyin)
     if (libpinyin->type != LPT_Zhuyin && libpinyin->owner->pinyin_context == NULL) {
         char* user_path = FcitxLibPinyinGetUserPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified);
         char* syspath = FcitxLibPinyinGetSysPath(libpinyinaddon->config.bTraditionalDataForPinyin ? LPLT_Traditional : LPLT_Simplified);
-        libpinyinaddon->pinyin_context = pinyin_init(syspath, user_path);/*
-        pinyin_load_phrase_library(libpinyinaddon->pinyin_context, GB_DICTIONARY);
-        pinyin_load_phrase_library(libpinyinaddon->pinyin_context, GBK_DICTIONARY);
-        pinyin_load_phrase_library(libpinyinaddon->pinyin_context, ADDON_DICTIONARY);
-        pinyin_load_phrase_library(libpinyinaddon->pinyin_context, USER_DICTIONARY);
-        pinyin_load_phrase_library(libpinyinaddon->pinyin_context, NETWORK_DICTIONARY);*/
+        libpinyinaddon->pinyin_context = pinyin_init(syspath, user_path);
         free(user_path);
         free(syspath);
     }
