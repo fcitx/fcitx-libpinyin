@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2015-07-08 18:02+0200\n"
+"POT-Creation-Date: 2015-07-21 12:01+0200\n"
 "PO-Revision-Date: 2015-07-07 22:02+0000\n"
 "Last-Translator: csslayer <wengxt@gmail.com>\n"
-"Language-Team: German (http://www.transifex.com/p/fcitx/language/de/)\n"
+"Language-Team: German (http://www.transifex.com/projects/p/fcitx/language/"
+"de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,7 +73,7 @@ msgstr "Sind Sie sicher %1 zu löschen?"
 msgid "Art"
 msgstr "Kunst"
 
-#: src/eim.cpp:849 src/zhuyin-libpinyin.conf.in:3
+#: src/eim.cpp:839 src/zhuyin-libpinyin.conf.in:3
 msgid "Bopomofo (LibPinyin)"
 msgstr "Bopomofo (LibPinyin)"
 
@@ -291,7 +292,7 @@ msgstr ""
 msgid "Pinyin"
 msgstr "Pinyin"
 
-#: src/eim.cpp:815 src/pinyin-libpinyin.conf.in:3
+#: src/eim.cpp:805 src/pinyin-libpinyin.conf.in:3
 msgid "Pinyin (LibPinyin)"
 msgstr "Pinyin (LibPinyin)"
 
@@ -335,7 +336,7 @@ msgstr "Shift"
 msgid "Shuangpin"
 msgstr "Shuangpin"
 
-#: src/eim.cpp:832 src/shuangpin-libpinyin.conf.in:3
+#: src/eim.cpp:822 src/shuangpin-libpinyin.conf.in:3
 msgid "Shuangpin (LibPinyin)"
 msgstr "Shuangpin (LibPinyin)"
 
