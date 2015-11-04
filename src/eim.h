@@ -135,7 +135,7 @@ struct FcitxLibPinyinConfig
     boolean dict[FCITX_DICT_LAST + 1];
     boolean dict_zhuyin[FCITX_ZHUYIN_DICT_LAST + 1];
     boolean incomplete;
-    boolean chewingIncomplete;
+    boolean zhuyinIncomplete;
     boolean bTraditionalDataForPinyin;
     boolean bSimplifiedDataForZhuyin;
     boolean useTone;

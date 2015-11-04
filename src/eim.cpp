@@ -215,7 +215,7 @@ INPUT_RETURN_VALUE FcitxLibPinyinDoInput(void* arg, FcitxKeySym sym, unsigned in
 
                 if (parselen == 0 && strlen(libpinyin->buf) == 1 && libpinyin->type != LPT_Shuangpin
                         && !(libpinyin->type == LPT_Pinyin && !libpinyin->owner->config.incomplete)
-                        && !(libpinyin->type == LPT_Zhuyin && !libpinyin->owner->config.chewingIncomplete)) {
+                        && !(libpinyin->type == LPT_Zhuyin && !libpinyin->owner->config.zhuyinIncomplete)) {
                     FcitxLibPinyinReset(libpinyin);
                     return IRV_TO_PROCESS;
                 }
@@ -510,7 +510,7 @@ void FcitxLibPinyinUpdatePreedit(FcitxLibPinyin* libpinyin, char* sentence)
             guint16 pykeyposLen = 0;
             pinyin_get_pinyin_key_rest_length(libpinyin->inst, pykeypos, &pykeyposLen);
             gchar* pystring;
-            pinyin_get_chewing_string(libpinyin->inst, pykey, &pystring);
+            pinyin_get_zhuyin_string(libpinyin->inst, pykey, &pystring);
             FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_CODE, "%s", pystring);
 
             if (curoffset + pykeyposLen <= libpinyin->cursor_pos) {
@@ -883,7 +883,7 @@ void FcitxLibPinyinReconfigure(FcitxLibPinyinAddonInstance* libpinyinaddon)
     FcitxLibPinyinConfig* config = &libpinyinaddon->config;
 
     if (libpinyinaddon->zhuyin_context) {
-        pinyin_set_chewing_scheme(libpinyinaddon->zhuyin_context, FcitxLibPinyinTransZhuyinLayout(config->zhuyinLayout));
+        pinyin_set_zhuyin_scheme(libpinyinaddon->zhuyin_context, FcitxLibPinyinTransZhuyinLayout(config->zhuyinLayout));
 
         for (int i = 0; i <= FCITX_ZHUYIN_DICT_LAST; i++) {
             if (config->dict_zhuyin[i]) {
@@ -919,15 +919,15 @@ void FcitxLibPinyinReconfigure(FcitxLibPinyinAddonInstance* libpinyinaddon)
         settings |= PINYIN_INCOMPLETE;
     }
 
-    if (config->chewingIncomplete) {
-        settings |= CHEWING_INCOMPLETE;
+    if (config->zhuyinIncomplete) {
+        settings |= ZHUYIN_INCOMPLETE;
     }
 
     if (config->useTone) {
         settings |= USE_TONE;
     }
     settings |= IS_PINYIN;
-    settings |= IS_CHEWING;
+    settings |= IS_ZHUYIN;
     if (libpinyinaddon->pinyin_context)
         pinyin_set_options(libpinyinaddon->pinyin_context, settings);
     if (libpinyinaddon->zhuyin_context)

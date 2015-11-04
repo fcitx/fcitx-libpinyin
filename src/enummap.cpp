@@ -93,19 +93,19 @@ DoublePinyinScheme FcitxLibPinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME sch
     }
 }
 
-ChewingScheme FcitxLibPinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout)
+ZhuyinScheme FcitxLibPinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout)
 {
     switch(layout) {
         case FCITX_ZHUYIN_STANDARD:
-            return CHEWING_STANDARD;
+            return ZHUYIN_STANDARD;
         case FCITX_ZHUYIN_IBM:
-            return CHEWING_IBM;
+            return ZHUYIN_IBM;
         case FCITX_ZHUYIN_GIN_YIEH:
-            return CHEWING_GINYIEH;
+            return ZHUYIN_GINYIEH;
         case FCITX_ZHUYIN_ET:
-            return CHEWING_ETEN;
+            return ZHUYIN_ETEN;
         default:
-            return CHEWING_STANDARD;
+            return ZHUYIN_STANDARD;
     }
 }
 

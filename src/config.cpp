@@ -26,7 +26,7 @@ CONFIG_BINDING_REGISTER("Pinyin", "Incomplete", incomplete)
 #ifdef LIBPINYIN_TOOLS_FOUND
 CONFIG_BINDING_REGISTER("Pinyin", "UseTraditionalChineseData", bTraditionalDataForPinyin)
 #endif
-CONFIG_BINDING_REGISTER("Zhuyin", "Incomplete", chewingIncomplete)
+CONFIG_BINDING_REGISTER("Zhuyin", "Incomplete", zhuyinIncomplete)
 CONFIG_BINDING_REGISTER("Zhuyin", "UseTone", useTone)
 CONFIG_BINDING_REGISTER("Zhuyin", "Layout", zhuyinLayout)
 CONFIG_BINDING_REGISTER("Zhuyin", "PrevPage", hkPrevPage)

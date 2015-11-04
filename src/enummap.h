@@ -24,7 +24,7 @@
 #include <pinyin.h>
 #include "eim.h"
 
-ChewingScheme FcitxLibPinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout);
+ZhuyinScheme FcitxLibPinyinTransZhuyinLayout(FCITX_ZHUYIN_LAYOUT layout);
 DoublePinyinScheme FcitxLibPinyinTransShuangpinScheme(FCITX_SHUANGPIN_SCHEME scheme);
 PinyinAmbiguity2 FcitxLibPinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity);
 PinyinCorrection2 FcitxLibPinyinTransCorrection(FCITX_CORRECTION correction);
