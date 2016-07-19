@@ -746,30 +746,7 @@ void* LibPinyinSavePinyinWord(void* arg, FcitxModuleFunctionArg args)
         return NULL;
 
     FcitxLibPinyin* libpinyin = (FcitxLibPinyin*) im->klass;
-
-    std::stringstream ss;
-
-    guint pinyinLen = 0;
-    pinyin_get_n_pinyin(libpinyin->inst, &pinyinLen);
-    for (int i = 0; i < pinyinLen; i ++) {
-        PinyinKey* pykey;
-        pinyin_get_pinyin_key(libpinyin->inst, i, &pykey);
-
-        gchar* pystring;
-        pinyin_get_pinyin_string(libpinyin->inst, pykey, &pystring);
-        ss << pystring;
-        g_free(pystring);
-    }
-
-    if (ss.str().length() > 0) {
-        import_iterator_t* iter = pinyin_begin_add_phrases(context, USER_DICTIONARY);
-        if (iter) {
-            char* hz = (char*) args.args[0];
-            pinyin_iterator_add_phrase(iter, hz, ss.str().c_str(), -1);
-            pinyin_end_add_phrases(iter);
-        }
-    }
-    pinyin_train(libpinyin->inst);
+    pinyin_remember_user_input(libpinyin->inst, static_cast<const char*>(args.args[0]), -1);
 
     return NULL;
 }
