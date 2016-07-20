@@ -626,37 +626,61 @@ INPUT_RETURN_VALUE FcitxLibPinyin::getCandWords() {
         updatePreedit(sentence.c_str());
 
         FcitxMessagesAddMessageAtLast(FcitxInputStateGetClientPreedit(input), MSG_INPUT, "%s", sentence.c_str());
+        if (m_buf.size() >= m_parsedLen) {
+            FcitxMessagesAddMessageAtLast(FcitxInputStateGetClientPreedit(input), MSG_INPUT, "%s", m_buf.substr(m_parsedLen).c_str());
+        }
     } else {
         FcitxInputStateSetCursorPos(input, m_cursorPos);
         FcitxMessagesAddMessageAtLast(FcitxInputStateGetClientPreedit(input), MSG_INPUT, "%s", m_buf.c_str());
         FcitxMessagesAddMessageAtLast(FcitxInputStateGetPreedit(input), MSG_INPUT, "%s", m_buf.c_str());
     }
 
-    // this shouldn't be necessary, but call it anyway.
-    pinyin_guess_candidates(m_inst, pinyinOffset());
-    guint candidateLen = 0;
-    pinyin_get_n_candidate(m_inst, &candidateLen);
-    int i = 0;
-    for (i = 0 ; i < candidateLen; i ++) {
-        lookup_candidate_t* token = NULL;
-        pinyin_get_candidate(m_inst, i, &token);
+    if (pinyinOffset() < m_parsedLen) {
+        pinyin_guess_candidates(m_inst, pinyinOffset());
+        guint candidateLen = 0;
+        pinyin_get_n_candidate(m_inst, &candidateLen);
+        int i = 0;
+        for (i = 0 ; i < candidateLen; i ++) {
+            lookup_candidate_t* token = NULL;
+            pinyin_get_candidate(m_inst, i, &token);
+            FcitxCandidateWord candWord;
+            FcitxLibPinyinCandWord* pyCand = (FcitxLibPinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibPinyinCandWord));
+            pyCand->ispunc = false;
+            pyCand->idx = i;
+            candWord.callback = FcitxLibPinyinGetCandWord;
+            candWord.extraType = MSG_OTHER;
+            candWord.owner = this;
+            candWord.priv = pyCand;
+            candWord.strExtra = NULL;
+
+            const gchar* phrase_string = NULL;
+            pinyin_get_candidate_string(m_inst, token, &phrase_string);
+            candWord.strWord = strdup(phrase_string);
+            candWord.wordType = MSG_OTHER;
+
+            FcitxCandidateWordAppend(FcitxInputStateGetCandidateList(input), &candWord);
+        }
+    } else {
         FcitxCandidateWord candWord;
         FcitxLibPinyinCandWord* pyCand = (FcitxLibPinyinCandWord*) fcitx_utils_malloc0(sizeof(FcitxLibPinyinCandWord));
         pyCand->ispunc = false;
-        pyCand->idx = i;
+        pyCand->idx = -1;
         candWord.callback = FcitxLibPinyinGetCandWord;
         candWord.extraType = MSG_OTHER;
         candWord.owner = this;
         candWord.priv = pyCand;
         candWord.strExtra = NULL;
+        std::string cand = sentence;
+        if (m_buf.size() >= m_parsedLen) {
+            cand += m_buf.substr(m_parsedLen);
+        }
 
-        const gchar* phrase_string = NULL;
-        pinyin_get_candidate_string(m_inst, token, &phrase_string);
-        candWord.strWord = strdup(phrase_string);
+        candWord.strWord = strdup(cand.c_str());
         candWord.wordType = MSG_OTHER;
 
         FcitxCandidateWordAppend(FcitxInputStateGetCandidateList(input), &candWord);
     }
+
 
     return IRV_DISPLAY_CANDWORDS;
 }
@@ -681,6 +705,9 @@ INPUT_RETURN_VALUE FcitxLibPinyin::getCandWord(FcitxCandidateWord* candWord) {
     if (pyCand->ispunc) {
         strcpy(FcitxInputStateGetOutputString(input), candWord->strWord);
         return IRV_COMMIT_STRING;
+    } else if (pyCand->idx < 0) {
+        strcpy(FcitxInputStateGetOutputString(input), candWord->strWord);
+        return IRV_COMMIT_STRING;
     } else {
         guint candidateLen = 0;
         pinyin_get_n_candidate(m_inst, &candidateLen);
@@ -695,16 +722,18 @@ INPUT_RETURN_VALUE FcitxLibPinyin::getCandWord(FcitxCandidateWord* candWord) {
             m_fixedString.push_back(std::make_pair(offset() + fcitx_utf8_strlen(phrase_string), newOffset));
         }
 
-        if (pinyinOffset() >= m_parsedLen) {
-            pinyin_guess_sentence(m_inst);
-            const std::string sentence = this->sentence();
-            if (!sentence.empty()) {
-                strcpy(FcitxInputStateGetOutputString(input), sentence.c_str());
-                pinyin_train(m_inst);
-            } else
-                strcpy(FcitxInputStateGetOutputString(input), "");
+        if (pinyinOffset() == m_parsedLen) {
+            if (m_parsedLen == m_buf.size()) {
+                pinyin_guess_sentence(m_inst);
+                const std::string sentence = this->sentence();
+                if (!sentence.empty()) {
+                    strcpy(FcitxInputStateGetOutputString(input), sentence.c_str());
+                    pinyin_train(m_inst);
+                } else
+                    strcpy(FcitxInputStateGetOutputString(input), "");
 
-            return IRV_COMMIT_STRING;
+                return IRV_COMMIT_STRING;
+            }
         }
 
         int pyoffset = pinyinOffset();
@@ -746,7 +775,20 @@ void* LibPinyinSavePinyinWord(void* arg, FcitxModuleFunctionArg args)
 }
 
 void FcitxLibPinyin::savePinyinWord(const char* str) {
-    pinyin_remember_user_input(m_inst, str, -1);
+    // valid non empty utf8 string
+    if (fcitx_utf8_check_string(str) && *str) {
+        const char *s = str;
+        while (*s) {
+            uint32_t chr;
+
+            s = fcitx_utf8_get_char(s, &chr);
+            // ok ok, let's filter out ascii
+            if (chr < 256) {
+                return;
+            }
+        }
+        pinyin_remember_user_input(m_inst, str, -1);
+    }
 }
 
 /**
