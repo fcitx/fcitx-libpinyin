@@ -26,14 +26,10 @@
 #include <fcitx/instance.h>
 #include <fcitx/candidate.h>
 #include <pinyin.h>
+#include <vector>
+#include <string>
 #include "bus.h"
 #include "common.h"
-
-#ifdef __cplusplus
-#define __EXPORT_API extern "C"
-#else
-#define __EXPORT_API
-#endif
 
 #define MAX_PINYIN_INPUT 60
 
@@ -146,15 +142,15 @@ struct FcitxLibPinyinConfig
 #define BUF_SIZE 4096
 
 CONFIG_BINDING_DECLARE(FcitxLibPinyinConfig);
-__EXPORT_API void* FcitxLibPinyinCreate(FcitxInstance* instance);
-__EXPORT_API void FcitxLibPinyinDestroy(void* arg);
-__EXPORT_API INPUT_RETURN_VALUE FcitxLibPinyinDoInput(void* arg, FcitxKeySym sym, unsigned int state);
-__EXPORT_API INPUT_RETURN_VALUE FcitxLibPinyinGetCandWords (void *arg);
-__EXPORT_API INPUT_RETURN_VALUE FcitxLibPinyinGetCandWord (void *arg, FcitxCandidateWord* candWord);
-__EXPORT_API boolean FcitxLibPinyinInit(void*);
-__EXPORT_API void FcitxLibPinyinReloadConfig(void*);
+void* FcitxLibPinyinCreate(FcitxInstance* instance);
+void FcitxLibPinyinDestroy(void* arg);
+INPUT_RETURN_VALUE FcitxLibPinyinDoInput(void* arg, FcitxKeySym sym, unsigned int state);
+INPUT_RETURN_VALUE FcitxLibPinyinGetCandWords (void *arg);
+INPUT_RETURN_VALUE FcitxLibPinyinGetCandWord (void *arg, FcitxCandidateWord* candWord);
+boolean FcitxLibPinyinInit(void*);
+void FcitxLibPinyinReloadConfig(void*);
 
-struct _FcitxLibPinyin;
+class FcitxLibPinyin;
 
 typedef struct _FcitxLibPinyinAddonInstance {
     FcitxLibPinyinConfig config;
@@ -162,27 +158,45 @@ typedef struct _FcitxLibPinyinAddonInstance {
     pinyin_context_t* pinyin_context;
     pinyin_context_t* zhuyin_context;
 
-    struct _FcitxLibPinyin* pinyin;
-    struct _FcitxLibPinyin* shuangpin;
-    struct _FcitxLibPinyin* zhuyin;
+    FcitxLibPinyin* pinyin;
+    FcitxLibPinyin* shuangpin;
+    FcitxLibPinyin* zhuyin;
     FcitxInstance* owner;
     FcitxLibPinyinBus* bus;
 } FcitxLibPinyinAddonInstance;
 
-typedef struct _FcitxLibPinyin
+class FcitxLibPinyin
 {
-    pinyin_instance_t* inst;
+public:
+    FcitxLibPinyin(FcitxLibPinyinAddonInstance* libpinyinaddon, LIBPINYIN_TYPE type);
+    ~FcitxLibPinyin();
 
-    GArray* fixed_string;
+    void import();
+    void clearData(int type);
 
-    char buf[MAX_USER_INPUT + 1];
-    int cursor_pos;
-    LIBPINYIN_TYPE type;
-    FcitxLibPinyinAddonInstance* owner;
-} FcitxLibPinyin;
+    int offset() const;
+    int pinyinOffset() const;
+    void reset();
+    size_t parse(const char* str);
+    INPUT_RETURN_VALUE doInput(FcitxKeySym sym, unsigned int state);
+    void load();
+    INPUT_RETURN_VALUE getCandWords();
+    INPUT_RETURN_VALUE getCandWord(FcitxCandidateWord* candWord);
+    std::string sentence();
+    void init();
+    void updatePreedit(const std::string &sentence);
+    void savePinyinWord(const char *str);
+    void save();
 
-void FcitxLibPinyinImport(FcitxLibPinyin* libpinyin);
-void FcitxLibPinyinClearData(FcitxLibPinyin* libpinyin, int type);
+private:
+    pinyin_instance_t* m_inst;
+    std::vector<std::pair<int, int> > m_fixedString;
+    std::string m_buf;
+    int m_cursorPos;
+    int m_parsedLen;
+    LIBPINYIN_TYPE m_type;
+    FcitxLibPinyinAddonInstance* m_owner;
+};
 
 #endif
 // kate: indent-mode cstyle; space-indent on; indent-width 0;

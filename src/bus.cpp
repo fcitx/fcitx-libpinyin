@@ -70,12 +70,12 @@ DBusHandlerResult FcitxLibPinyinBus::dbusEvent(DBusConnection* connection, DBusM
 
         dbus_message_append_args(reply, DBUS_TYPE_STRING, &introspection_xml, DBUS_TYPE_INVALID);
     } else if (dbus_message_is_method_call(message, FCITX_LIBPINYIN_INTERFACE, "ImportDict")) {
-        FcitxLibPinyinImport(m_libpinyin->pinyin);
+        m_libpinyin->pinyin->import();
         reply = dbus_message_new_method_return(message);
     } else if (dbus_message_is_method_call(message, FCITX_LIBPINYIN_INTERFACE, "ClearDict")) {
         int32_t type;
         if (dbus_message_get_args(message, NULL, DBUS_TYPE_INT32, &type, DBUS_TYPE_INVALID)) {
-            FcitxLibPinyinClearData(m_libpinyin->pinyin, type);
+            m_libpinyin->pinyin->clearData(type);
 
             reply = dbus_message_new_method_return(message);
         } else {
