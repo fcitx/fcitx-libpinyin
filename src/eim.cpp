@@ -670,7 +670,7 @@ INPUT_RETURN_VALUE FcitxLibPinyin::getCandWords() {
         candWord.owner = this;
         candWord.priv = pyCand;
         candWord.strExtra = NULL;
-        std::string cand = sentence;
+        std::string cand;
         if (m_buf.size() >= m_parsedLen) {
             cand += m_buf.substr(m_parsedLen);
         }
@@ -706,7 +706,7 @@ INPUT_RETURN_VALUE FcitxLibPinyin::getCandWord(FcitxCandidateWord* candWord) {
         strcpy(FcitxInputStateGetOutputString(input), candWord->strWord);
         return IRV_COMMIT_STRING;
     } else if (pyCand->idx < 0) {
-        strcpy(FcitxInputStateGetOutputString(input), candWord->strWord);
+        strcpy(FcitxInputStateGetOutputString(input), (sentence() + candWord->strWord).c_str());
         return IRV_COMMIT_STRING;
     } else {
         guint candidateLen = 0;
