@@ -17,7 +17,7 @@ foreach(f ${_LIBPINYIN_TABLE})
     set(_LIBPINYIN_GEN_BIN_FILES ${_LIBPINYIN_GEN_BIN_FILES} "${CMAKE_CURRENT_BINARY_DIR}/${f}.bin")
 endforeach()
 
-set(ZHUYIN_DATA_FILE_NAME model.text.20130308.tar.gz)
+set(ZHUYIN_DATA_FILE_NAME model.text.20161206.tar.gz)
 set(ZHUYIN_URL "http://download.fcitx-im.org/data/${ZHUYIN_DATA_FILE_NAME}")
 set(ZHUYIN_ORGDATA ${_LIBPINYIN_TABLE_FILES} interpolation2.text)
 set(ZHUYIN_DATA bigram.db ${_LIBPINYIN_BIN_FILES}  phrase_index.bin
@@ -26,7 +26,7 @@ set(ZHUYIN_DATA bigram.db ${_LIBPINYIN_BIN_FILES}  phrase_index.bin
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/table.conf ${CMAKE_CURRENT_BINARY_DIR}/table.conf COPYONLY)
 
 fcitx_download(zhuyin_data_tar "${ZHUYIN_URL}" "${ZHUYIN_DATA_FILE_NAME}"
-  MD5SUM f908d19ebef9527fea06ea7d072500b0)
+  MD5SUM f657ea2e9091e35021037ef4ce796e1d)
 fcitx_extract(zhuyin-data-extract "${ZHUYIN_DATA_FILE_NAME}"
   DEPENDS zhuyin_data_tar OUTPUT ${ZHUYIN_ORGDATA})
 
