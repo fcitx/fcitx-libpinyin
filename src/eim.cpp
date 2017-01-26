@@ -447,10 +447,15 @@ void FcitxLibPinyin::updatePreedit(const std::string &sentence)
         }
         lastpos = rawEnd;
 
+        bool breakAhead = false;
         switch (m_type) {
         case LPT_Pinyin: {
             gchar* pystring;
             pinyin_get_pinyin_string(m_inst, pykey, &pystring);
+            if (!pystring) {
+                breakAhead = true;
+                break;
+            }
             FcitxMessagesMessageConcatLast(FcitxInputStateGetPreedit(input), pystring);
             size_t pylen = strlen(pystring);
             if (curoffset + pylen < m_cursorPos) {
@@ -504,6 +509,11 @@ void FcitxLibPinyin::updatePreedit(const std::string &sentence)
             pinyin_get_pinyin_key_rest_length(m_inst, pykeypos, &pykeyposLen);
             gchar* pystring;
             pinyin_get_zhuyin_string(m_inst, pykey, &pystring);
+            // libpinyin would give us null when it is something like "xi'"
+            if (!pystring) {
+                breakAhead = true;
+                break;
+            }
             FcitxMessagesMessageConcatLast(FcitxInputStateGetPreedit(input), pystring);
 
             if (curoffset + pykeyposLen <= m_cursorPos) {
@@ -524,6 +534,11 @@ void FcitxLibPinyin::updatePreedit(const std::string &sentence)
             break;
         }
         }
+        if (breakAhead) {
+            break;
+        }
+        // assertion would happen if pinyin string is sth like "xi'"
+        // so we use breakAhead to track such case. It's ugly but also works.
         size_t nexti;
         if (pinyin_get_right_pinyin_offset(m_inst, i, &nexti)) {
             i = nexti;
