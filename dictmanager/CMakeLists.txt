@@ -12,21 +12,17 @@ fcitx_translate_add_sources(
     ${DICT_MANAGER_SRCS})
 
 if (ENABLE_QT)
-find_package(Qt4 4.8 REQUIRED COMPONENTS QtCore QtGui QtWebkit QtNetwork)
+find_package(Qt5 5.7 REQUIRED COMPONENTS Core Gui WebEngineWidgets Network DBus)
+find_package(FcitxQt5WidgetsAddons REQUIRED)
+find_package(FcitxQt5DBusAddons REQUIRED)
 pkg_check_modules(FCITX_QT "fcitx-qt>=4.2.8" REQUIRED )
 endif (ENABLE_QT)
 
-if (NOT QT_FOUND OR NOT ENABLE_QT)
+if (NOT ENABLE_QT)
     return()
-endif (NOT QT_FOUND OR NOT ENABLE_QT)
+endif ()
 
 include_directories(
-    ${FCITX_QT_INCLUDE_DIRS}
-    ${QT_QTCORE_INCLUDE_DIR}
-    ${QT_QTGUI_INCLUDE_DIR}
-    ${QT_QTWEBKIT_INCLUDE_DIR}
-    ${QT_QTNETWORK_INCLUDE_DIR}
-    ${QT_QTDBUS_INCLUDE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
     ../src/
     )
@@ -46,18 +42,16 @@ include_directories (
 link_directories(
 ${FCITX4_FCITX_UTILS_LIBRARY_DIRS}
 ${FCITX4_FCITX_CONFIG_LIBRARY_DIRS}
-${FCITX_QT_LIBRARY_DIRS}
 )
 
-qt4_wrap_ui(DICT_MANAGER_SRCS dictmanager.ui browserdialog.ui)
+qt5_wrap_ui(DICT_MANAGER_SRCS dictmanager.ui browserdialog.ui)
 
 add_library(fcitx-libpinyin-dictmanager MODULE ${DICT_MANAGER_SRCS})
 set_target_properties(fcitx-libpinyin-dictmanager PROPERTIES
                       LINK_FLAGS "-Wl,--no-undefined" AUTOMOC TRUE)
 
 target_link_libraries(fcitx-libpinyin-dictmanager
-${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTDBUS_LIBRARY} ${QT_QTNETWORK_LIBRARY} ${QT_QTWEBKIT_LIBRARY}
-${FCITX_QT_LIBRARIES}
+Qt5::Core Qt5::Gui Qt5::DBus Qt5::Network Qt5::WebEngineWidgets FcitxQt5::WidgetsAddons FcitxQt5::DBusAddons
 ${FCITX4_FCITX_UTILS_LIBRARIES}
 ${FCITX4_FCITX_CONFIG_LIBRARIES}
 ${LIBINTL_LIBRARIES}

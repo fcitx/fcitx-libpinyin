@@ -18,42 +18,32 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
-#include <fcitx-qt/fcitxqtconfiguiplugin.h>
-#include <qplugin.h>
+#include "main.h"
 #include "dictmanager.h"
 
-class LibPinyinDictManagerPlugin : public FcitxQtConfigUIPlugin
+LibPinyinDictManagerPlugin::LibPinyinDictManagerPlugin(QObject* parent)
+    : FcitxQtConfigUIPlugin(parent)
 {
-    Q_OBJECT
-    Q_INTERFACES(FcitxQtConfigUIFactoryInterface)
-public:
-    explicit LibPinyinDictManagerPlugin(FcitxQtConfigUIPlugin* parent = 0)
-        : FcitxQtConfigUIPlugin(parent)
-    {
-    }
-    virtual QString name()
-    {
-        return "libpinyin-dictmanager";
-    }
-    virtual QStringList files()
-    {
-        QStringList list;
-        list << "libpinyin-dictmanager";
-        return list;
-    }
-    virtual QString domain()
-    {
-        return "fcitx-libpinyin";
-    }
-    virtual FcitxQtConfigUIWidget* create(const QString& key)
-    {
-        if (key == "libpinyin-dictmanager") {
-            return new DictManager;
-        }
-        return 0;
-    }
-};
+}
 
-Q_EXPORT_PLUGIN2(fcitx_libpinyin_dictmanager, LibPinyinDictManagerPlugin)
-
-#include "main.moc"
+QString LibPinyinDictManagerPlugin::name()
+{
+    return "libpinyin-dictmanager";
+}
+QStringList LibPinyinDictManagerPlugin::files()
+{
+    QStringList list;
+    list << "libpinyin-dictmanager";
+    return list;
+}
+QString LibPinyinDictManagerPlugin::domain()
+{
+    return "fcitx-libpinyin";
+}
+FcitxQtConfigUIWidget* LibPinyinDictManagerPlugin::create(const QString& key)
+{
+    if (key == "libpinyin-dictmanager") {
+        return new DictManager;
+    }
+    return 0;
+}

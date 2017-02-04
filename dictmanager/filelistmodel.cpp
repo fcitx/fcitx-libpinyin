@@ -66,7 +66,7 @@ void FileListModel::loadFileList()
 {
     beginResetModel();
     m_fileList.clear();
-    FcitxStringHashSet* files = FcitxXDGGetFiles(dictDir().toAscii().constData(), NULL, ".txt");
+    FcitxStringHashSet* files = FcitxXDGGetFiles(dictDir().toLocal8Bit().constData(), NULL, ".txt");
 
     HASH_SORT(files, fcitx_utils_string_hash_set_compare);
     HASH_FOREACH(f, files, FcitxStringHashSet) {

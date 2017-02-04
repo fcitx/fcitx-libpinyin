@@ -22,6 +22,9 @@
 #include <QIcon>
 #include <QTextCodec>
 #include <QTemporaryFile>
+#include <QUrl>
+#include <QUrlQuery>
+#include <QWebEngineView>
 #include <QDebug>
 
 #include "guicommon.h"
@@ -35,19 +38,31 @@
  * http://download.pinyin.sogou.com/dict/download_cell.php?id=15207&name=%D6%B2%CE%EF%B4%CA%BB%E3%B4%F3%C8%AB%A1%BE%B9%D9%B7%BD%CD%C6%BC%F6%A1%BF
  */
 
+class WebPage : public QWebEnginePage {
+public:
+    WebPage(BrowserDialog *dialog) : QWebEnginePage(dialog), m_dialog(dialog) {
+    }
+protected:
+    bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) override {
+        return m_dialog->linkClicked(url);
+    }
+private:
+    BrowserDialog *m_dialog;
+};
+
+
 BrowserDialog::BrowserDialog(QWidget* parent): QDialog(parent)
-    ,m_ui(new Ui::BrowserDialog)
+    ,m_ui(new Ui::BrowserDialog), m_page(new WebPage(this))
 {
     m_ui->setupUi(this);
+    m_ui->webView->setPage(m_page);
     m_ui->listWidget->hide();
     setWindowIcon(QIcon::fromTheme("internet-web-browser"));
     setWindowTitle(_("Browse Sogou Cell Dict repository"));
 
-    m_ui->webView->page()->setLinkDelegationPolicy(QWebPage::DelegateExternalLinks);
-    connect(m_ui->webView, SIGNAL(loadProgress(int)), m_ui->progressBar, SLOT(setValue(int)));
-    connect(m_ui->webView, SIGNAL(loadStarted()), m_ui->progressBar, SLOT(show()));
-    connect(m_ui->webView, SIGNAL(loadFinished(bool)), m_ui->progressBar, SLOT(hide()));
-    connect(m_ui->webView, SIGNAL(linkClicked(QUrl)), SLOT(linkClicked(QUrl)));
+    connect(m_ui->webView, &QWebEngineView::loadProgress, m_ui->progressBar, &QProgressBar::setValue);
+    connect(m_ui->webView, &QWebEngineView::loadStarted, m_ui->progressBar, &QProgressBar::show);
+    connect(m_ui->webView, &QWebEngineView::loadFinished, m_ui->progressBar, &QProgressBar::hide);
     m_ui->webView->load(QUrl(URL_BASE));
 }
 
@@ -66,7 +81,7 @@ QString BrowserDialog::decodeName(const QByteArray& in)
     return codec->toUnicode(out);
 }
 
-void BrowserDialog::linkClicked(const QUrl& url)
+bool BrowserDialog::linkClicked(const QUrl& url)
 {
     do {
         if (url.host() != DOWNLOAD_HOST_BASE) {
@@ -75,15 +90,16 @@ void BrowserDialog::linkClicked(const QUrl& url)
         if (url.path() != "/dict/download_cell.php") {
             break;
         }
-        QString id = url.queryItemValue("id");
-        QByteArray name = url.encodedQueryItemValue("name");
+        QUrlQuery query(url);
+        QString id = query.queryItemValue("id");
+        QByteArray name = query.queryItemValue("name", QUrl::FullyEncoded).toLatin1();
         QString sname = decodeName(name);
 
         m_name = sname;
 
         if (!id.isEmpty() && !sname.isEmpty()) {
             download(url);
-            return;
+            return false;
         }
     } while(0);
 
@@ -91,8 +107,9 @@ void BrowserDialog::linkClicked(const QUrl& url)
         QMessageBox::information(this, _("Wrong Link"),
                                  _("No browsing outside pinyin.sogou.com, now redirect to home page."));
         m_ui->webView->load(QUrl(URL_BASE));
+        return false;
     } else {
-        m_ui->webView->load(url);
+        return true;
     }
 }
 

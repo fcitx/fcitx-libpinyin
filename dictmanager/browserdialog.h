@@ -29,21 +29,26 @@ namespace Ui {
 class BrowserDialog;
 }
 
+class WebPage;
+
 class BrowserDialog : public QDialog
 {
+    friend class WebPage;
     Q_OBJECT
 public:
     explicit BrowserDialog(QWidget* parent = 0);
     virtual ~BrowserDialog();
 
+protected:
+    bool linkClicked(const QUrl& url);
 private:
     QString decodeName(const QByteArray& in);
     void download(const QUrl& url);
     Ui::BrowserDialog* m_ui;
     QString m_name;
+    WebPage *m_page;
 
 public slots:
-    void linkClicked(const QUrl& url);
     void showMessage(QMessageBox::Icon msgLevel, const QString& message);
     void downloadFinished(bool succ);
     void convertFinished(bool);

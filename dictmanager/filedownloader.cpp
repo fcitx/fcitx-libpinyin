@@ -45,7 +45,7 @@ void FileDownloader::download(const QUrl& url)
     }
 
     QNetworkRequest request(url);
-    request.setRawHeader("Referer", QString("http://%1").arg(url.host()).toAscii());
+    request.setRawHeader("Referer", QString("http://%1").arg(url.host()).toLatin1());
     m_reply = m_WebCtrl.get(request);
 
     if (!m_reply) {
