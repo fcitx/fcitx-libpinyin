@@ -20,7 +20,7 @@
 #ifndef ERROROVERLAY_H
 #define ERROROVERLAY_H
 
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 class ErrorOverlay : public QWidget
 {
