@@ -22,7 +22,7 @@
 #define FCITX_DICTMANAGER_H
 
 #include <QMainWindow>
-#include <fcitx-qt/fcitxqtconfiguiwidget.h>
+#include <fcitxqtconfiguiwidget.h>
 #include "ui_dictmanager.h"
 
 class ErrorOverlay;
