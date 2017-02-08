@@ -11,15 +11,13 @@ set(DICT_MANAGER_SRCS
 fcitx_translate_add_sources(
     ${DICT_MANAGER_SRCS})
 
-if (ENABLE_QT)
-find_package(Qt5 5.7 REQUIRED COMPONENTS Core Gui WebEngineWidgets Network DBus)
-find_package(FcitxQt5WidgetsAddons REQUIRED)
-find_package(FcitxQt5DBusAddons REQUIRED)
-endif (ENABLE_QT)
-
 if (NOT ENABLE_QT)
     return()
 endif ()
+
+find_package(Qt5 5.7 REQUIRED COMPONENTS Core Gui WebEngineWidgets Network DBus)
+find_package(FcitxQt5WidgetsAddons 1.1 REQUIRED)
+find_package(FcitxQt5DBusAddons 1.1 REQUIRED)
 
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
