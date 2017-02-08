@@ -15,7 +15,6 @@ if (ENABLE_QT)
 find_package(Qt5 5.7 REQUIRED COMPONENTS Core Gui WebEngineWidgets Network DBus)
 find_package(FcitxQt5WidgetsAddons REQUIRED)
 find_package(FcitxQt5DBusAddons REQUIRED)
-pkg_check_modules(FCITX_QT "fcitx-qt>=4.2.8" REQUIRED )
 endif (ENABLE_QT)
 
 if (NOT ENABLE_QT)

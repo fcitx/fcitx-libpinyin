@@ -22,7 +22,7 @@
 #define FCITX_IMPORTER_H
 
 #include <QString>
-#include <fcitx-qt/fcitxqtconnection.h>
+#include <fcitxqtconnection.h>
 
 class QDBusInterface;
 class QDBusPendingCallWatcher;
