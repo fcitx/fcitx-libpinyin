@@ -182,7 +182,7 @@ public:
     void load();
     INPUT_RETURN_VALUE getCandWords();
     INPUT_RETURN_VALUE getCandWord(FcitxCandidateWord* candWord);
-    std::string sentence();
+    std::string sentence(guint8 index);
     void init();
     void updatePreedit(const std::string &sentence);
     void savePinyinWord(const char *str);

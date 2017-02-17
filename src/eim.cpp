@@ -223,7 +223,7 @@ INPUT_RETURN_VALUE FcitxLibPinyin::doInput(FcitxKeySym sym, unsigned int state) 
         if (m_buf[0] == 0)
             return IRV_TO_PROCESS;
 
-        const std::string sentence = this->sentence();
+        const std::string sentence = this->sentence(0);
         if (!sentence.empty()) {
             int offset = this->offset();
             int hzlen = 0;
@@ -569,10 +569,10 @@ void FcitxLibPinyin::updatePreedit(const std::string &sentence)
     FcitxInputStateSetCursorPos(input, charcurpos);
 }
 
-std::string FcitxLibPinyin::sentence()
+std::string FcitxLibPinyin::sentence(guint8 index)
 {
     char* sentence = NULL;
-    pinyin_get_sentence(m_inst, &sentence);
+    pinyin_get_sentence(m_inst, index, &sentence);
     std::string result = sentence ? sentence : "";
     g_free(sentence);
     return result;
@@ -636,7 +636,7 @@ INPUT_RETURN_VALUE FcitxLibPinyin::getCandWords() {
         }
     }
     pinyin_guess_sentence(m_inst);
-    const std::string sentence = this->sentence();
+    const std::string sentence = this->sentence(0);
     if (!sentence.empty()) {
         updatePreedit(sentence.c_str());
 
@@ -721,7 +721,7 @@ INPUT_RETURN_VALUE FcitxLibPinyin::getCandWord(FcitxCandidateWord* candWord) {
         strcpy(FcitxInputStateGetOutputString(input), candWord->strWord);
         return IRV_COMMIT_STRING;
     } else if (pyCand->idx < 0) {
-        strcpy(FcitxInputStateGetOutputString(input), (sentence() + candWord->strWord).c_str());
+        strcpy(FcitxInputStateGetOutputString(input), (sentence(0) + candWord->strWord).c_str());
         return IRV_COMMIT_STRING;
     } else {
         guint candidateLen = 0;
@@ -740,10 +740,10 @@ INPUT_RETURN_VALUE FcitxLibPinyin::getCandWord(FcitxCandidateWord* candWord) {
         if (pinyinOffset() == m_parsedLen) {
             if (m_parsedLen == m_buf.size()) {
                 pinyin_guess_sentence(m_inst);
-                const std::string sentence = this->sentence();
+                const std::string sentence = this->sentence(0);
                 if (!sentence.empty()) {
                     strcpy(FcitxInputStateGetOutputString(input), sentence.c_str());
-                    pinyin_train(m_inst);
+                    pinyin_train(m_inst, 0);
                 } else
                     strcpy(FcitxInputStateGetOutputString(input), "");
 
@@ -1010,7 +1010,7 @@ void FcitxLibPinyin::clearData(int type)
         break;
     }
 
-    pinyin_train(m_inst);
+    pinyin_train(m_inst, 0);
     pinyin_save(context);
 }
 
@@ -1086,7 +1086,7 @@ void FcitxLibPinyin::import()
     pinyin_end_add_phrases(iter);
 
     if (m_inst) {
-        pinyin_train(m_inst);
+        pinyin_train(m_inst, 0);
     }
     pinyin_save(context);
 }
