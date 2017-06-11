@@ -40,7 +40,7 @@ class FcitxWindowHandler;
 /*
  * the reason that not using libpinyin enum here
  * 1. libpinyin seems cannot make enum stable (from their header)
- * 2. the range is not continous, so make a translate layer
+ * 2. the range is not continuous, so make a translate layer
  */
 enum FCITX_ZHUYIN_LAYOUT {
     FCITX_ZHUYIN_STANDARD = 0,
