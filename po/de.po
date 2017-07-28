@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2017-07-28 05:02-0700\n"
-"PO-Revision-Date: 2017-07-28 11:32+0000\n"
+"POT-Creation-Date: 2017-07-28 06:02-0700\n"
+"PO-Revision-Date: 2017-07-28 12:47+0000\n"
 "Last-Translator: mar well <m.wellendorf@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/fcitx/fcitx/language/de/)\n"
 "Language: de\n"
@@ -151,7 +151,7 @@ msgstr "Wörterbuch"
 #: src/fcitx-libpinyin.desc:247 src/fcitx-libpinyin.desc:252
 #: src/fcitx-libpinyin.desc:257 src/fcitx-libpinyin.desc:262
 msgid "Dictionary Zhuyin"
-msgstr ""
+msgstr "Zhuyin Wörterbuch"
 
 #: dictmanager/filedownloader.cpp:93
 msgid "Download Finished"
@@ -286,7 +286,7 @@ msgstr "ON -> ONG"
 
 #: src/fcitx-libpinyin.desc:193
 msgid "People"
-msgstr ""
+msgstr "Leute"
 
 #: src/fcitx-libpinyin.desc:1 src/fcitx-libpinyin.desc:6
 msgid "Pinyin"
@@ -314,7 +314,7 @@ msgstr "scel-Datei (*.scel)"
 
 #: src/fcitx-libpinyin.desc:198
 msgid "Science"
-msgstr ""
+msgstr "Wissenschaft"
 
 #: src/fcitx-libpinyin.desc:253
 msgid "Science & Technology"
@@ -362,7 +362,7 @@ msgstr "Standard"
 
 #: src/fcitx-libpinyin.desc:213
 msgid "Technology"
-msgstr ""
+msgstr "Technologie"
 
 #: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."
