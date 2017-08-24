@@ -651,7 +651,7 @@ INPUT_RETURN_VALUE FcitxLibPinyin::getCandWords() {
     }
 
     if (pinyinOffset() < m_parsedLen) {
-        pinyin_guess_candidates(m_inst, pinyinOffset());
+        pinyin_guess_candidates(m_inst, pinyinOffset(), SORT_BY_PHRASE_LENGTH_AND_FREQUENCY);
         guint candidateLen = 0;
         pinyin_get_n_candidate(m_inst, &candidateLen);
         int i = 0;
