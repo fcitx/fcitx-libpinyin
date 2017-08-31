@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include <assert.h>
+#include <iostream>
 #include "enummap.h"
 
 PinyinAmbiguity2 FcitxLibPinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity)
@@ -153,4 +154,14 @@ int FcitxLibPinyinTransZhuyinDictionary(FCITX_ZHUYIN_DICTIONARY dict)
     int sz2 = FCITX_ZHUYIN_DICT_LAST + 1;
     assert(sz == sz2);
     return dictMapZhuyin[dict];
+}
+
+sort_option_t FcitxLibPinyinTransSortOption(FCITX_LIBPINYIN_SORT sort) {
+    switch(sort) {
+        case FLS_PhraseLengthAndFreq:
+            return SORT_BY_PHRASE_LENGTH_AND_FREQUENCY;
+        case FLS_PhraseLengthAndPinyinLengthAndFreq:
+        default:
+            return SORT_BY_PHRASE_LENGTH_AND_PINYIN_LENGTH_AND_FREQUENCY;
+    }
 }

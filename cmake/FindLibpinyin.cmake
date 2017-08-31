@@ -16,16 +16,14 @@ if(LIBPINYIN_INCLUDE_DIR AND LIBPINYIN_LIBRARIES)
 endif(LIBPINYIN_INCLUDE_DIR AND LIBPINYIN_LIBRARIES)
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(PC_LIBPINYIN "libpinyin>=1.9.91")
+pkg_check_modules(PC_LIBPINYIN "libpinyin>=2.1.0")
 pkg_get_variable(PC_LIBPINYIN_LIBPINYININCLUDEDIR "libpinyin" "libpinyinincludedir")
 pkg_get_variable(LIBPINYIN_PKGDATADIR "libpinyin" "pkgdatadir")
 pkg_get_variable(LIBPINYIN_EXECPREFIX "libpinyin" "exec_prefix")
 
 find_path(LIBPINYIN_INCLUDE_DIR
           NAMES pinyin.h
-          HINTS ${PC_LIBPINYIN_LIBPINYININCLUDEDIR})
-
-message(${LIBPINYIN_INCLUDE_DIR})
+          PATHS ${PC_LIBPINYIN_LIBPINYININCLUDEDIR})
 
 find_library(LIBPINYIN_LIBRARIES
              NAMES pinyin

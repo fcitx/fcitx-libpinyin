@@ -30,5 +30,6 @@ PinyinAmbiguity2 FcitxLibPinyinTransAmbiguity(FCITX_AMBIGUITY ambiguity);
 PinyinCorrection2 FcitxLibPinyinTransCorrection(FCITX_CORRECTION correction);
 int FcitxLibPinyinTransDictionary(FCITX_DICTIONARY dict);
 int FcitxLibPinyinTransZhuyinDictionary(FCITX_ZHUYIN_DICTIONARY dict);
+sort_option_t FcitxLibPinyinTransSortOption(FCITX_LIBPINYIN_SORT sort);
 
 #endif

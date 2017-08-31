@@ -120,12 +120,18 @@ enum FCITX_ZHUYIN_MODIFIERS {
     FZM_Shift = 2,
 };
 
+enum FCITX_LIBPINYIN_SORT {
+    FLS_PhraseLengthAndFreq,
+    FLS_PhraseLengthAndPinyinLengthAndFreq,
+};
+
 struct FcitxLibPinyinConfig
 {
     FcitxGenericConfig gconfig;
     FCITX_ZHUYIN_LAYOUT zhuyinLayout;
     FCITX_SHUANGPIN_SCHEME spScheme;
     FCITX_ZHUYIN_MODIFIERS candidateModifiers;
+    FCITX_LIBPINYIN_SORT sort;
     boolean amb[FCITX_AMB_LAST + 1];
     boolean cr[FCITX_CR_LAST + 1];
     boolean dict[FCITX_DICT_LAST + 1];

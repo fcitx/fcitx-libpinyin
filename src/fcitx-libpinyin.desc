@@ -104,6 +104,14 @@ Description=ON -> ONG
 Type=Boolean
 DefaultValue=False
 
+[Ambiguity/Sort]
+Description=Sort method
+Type=Enum
+DefaultValue=By Phrase Length and Pinyin Length and Frequency
+Enum0=By Phrase Length and Frequency
+Enum1=By Phrase Length and Pinyin Length and Frequency
+EnumCount=2
+
 [Ambiguity/CiChi]
 Description=Ci <-> Chi
 Type=Boolean
