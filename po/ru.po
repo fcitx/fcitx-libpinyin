@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2015-07-08 00:02+0200\n"
-"PO-Revision-Date: 2016-11-30 23:18+0000\n"
-"Last-Translator: TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>\n"
+"POT-Creation-Date: 2017-09-01 16:03-0700\n"
+"PO-Revision-Date: 2017-09-01 23:05+0000\n"
+"Last-Translator: csslayer <wengxt@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/fcitx/fcitx/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: dictmanager/browserdialog.cpp:44
+#: dictmanager/browserdialog.cpp:61
 msgid "Browse Sogou Cell Dict repository"
 msgstr "Исследовать репозиторий словаря Sogou Cell"
 
-#: dictmanager/browserdialog.cpp:91
+#: dictmanager/browserdialog.cpp:107
 msgid "Wrong Link"
 msgstr "Неверная ссылка"
 
-#: dictmanager/browserdialog.cpp:92
+#: dictmanager/browserdialog.cpp:108
 msgid "No browsing outside pinyin.sogou.com, now redirect to home page."
 msgstr "Невозможно перейти вне pinyin.sogou.com, перенаправление на домашнюю страницу."
 
@@ -158,15 +158,15 @@ msgstr "Не удалось конвертировать."
 msgid "Rename failed."
 msgstr "Не удалось переименовать."
 
-#: src/eim.cpp:815 src/pinyin-libpinyin.conf.in:3
+#: src/eim.cpp:837 src/pinyin-libpinyin.conf.in:3
 msgid "Pinyin (LibPinyin)"
 msgstr "Пиньинь (LibPinyin)"
 
-#: src/eim.cpp:832 src/shuangpin-libpinyin.conf.in:3
+#: src/eim.cpp:854 src/shuangpin-libpinyin.conf.in:3
 msgid "Shuangpin (LibPinyin)"
 msgstr "Шуаньпинь (LibPinyin)"
 
-#: src/eim.cpp:849 src/zhuyin-libpinyin.conf.in:3
+#: src/eim.cpp:871 src/zhuyin-libpinyin.conf.in:3
 msgid "Bopomofo (LibPinyin)"
 msgstr "Бопомофо (LibPinyin)"
 
@@ -178,13 +178,13 @@ msgstr "LibPinyin"
 msgid "LibPinyin Wrapper For Fcitx"
 msgstr "Обертка LibPinyin для Fcitx"
 
-#: src/fcitx-libpinyin.conf.in:10 src/fcitx-libpinyin.desc:157
-#: src/fcitx-libpinyin.desc:162 src/fcitx-libpinyin.desc:167
-#: src/fcitx-libpinyin.desc:172 src/fcitx-libpinyin.desc:177
-#: src/fcitx-libpinyin.desc:182 src/fcitx-libpinyin.desc:187
-#: src/fcitx-libpinyin.desc:192 src/fcitx-libpinyin.desc:197
-#: src/fcitx-libpinyin.desc:202 src/fcitx-libpinyin.desc:207
-#: src/fcitx-libpinyin.desc:212
+#: src/fcitx-libpinyin.conf.in:10 src/fcitx-libpinyin.desc:165
+#: src/fcitx-libpinyin.desc:170 src/fcitx-libpinyin.desc:175
+#: src/fcitx-libpinyin.desc:180 src/fcitx-libpinyin.desc:185
+#: src/fcitx-libpinyin.desc:190 src/fcitx-libpinyin.desc:195
+#: src/fcitx-libpinyin.desc:200 src/fcitx-libpinyin.desc:205
+#: src/fcitx-libpinyin.desc:210 src/fcitx-libpinyin.desc:215
+#: src/fcitx-libpinyin.desc:220
 msgid "Dictionary"
 msgstr "Словарь"
 
@@ -334,110 +334,123 @@ msgstr "UE -> VE"
 msgid "ON -> ONG"
 msgstr "ON -> ONG"
 
-#: src/fcitx-libpinyin.desc:107 src/fcitx-libpinyin.desc:112
-#: src/fcitx-libpinyin.desc:117 src/fcitx-libpinyin.desc:122
-#: src/fcitx-libpinyin.desc:127 src/fcitx-libpinyin.desc:132
-#: src/fcitx-libpinyin.desc:137 src/fcitx-libpinyin.desc:142
-#: src/fcitx-libpinyin.desc:147 src/fcitx-libpinyin.desc:152
+#: src/fcitx-libpinyin.desc:107 src/fcitx-libpinyin.desc:115
+#: src/fcitx-libpinyin.desc:120 src/fcitx-libpinyin.desc:125
+#: src/fcitx-libpinyin.desc:130 src/fcitx-libpinyin.desc:135
+#: src/fcitx-libpinyin.desc:140 src/fcitx-libpinyin.desc:145
+#: src/fcitx-libpinyin.desc:150 src/fcitx-libpinyin.desc:155
+#: src/fcitx-libpinyin.desc:160
 msgid "Ambiguity"
 msgstr "Неопределенность"
 
 #: src/fcitx-libpinyin.desc:108
+msgid "Sort method"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:111
+msgid "By Phrase Length and Frequency"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:112
+msgid "By Phrase Length and Pinyin Length and Frequency"
+msgstr ""
+
+#: src/fcitx-libpinyin.desc:116
 msgid "Ci <-> Chi"
 msgstr "Ci <-> Chi"
 
-#: src/fcitx-libpinyin.desc:113
+#: src/fcitx-libpinyin.desc:121
 msgid "Zi <-> Zhi"
 msgstr "Zi <-> Zhi"
 
-#: src/fcitx-libpinyin.desc:118
+#: src/fcitx-libpinyin.desc:126
 msgid "Si <-> Shi"
 msgstr "Si <-> Shi"
 
-#: src/fcitx-libpinyin.desc:123
+#: src/fcitx-libpinyin.desc:131
 msgid "Ne <-> Le"
 msgstr "Ne <-> Le"
 
-#: src/fcitx-libpinyin.desc:128
+#: src/fcitx-libpinyin.desc:136
 msgid "Fo <-> He"
 msgstr "Fo <-> He"
 
-#: src/fcitx-libpinyin.desc:133
+#: src/fcitx-libpinyin.desc:141
 msgid "Le <-> Ri"
 msgstr "Le <-> Ri"
 
-#: src/fcitx-libpinyin.desc:138
+#: src/fcitx-libpinyin.desc:146
 msgid "Ge <-> Ke"
 msgstr "Ge <-> Ke"
 
-#: src/fcitx-libpinyin.desc:143
+#: src/fcitx-libpinyin.desc:151
 msgid "An <-> Ang"
 msgstr "An <-> Ang"
 
-#: src/fcitx-libpinyin.desc:148
+#: src/fcitx-libpinyin.desc:156
 msgid "En <-> Eng"
 msgstr "En <-> Eng"
 
-#: src/fcitx-libpinyin.desc:153
+#: src/fcitx-libpinyin.desc:161
 msgid "In <-> Ing"
 msgstr "In <-> Ing"
 
-#: src/fcitx-libpinyin.desc:158 src/fcitx-libpinyin.desc:218
+#: src/fcitx-libpinyin.desc:166 src/fcitx-libpinyin.desc:226
 msgid "Art"
 msgstr "Искусство"
 
-#: src/fcitx-libpinyin.desc:163 src/fcitx-libpinyin.desc:223
+#: src/fcitx-libpinyin.desc:171 src/fcitx-libpinyin.desc:231
 msgid "Culture"
 msgstr "Культура"
 
-#: src/fcitx-libpinyin.desc:168 src/fcitx-libpinyin.desc:228
+#: src/fcitx-libpinyin.desc:176 src/fcitx-libpinyin.desc:236
 msgid "Economy"
 msgstr "Экономика"
 
-#: src/fcitx-libpinyin.desc:173 src/fcitx-libpinyin.desc:233
+#: src/fcitx-libpinyin.desc:181 src/fcitx-libpinyin.desc:241
 msgid "Geology"
 msgstr "Геология"
 
-#: src/fcitx-libpinyin.desc:178 src/fcitx-libpinyin.desc:238
+#: src/fcitx-libpinyin.desc:186 src/fcitx-libpinyin.desc:246
 msgid "History"
 msgstr "История"
 
-#: src/fcitx-libpinyin.desc:183 src/fcitx-libpinyin.desc:243
+#: src/fcitx-libpinyin.desc:191 src/fcitx-libpinyin.desc:251
 msgid "Life"
 msgstr "Быт"
 
-#: src/fcitx-libpinyin.desc:188 src/fcitx-libpinyin.desc:248
+#: src/fcitx-libpinyin.desc:196 src/fcitx-libpinyin.desc:256
 msgid "Nature"
 msgstr "Природа"
 
-#: src/fcitx-libpinyin.desc:193
+#: src/fcitx-libpinyin.desc:201
 msgid "People"
 msgstr "Люди"
 
-#: src/fcitx-libpinyin.desc:198
+#: src/fcitx-libpinyin.desc:206
 msgid "Science"
 msgstr "Наука"
 
-#: src/fcitx-libpinyin.desc:203 src/fcitx-libpinyin.desc:258
+#: src/fcitx-libpinyin.desc:211 src/fcitx-libpinyin.desc:266
 msgid "Society"
 msgstr "Общество"
 
-#: src/fcitx-libpinyin.desc:208 src/fcitx-libpinyin.desc:263
+#: src/fcitx-libpinyin.desc:216 src/fcitx-libpinyin.desc:271
 msgid "Sport"
 msgstr "Спорт"
 
-#: src/fcitx-libpinyin.desc:213
+#: src/fcitx-libpinyin.desc:221
 msgid "Technology"
 msgstr "Технологии"
 
-#: src/fcitx-libpinyin.desc:217 src/fcitx-libpinyin.desc:222
-#: src/fcitx-libpinyin.desc:227 src/fcitx-libpinyin.desc:232
-#: src/fcitx-libpinyin.desc:237 src/fcitx-libpinyin.desc:242
-#: src/fcitx-libpinyin.desc:247 src/fcitx-libpinyin.desc:252
-#: src/fcitx-libpinyin.desc:257 src/fcitx-libpinyin.desc:262
+#: src/fcitx-libpinyin.desc:225 src/fcitx-libpinyin.desc:230
+#: src/fcitx-libpinyin.desc:235 src/fcitx-libpinyin.desc:240
+#: src/fcitx-libpinyin.desc:245 src/fcitx-libpinyin.desc:250
+#: src/fcitx-libpinyin.desc:255 src/fcitx-libpinyin.desc:260
+#: src/fcitx-libpinyin.desc:265 src/fcitx-libpinyin.desc:270
 msgid "Dictionary Zhuyin"
 msgstr "Словарь чжуинь"
 
-#: src/fcitx-libpinyin.desc:253
+#: src/fcitx-libpinyin.desc:261
 msgid "Science & Technology"
 msgstr "Наука и технологии"
