@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Walter Garcia-Fontes <walter.garcia@upf.edu>, 2016
+# Walter Garcia-Fontes <walter.garcia@upf.edu>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
 "POT-Creation-Date: 2017-09-01 16:03-0700\n"
-"PO-Revision-Date: 2017-09-01 23:05+0000\n"
-"Last-Translator: csslayer <wengxt@gmail.com>\n"
+"PO-Revision-Date: 2017-09-07 17:53+0000\n"
+"Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
 "Language-Team: Catalan (http://www.transifex.com/fcitx/fcitx/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -345,15 +345,15 @@ msgstr "Ambigüitat"
 
 #: src/fcitx-libpinyin.desc:108
 msgid "Sort method"
-msgstr ""
+msgstr "Mètode d'ordenació"
 
 #: src/fcitx-libpinyin.desc:111
 msgid "By Phrase Length and Frequency"
-msgstr ""
+msgstr "Per longitud i freqüència de la frase"
 
 #: src/fcitx-libpinyin.desc:112
 msgid "By Phrase Length and Pinyin Length and Frequency"
-msgstr ""
+msgstr "Per la longitud de la frase i la longitud i freqüència del pinyin"
 
 #: src/fcitx-libpinyin.desc:116
 msgid "Ci <-> Chi"
