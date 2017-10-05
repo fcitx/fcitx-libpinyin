@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>, 2016
+# TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2017-09-14 16:03-0700\n"
-"PO-Revision-Date: 2017-09-01 23:05+0000\n"
-"Last-Translator: csslayer <wengxt@gmail.com>\n"
+"POT-Creation-Date: 2017-10-05 07:03-0700\n"
+"PO-Revision-Date: 2017-10-05 14:01+0000\n"
+"Last-Translator: TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/fcitx/fcitx/language/ru/)\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -85,11 +85,11 @@ msgstr "Исследовать репозиторий словаря Sogou Cell"
 
 #: src/fcitx-libpinyin.desc:111
 msgid "By Phrase Length and Frequency"
-msgstr ""
+msgstr "по длине фразы и частоте"
 
 #: src/fcitx-libpinyin.desc:112
 msgid "By Phrase Length and Pinyin Length and Frequency"
-msgstr ""
+msgstr "по длине фразы, длине пиньинь и частоте"
 
 #: dictmanager/erroroverlay.cpp:41
 msgid "Cannot connect to Fcitx by DBus, is Fcitx running?"
@@ -362,7 +362,7 @@ msgstr "Общество"
 
 #: src/fcitx-libpinyin.desc:108
 msgid "Sort method"
-msgstr ""
+msgstr "Способ сортировки"
 
 #: src/fcitx-libpinyin.desc:216 src/fcitx-libpinyin.desc:271
 msgid "Sport"
