@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2017-10-19 08:03-0700\n"
-"PO-Revision-Date: 2017-10-19 13:23+0000\n"
+"POT-Creation-Date: 2017-10-20 00:03-0700\n"
+"PO-Revision-Date: 2017-10-19 23:40+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/fcitx/fcitx/language/da/)\n"
 "Language: da\n"
@@ -191,7 +191,7 @@ msgstr "Kunne ikke oprette anmodning."
 
 #: dictmanager/dictmanager.cpp:238
 msgid "File Operation Failed"
-msgstr "Filhandling mislykkedes"
+msgstr "Filhandlingen mislykkedes"
 
 #: src/fcitx-libpinyin.desc:136
 msgid "Fo <-> He"
