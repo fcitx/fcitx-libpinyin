@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2017-10-05 07:03-0700\n"
-"PO-Revision-Date: 2017-10-05 14:01+0000\n"
+"POT-Creation-Date: 2017-11-28 00:03-0800\n"
+"PO-Revision-Date: 2017-11-27 15:26+0000\n"
 "Last-Translator: TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/fcitx/fcitx/language/ru/)\n"
 "Language: ru\n"
@@ -346,11 +346,11 @@ msgstr "Шуанпинь"
 
 #: src/eim.cpp:854 src/shuangpin-libpinyin.conf.in:3
 msgid "Shuangpin (LibPinyin)"
-msgstr "Шуаньпинь (LibPinyin)"
+msgstr "Шуанпинь (LibPinyin)"
 
 #: src/fcitx-libpinyin.desc:56
 msgid "Shuangpin Scheme"
-msgstr "Схема шуаньпинь"
+msgstr "Схема шуанпинь"
 
 #: src/fcitx-libpinyin.desc:126
 msgid "Si <-> Shi"
@@ -412,7 +412,7 @@ msgstr "Использовать тон"
 #: src/fcitx-libpinyin.desc:7
 msgid "Use Traditional Chinese Data for Pinyin and Shuangpin (Need Restart)"
 msgstr ""
-"Использовать данные традиционного китайского для пиньинь и шуаньпинь "
+"Использовать данные традиционного китайского для пиньинь и шуанпинь "
 "(требуется перезапуск)"
 
 #: src/fcitx-libpinyin.desc:68
