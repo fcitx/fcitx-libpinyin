@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2017
 # Walter Garcia-Fontes <walter.garcia@upf.edu>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2017-09-14 16:03-0700\n"
-"PO-Revision-Date: 2017-09-07 17:53+0000\n"
-"Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
+"POT-Creation-Date: 2017-12-09 00:03-0800\n"
+"PO-Revision-Date: 2017-12-08 19:30+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/fcitx/fcitx/language/ca/)\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -91,7 +92,7 @@ msgstr "Per la longitud de la frase i la longitud i freqüència del pinyin"
 
 #: dictmanager/erroroverlay.cpp:41
 msgid "Cannot connect to Fcitx by DBus, is Fcitx running?"
-msgstr "No es pot connectar al fcitx pel DBus, s'està executant el fcitx?"
+msgstr "No es pot connectar a fcitx amb DBus, està fcitx en execució?"
 
 #: src/fcitx-libpinyin.desc:116
 msgid "Ci <-> Chi"
@@ -251,7 +252,7 @@ msgstr "LibPinyin"
 
 #: src/fcitx-libpinyin.conf.in:4
 msgid "LibPinyin Wrapper For Fcitx"
-msgstr "Contenidor LibPinyin per al fcitx"
+msgstr "Contenidor LibPinyin per a fcitx"
 
 #: src/fcitx-libpinyin.desc:191 src/fcitx-libpinyin.desc:251
 msgid "Life"
@@ -393,24 +394,25 @@ msgstr "UEN -> UN"
 
 #: src/fcitx-libpinyin.desc:17
 msgid "Use Incomplete Zhuyin"
-msgstr "Usa zhuyin incomplet"
+msgstr "Utilitza el zhuyin incomplet"
 
 #: src/fcitx-libpinyin.desc:2
 msgid "Use Incomplete pinyin"
-msgstr "Usa el pinyin incomplet"
+msgstr "Utilitza el pinyin incomplet"
 
 #: src/fcitx-libpinyin.desc:51
 msgid "Use Simplified Chinese Data for Zhuyin (Need Restart)"
-msgstr "Usa dades de xinès simplificat per a zhuyin (cal reiniciar)"
+msgstr "Utilitza les dades del xinès simplificat per al zhuyin (cal reiniciar)"
 
 #: src/fcitx-libpinyin.desc:12
 msgid "Use Tone"
-msgstr "Usa to"
+msgstr "Utilitza tone"
 
 #: src/fcitx-libpinyin.desc:7
 msgid "Use Traditional Chinese Data for Pinyin and Shuangpin (Need Restart)"
 msgstr ""
-"Usa les dades de xinès tradicional per a pinyin i shuangpin (cal reiniciar)"
+"Utilitza les dades del xinès tradicional per al pinyin i el shuangpin (cal "
+"reiniciar)"
 
 #: src/fcitx-libpinyin.desc:68
 msgid "V -> U"
@@ -437,11 +439,11 @@ msgstr "Disposició zhuyin"
 
 #: src/fcitx-libpinyin.desc:46
 msgid "Zhuyin Next Page"
-msgstr "Zhuyin pàgina següent"
+msgstr "Av Pàg zhuyin"
 
 #: src/fcitx-libpinyin.desc:41
 msgid "Zhuyin Prev Page"
-msgstr "Zhuyin pàgina prèvia"
+msgstr "Re Pàg zhuyin"
 
 #: src/fcitx-libpinyin.desc:32
 msgid "Zhuyin candidate choosing modifiers"
