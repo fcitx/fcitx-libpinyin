@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2017-12-09 00:03-0800\n"
-"PO-Revision-Date: 2017-12-08 19:30+0000\n"
+"POT-Creation-Date: 2017-12-20 00:03-0800\n"
+"PO-Revision-Date: 2017-12-20 05:21+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/fcitx/fcitx/language/ca/)\n"
 "Language: ca\n"
@@ -224,7 +224,7 @@ msgstr "GinYieh"
 
 #: src/fcitx-libpinyin.desc:186 src/fcitx-libpinyin.desc:246
 msgid "History"
-msgstr "Història"
+msgstr "Historial"
 
 #: src/fcitx-libpinyin.desc:25
 msgid "IBM"
