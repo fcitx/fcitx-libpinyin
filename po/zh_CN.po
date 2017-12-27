@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Mingcong Bai <jeffbai@aosc.xyz>, 2017
 # csslayer <wengxt@gmail.com>, 2013,2015
 # csslayer <wengxt@gmail.com>, 2010-2013
 # wwj402 <wwj402@gmail.com>, 2013
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2017-09-01 16:03-0700\n"
-"PO-Revision-Date: 2017-08-03 16:58+0000\n"
-"Last-Translator: csslayer <wengxt@gmail.com>\n"
+"POT-Creation-Date: 2017-12-27 00:03-0800\n"
+"PO-Revision-Date: 2017-12-26 18:46+0000\n"
+"Last-Translator: Mingcong Bai <jeffbai@aosc.xyz>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/fcitx/fcitx/"
 "language/zh_CN/)\n"
 "Language: zh_CN\n"
@@ -86,11 +87,11 @@ msgstr "浏览搜狗细胞词库"
 
 #: src/fcitx-libpinyin.desc:111
 msgid "By Phrase Length and Frequency"
-msgstr ""
+msgstr "按词组长度及使用频率"
 
 #: src/fcitx-libpinyin.desc:112
 msgid "By Phrase Length and Pinyin Length and Frequency"
-msgstr ""
+msgstr "按词组长度，拼音长度及使用频率"
 
 #: dictmanager/erroroverlay.cpp:41
 msgid "Cannot connect to Fcitx by DBus, is Fcitx running?"
@@ -360,7 +361,7 @@ msgstr "社会"
 
 #: src/fcitx-libpinyin.desc:108
 msgid "Sort method"
-msgstr ""
+msgstr "排序方式"
 
 #: src/fcitx-libpinyin.desc:216 src/fcitx-libpinyin.desc:271
 msgid "Sport"
