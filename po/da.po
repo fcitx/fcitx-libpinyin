@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# scootergrisen, 2017
+# scootergrisen, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2017-10-20 00:03-0700\n"
-"PO-Revision-Date: 2017-10-19 23:40+0000\n"
+"POT-Creation-Date: 2018-05-13 00:03-0700\n"
+"PO-Revision-Date: 2018-05-12 19:34+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/fcitx/fcitx/language/da/)\n"
 "Language: da\n"
@@ -120,8 +120,8 @@ msgstr "Filkopiering mislykkedes"
 #: dictmanager/dictmanager.cpp:155
 msgid "Copy file failed. Please check you have permission or disk is not full."
 msgstr ""
-"Filkopiering mislykkedes. Tjek venligst at du har rettighed eller at disken "
-"ikke er fuld."
+"Kopiering af fil mislykkedes. Tjek venligst at du har rettighed eller at "
+"disken ikke er fuld."
 
 #: src/fcitx-libpinyin.desc:67 src/fcitx-libpinyin.desc:72
 #: src/fcitx-libpinyin.desc:77 src/fcitx-libpinyin.desc:82
