@@ -4,13 +4,14 @@
 #
 # Translators:
 # Bon Keun Seo <scobyseo@gmail.com>, 2017
+# MarongHappy <daemul72@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2020-01-13 00:01-0800\n"
-"PO-Revision-Date: 2017-10-18 07:47+0000\n"
-"Last-Translator: Bon Keun Seo <scobyseo@gmail.com>\n"
+"POT-Creation-Date: 2020-03-25 00:02-0700\n"
+"PO-Revision-Date: 2020-03-24 17:21+0000\n"
+"Last-Translator: MarongHappy <daemul72@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/fcitx/fcitx/language/ko/)\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -295,7 +296,7 @@ msgstr "사람"
 
 #: src/fcitx-libpinyin.desc:1 src/fcitx-libpinyin.desc:6
 msgid "Pinyin"
-msgstr "병음(Pinyin)"
+msgstr "병음"
 
 #: src/eim.cpp:837 src/pinyin-libpinyin.conf.in:3
 msgid "Pinyin (LibPinyin)"
@@ -303,7 +304,7 @@ msgstr "병음 (LibPinyin)"
 
 #: src/fcitx-libpinyin.desc:62
 msgid "PinyinJiaJia"
-msgstr "병음가가(PinyinJiaJia)"
+msgstr "병음가가"
 
 #: dictmanager/dictmanager.cpp:67
 msgid "Remove &All"
@@ -395,7 +396,7 @@ msgstr "불완전한 주음 사용"
 
 #: src/fcitx-libpinyin.desc:2
 msgid "Use Incomplete pinyin"
-msgstr "불완전한 Pinyin 사용"
+msgstr "불완전한 병음 사용"
 
 #: src/fcitx-libpinyin.desc:51
 msgid "Use Simplified Chinese Data for Zhuyin (Need Restart)"
@@ -430,7 +431,7 @@ msgstr "주음"
 
 #: src/fcitx-libpinyin.desc:22
 msgid "Zhuyin Layout"
-msgstr "주음 배열"
+msgstr "주음 자판"
 
 #: src/fcitx-libpinyin.desc:46
 msgid "Zhuyin Next Page"
