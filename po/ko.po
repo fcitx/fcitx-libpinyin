@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2020-04-04 00:02-0700\n"
-"PO-Revision-Date: 2020-04-03 14:43+0000\n"
+"POT-Creation-Date: 2020-04-19 00:02-0700\n"
+"PO-Revision-Date: 2020-04-19 05:03+0000\n"
 "Last-Translator: MarongHappy <daemul72@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/fcitx/fcitx/language/ko/)\n"
 "Language: ko\n"
@@ -76,7 +76,7 @@ msgstr "예술"
 
 #: src/eim.cpp:871 src/zhuyin-libpinyin.conf.in:3
 msgid "Bopomofo (LibPinyin)"
-msgstr "주음 (LibPinyin)"
+msgstr "주음부호 (LibPinyin)"
 
 #: dictmanager/browserdialog.cpp:61
 msgid "Browse Sogou Cell Dict repository"
@@ -304,7 +304,7 @@ msgstr "병음 (LibPinyin)"
 
 #: src/fcitx-libpinyin.desc:62
 msgid "PinyinJiaJia"
-msgstr "병음가가"
+msgstr "PinyinJiaJia"
 
 #: dictmanager/dictmanager.cpp:67
 msgid "Remove &All"
@@ -340,15 +340,15 @@ msgstr "Shift"
 
 #: src/fcitx-libpinyin.desc:55
 msgid "Shuangpin"
-msgstr "Shuangpin"
+msgstr "이중병음"
 
 #: src/eim.cpp:854 src/shuangpin-libpinyin.conf.in:3
 msgid "Shuangpin (LibPinyin)"
-msgstr "Shuangpin (LibPinyin)"
+msgstr "이중병음 (LibPinyin)"
 
 #: src/fcitx-libpinyin.desc:56
 msgid "Shuangpin Scheme"
-msgstr "Shuangpin 스키마"
+msgstr "이중병음 스키마"
 
 #: src/fcitx-libpinyin.desc:126
 msgid "Si <-> Shi"
@@ -408,7 +408,7 @@ msgstr "톤 사용"
 
 #: src/fcitx-libpinyin.desc:7
 msgid "Use Traditional Chinese Data for Pinyin and Shuangpin (Need Restart)"
-msgstr "병음과 Shuangpin을 위한 번체 데이터 사용 (재시작 필요)"
+msgstr "병음과 이중병음을 위한 번체 데이터 사용 (재시작 필요)"
 
 #: src/fcitx-libpinyin.desc:68
 msgid "V -> U"
@@ -420,7 +420,7 @@ msgstr "잘못된 링크"
 
 #: src/fcitx-libpinyin.desc:63
 msgid "XiaoHe"
-msgstr "작은학(XiaoHe)"
+msgstr "XiaoHe"
 
 #: src/fcitx-libpinyin.desc:11 src/fcitx-libpinyin.desc:16
 #: src/fcitx-libpinyin.desc:21 src/fcitx-libpinyin.desc:31
