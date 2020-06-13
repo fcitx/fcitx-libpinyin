@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# scootergrisen, 2017-2018
+# scootergrisen, 2017-2018,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2020-01-13 00:01-0800\n"
-"PO-Revision-Date: 2018-11-28 09:16+0000\n"
+"POT-Creation-Date: 2020-06-13 00:02-0700\n"
+"PO-Revision-Date: 2020-06-12 20:43+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/fcitx/fcitx/language/da/)\n"
 "Language: da\n"
@@ -393,11 +393,11 @@ msgstr "UEN -> UN"
 
 #: src/fcitx-libpinyin.desc:17
 msgid "Use Incomplete Zhuyin"
-msgstr "Brug ufuldstændig Zhuyin"
+msgstr "Brug ukomplet Zhuyin"
 
 #: src/fcitx-libpinyin.desc:2
 msgid "Use Incomplete pinyin"
-msgstr "Brug ufuldstændig pinyin"
+msgstr "Brug ukomplet pinyin"
 
 #: src/fcitx-libpinyin.desc:51
 msgid "Use Simplified Chinese Data for Zhuyin (Need Restart)"
