@@ -4,14 +4,15 @@
 #
 # Translators:
 # Bon Keun Seo <scobyseo@gmail.com>, 2017
-# MarongHappy <daemul72@gmail.com>, 2020
+# JungHee Lee <daemul72@gmail.com>, 2020
+# JungHee Lee <daemul72@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2020-04-19 00:02-0700\n"
-"PO-Revision-Date: 2020-04-19 05:03+0000\n"
-"Last-Translator: MarongHappy <daemul72@gmail.com>\n"
+"POT-Creation-Date: 2020-09-15 00:02-0700\n"
+"PO-Revision-Date: 2020-09-14 23:58+0000\n"
+"Last-Translator: JungHee Lee <daemul72@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/fcitx/fcitx/language/ko/)\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -158,7 +159,7 @@ msgstr "사전"
 #: src/fcitx-libpinyin.desc:255 src/fcitx-libpinyin.desc:260
 #: src/fcitx-libpinyin.desc:265 src/fcitx-libpinyin.desc:270
 msgid "Dictionary Zhuyin"
-msgstr "주음 사전"
+msgstr "주음부호 사전"
 
 #: dictmanager/filedownloader.cpp:93
 msgid "Download Finished"
@@ -392,7 +393,7 @@ msgstr "UEN -> UN"
 
 #: src/fcitx-libpinyin.desc:17
 msgid "Use Incomplete Zhuyin"
-msgstr "불완전한 주음 사용"
+msgstr "불완전한 주음부호 사용"
 
 #: src/fcitx-libpinyin.desc:2
 msgid "Use Incomplete pinyin"
@@ -400,7 +401,7 @@ msgstr "불완전한 병음 사용"
 
 #: src/fcitx-libpinyin.desc:51
 msgid "Use Simplified Chinese Data for Zhuyin (Need Restart)"
-msgstr "입력기에 간체 데이터 사용 (재시작 필요)"
+msgstr "주음부호에 중국어 간체 데이터 사용 (재시작 필요)"
 
 #: src/fcitx-libpinyin.desc:12
 msgid "Use Tone"
@@ -427,23 +428,23 @@ msgstr "XiaoHe"
 #: src/fcitx-libpinyin.desc:40 src/fcitx-libpinyin.desc:45
 #: src/fcitx-libpinyin.desc:50
 msgid "Zhuyin"
-msgstr "주음"
+msgstr "주음부호"
 
 #: src/fcitx-libpinyin.desc:22
 msgid "Zhuyin Layout"
-msgstr "주음 자판"
+msgstr "주음부호 자판"
 
 #: src/fcitx-libpinyin.desc:46
 msgid "Zhuyin Next Page"
-msgstr "주음 다음 페이지"
+msgstr "주음부호 다음 페이지"
 
 #: src/fcitx-libpinyin.desc:41
 msgid "Zhuyin Prev Page"
-msgstr "주음 이전 페이지"
+msgstr "주음부호 이전 페이지"
 
 #: src/fcitx-libpinyin.desc:32
 msgid "Zhuyin candidate choosing modifiers"
-msgstr "주음 후보 선택 키"
+msgstr "주음부호 후보 선택 수정키"
 
 #: src/fcitx-libpinyin.desc:121
 msgid "Zi <-> Zhi"
