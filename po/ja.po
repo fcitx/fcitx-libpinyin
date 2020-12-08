@@ -5,14 +5,15 @@
 # Translators:
 # shirou - しろう <shirou.faw@gmail.com>, 2013
 # shirou - しろう <shirou.faw@gmail.com>, 2013
+# Takuro Onoue <kusanaginoturugi@gmail.com>, 2020
 # shirou - しろう <shirou.faw@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2020-01-13 00:01-0800\n"
-"PO-Revision-Date: 2017-09-19 11:55+0000\n"
-"Last-Translator: csslayer <wengxt@gmail.com>\n"
+"POT-Creation-Date: 2020-12-09 00:01+0100\n"
+"PO-Revision-Date: 2020-12-08 04:52+0000\n"
+"Last-Translator: Takuro Onoue <kusanaginoturugi@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/fcitx/fcitx/language/ja/)\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +32,7 @@ msgstr ""
 
 #: dictmanager/dictmanager.cpp:68
 msgid "&Clear Dict"
-msgstr ""
+msgstr "辞書を消去 (&C)"
 
 #: dictmanager/dictmanager.cpp:57
 msgid "&Clear User Data"
@@ -43,7 +44,7 @@ msgstr "インポート (&I)"
 
 #: dictmanager/dictmanager.cpp:66
 msgid "&Remove"
-msgstr ""
+msgstr "削除 (&R)"
 
 #: src/fcitx-libpinyin.desc:61
 msgid "ABC"
@@ -101,7 +102,7 @@ msgstr "Ci <-> Chi"
 
 #: dictmanager/dictmanager.cpp:58
 msgid "Clear &All Data"
-msgstr ""
+msgstr "全てのデータを消去 (&A)"
 
 #: dictmanager/dictmanager.cpp:230
 msgid "Confirm deletion"
@@ -160,7 +161,7 @@ msgstr "辞書"
 #: src/fcitx-libpinyin.desc:255 src/fcitx-libpinyin.desc:260
 #: src/fcitx-libpinyin.desc:265 src/fcitx-libpinyin.desc:270
 msgid "Dictionary Zhuyin"
-msgstr ""
+msgstr "Zhuyin 辞書"
 
 #: dictmanager/filedownloader.cpp:93
 msgid "Download Finished"
@@ -294,7 +295,7 @@ msgstr "ON -> ONG"
 
 #: src/fcitx-libpinyin.desc:201
 msgid "People"
-msgstr ""
+msgstr "人々"
 
 #: src/fcitx-libpinyin.desc:1 src/fcitx-libpinyin.desc:6
 msgid "Pinyin"
@@ -310,7 +311,7 @@ msgstr "PinyinJiaJia"
 
 #: dictmanager/dictmanager.cpp:67
 msgid "Remove &All"
-msgstr ""
+msgstr "全て削除 (&A)"
 
 #: dictmanager/scelconverter.cpp:90
 msgid "Rename failed."
@@ -322,7 +323,7 @@ msgstr "Scel ファイル (*.scel)"
 
 #: src/fcitx-libpinyin.desc:206
 msgid "Science"
-msgstr ""
+msgstr "科学"
 
 #: src/fcitx-libpinyin.desc:261
 msgid "Science & Technology"
@@ -334,7 +335,7 @@ msgstr "辞書ファイルの選択"
 
 #: dictmanager/dictmanager.cpp:167
 msgid "Select scel file"
-msgstr ""
+msgstr "scel ファイルを選択"
 
 #: src/fcitx-libpinyin.desc:36
 msgid "Shift"
@@ -362,7 +363,7 @@ msgstr "社会"
 
 #: src/fcitx-libpinyin.desc:108
 msgid "Sort method"
-msgstr ""
+msgstr "ソート方法"
 
 #: src/fcitx-libpinyin.desc:216 src/fcitx-libpinyin.desc:271
 msgid "Sport"
@@ -374,7 +375,7 @@ msgstr "スタンダード"
 
 #: src/fcitx-libpinyin.desc:221
 msgid "Technology"
-msgstr ""
+msgstr "技術"
 
 #: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."
