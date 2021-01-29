@@ -47,7 +47,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/bigram.db
               ${CMAKE_CURRENT_BINARY_DIR}/pinyin_index.bin
               ${CMAKE_CURRENT_BINARY_DIR}/addon_phrase_index.bin
               ${CMAKE_CURRENT_BINARY_DIR}/addon_pinyin_index.bin
-              table.conf
+              ${CMAKE_CURRENT_BINARY_DIR}/table.conf
         DESTINATION ${FCITX_LIBPINYIN_ZHUYIN_DATADIR})
 
 endif()
