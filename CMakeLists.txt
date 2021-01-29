@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.6)
+cmake_minimum_required(VERSION 3.6)
 project(fcitx-libpinyin)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
@@ -7,9 +7,15 @@ option(ENABLE_QT "Enable Qt for dictmanager" On)
 
 find_package(Libintl REQUIRED)
 find_package(Fcitx 4.2.8 REQUIRED)
-find_package(GLIB2 REQUIRED)
-find_package(Libpinyin REQUIRED)
-find_package(DBus REQUIRED)
+pkg_check_modules(DBus "dbus-1" REQUIRED IMPORTED_TARGET)
+pkg_check_modules(LibPinyin "libpinyin>=2.6.0" REQUIRED IMPORTED_TARGET)
+pkg_get_variable(LIBPINYIN_PKGDATADIR "libpinyin" "pkgdatadir")
+pkg_get_variable(LIBPINYIN_EXECPREFIX "libpinyin" "exec_prefix")
+pkg_get_variable(LIBPINYIN_DATABASE_FORMAT "libpinyin" "database_format")
+
+find_program(LIBPINYIN_GEN_BINARY_FILES gen_binary_files HINTS "${LIBPINYIN_EXECPREFIX}/bin")
+find_program(LIBPINYIN_GEN_UNIGRAM gen_unigram HINTS "${LIBPINYIN_EXECPREFIX}/bin")
+find_program(LIBPINYIN_IMPORT_INTERPOLATION import_interpolation HINTS "${LIBPINYIN_EXECPREFIX}/bin")
 
 _fcitx_add_uninstall_target()
 

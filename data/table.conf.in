@@ -3,6 +3,7 @@ model data version:10
 lambda parameter:0.347121
 
 source table format:pinyin
+database format:@LIBPINYIN_DATABASE_FORMAT@
 
 default RESERVED NULL NULL NULL NOT_USED
 default GB_DICTIONARY gb_char.table gb_char.bin gb_char.dbin SYSTEM_FILE
