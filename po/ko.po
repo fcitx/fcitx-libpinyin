@@ -4,16 +4,16 @@
 #
 # Translators:
 # Bon Keun Seo <scobyseo@gmail.com>, 2017
-# Jung Hee Lee <daemul72@gmail.com>, 2020
-# Jung Hee Lee <daemul72@gmail.com>, 2021
-# Jung Hee Lee <daemul72@gmail.com>, 2020
+# JungHee Lee <daemul72@gmail.com>, 2020
+# JungHee Lee <daemul72@gmail.com>, 2021
+# JungHee Lee <daemul72@gmail.com>, 2020,2022
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2021-06-05 20:27+0000\n"
-"PO-Revision-Date: 2021-06-05 07:30+0000\n"
-"Last-Translator: Jung Hee Lee <daemul72@gmail.com>\n"
+"POT-Creation-Date: 2022-03-01 20:27+0000\n"
+"PO-Revision-Date: 2022-03-01 14:52+0000\n"
+"Last-Translator: JungHee Lee <daemul72@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/fcitx/fcitx/language/ko/)\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -253,7 +253,7 @@ msgstr "LibPinyin"
 
 #: src/fcitx-libpinyin.conf.in:4
 msgid "LibPinyin Wrapper For Fcitx"
-msgstr "Fcitx LibPinyin 입력기"
+msgstr "Fcitx LibPinyin 래퍼"
 
 #: src/fcitx-libpinyin.desc:191 src/fcitx-libpinyin.desc:251
 msgid "Life"
