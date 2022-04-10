@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2022-04-09 20:27+0000\n"
+"POT-Creation-Date: 2022-04-10 20:28+0000\n"
 "PO-Revision-Date: 2012-01-02 07:30+0000\n"
 "Last-Translator: Junghee Lee <daemul72@gmail.com>, 2022\n"
 "Language-Team: Korean (http://www.transifex.com/fcitx/fcitx/language/ko/)\n"
@@ -29,15 +29,15 @@ msgstr "%1%이 다운로드 되었습니다."
 
 #: dictmanager/dictmanager.cpp:50
 msgid "&Browse Sogou Cell Dictionary Online"
-msgstr "온라인 Sogou 셀 사전을 검색(&B)"
+msgstr "Sogou Cell 사전 온라인 찾아보기(&B)"
 
 #: dictmanager/dictmanager.cpp:68
 msgid "&Clear Dict"
-msgstr "사전 비우기(&C)"
+msgstr "사전 지우기(&C)"
 
 #: dictmanager/dictmanager.cpp:57
 msgid "&Clear User Data"
-msgstr "사용자 데이터 비우기(&C)"
+msgstr "사용자 데이터 지우기(&C)"
 
 #: dictmanager/dictmanager.cpp:65
 msgid "&Import"
@@ -103,7 +103,7 @@ msgstr "Ci <-> Chi"
 
 #: dictmanager/dictmanager.cpp:58
 msgid "Clear &All Data"
-msgstr "모든 데이터 비우기(&A)"
+msgstr "모든 데이터 지우기(&A)"
 
 #: dictmanager/dictmanager.cpp:230
 msgid "Confirm deletion"
@@ -206,7 +206,7 @@ msgstr "파일에서 불러오기(&F)"
 
 #: dictmanager/dictmanager.cpp:49
 msgid "From &Sogou Cell Dictionary File"
-msgstr "&Sogou 셀 사전 파일에서 불러오기"
+msgstr "Sogou Cell 사전 파일에서 불러오기(&S)"
 
 #: src/fcitx-libpinyin.desc:73
 msgid "GN -> NG"
@@ -254,7 +254,7 @@ msgstr "LibPinyin"
 
 #: src/fcitx-libpinyin.conf.in:4
 msgid "LibPinyin Wrapper For Fcitx"
-msgstr "Fcitx LibPinyin 래퍼"
+msgstr "Fcitx용 LibPinyin 래퍼"
 
 #: src/fcitx-libpinyin.desc:191 src/fcitx-libpinyin.desc:251
 msgid "Life"
@@ -327,7 +327,7 @@ msgstr "과학"
 
 #: src/fcitx-libpinyin.desc:261
 msgid "Science & Technology"
-msgstr "과학기술"
+msgstr "과학 및 기술"
 
 #: dictmanager/dictmanager.cpp:133
 msgid "Select Dictionary File"
@@ -399,7 +399,7 @@ msgstr "비완성형 주음부호 사용"
 
 #: src/fcitx-libpinyin.desc:2
 msgid "Use Incomplete pinyin"
-msgstr "비완성형 Pinyin 사용"
+msgstr "미완성 Pinyin 사용"
 
 #: src/fcitx-libpinyin.desc:51
 msgid "Use Simplified Chinese Data for Zhuyin (Need Restart)"
@@ -407,7 +407,7 @@ msgstr "주음부호에 간화자 데이터 사용 (재시작 필요)"
 
 #: src/fcitx-libpinyin.desc:12
 msgid "Use Tone"
-msgstr "톤 사용"
+msgstr "성조 사용"
 
 #: src/fcitx-libpinyin.desc:7
 msgid "Use Traditional Chinese Data for Pinyin and Shuangpin (Need Restart)"
