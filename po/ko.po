@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2022-04-10 20:28+0000\n"
+"POT-Creation-Date: 2022-04-13 20:27+0000\n"
 "PO-Revision-Date: 2012-01-02 07:30+0000\n"
 "Last-Translator: Junghee Lee <daemul72@gmail.com>, 2022\n"
 "Language-Team: Korean (http://www.transifex.com/fcitx/fcitx/language/ko/)\n"
@@ -87,11 +87,11 @@ msgstr "Sogou 셀 사전 저장소 탐색"
 
 #: src/fcitx-libpinyin.desc:111
 msgid "By Phrase Length and Frequency"
-msgstr "문구 문자 수 및 빈도"
+msgstr "구문 문자 수 및 빈도"
 
 #: src/fcitx-libpinyin.desc:112
 msgid "By Phrase Length and Pinyin Length and Frequency"
-msgstr "문구 문자 수 및 Pinyin 문자 수 및 빈도"
+msgstr "구문 문자 수 및 Pinyin 문자 수 및 빈도"
 
 #: dictmanager/erroroverlay.cpp:41
 msgid "Cannot connect to Fcitx by DBus, is Fcitx running?"
