@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Dmitry <dmitrydmitry761@gmail.com>, 2022
 # TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2022-06-02 20:29+0000\n"
+"POT-Creation-Date: 2022-11-20 06:36+0000\n"
 "PO-Revision-Date: 2012-01-02 07:30+0000\n"
-"Last-Translator: TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>, 2016-2017\n"
+"Last-Translator: Dmitry <dmitrydmitry761@gmail.com>, 2022\n"
 "Language-Team: Russian (http://www.transifex.com/fcitx/fcitx/language/ru/)\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +90,7 @@ msgstr "по длине фразы и частоте"
 
 #: src/fcitx-libpinyin.desc:112
 msgid "By Phrase Length and Pinyin Length and Frequency"
-msgstr "по длине фразы, длине пиньинь и частоте"
+msgstr "по длине фразы, длине Пиньинь и частоте"
 
 #: dictmanager/erroroverlay.cpp:41
 msgid "Cannot connect to Fcitx by DBus, is Fcitx running?"
@@ -159,7 +160,7 @@ msgstr "Словарь"
 #: src/fcitx-libpinyin.desc:255 src/fcitx-libpinyin.desc:260
 #: src/fcitx-libpinyin.desc:265 src/fcitx-libpinyin.desc:270
 msgid "Dictionary Zhuyin"
-msgstr "Словарь чжуинь"
+msgstr "Словарь Чжуинь"
 
 #: dictmanager/filedownloader.cpp:93
 msgid "Download Finished"
@@ -264,7 +265,7 @@ msgstr "MG -> NG"
 
 #: dictmanager/dictmanager.cpp:113
 msgid "Manage Pinyin Dictionary"
-msgstr "Управление словарем пиньинь"
+msgstr "Управление словарем Пиньинь"
 
 #: src/fcitx-libpinyin.desc:59
 msgid "Microsoft"
@@ -394,16 +395,16 @@ msgstr "UEN -> UN"
 
 #: src/fcitx-libpinyin.desc:17
 msgid "Use Incomplete Zhuyin"
-msgstr "Использовать неполный чжуинь"
+msgstr "Использовать неполный Чжуинь"
 
 #: src/fcitx-libpinyin.desc:2
 msgid "Use Incomplete pinyin"
-msgstr "Использовать неполный пиньинь"
+msgstr "Использовать неполный Пиньинь"
 
 #: src/fcitx-libpinyin.desc:51
 msgid "Use Simplified Chinese Data for Zhuyin (Need Restart)"
 msgstr ""
-"Использовать данные упрощенного китайского для чжуинь (требуется перезапуск)"
+"Использовать данные упрощенного китайского для Чжуинь (требуется перезапуск)"
 
 #: src/fcitx-libpinyin.desc:12
 msgid "Use Tone"
@@ -412,7 +413,7 @@ msgstr "Использовать тон"
 #: src/fcitx-libpinyin.desc:7
 msgid "Use Traditional Chinese Data for Pinyin and Shuangpin (Need Restart)"
 msgstr ""
-"Использовать данные традиционного китайского для пиньинь и шуанпинь "
+"Использовать данные традиционного китайского для Пиньинь и Шуанпинь "
 "(требуется перезапуск)"
 
 #: src/fcitx-libpinyin.desc:68
@@ -436,19 +437,19 @@ msgstr "Чжуинь"
 
 #: src/fcitx-libpinyin.desc:22
 msgid "Zhuyin Layout"
-msgstr "Раскладка чжуинь"
+msgstr "Раскладка Чжуинь"
 
 #: src/fcitx-libpinyin.desc:46
 msgid "Zhuyin Next Page"
-msgstr "Следующая страница чжуинь"
+msgstr "Следующая страница Чжуинь"
 
 #: src/fcitx-libpinyin.desc:41
 msgid "Zhuyin Prev Page"
-msgstr "Предыдущая страница чжуинь"
+msgstr "Предыдущая страница Чжуинь"
 
 #: src/fcitx-libpinyin.desc:32
 msgid "Zhuyin candidate choosing modifiers"
-msgstr "Выбор модификаторов для кандидата чжуинь"
+msgstr "Выбор модификаторов для кандидата Чжуинь"
 
 #: src/fcitx-libpinyin.desc:121
 msgid "Zi <-> Zhi"
