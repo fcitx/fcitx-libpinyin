@@ -6,14 +6,15 @@
 # Alisha <alisha.4m@gmail.com>, 2012
 # Hiunn-hué <hiunnhue108@ymail.com>, 2012
 # Hiunn-hué <hiunnhue108@ymail.com>, 2012
+# Neko ◣ 0xFF, 2022
 # csslayer <wengxt@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2020-01-13 00:01-0800\n"
-"PO-Revision-Date: 2017-09-19 11:03+0000\n"
-"Last-Translator: csslayer <wengxt@gmail.com>\n"
+"POT-Creation-Date: 2022-12-16 20:28+0000\n"
+"PO-Revision-Date: 2012-01-02 07:30+0000\n"
+"Last-Translator: Neko ◣ 0xFF, 2022\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/fcitx/fcitx/"
 "language/zh_TW/)\n"
 "Language: zh_TW\n"
@@ -25,27 +26,27 @@ msgstr ""
 #: dictmanager/filedownloader.cpp:84
 #, kde-format
 msgid "%1% Downloaded."
-msgstr ""
+msgstr "已下載 %1%。"
 
 #: dictmanager/dictmanager.cpp:50
 msgid "&Browse Sogou Cell Dictionary Online"
-msgstr ""
+msgstr "線上瀏覽搜狗细胞詞庫(&B)"
 
 #: dictmanager/dictmanager.cpp:68
 msgid "&Clear Dict"
-msgstr ""
+msgstr "清空字典(&C)"
 
 #: dictmanager/dictmanager.cpp:57
 msgid "&Clear User Data"
-msgstr ""
+msgstr "清空使用者資訊(&C)"
 
 #: dictmanager/dictmanager.cpp:65
 msgid "&Import"
-msgstr ""
+msgstr "匯入 (&I)"
 
 #: dictmanager/dictmanager.cpp:66
 msgid "&Remove"
-msgstr ""
+msgstr "移除(&R)"
 
 #: src/fcitx-libpinyin.desc:61
 msgid "ABC"
@@ -71,7 +72,7 @@ msgstr "An <-> Ang"
 #: dictmanager/dictmanager.cpp:231
 #, kde-format
 msgid "Are you sure to delete %1?"
-msgstr ""
+msgstr "確定刪除 %1？"
 
 #: src/fcitx-libpinyin.desc:166 src/fcitx-libpinyin.desc:226
 msgid "Art"
@@ -83,19 +84,19 @@ msgstr "注音（LibPinyin）"
 
 #: dictmanager/browserdialog.cpp:61
 msgid "Browse Sogou Cell Dict repository"
-msgstr ""
+msgstr "瀏覽搜狗細胞詞庫"
 
 #: src/fcitx-libpinyin.desc:111
 msgid "By Phrase Length and Frequency"
-msgstr ""
+msgstr "按詞組長度及使用頻率"
 
 #: src/fcitx-libpinyin.desc:112
 msgid "By Phrase Length and Pinyin Length and Frequency"
-msgstr ""
+msgstr "按詞組長度，拼音長度及使用頻率"
 
 #: dictmanager/erroroverlay.cpp:41
 msgid "Cannot connect to Fcitx by DBus, is Fcitx running?"
-msgstr ""
+msgstr "無法透過 DBus 連接到 Fcitx，Fcitx 是否正在運行？"
 
 #: src/fcitx-libpinyin.desc:116
 msgid "Ci <-> Chi"
@@ -103,27 +104,27 @@ msgstr "Ci <-> Chi"
 
 #: dictmanager/dictmanager.cpp:58
 msgid "Clear &All Data"
-msgstr ""
+msgstr "清空所有資料(&A)"
 
 #: dictmanager/dictmanager.cpp:230
 msgid "Confirm deletion"
-msgstr ""
+msgstr "確定刪除"
 
 #: dictmanager/scelconverter.cpp:78
 msgid "Convert failed."
-msgstr ""
+msgstr "轉換失敗。"
 
 #: dictmanager/scelconverter.cpp:72
 msgid "Converter crashed."
-msgstr ""
+msgstr "轉換器當掉了。"
 
 #: dictmanager/dictmanager.cpp:155
 msgid "Copy file failed"
-msgstr ""
+msgstr "複製檔案失敗"
 
 #: dictmanager/dictmanager.cpp:155
 msgid "Copy file failed. Please check you have permission or disk is not full."
-msgstr ""
+msgstr "建立檔案失敗。請檢查權限或磁碟空間。"
 
 #: src/fcitx-libpinyin.desc:67 src/fcitx-libpinyin.desc:72
 #: src/fcitx-libpinyin.desc:77 src/fcitx-libpinyin.desc:82
@@ -134,7 +135,7 @@ msgstr "糾正"
 
 #: dictmanager/filedownloader.cpp:40 dictmanager/scelconverter.cpp:43
 msgid "Create temporary file failed."
-msgstr ""
+msgstr "建立暫存檔失敗。"
 
 #: src/fcitx-libpinyin.desc:34
 msgid "Ctrl"
@@ -160,15 +161,15 @@ msgstr "辭典"
 #: src/fcitx-libpinyin.desc:255 src/fcitx-libpinyin.desc:260
 #: src/fcitx-libpinyin.desc:265 src/fcitx-libpinyin.desc:270
 msgid "Dictionary Zhuyin"
-msgstr ""
+msgstr "注音詞典"
 
 #: dictmanager/filedownloader.cpp:93
 msgid "Download Finished"
-msgstr ""
+msgstr "下載完成"
 
 #: dictmanager/filedownloader.cpp:56
 msgid "Download started."
-msgstr ""
+msgstr "下載開始。"
 
 #: src/fcitx-libpinyin.desc:27
 msgid "ET"
@@ -185,15 +186,15 @@ msgstr "En <-> Eng"
 #: dictmanager/dictmanager.cpp:239
 #, kde-format
 msgid "Error while deleting %1."
-msgstr ""
+msgstr "刪除 %1 時出錯"
 
 #: dictmanager/filedownloader.cpp:52
 msgid "Failed to create request."
-msgstr ""
+msgstr "建立請求失敗"
 
 #: dictmanager/dictmanager.cpp:238
 msgid "File Operation Failed"
-msgstr ""
+msgstr "檔案操作失敗"
 
 #: src/fcitx-libpinyin.desc:136
 msgid "Fo <-> He"
@@ -201,11 +202,11 @@ msgstr "Fo <-> He"
 
 #: dictmanager/dictmanager.cpp:48
 msgid "From &File"
-msgstr ""
+msgstr "從文件(&F)"
 
 #: dictmanager/dictmanager.cpp:49
 msgid "From &Sogou Cell Dictionary File"
-msgstr ""
+msgstr "來自搜狗細胞詞典文件(&S)"
 
 #: src/fcitx-libpinyin.desc:73
 msgid "GN -> NG"
@@ -241,7 +242,7 @@ msgstr "In <-> Ing"
 
 #: dictmanager/dictmanager.cpp:146 dictmanager/dictmanager.cpp:183
 msgid "Input Dictionary Name"
-msgstr ""
+msgstr "輸入字典名稱"
 
 #: src/fcitx-libpinyin.desc:141
 msgid "Le <-> Ri"
@@ -265,7 +266,7 @@ msgstr "MG -> NG"
 
 #: dictmanager/dictmanager.cpp:113
 msgid "Manage Pinyin Dictionary"
-msgstr ""
+msgstr "管理拼音字典"
 
 #: src/fcitx-libpinyin.desc:59
 msgid "Microsoft"
@@ -281,11 +282,11 @@ msgstr "Ne <-> Le"
 
 #: dictmanager/dictmanager.cpp:146 dictmanager/dictmanager.cpp:183
 msgid "New Dictionary Name:"
-msgstr ""
+msgstr "新字典名稱："
 
 #: dictmanager/browserdialog.cpp:108
 msgid "No browsing outside pinyin.sogou.com, now redirect to home page."
-msgstr ""
+msgstr "無法連到 pinyin.sogou.com 之外的網頁，將重新導向到首頁。"
 
 #: src/fcitx-libpinyin.desc:103
 msgid "ON -> ONG"
@@ -293,7 +294,7 @@ msgstr "ON -> ONG"
 
 #: src/fcitx-libpinyin.desc:201
 msgid "People"
-msgstr ""
+msgstr "人文"
 
 #: src/fcitx-libpinyin.desc:1 src/fcitx-libpinyin.desc:6
 msgid "Pinyin"
@@ -309,19 +310,19 @@ msgstr "拼音加加"
 
 #: dictmanager/dictmanager.cpp:67
 msgid "Remove &All"
-msgstr ""
+msgstr "移除全部(&A)"
 
 #: dictmanager/scelconverter.cpp:90
 msgid "Rename failed."
-msgstr ""
+msgstr "重命名失败。"
 
 #: dictmanager/dictmanager.cpp:169
 msgid "Scel file (*.scel)"
-msgstr ""
+msgstr "Scel 文件 (*.scel)"
 
 #: src/fcitx-libpinyin.desc:206
 msgid "Science"
-msgstr ""
+msgstr "科學"
 
 #: src/fcitx-libpinyin.desc:261
 msgid "Science & Technology"
@@ -329,11 +330,11 @@ msgstr "科學技術"
 
 #: dictmanager/dictmanager.cpp:133
 msgid "Select Dictionary File"
-msgstr ""
+msgstr "選取字典檔案"
 
 #: dictmanager/dictmanager.cpp:167
 msgid "Select scel file"
-msgstr ""
+msgstr "選擇 scel 文件"
 
 #: src/fcitx-libpinyin.desc:36
 msgid "Shift"
@@ -361,7 +362,7 @@ msgstr "社會"
 
 #: src/fcitx-libpinyin.desc:108
 msgid "Sort method"
-msgstr ""
+msgstr "排序方式"
 
 #: src/fcitx-libpinyin.desc:216 src/fcitx-libpinyin.desc:271
 msgid "Sport"
@@ -373,11 +374,11 @@ msgstr "標準"
 
 #: src/fcitx-libpinyin.desc:221
 msgid "Technology"
-msgstr ""
+msgstr "技術"
 
 #: dictmanager/filedownloader.cpp:44 dictmanager/scelconverter.cpp:47
 msgid "Temporary file created."
-msgstr ""
+msgstr "己建立暫存檔"
 
 #: src/fcitx-libpinyin.desc:98
 msgid "UE -> VE"
@@ -417,7 +418,7 @@ msgstr "V -> U"
 
 #: dictmanager/browserdialog.cpp:107
 msgid "Wrong Link"
-msgstr ""
+msgstr "錯誤連結"
 
 #: src/fcitx-libpinyin.desc:63
 msgid "XiaoHe"
