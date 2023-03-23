@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Dmitry <dmitrydmitry761@gmail.com>, 2022
+# Dmitry <dmitrydmitry761@gmail.com>, 2022-2023
 # TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2022-11-20 06:36+0000\n"
+"POT-Creation-Date: 2023-03-23 20:26+0000\n"
 "PO-Revision-Date: 2012-01-02 07:30+0000\n"
-"Last-Translator: Dmitry <dmitrydmitry761@gmail.com>, 2022\n"
+"Last-Translator: Dmitry <dmitrydmitry761@gmail.com>, 2022-2023\n"
 "Language-Team: Russian (http://www.transifex.com/fcitx/fcitx/language/ru/)\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -307,7 +307,7 @@ msgstr "Пиньинь (LibPinyin)"
 
 #: src/fcitx-libpinyin.desc:62
 msgid "PinyinJiaJia"
-msgstr "PinyinJiaJia"
+msgstr "ПиньиньЦзяЦзя"
 
 #: dictmanager/dictmanager.cpp:67
 msgid "Remove &All"
@@ -351,7 +351,7 @@ msgstr "Шуанпинь (LibPinyin)"
 
 #: src/fcitx-libpinyin.desc:56
 msgid "Shuangpin Scheme"
-msgstr "Схема шуанпинь"
+msgstr "Схема Шуанпинь"
 
 #: src/fcitx-libpinyin.desc:126
 msgid "Si <-> Shi"
@@ -426,7 +426,7 @@ msgstr "Неверная ссылка"
 
 #: src/fcitx-libpinyin.desc:63
 msgid "XiaoHe"
-msgstr "XiaoHe"
+msgstr "СяоХэ"
 
 #: src/fcitx-libpinyin.desc:11 src/fcitx-libpinyin.desc:16
 #: src/fcitx-libpinyin.desc:21 src/fcitx-libpinyin.desc:31
@@ -457,7 +457,7 @@ msgstr "Zi <-> Zhi"
 
 #: src/fcitx-libpinyin.desc:60
 msgid "ZiGuang"
-msgstr "ZiGuang"
+msgstr "ЦзыГуан"
 
 #: src/fcitx-libpinyin.desc:58
 msgid "Ziranma"
