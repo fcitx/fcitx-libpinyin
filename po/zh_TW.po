@@ -4,6 +4,7 @@
 #
 # Translators:
 # Alisha <alisha.4m@gmail.com>, 2012
+# Haowei Hsu, 2023
 # Hiunn-hué <hiunnhue108@ymail.com>, 2012
 # Hiunn-hué <hiunnhue108@ymail.com>, 2012
 # Lau YeeYu, 2023
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2023-04-25 20:26+0000\n"
+"POT-Creation-Date: 2023-08-07 20:26+0000\n"
 "PO-Revision-Date: 2012-01-02 07:30+0000\n"
-"Last-Translator: Lau YeeYu, 2023\n"
+"Last-Translator: Haowei Hsu, 2023\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/fcitx/fcitx/"
 "language/zh_TW/)\n"
 "Language: zh_TW\n"
@@ -434,7 +435,7 @@ msgstr "注音"
 
 #: src/fcitx-libpinyin.desc:22
 msgid "Zhuyin Layout"
-msgstr "注音佈局"
+msgstr "注音配置"
 
 #: src/fcitx-libpinyin.desc:46
 msgid "Zhuyin Next Page"
