@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2023-03-23 20:26+0000\n"
+"POT-Creation-Date: 2023-11-22 20:26+0000\n"
 "PO-Revision-Date: 2012-01-02 07:30+0000\n"
 "Last-Translator: Dmitry <dmitrydmitry761@gmail.com>, 2022-2023\n"
-"Language-Team: Russian (http://www.transifex.com/fcitx/fcitx/language/ru/)\n"
+"Language-Team: Russian (http://app.transifex.com/fcitx/fcitx/language/ru/)\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +32,7 @@ msgstr "&Просмотреть словарь Sogou Cell в интернете"
 
 #: dictmanager/dictmanager.cpp:68
 msgid "&Clear Dict"
-msgstr "Очистить словарь"
+msgstr "&Очистить Словарь"
 
 #: dictmanager/dictmanager.cpp:57
 msgid "&Clear User Data"
@@ -102,7 +102,7 @@ msgstr "Ci <-> Chi"
 
 #: dictmanager/dictmanager.cpp:58
 msgid "Clear &All Data"
-msgstr "Очистить все данные"
+msgstr "Очистить &Все Данные"
 
 #: dictmanager/dictmanager.cpp:230
 msgid "Confirm deletion"
