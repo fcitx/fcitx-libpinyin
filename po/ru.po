@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2023-11-22 20:26+0000\n"
+"POT-Creation-Date: 2023-11-28 20:26+0000\n"
 "PO-Revision-Date: 2012-01-02 07:30+0000\n"
 "Last-Translator: Dmitry <dmitrydmitry761@gmail.com>, 2022-2023\n"
 "Language-Team: Russian (http://app.transifex.com/fcitx/fcitx/language/ru/)\n"
@@ -110,11 +110,11 @@ msgstr "Подтвердите удаление"
 
 #: dictmanager/scelconverter.cpp:78
 msgid "Convert failed."
-msgstr "Не удалось конвертировать."
+msgstr "Не удалось преобразовать."
 
 #: dictmanager/scelconverter.cpp:72
 msgid "Converter crashed."
-msgstr "Сбой конвертера."
+msgstr "Сбой преобразователя."
 
 #: dictmanager/dictmanager.cpp:155
 msgid "Copy file failed"
