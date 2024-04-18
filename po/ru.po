@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Dmitry <dmitrydmitry761@gmail.com>, 2022-2023
+# Dmitry <dmitrydmitry761@gmail.com>, 2022-2024
 # TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2023-11-28 20:26+0000\n"
+"POT-Creation-Date: 2024-04-18 20:27+0000\n"
 "PO-Revision-Date: 2012-01-02 07:30+0000\n"
-"Last-Translator: Dmitry <dmitrydmitry761@gmail.com>, 2022-2023\n"
+"Last-Translator: Dmitry <dmitrydmitry761@gmail.com>, 2022-2024\n"
 "Language-Team: Russian (http://app.transifex.com/fcitx/fcitx/language/ru/)\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -404,7 +404,7 @@ msgstr "Использовать неполный Пиньинь"
 #: src/fcitx-libpinyin.desc:51
 msgid "Use Simplified Chinese Data for Zhuyin (Need Restart)"
 msgstr ""
-"Использовать данные упрощенного китайского для Чжуинь (требуется перезапуск)"
+"Использовать данные Упрощенного Китайского для Чжуинь (требуется перезапуск)"
 
 #: src/fcitx-libpinyin.desc:12
 msgid "Use Tone"
@@ -413,7 +413,7 @@ msgstr "Использовать тон"
 #: src/fcitx-libpinyin.desc:7
 msgid "Use Traditional Chinese Data for Pinyin and Shuangpin (Need Restart)"
 msgstr ""
-"Использовать данные традиционного китайского для Пиньинь и Шуанпинь "
+"Использовать данные Традиционного Китайского для Пиньинь и Шуанпинь "
 "(требуется перезапуск)"
 
 #: src/fcitx-libpinyin.desc:68
